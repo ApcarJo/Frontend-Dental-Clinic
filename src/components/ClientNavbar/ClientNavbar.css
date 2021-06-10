@@ -1,0 +1,12 @@
+.clientnav {
+    margin-top: 2em;
+    width: 100vw;
+    height:  6em;
+    background-color: #31326f;
+    color: white;
+    
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+}
