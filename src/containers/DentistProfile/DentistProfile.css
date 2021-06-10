@@ -1,4 +1,4 @@
-.baseProfile{
+.dentistProfile{
     width: 100wh;
     height: 100vh;
     background-color: #dbf6e9;
@@ -35,7 +35,7 @@
     transition: 0.2s;
 }
 
-.clientDates{
+.dentistDates{
     margin: 2em;
     border-radius: 1em ;
     border: solid #31326f;
@@ -45,7 +45,7 @@
     justify-content: center;
 }
 
-.clientLeftSide {
+.dentistLeftSide {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -56,7 +56,7 @@
     width: 20em;
 }
 
-.clientRightSide {
+.dentistRightSide {
     background-color: white;
     padding-left: 6em;
     height: 25em;
