@@ -22,7 +22,7 @@ const ClientProfile = () => {
 
     })
 
-    const deslogea = () => {
+    const logout = () => {
         localStorage.clear();
         setUserData("");
     }
@@ -33,20 +33,20 @@ const ClientProfile = () => {
             <div className="baseProfile">
                 <ClientNavbar />
                 <div className="clientDates">
-                    <div className="clienLeftSide">
+                    <div className="clientLeftSide">
                         <h2>MY PROFILE</h2>
                         <img src={imgUser} alt="user" className="imgUser"/>
                         <div className="buttons">
                             <div className="buttonUpdate">UPDATE</div>
-                            <div className="buttonLogout" onClick={() => deslogea()}>LOGOUT</div>
+                            <div className="buttonLogout" onClick={() => logout()}>LOGOUT</div>
                         </div>
                     </div>
-                    <div className="clienRighttSide">
+                    <div className="clientRightSide">
                         <p>NAME : {userData.client.name} </p>
                         <p>EMAIL : {userData.client.email} </p>
                         <p>PHONE : {userData.client.phone}</p>
                         <p>BIRTHDAY : {userData.client.dateOfBirth}</p>
-
+                        <p>CITY : {userData.client.city}</p>
                     </div>
                 </div>
             </div>
