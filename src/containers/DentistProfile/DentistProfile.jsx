@@ -32,27 +32,31 @@ const DentistProfile = () => {
     if(dentistData.token) {
 
         return(
-            <div className="dentistProfile">
-                <DentistNavbar />
-                <div className="dentistDates">
-                    <div className="dentistLeftSide">
-                        <h2>MY PROFILE</h2>
-                        <img src={imgUser} alt="user" className="imgUser"/>
-                        <div className="buttons">
-                            <div className="buttonUpdate">UPDATE</div>
-                            <div className="buttonLogout" onClick={() => logout()}>LOGOUT</div>
+            <div className="container">
+                <DentistNavbar/>
+                <div className="dentistProfile">
+                    <div className="dentistDates">
+                        <div className="dentistLeftSide">
+                            <h2>MY PROFILE</h2>
+                            <img src={imgUser} alt="user" className="imgUser"/>
+                        </div>
+                        <div className="dentistRightSide">
+                            <p>NAME : {dentistData.dentist.name} </p>
+                            <p>EMAIL : {dentistData.dentist.email} </p>
+                            <p>PHONE : {dentistData.dentist.phone}</p>
+                            <p>SPECIALITY : {dentistData.dentist.speciality}</p>
+                            <p>CITY : {dentistData.dentist.city}</p>
+                            <div className="buttons">
+                                <div className="buttonUpdate">UPDATE</div>
+                                <div className="buttonLogout" onClick={() => logout()}>LOGOUT</div>
+                            </div>
                         </div>
                     </div>
-                    <div className="dentistRightSide">
-                        <p>NAME : {dentistData.dentist.name} </p>
-                        <p>EMAIL : {dentistData.dentist.email} </p>
-                        <p>PHONE : {dentistData.dentist.phone}</p>
-                        <p>SPECIALITY : {dentistData.dentist.speciality}</p>
-                        <p>CITY : {dentistData.dentist.city}</p>
+                    <div className="schedule">
+                        <h1> AQUI VA EL CALENDARIO!!!! </h1>
                     </div>
                 </div>
-            </div>
-        )
+            </div> )
     } else {
 
         setTimeout(() => {

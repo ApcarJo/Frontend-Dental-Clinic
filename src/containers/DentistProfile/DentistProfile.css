@@ -4,9 +4,9 @@
     background-color: #dbf6e9;
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
+    flex-direction:row; 
 }
 
 .buttons {
@@ -17,7 +17,7 @@
 
 .buttonLogout, .buttonUpdate{
     height: 3em;
-    width: 7em;
+    width: 6em;
     border-radius: .5em;
     cursor: pointer;
     margin: 1em;
@@ -36,11 +36,12 @@
 }
 
 .dentistDates{
+    width: 17em;
     margin: 2em;
     border-radius: 1em ;
     border: solid #31326f;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -52,27 +53,36 @@
     align-items: center;
 
     background-color: #9ddfd3;
-    height: 25em;
-    width: 20em;
+    height: 15em;
+    width: 17em;
 }
 
 .dentistRightSide {
     background-color: white;
-    padding-left: 6em;
     height: 25em;
-    width: 40em;
+    width: 17em;
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items:flex-start;
+    align-items: center;
 
 }
 
 .imgUser {
 
-    height: 10em;
-    width: 10em;
+    height: 7em;
+    width: 7em;
     border-radius: 50%;
 
+}
+
+.schedule {
+    height: 40em;
+    width: 60em;
+    background-color: burlywood;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
