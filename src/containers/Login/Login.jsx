@@ -45,6 +45,7 @@ const Login = () => {
         console.log("enviaría este body", body);
 
         // Envío por axios
+
         let res = await axios.post('http://localhost:3006/login/Client', body);
         console.log(res.data.client._id);
         let id = res.data.client._id;
@@ -56,11 +57,11 @@ const Login = () => {
             // A falta de redux vamos a usar LocalStorage
 
         localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(res.data.client));
+        localStorage.setItem("client", JSON.stringify(res.data.client));
 
         // redirección
         setTimeout(()=>{
-            history.push("/profile");
+            history.push("/clientprofile");
         },750);
         
 
@@ -76,6 +77,7 @@ const Login = () => {
         <div className="vistaLogin">
             <pre>{JSON.stringify(credentials, null,2)}</pre>
             <div className="loginCard">
+                
                 <input type='email' className='loginBox' name='email' onChange={updateCredentials} placeholder="your@email.net"></input>
                 <input type='text' className='loginBox' name='password' onChange={updateCredentials} placeholder="password"></input>
                 <div className="sendButton" onClick={()=>logeame()}>Login</div>
