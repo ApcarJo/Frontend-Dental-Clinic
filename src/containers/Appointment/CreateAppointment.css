@@ -12,11 +12,12 @@
     position: relative;
     justify-content: center;
 
-    background-color: #cceede;
+    background-color: #6d9482;
     border-radius: 0.4em;
-    width: 44em;
-    height: 23em;
-    top: -2em;
+    width: 33em;
+    height: 33em;
+    top: -5em;
+    left: 17em;
     color: rgb(0, 0, 0);
     box-shadow: 0em 0em 0.3em black;
     cursor: pointer;
@@ -28,40 +29,40 @@ input {
     position: relative;
 
     justify-content:space-around;
-    width: 13em;
+    width: 30em;
 }
 select {
     font-size: .9rem;
-    padding: 0.12em 0.31em;
-    width: 15em;
+    /* padding: 0.12em 0.31em; */
+    width: 30em;
 }
-
 .inputClient {
+    border: none;
     display: flex;
     position: relative;
     flex-direction: column;
-    top: 8em;
-    left: 3em;
+    top: -7em;
+    left: 4em;
 }
 .inputDentist {
-    top: -6.8em;
-    left: 2.6em;
+    top: -0.12em;
+    left: 3.1em;
 }
 
 .inputClinic {
-    left: 27em;
-    top: -4.8em;
+    left: 3em;
+    top: -3.5em;
 }
 
 .inputDate {
-    left: 26em;
+    left: 4em;
     top: 3.6em;
 }
 
 .sendButton {
-    top: -3em;
-    left: 18em;
-    width: 6em;
+    top: 8em;
+    left: 12em;
+    width: 11em;
     height: 2em;
     justify-content: center;
     background-color: #9696c9;

@@ -8,13 +8,11 @@
     height: 100vh;
     margin-top: 3em;
 }
-.test {
+/* .test {
     display: flex;
     flex-direction: column;
     position: relative;
-
-    
-}
+} */
 .card3 {
     display: flex;
     flex-direction: column;
@@ -24,32 +22,31 @@
     background-color: #cceede;
     border-radius: 2em;
     width: 31em;
-    top: -13em;
+    bottom: 9em;
+    height: 29em;
     color: rgb(0, 0, 0);
     cursor: pointer;
-    left: -22em;
+    right: 25em;
 }
 
 .card3:hover {
     background-color: rgb(69, 87, 126);
     /* color: #ffc93c; */
 }
-
-.clinicInfo {
+.texto {
     display: flex;
     flex-direction: column;
     position: relative;
     right: -7.6em;
-    top: -6em;
+    bottom: 1em;
 }
-
 .clinicChoose {
     display: flex;
     flex-direction: column;
     position: relative;
-    left: -7em;
+    right: 8em;
     z-index: 1;
-    top: -3.5em;
+    bottom: 0em;
 }
 
 .sala1 {
@@ -58,7 +55,7 @@
     position: relative;
     border-radius: 0.6em;
     width: 12em;
-    top: 3em;
+    bottom: -7em;
     height: 9em;
     left: -5.7em;
 }
@@ -70,7 +67,7 @@
     border-radius: 0.3em;
     width: 12em;
     background-color: #9ddfd3;
-    top: -3em;
+    top: 3em;
     left: -1em;
     height: 2.5em;
     justify-content: center;
