@@ -41,19 +41,16 @@ const CreateAppointmnet = () => {
     try{
 
    // let token = localStorage.getItem("token");
-    let user = localStorage.getItem("client");
+    let user = JSON.parse(localStorage.getItem("client"));
     // let clinic = "60b653c5c75e9e233617715e";
     // let dentist = "60ba59f8b0dd4138d7bb2040";
-
-    console.log(user);
-    console.log(user._id)
-
+    
     let body = {
       client: user._id,
       clinic: datos.clinic,
       dentist: datos.dentist,
       date: datos.date,
-      //message: "esto es un mensaje de prueba"
+      message: "esto es un mensaje de prueba"
     };
 
     console.log(body);
