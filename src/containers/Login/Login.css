@@ -1,0 +1,60 @@
+.vistaLogin{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.loginCard {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 36em;
+    width: 36em;
+    border-radius: 1em;
+    background-color: #9ddfd3;
+    box-shadow: 0.05em 0.2em 0.2em 0.1em grey, 0.05em 0.1em 0.05em 0.05em black;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+.sendButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 2em;
+    width: 5em;
+    background-color: #dbf6e9;
+    border-radius: 0.5em;
+    transition: 0.2s;
+}
+
+.loginBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    height: 2em;
+    width: 20em;
+    outline: none;
+    border-radius: 1em;
+    padding-left: 1em;
+    border: none;
+    opacity: 1;
+    font-size: 0.8em;
+}
