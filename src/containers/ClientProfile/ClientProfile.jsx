@@ -32,21 +32,26 @@ const ClientProfile = () => {
         return(
             <div className="baseProfile">
                 <ClientNavbar />
-                <div className="clientDates">
-                    <div className="clientLeftSide">
-                        <h2>MY PROFILE</h2>
-                        <img src={imgUser} alt="user" className="imgUser"/>
-                        <div className="buttons">
-                            <div className="buttonUpdate">UPDATE</div>
-                            <div className="buttonLogout" onClick={() => logout()}>LOGOUT</div>
+                <div className="clientProfile">
+                    <div className="clientDates">
+                        <div className="clientLeftSide">
+                            <h2>MY PROFILE</h2>
+                            <img src={imgUser} alt="user" className="imgUser"/>
+                        </div>
+                        <div className="clientRightSide">
+                            <p>NAME : {userData.client.name} </p>
+                            <p>EMAIL : {userData.client.email} </p>
+                            <p>PHONE : {userData.client.phone}</p>
+                            <p>BIRTHDAY : {userData.client.dateOfBirth}</p>
+                            <p>CITY : {userData.client.city}</p>
+                            <div className="buttons">
+                                <div className="buttonUpdate">UPDATE</div>
+                                <div className="buttonLogout" onClick={() => logout()}>LOGOUT</div>
+                            </div>
                         </div>
                     </div>
-                    <div className="clientRightSide">
-                        <p>NAME : {userData.client.name} </p>
-                        <p>EMAIL : {userData.client.email} </p>
-                        <p>PHONE : {userData.client.phone}</p>
-                        <p>BIRTHDAY : {userData.client.dateOfBirth}</p>
-                        <p>CITY : {userData.client.city}</p>
+                    <div className="clientAppointments">
+                            <h1> AQUI VA LA PROXIMA CITA!!!!!</h1>
                     </div>
                 </div>
             </div>

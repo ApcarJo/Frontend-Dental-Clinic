@@ -37,16 +37,16 @@ const Clinics = () => {
                 <Boton destino="/" path="clinics"/>
             </div> */}
                     <Map/>
-                    <h1>Selecciona tu clinica más cercana</h1>
+                    <h1 className="clinicChoose">Selecciona tu clinica más cercana</h1>
                 {clinics.map((clinic, index) => (
                     <div className="content">
                         <div className="card3" key={index}>
                             <div><img src={sala1} className="sala1" alt="sala1"/></div>
-                            <p>Nombre: {clinic.name} </p>
-                            <p>Ciudad: {clinic.city}</p>
-                            <p>Dirección: {clinic.adress} </p>
-                            <p>Correo: {clinic.email} </p>
-                            <p>Teléfono: {clinic.phone} </p>
+                            <p className="clinicInfo">Nombre: {clinic.name} </p>
+                            <p className="clinicInfo">Ciudad: {clinic.city}</p>
+                            <p className="clinicInfo">Dirección: {clinic.adress} </p>
+                            <p className="clinicInfo">Correo: {clinic.email} </p>
+                            <p className="clinicInfo">Teléfono: {clinic.phone} </p>
                             <div className="enviar" onClick={() => llevame()}>PEDIR CITA</div>
                         </div>
                     </div>

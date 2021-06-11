@@ -32,7 +32,7 @@ const DentistProfile = () => {
     if(dentistData.token) {
 
         return(
-            <div className="container">
+            <div className="dentistContainer">
                 <DentistNavbar/>
                 <div className="dentistProfile">
                     <div className="dentistDates">

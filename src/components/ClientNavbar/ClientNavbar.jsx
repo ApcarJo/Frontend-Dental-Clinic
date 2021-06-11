@@ -10,7 +10,7 @@ const ClientNavbar = () => {
             <Button path="/clinics" destination="CLINICS"/>
             <Button path="/dentists" destination="DENTISTS"/> 
             <Button path="/clientappointments" destination="MY APPOINTMENTS"/>
-            <Button path="/createappointment" destination="CREATE APPOINTMENT"/>
+            <Button path="/appointments" destination="CREATE APPOINTMENT"/>
            
         </div>
     )
