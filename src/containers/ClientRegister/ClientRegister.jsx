@@ -1,5 +1,6 @@
 
 import React, {useState} from 'react';
+import axios from 'axios';
 import './ClientRegister.css';
 
 const Register = () => {
@@ -9,13 +10,23 @@ const Register = () => {
         {
         name:'',
         email:'',
+        phone:'',
         password:'',
-        phone:''
+        password2: '',
+        dateOfBirth: '',
+        city: '',
+        cp: ''
     });
 
     const [errors, setErrors] = useState({
         eName: '',
-        eEmail: ''
+        eEmail: '',
+        ePhone: '',
+        ePassword: '',
+        ePassword2: '',
+        eDateofbirth: '',
+        eCity: '',
+        eCp: ''
 
     });
 
@@ -23,18 +34,29 @@ const Register = () => {
     const updateFormulario = (e) => {
         setDatosUser({...datosUser, [e.target.name]: e.target.value})
     }
-    // const applyRegister = () => {
-    //     e.preventDefault();
 
-    //     let res = await axios.post('http://localhost:3006/login/Client', body);
-    // }
+    const applyRegister = async () => {
+        // e.preventDefault();
+
+        let body = {
+            name: datosUser.name,
+            email : datosUser.email,
+            phone: datosUser.phone,
+            password : datosUser.password,
+            dateOfBirth: datosUser.dateOfBirth,
+            city: datosUser.city,
+            cp: datosUser.cp
+        }
+        console.log(body);
+
+        let res = await axios.post('http://localhost:3006/clients', body);
+        console.log(res);
+    }
 
     const checkError = (arg) => {
         switch (arg){
             case 'name':
-                console.log("aaaaaaaaaaaaaaaa");
                 if(datosUser.name.length < 4){
-                    console.log("aaaaaaaaaaaaa 22222");
                     setErrors({...errors, eName: 'El nombre debe de tener 4 caracteres'});
                 }else{
                     setErrors({...errors, eName: ''});
@@ -48,6 +70,14 @@ const Register = () => {
                     setErrors({...errors, eEmail: ''});
                 }
                 
+            break;
+
+            case 'password2':
+                if (datosUser.password !== datosUser.password2){
+                    setErrors({...errors, ePassword2: 'Password should be the same'});
+                }else{
+                    setErrors({...errors, ePassword2: ''});
+                }
             break;
         }
     }
@@ -65,7 +95,7 @@ const Register = () => {
     return (
 
         <div className="formulario">
-            <div>
+            
             <pre>{JSON.stringify(datosUser, null,2)}</pre>
             
             <input className={errorStyle("name")} name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="name"></input><br></br>
@@ -73,15 +103,20 @@ const Register = () => {
             <input className="name" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")} placeholder="email"></input><br></br>
             <div>{errors.eEmail}</div>
             <input className="name" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")} placeholder="phone number"></input><br></br>
-            {/* <div>{errors.ePhone}</div> */}
+            <div>{errors.ePhone}</div>
             <input className="name" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")} placeholder="password"></input><br></br>
-            {/* <div>{errors.eDate}</div> */}
-            <input className="name" name="dateofbirth" type="date" onChange={updateFormulario} onBlur={()=>checkError("dateofbirth")} placeholder="dateofbirth"></input><br></br>
+            <div>{errors.ePassword}</div>
+            <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")} placeholder="password2"></input><br></br>
+            <div>{errors.ePassword2}</div>
+            <input className="name" name="dateOfBirth" type="date" onChange={updateFormulario} onBlur={()=>checkError("dateOfBirth")} placeholder="dateOfBirth"></input><br></br>
+            <div>{errors.eDateofbirth}</div>
             <input className="name" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
+            <div>{errors.eCity}</div>
             <input className="name" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")} placeholder="postal code"></input><br></br>
+            <div>{errors.eCp}</div>
 
 
-            {/* <div className="registerButton" onClick={()=>applyRegister()}>Enviar</div> */}
+            <div className="registerButton" onClick={()=>applyRegister()}>Enviar
             </div>
         </div>
     )
