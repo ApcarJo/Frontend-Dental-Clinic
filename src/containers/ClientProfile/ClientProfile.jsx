@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import './ClientProfile.css';
-import imgUser from '../../img/user.png'
+// import imgUser from '../../img/user.png'
 
 const ClientProfile = () => {
 
