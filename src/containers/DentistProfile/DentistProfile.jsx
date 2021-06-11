@@ -38,7 +38,7 @@ const DentistProfile = () => {
                     <div className="dentistDates">
                         <div className="dentistLeftSide">
                             <h2>MY PROFILE</h2>
-                            <img src={imgUser} alt="user" className="imgUser"/>
+                            <img src={dentistData.dentist.image} alt="user" className="imgUser"/>
                         </div>
                         <div className="dentistRightSide">
                             <p>NAME : {dentistData.dentist.name} </p>
