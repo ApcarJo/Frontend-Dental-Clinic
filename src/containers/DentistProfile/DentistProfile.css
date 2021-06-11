@@ -47,6 +47,7 @@
 }
 
 .dentistLeftSide {
+    border-radius: 0.8em 0.8em 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -58,6 +59,7 @@
 }
 
 .dentistRightSide {
+    border-radius: 0 0 0.8em 0.8em;
     background-color: white;
     height: 25em;
     width: 17em;
