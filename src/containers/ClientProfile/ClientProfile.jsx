@@ -36,7 +36,7 @@ const ClientProfile = () => {
                     <div className="clientDates">
                         <div className="clientLeftSide">
                             <h2>MY PROFILE</h2>
-                            <img src={imgUser} alt="user" className="imgUser"/>
+                            <img src={userData.client.image} alt="user" className="imgUser"/>
                         </div>
                         <div className="clientRightSide">
                             <p>NAME : {userData.client.name} </p>
