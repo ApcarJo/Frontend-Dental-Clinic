@@ -2,6 +2,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import AboutUs from './containers/AboutUs/AboutUs';
+import CreateAppointmnet from './containers/Appointment/CreateAppointment';
 import ClientProfile from './containers/ClientProfile/ClientProfile';
 import ClientRegister from './containers/ClientRegister/ClientRegister';
 import Clinics from './containers/Clinics/Clinics';
@@ -32,6 +33,7 @@ function App() {
            <Route path="/dentistprofile" exact component={DentistProfile}/>
            <Route path="/clientregister" exact component={ClientRegister}/>
            <Route path="/clientprofile" exact component={ClientProfile}/>
+           <Route path="/appointments" exact component = {CreateAppointmnet}></Route>
 
     
           </Switch>
