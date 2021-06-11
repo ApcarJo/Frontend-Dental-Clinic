@@ -1,0 +1,80 @@
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 3em;
+}
+.test {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    
+}
+.card3 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #cceede;
+    border-radius: 2em;
+    width: 31em;
+    top: -13em;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    left: -22em;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    right: -7.6em;
+    top: -6em;
+}
+
+.card3:hover {
+    background-color: rgb(69, 87, 126);
+    /* color: #ffc93c; */
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: -7em;
+    z-index: 1;
+    top: -3.5em;
+}
+
+.sala1 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 0.6em;
+    width: 12em;
+    top: 3em;
+    height: 9em;
+    left: -5.7em;
+}
+
+.enviar {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 0.3em;
+    width: 12em;
+    background-color: #9ddfd3;
+    top: -3em;
+    left: -1em;
+    height: 2.5em;
+    justify-content: center;
+}
+.enviar:hover {
+    color: #ffffff;
+}
