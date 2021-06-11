@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
@@ -21,7 +21,7 @@ const Login = () => {
     useEffect(()=>{
         //Este useEffect corresponde a una vez 
         //el componente se HA montado. Sólo se ejecuta una vez.
-
+        // templateLogin();
     },[]);
 
 
@@ -61,7 +61,7 @@ const Login = () => {
         // Envío por axios
 
         let res = await axios.post('http://localhost:3006/login/Client', body);
-        let id = res.data.client._id;
+        // let id = res.data.client._id;
         let token = res.data.token;
 
 
@@ -79,19 +79,22 @@ const Login = () => {
         }
         // res viene de vuelta con el token y los datos
     }
+    // const templateLogin = () => {
+        
+    // }
 
     return(
         <div className="vistaLogin">
-            <pre>{JSON.stringify(credentials, null,2)}</pre>
-            <div className="loginCard">
-                
-                <input type='email' className='loginBox' name='email' onChange={updateCredentials} placeholder="your@email.net"></input>
-                <input type='text' className='loginBox' name='password' onChange={updateCredentials} placeholder="password"></input>
-                <div className="sendButton" onClick={()=>logeame()}>Login</div>
-                <div>{msgError}</div>
-                {/* <div className="receiveInfo" onClick={()=>receive()}>ReceiveInfo</div> */}
-            </div>
+                <pre>{JSON.stringify(credentials, null,2)}</pre>
+                <div className="loginCard">
+                    <input type='email' className='loginBox' name='email' onChange={updateCredentials}  placeholder="your@email.net"></input>
+                    <input type='text' className='loginBox' name='password' onChange={updateCredentials}    placeholder="password"></input>
+                    <div className="sendButton" onClick={()=>logeame()}>Login</div>
+                    <div>{msgError}</div>
+                    {/* <div className="receiveInfo" onClick={()=>receive()}>ReceiveInfo</div> */}
+                </div>
         </div>
+        
         )
 }
 
