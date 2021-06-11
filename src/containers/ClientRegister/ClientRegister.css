@@ -1,0 +1,61 @@
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 35em;
+    width: 35em;
+    border-radius: 0.5em;
+    background-color: yellowgreen;
+    
+}
+
+
+.botonCuco:hover{
+    background-color: lightpink;
+    transition: 0.2s;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 1em;
+
+    border: none;
+    outline: none;
+    border-radius: 0.2em;
+    padding-left: 1em;
+    font-size: 1em;
+    cursor: auto;
+
+    box-shadow: 0 0 0 0 black;
+}
+
+.red {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    height: 1em;
+
+    border: solid 0.2em red;
+    outline: none;
+    border-radius: 0.2em;
+    padding-left: 1em;
+    font-size: 1em;
+    cursor: auto;
+
+    box-shadow: 0 0 0 0 black;
+}
+
+.name:hover{
+    transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0em 0.2em 0.08em black;
+}
