@@ -18,6 +18,20 @@ const Login = () => {
         setCredentials({...credentials, [e.target.name]: e.target.value})
     }
 
+    useEffect(()=>{
+        //Este useEffect corresponde a una vez 
+        //el componente se HA montado. Sólo se ejecuta una vez.
+
+    },[]);
+
+
+    useEffect(()=>{
+        //Este useEffect sin el array vacio como segundo argumento,
+        //corresponde al estado de cada actualización del componente. Se ejecutará
+        //tantas veces como se cambie el estado del componente
+        
+    });
+
     const logeame = async () => {
 
         // Primero, testeamos los datos
