@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import DentistNavbar from '../../components/DentistNavbar/DentistNavbar';
-import imgUser from '../../img/user.png';
+//import imgUser from '../../img/user.png';
 import './DentistProfile.css'
 
 
