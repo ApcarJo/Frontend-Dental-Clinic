@@ -30,7 +30,12 @@
     left: -22em;
 }
 
-p {
+.card3:hover {
+    background-color: rgb(69, 87, 126);
+    /* color: #ffc93c; */
+}
+
+.clinicInfo {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -38,12 +43,7 @@ p {
     top: -6em;
 }
 
-.card3:hover {
-    background-color: rgb(69, 87, 126);
-    /* color: #ffc93c; */
-}
-
-h1 {
+.clinicChoose {
     display: flex;
     flex-direction: column;
     position: relative;
