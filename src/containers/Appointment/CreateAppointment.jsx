@@ -10,7 +10,6 @@ const CreateAppointmnet = () => {
 
   //Hooks
   const [datos, setDatos] = useState({
-    client: "",
     clinic: "",
     dentist: "",
     date: "",
@@ -29,7 +28,7 @@ const CreateAppointmnet = () => {
 
   useEffect( () => {
 
-    crearCita();
+    // crearCita();
   });
 
   //Handlers
@@ -39,22 +38,38 @@ const CreateAppointmnet = () => {
 
   const crearCita = async () => {
 
-    let token = localStorage.getItem("token")
+    try{
+
+   // let token = localStorage.getItem("token");
+    let user = localStorage.getItem("client");
+    // let clinic = "60b653c5c75e9e233617715e";
+    // let dentist = "60ba59f8b0dd4138d7bb2040";
+
+    console.log(user);
+    console.log(user._id)
 
     let body = {
-      client: datos.client,
+      client: user._id,
       clinic: datos.clinic,
       dentist: datos.dentist,
       date: datos.date,
-      message: datos.message
+      //message: "esto es un mensaje de prueba"
     };
 
-    let res = await axios.post("http://localhost:3006/appointment", body, {headers:{'authorization':'Bearer ' + token}});
+    console.log(body);
 
-    console.log(res.data.results);
+    let res = await axios.post('http://localhost:3006/appointment', body);
+
+    console.log(res.data);
+
+
     setTimeout(()=>{
       history.push("/clientprofile");
-  },750);
+    },750);
+
+  } catch (err){
+    console.log({message : err.message})
+}
 
   };
 
@@ -73,13 +88,14 @@ const CreateAppointmnet = () => {
             />
           </div>
           <div className="inputClinic inputClient">
-            <select>
-              <option value="">--Please Choose an Option--</option>
-              <option>Dentival</option>
-              <option>Dentalshine</option>
-              <option>Vitaldent</option>
-              <option>Clinica Dental Andrés</option>
-            </select>
+          <input
+              type="name"
+              name="clinic"
+              title="client"
+              placeholder="Nombre del Paciente"
+              onChange={updateCredentials}
+              lenght="30"
+            />
             {/* <input
                     type='password'
                     name='clinic'
@@ -89,15 +105,14 @@ const CreateAppointmnet = () => {
                 /> */}
           </div>
           <div className="inputDentist inputClient">
-            <select>
-              <option value="">--Please Choose an Dentist--</option>
-              <option>Javier Specialite: brackets</option>
-              <option>Alfredo / Limpieza</option>
-              <option>Miguel</option>
-              <option>Guillermo</option>
-              <option>Laura</option>
-              <option>Alejandro</option>
-            </select>
+          <input
+              type="name"
+              name="dentist"
+              title="client"
+              placeholder="Nombre del Paciente"
+              onChange={updateCredentials}
+              lenght="30"
+            />
             {/* <input
                     type='name'
                     name='dentist'
