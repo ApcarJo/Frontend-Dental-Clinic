@@ -1,0 +1,90 @@
+.dentistProfile{
+    width: 100wh;
+    height: 100vh;
+    background-color: #dbf6e9;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction:row; 
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.buttonLogout, .buttonUpdate{
+    height: 3em;
+    width: 6em;
+    border-radius: .5em;
+    cursor: pointer;
+    margin: 1em;
+
+    background-color: #fcdb87;
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonLogout:hover, .buttonUpdate:hover {
+    background-color: #ffc93c;
+    transition: 0.2s;
+}
+
+.dentistDates{
+    width: 17em;
+    margin: 2em;
+    border-radius: 1em ;
+    border: solid #31326f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dentistLeftSide {
+    border-radius: 0.8em 0.8em 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: #9ddfd3;
+    height: 15em;
+    width: 17em;
+}
+
+.dentistRightSide {
+    border-radius: 0 0 0.8em 0.8em;
+    background-color: white;
+    height: 25em;
+    width: 17em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.imgUser {
+
+    height: 7em;
+    width: 7em;
+    border-radius: 50%;
+
+}
+
+.schedule {
+    height: 40em;
+    width: 60em;
+    background-color: burlywood;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
