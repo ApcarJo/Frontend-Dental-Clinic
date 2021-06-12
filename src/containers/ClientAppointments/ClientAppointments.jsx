@@ -27,7 +27,7 @@ const ClientAppointments = () => {
             let user = JSON.parse(localStorage.getItem("client"));
 
             let body = {
-                id: user._id,
+                client: user._id,
             }    
 
             let res = await axios.post('http://localhost:3006/appointment/client',body, {headers:{'authorization':'Bearer ' + token}});
