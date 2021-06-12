@@ -5,6 +5,7 @@ import './Clinics.css';
 import axios from 'axios';
 import sala1 from '../../assets/clinic/sala1.png';
 import Map from '../../components/Map/Map';
+import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 
 const Clinics = () => {
 
@@ -31,6 +32,7 @@ const Clinics = () => {
     if(clinics[0]?._id) {
         return (
             <div className="test">
+            <ClientNavbar />
             {/* <div className="vistaLogin">
                 <Boton destino="Login" path="/login"/>
                 <Boton destino="Registers" path="registers"/>
