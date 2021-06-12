@@ -11,7 +11,7 @@ const Dentist = () => {
     const [city, setCity] = useState({city: ""});
 
     useEffect( () => {
-        searchDentists();
+
 
     }, [])
 
