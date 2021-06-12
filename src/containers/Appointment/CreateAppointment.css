@@ -1,5 +1,5 @@
 
-.content {
+.contentAppointment {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,8 +12,9 @@
     position: relative;
     justify-content: center;
 
-    background-color: #6d9482;
+    background-color: #9ddfd3;
     border-radius: 0.4em;
+    border: solid #31326f;
     width: 33em;
     height: 33em;
     top: -5em;
@@ -66,5 +67,5 @@ select {
     height: 2em;
     justify-content: center;
     background-color: #9696c9;
-    box-shadow: 0em 0em 0.3em black;
+    box-shadow: 0em 0.1em 0.3em 0.1em black;
 }
