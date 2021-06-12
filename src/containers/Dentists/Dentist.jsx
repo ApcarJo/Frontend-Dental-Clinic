@@ -57,8 +57,12 @@ const Dentist = () => {
                 <ClientNavbar />
                 <h1>DENTISITS</h1>
                 <p>Choose a city :</p>
-                <input type="name" name="city" title="city"  onChange={updateCredentials} lenght="10" />
-                <br />
+                <select type="name" name="city" title="city"  onChange={updateCredentials}>
+                     <option value="">--Please Choose a City-</option>
+                     <option>Valencia</option>
+                     <option>Castellon</option>
+                     <option>Barcelona</option>
+                </select>
                 <div className="dentistsContainer">
 
                     {dentists.map((dentist, index) => (
@@ -84,9 +88,12 @@ const Dentist = () => {
             <div className="dentistsAllbyUser">
                 <ClientNavbar />
                 <h1>DENTISITS</h1>
-                <p>Choose a city :</p>
-                <input type="name" name="city" title="city"  onChange={updateCredentials} lenght="10" />
-                <br />
+                <select type="name" name="city" title="city"  onChange={updateCredentials}>
+                     <option value="">--Please Choose a City-</option>
+                     <option>Valencia</option>
+                     <option>Castellon</option>
+                     <option>Barcelona</option>
+                </select>
                 <div className="dentistsContainer">
             </div>
             </div>
