@@ -2,6 +2,7 @@ import React, { useState, Fragment, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./CreateAppointment.css";
+import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 
 
 const CreateAppointmnet = () => {
@@ -72,6 +73,7 @@ const CreateAppointmnet = () => {
 
   return (
     <Fragment>
+      <ClientNavbar />
       <div className="content">
         <div className="cita">
           <div className="inputClient">
