@@ -1,0 +1,30 @@
+.clientAllAppointmets{
+    width: 100wh;
+    height: 100wh;
+    background-color: #dbf6e9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.appointmentsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.appointmentCard {
+
+    width: 20em;
+    margin: 2em;
+    border-radius: 1em ;
+    border: solid #31326f;
+    background-color: #9ddfd3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
