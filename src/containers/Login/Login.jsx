@@ -53,18 +53,28 @@ const Login = () => {
         }
     }
 
-    const checkError = () => {
+    const checkError = (arg) => {
 
-        if (credentials.email.lengt < 3){
-            setMensajeError({...msgError, eEmail: "Introduce un email"});
-        }else {
-            setMensajeError({...msgError, eEmail: ""});
-        }
+        switch (arg){
 
-        if (credentials.password.length < 1){
-            setMensajeError({...msgError, ePassword: "Introduce un password"});
-        }else {
-            setMensajeError({...msgError, ePassword: ""});
+            case 'email':
+
+                if (credentials.email.length < 1){
+                    setMensajeError({...msgError, eEmail: "Introduce un email"});
+                }else {
+                    setMensajeError({...msgError, eEmail: ""});
+                }
+
+            break;
+
+            case 'password':
+
+                if (credentials.password.length < 1){
+                    setMensajeError({...msgError, ePassword: "Introduce un password"});
+                }else {
+                    setMensajeError({...msgError, ePassword: ""});
+                }
+            break;
         }
     }
 
@@ -73,11 +83,10 @@ const Login = () => {
         // Primero, testeamos los datos
 
         // if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(this.state.email) ) {
-        //     this.muestraError("Introduce un e-mail válido.");
-        //     return;
+     
 
         // A continuamos, generamos el body de datos
-
+        try{
         let body = {
             email : credentials.email,
             password : credentials.password
@@ -90,7 +99,7 @@ const Login = () => {
         let token = res.data.token;
         console.log(token, "este es el tokeeeeeeeeeeeeeeeeeeeeeeeeeeeeen");
 
-        if (token !== ""){
+
             // A falta de redux vamos a usar LocalStorage
 
             localStorage.setItem("token", token);
@@ -100,7 +109,7 @@ const Login = () => {
             setTimeout(()=>{
                 history.push(`/${statusRole.roleStatus}profile`);
             },750);
-        }else {
+        }catch{
             setMensajeError({...msgError, eValidate: 'Wrong email or password'});
         }
         // res viene de vuelta con el token y los datos
@@ -114,9 +123,13 @@ const Login = () => {
                 <pre>{JSON.stringify(credentials, null,2)}</pre>
                 <div className="loginCard">
                     <input type='text' className='loginBox' name='email' onChange={updateCredentials} onBlur={()=>checkStatus("email")} placeholder="your@email"></input>
+
                     <div>{msgError.eEmail}</div>
-                    <input type='text' className='loginBox' name='password' onChange={updateCredentials} onBlur={()=>checkError("name")}  placeholder="password"></input>
+
+                    <input type='text' className='loginBox' name='password' onChange={updateCredentials} onBlur={()=>checkError("password")}  placeholder="password"></input>
+
                     <div>{msgError.ePassword}</div>
+
                     <div className="sendButton" onClick={()=>logeame()}>Login</div>
                     <div>{msgError.eValidate}</div>
                     {/* <div className="receiveInfo" onClick={()=>receive()}>ReceiveInfo</div> */}
