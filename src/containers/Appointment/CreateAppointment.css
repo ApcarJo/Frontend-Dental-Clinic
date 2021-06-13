@@ -57,12 +57,19 @@ select {
 
 .inputDate {
     left: 4em;
-    top: 3.6em;
+    top: 5.9em;
+}
+.inputTime {
+    top: -1em;
+}
+.textArea {
+    top: 6em;
+    width: 25em;
 }
 
 .sendButton {
     top: 8em;
-    left: 12em;
+    left: 11.5em;
     width: 11em;
     height: 2em;
     justify-content: center;
