@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 import axios from 'axios';
-import './ClientRegister.css';
+import "./ClientRegister.css";
 
 const Register = () => {
 
@@ -98,6 +98,9 @@ const Register = () => {
                     setErrors({...errors, ePassword2: ''});
                 }
             break;
+
+            default:
+                break;
         }
     }
      const errorStyle = (arg) =>{
