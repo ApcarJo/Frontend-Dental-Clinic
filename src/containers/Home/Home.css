@@ -2,7 +2,7 @@
 .homeContainer {
     width: 100vw;
     height: 100%;
-    background-color: #ccd4e7;
+    background-color: #dbf6e9;
 
     display: flex;
     flex-direction: column;
@@ -11,7 +11,9 @@
 }
 
 .clinicHome {
+    background-color: #9ddfd3;
     padding-top: 2em;
+    padding-left: 2em;
     margin-bottom: 3em;
     display: flex;
     flex-direction: row;
@@ -21,11 +23,8 @@
 
 
 .fondo{
-    transition-duration: 1s;
-    background-color:#303e42;
     width: 70%;
     height: 35em;
-    opacity: 0.8;
     border-radius: 0.2em;
 }
 
@@ -33,7 +32,6 @@
     width: 30%;
     height: 35em;
     padding-left: 6em;
-    background-color: #ccd4e7;
 
     display: flex;
     flex-direction: column;
@@ -45,10 +43,10 @@
 .buttonHome{
     height:4em;
     width: 15em;
-    border: solid black 0.15em;
+    border: solid #31326f 0.15em;
     cursor: pointer;
     margin: 1em;
-    background-color: #9aa3b6;
+    background-color: #fcdb87;
     transition: 0.2s;
 
     display: flex;
@@ -58,7 +56,7 @@
 
 .buttonHome:hover {
     transition: 0.2s;
-    background-color: #ccd4e7;
+    background-color: #ffc93c;
 }
 
 .optionsHome {
@@ -74,12 +72,12 @@
 }
 
 .option {
+    background-color: #9ddfd3;
     height: 20em;
     width: 15em;
-    border: solid black 0.15em;
+    border: solid #31326f 0.2em;
     cursor: pointer;
     margin: 1em;
-    background-color: #9aa3b6;
     transition: 0.2s;
 
     display: flex;
@@ -90,11 +88,11 @@
 
 .buttonOption{
     height:4em;
-    width: 5em;
-    border: solid black 0.15em;
+    width: 8em;
+    border: solid #31326f 0.15em;
     cursor: pointer;
     margin: 1em;
-    background-color: #9aa3b6;
+    background-color: #fcdb87;
     transition: 0.2s;
 
     display: flex;
@@ -104,5 +102,5 @@
 
 .buttonOption:hover {
     transition: 0.2s;
-    background-color: #ccd4e7;
+    background-color: #ffc93c;
 }

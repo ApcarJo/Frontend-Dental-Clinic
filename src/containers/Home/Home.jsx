@@ -1,5 +1,5 @@
 import React from 'react';
-import home from '../../assets/clinic/home.jpeg';
+import home from '../../assets/clinic/home.png';
 import './Home.css';
 import {useHistory} from 'react-router-dom';
 
@@ -39,8 +39,8 @@ const Home = () => {
                     <div className="buttonOption" onClick={() => goTo("/contact")}>CLICK HERE</div> 
                 </div>
                 <div className="option">
-                <p>REGISTER</p>
-                    <div className="buttonOption" onClick={() => goTo("/register")}>CLICK HERE</div> 
+                <p>ABOUT US</p>
+                    <div className="buttonOption" onClick={() => goTo("/aboutus")}>CLICK HERE</div> 
                 </div>
             </div>
         </div>
