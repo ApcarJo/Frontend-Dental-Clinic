@@ -53,7 +53,8 @@ const DentistProfile = () => {
                         </div>
                     </div>
                     <div className="schedule">
-                        <h1> AQUI VA EL CALENDARIO!!!! </h1>
+                        <div className="calendar"></div>
+                        {/* <h1> AQUI VA EL CALENDARIO!!!! </h1> */}
                     </div>
                 </div>
             </div> )
