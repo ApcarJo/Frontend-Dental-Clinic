@@ -56,20 +56,39 @@ const Register = () => {
     const checkError = (arg) => {
         switch (arg){
             case 'name':
-                if(datosUser.name.length < 4){
-                    setErrors({...errors, eName: 'El nombre debe de tener 4 caracteres'});
+                if ((datosUser.name.length < 2)||(! /^[a-z ,.'-]+$/i.test(datosUser.name))||(datosUser.name.length > 20)){
+                    setErrors({...errors, eName: 'Introduce un nombre válido'});
                 }else{
                     setErrors({...errors, eName: ''});
                 }
             break;
 
             case 'email':
-                if (datosUser.email.length < 4){
-                    setErrors({...errors, eEmail: 'El email debe de tener 4 caracteres'});
+                console.log("hola, soy error de email");
+                if (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(datosUser.email)){
+                    setErrors({...errors, eEmail: 'Introduce un email válido 2'});
                 }else{
                     setErrors({...errors, eEmail: ''});
                 }
                 
+            break;
+
+            case 'password':
+                if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(datosUser.password)){
+                // if (datosUser.password.length < 8){
+                    setErrors({...errors, ePassword: 'At least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
+                }else{
+                    setErrors({...errors, ePassword: ''});
+                }
+            break;
+
+            case 'phone':
+                if ((! /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm.test(datosUser.phone))||(datosUser.phone.length > 16)){
+                // if (datosUser.password.length < 8){
+                    setErrors({...errors, ePhone: 'Wrong phone number'});
+                }else{
+                    setErrors({...errors, ePhone: ''});
+                }
             break;
 
             case 'password2':

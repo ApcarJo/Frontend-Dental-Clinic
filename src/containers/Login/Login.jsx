@@ -33,27 +33,7 @@ const Login = () => {
         
     });
 
-    const checkStatus = async () => {
-
-        let body = {
-            email: credentials.email
-        }
-
-        let role = await axios.post('http://localhost:3006/clients/email', body);
-
-        if (role.data !== null){
-            setStatusRole({...statusRole, roleStatus: 'client'});
-        }
-
-        if (role.data == null){
-            role = await axios.post('http://localhost:3006/dentists/email', body);
-            if (role.data !== null) { 
-                setStatusRole({...statusRole, roleStatus: 'dentist'});
-            } 
-        }
-    }
-
-    const checkError = (arg) => {
+    const checkError = async (arg) => {
 
         switch (arg){
 
@@ -65,6 +45,22 @@ const Login = () => {
                     setMensajeError({...msgError, eEmail: ""});
                 }
 
+                let body = {
+                    email: credentials.email
+                }
+        
+                let role = await axios.post('http://localhost:3006/clients/email', body);
+        
+                if (role.data !== null){
+                    setStatusRole({...statusRole, roleStatus: 'client'});
+                }
+        
+                if (role.data == null){
+                    role = await axios.post('http://localhost:3006/dentists/email', body);
+                    if (role.data !== null) { 
+                        setStatusRole({...statusRole, roleStatus: 'dentist'});
+                    } 
+                }
             break;
 
             case 'password':
@@ -85,44 +81,40 @@ const Login = () => {
         // if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(this.state.email) ) {
      
 
-        // A continuamos, generamos el body de datos
+        
         try{
+        // A continuamos, generamos el body de datos
         let body = {
             email : credentials.email,
             password : credentials.password
         }
         // Envío por axios
-        console.log(body)
+
         let res = await axios.post(`http://localhost:3006/login/${statusRole.roleStatus}`, body);
-        console.log(res, "este es ressssssssssssssssssssssss");
-        // let id = res.data.client._id;
         let token = res.data.token;
-        console.log(token, "este es el tokeeeeeeeeeeeeeeeeeeeeeeeeeeeeen");
 
+        // A falta de redux vamos a usar LocalStorage
+        localStorage.setItem("token", token);
+        localStorage.setItem("client", JSON.stringify(res.data.client));
+        localStorage.setItem("dentist", JSON.stringify(res.data.dentist));
 
-            // A falta de redux vamos a usar LocalStorage
-
-            localStorage.setItem("token", token);
-            localStorage.setItem("client", JSON.stringify(res.data.client));
-            localStorage.setItem("dentist", JSON.stringify(res.data.dentist));
         // redirección
-            setTimeout(()=>{
-                history.push(`/${statusRole.roleStatus}profile`);
-            },750);
+        setTimeout(()=>{
+            history.push(`/${statusRole.roleStatus}profile`);
+        },750);
+
         }catch{
             setMensajeError({...msgError, eValidate: 'Wrong email or password'});
         }
-        // res viene de vuelta con el token y los datos
+
     }
-    // const templateLogin = () => {
-        
-    // }
+
 
     return(
         <div className="vistaLogin">
                 <pre>{JSON.stringify(credentials, null,2)}</pre>
                 <div className="loginCard">
-                    <input type='text' className='loginBox' name='email' onChange={updateCredentials} onBlur={()=>checkStatus("email")} placeholder="your@email"></input>
+                    <input type='text' className='loginBox' name='email' onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="your@email"></input>
 
                     <div>{msgError.eEmail}</div>
 
