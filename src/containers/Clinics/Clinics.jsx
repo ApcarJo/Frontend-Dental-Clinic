@@ -58,7 +58,7 @@ const Clinics = () => {
 
                     <div className="content">
                         <div className="" key={index}>
-                        <img src={clinic.image} alt="img" width="300" height="200"/>
+                        <img src={clinic.image} className="salas" alt="salas"/>
                             <div className="">
                                 <p>Nombre: {clinic.name} </p>
                                 <p>Ciudad: {clinic.city}</p>
