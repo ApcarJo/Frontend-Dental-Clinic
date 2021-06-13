@@ -82,6 +82,15 @@ const Register = () => {
                 }
             break;
 
+            case 'phone':
+                if ((! /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm.test(datosUser.phone))||(datosUser.phone.length > 16)){
+                // if (datosUser.password.length < 8){
+                    setErrors({...errors, ePhone: 'Wrong phone number'});
+                }else{
+                    setErrors({...errors, ePhone: ''});
+                }
+            break;
+
             case 'password2':
                 if (datosUser.password !== datosUser.password2){
                     setErrors({...errors, ePassword2: 'Password should be the same'});
