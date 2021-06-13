@@ -8,7 +8,8 @@
     height: 45em;
     width: 35em;
     border-radius: 0.5em;
-    background-color: yellowgreen;
+    border: solid #31326f;
+    background-color: #9ddfd3;
     
 }
 
@@ -19,36 +20,62 @@
 }
 
 .name {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
-    height: 1em;
+    height: 2em;
+    width: 30em;
 
     border: none;
     outline: none;
-    border-radius: 0.2em;
-    padding-left: 1em;
+    border-radius: 1em;
+    padding-left: 1.5em;
     font-size: 1em;
     cursor: auto;
 
+    transition: 0.5s;
+    box-shadow: 0 0 0 0 black;
+}
+
+.name2 {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+
+    height: 2em;
+    width: 30em;
+
+    border: none;
+    outline: none;
+    border-radius: 1em;
+    padding-left: 1.5em;
+    padding-right: 1em;
+    font-size: 1em;
+    cursor: auto;
+
+    transition: 0.5s;
     box-shadow: 0 0 0 0 black;
 }
 
 .red {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
 
-    height: 1em;
+    height: 2em;
 
     border: solid 0.2em red;
     outline: none;
-    border-radius: 0.2em;
-    padding-left: 1em;
+    border-radius: 1em;
+    padding-left: 1.5em;
     font-size: 1em;
     cursor: auto;
 
@@ -56,8 +83,8 @@
 }
 
 .name:hover{
-    transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-    box-shadow: 0em 0.2em 0.08em black;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    box-shadow: 0em 0.2em 0.2em 0.005em rgb(36, 36, 36), 0em 0.2em 0.2em 0.05em rgb(75, 75, 75);
 }
 
 .registerButton{

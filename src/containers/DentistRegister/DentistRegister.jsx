@@ -97,6 +97,9 @@ const DentistRegister = () => {
                     setErrors({...errors, ePassword2: ''});
                 }
             break;
+
+            default:
+                break;
         }
     }
      const errorStyle = (arg) =>{
@@ -130,7 +133,7 @@ const DentistRegister = () => {
             <div>{errors.eSpecialty}</div>
             <input className="name" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
             <div>{errors.eCity}</div>
-            <input className="name" name="iDate" type="date" onChange={updateFormulario} onBlur={()=>checkError("iDate")} placeholder="postal code"></input><br></br>
+            <input className="name2" name="iDate" type="date" onChange={updateFormulario} onBlur={()=>checkError("iDate")} placeholder="postal code"></input><br></br>
             <div>{errors.eIDate}</div>
             {/* onBlur={()=>checkError("password")} */}
 

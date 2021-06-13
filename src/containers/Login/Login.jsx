@@ -71,6 +71,9 @@ const Login = () => {
                     setMensajeError({...msgError, ePassword: ""});
                 }
             break;
+
+            default:
+                break;
         }
     }
 

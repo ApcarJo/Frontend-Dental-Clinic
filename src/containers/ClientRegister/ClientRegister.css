@@ -8,7 +8,8 @@
     height: 35em;
     width: 35em;
     border-radius: 0.5em;
-    background-color: yellowgreen;
+    border: solid #31326f;
+    background-color: red;
     
 }
 
@@ -24,13 +25,13 @@
     align-items: center;
     flex-direction: column;
 
-    height: 1em;
+    height: 3em;
 
     border: none;
     outline: none;
     border-radius: 0.2em;
     padding-left: 1em;
-    font-size: 1em;
+    font-size: 3em;
     cursor: auto;
 
     box-shadow: 0 0 0 0 black;
@@ -61,5 +62,7 @@
 }
 
 .registerButton{
+    border-radius: 0.5em;
+    border: solid #31326f;
     cursor: pointer;
 }
