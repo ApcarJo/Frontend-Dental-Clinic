@@ -88,3 +88,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40em;
+    height: 30em;
+    border: solid black;
+}
