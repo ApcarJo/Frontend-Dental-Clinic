@@ -72,6 +72,16 @@ const Register = () => {
                 
             break;
 
+            case 'password':
+                console.log("hola, soy error de password");
+                if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(datosUser.password)){
+                // if (datosUser.password.length < 8){
+                    setErrors({...errors, ePassword: '- at least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
+                }else{
+                    setErrors({...errors, ePassword: ''});
+                }
+            break;
+
             case 'password2':
                 if (datosUser.password !== datosUser.password2){
                     setErrors({...errors, ePassword2: 'Password should be the same'});
