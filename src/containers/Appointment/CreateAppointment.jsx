@@ -77,9 +77,16 @@ const selectClinic = () => {
   let vitaldent = "60bbac205fb3824f0cd8f274";
   let clinica_dental_andres = "60bb5e51ce1da1086f556d20";
 
-      switch(dental_shine) {
+
+
+      switch((dentival, dental_shine)) {
 
         case dentival:
+            if(datos.clinic === dentival){
+              return(dentival);
+      }else{
+          console.log('error');
+      }
         console.log('dentival', dentival);
           break;
           case dental_shine:
@@ -114,11 +121,11 @@ const selectClinic = () => {
           </div>
           <div className="inputClinic inputClient">
             <select type="name" name="city" title="city"  onChange={selectClinic}>
-                <option value="timeDropList">--Please Choose a Clinic-</option>
-                <option value="dentival">Dentival</option>
-                <option value="dental_shine">Dentalshine</option>
-                <option value="vitaldent">Vitaldent</option>
-                <option value="clinica dental andres">Clinica Dental Andrés</option>
+                <option name="timeDropList">--Please Choose a Clinic-</option>
+                <option name="dentival">Dentival</option>
+                <option name="dental_shine">Dentalshine</option>
+                <option name="vitaldent">Vitaldent</option>
+                <option name="clinica dental andres">Clinica Dental Andrés</option>
             </select>
             {/* <input
                     type='password'
