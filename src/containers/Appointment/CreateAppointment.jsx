@@ -13,15 +13,13 @@ const CreateAppointmnet = () => {
   const [datos, setDatos] = useState({
     clinic: "",
     dentist: "",
+    time: "",
     date: "",
     message: ""
   });
 
-//   const [userData, setUserData] = useState({
+  const [msgError, setMensajeError] = useState(false);
 
-//     client: JSON.parse(localStorage.getItem("client")),
-//     token: localStorage.getItem("token")
-// });
 
   useEffect( () => {
 
@@ -48,10 +46,10 @@ const CreateAppointmnet = () => {
     
     let body = {
       client: user._id,
-      clinic: datos.clinic,
+      clinic: datos.clinic._id,
       dentist: datos.dentist,
       date: datos.date,
-      message: "esto es un mensaje de prueba"
+      message: datos.message
     };
 
     console.log(body);
@@ -70,6 +68,7 @@ const CreateAppointmnet = () => {
 }
 
 };
+
 const selectClinic = () => {
 
   let dentival =  "60b653c5c75e9e233617715e";
@@ -78,11 +77,11 @@ const selectClinic = () => {
   let clinica_dental_andres = "60bb5e51ce1da1086f556d20";
 
 
-
       switch((dentival, dental_shine)) {
 
         case dentival:
             if(datos.clinic === dentival){
+              console.log('here', dentival);
               return(dentival);
       }else{
           console.log('error');
@@ -107,6 +106,7 @@ const selectClinic = () => {
   return (
     <Fragment>
       <ClientNavbar />
+
       <div className="contentAppointment">
         <div className="cita">
           <div className="inputClient">
@@ -120,12 +120,12 @@ const selectClinic = () => {
             />
           </div>
           <div className="inputClinic inputClient">
-            <select type="name" name="city" title="city"  onChange={selectClinic}>
-                <option name="timeDropList">--Please Choose a Clinic-</option>
-                <option name="dentival">Dentival</option>
-                <option name="dental_shine">Dentalshine</option>
-                <option name="vitaldent">Vitaldent</option>
-                <option name="clinica dental andres">Clinica Dental Andrés</option>
+            <select type="name" name="city" title="city" onChange={updateCredentials}>
+                <option value="timeDropList">--Please Choose a Clinic-</option>
+                <option value="dentival" onBlur={() => selectClinic("dentival")}>Dentival</option>
+                <option value="dental_shine">Dentalshine</option>
+                <option value="vitaldent">Vitaldent</option>
+                <option value="clinica dental andres">Clinica Dental Andrés</option>
             </select>
             {/* <input
                     type='password'
@@ -136,7 +136,7 @@ const selectClinic = () => {
                 /> */}
           </div>
           <div className="inputDentist inputClient">
-            <select type="name" name="city" title="city">
+            <select type="name" name="city" title="city" onChange={updateCredentials}>
                 <option value="timeDropList">--Please Choose a Dentist-</option>
                 <option value="javier">Javier</option>
                 <option value="guillermo">Guillermo</option>
@@ -162,9 +162,23 @@ const selectClinic = () => {
               lenght="30"
             />
           </div>
+          <div className="inputClient inputTime">
+            <input
+                  type="time"
+                  name="hora"
+                  onChange={updateCredentials}
+              />
+          </div>
+          <div className="inputClient textArea">
+              <textarea
+                name="sintomas"
+                onChange={updateCredentials}
+              ></textarea>
+          </div>
           <div className="sendButton inputClient" onClick={() => crearCita()}>
             Crear Cita
           </div>
+          <div>{msgError}</div>
         </div>
       </div>
     </Fragment>

@@ -9,6 +9,7 @@ const Header = () => {
             <img src="" alt="LOGO" />
             <Button path="/" destination="HOME"/>
             <Button path="/aboutus" destination="ABOUT US"/>
+            <Button path="/clinics" destination="CLINICS"/>
             <Button path="/contact" destination="CONTACT"/>
             <Button path="/login" destination="LOGIN"/>
             <Button path="/register" destination="REGISTER"/>
