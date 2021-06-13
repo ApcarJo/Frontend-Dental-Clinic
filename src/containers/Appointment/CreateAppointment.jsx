@@ -29,7 +29,7 @@ const CreateAppointmnet = () => {
 
   useEffect( () => {
 
-    // crearCita();
+    crearCita();
   });
 
   //Handlers
@@ -69,12 +69,45 @@ const CreateAppointmnet = () => {
     console.log({message : err.message})
 }
 
-  };
+};
+const selectClinic = () => {
+
+  let dentival =  "60b653c5c75e9e233617715e";
+  let dental_shine = "60b6597d1249962618753931";
+  let vitaldent = "60bbac205fb3824f0cd8f274";
+  let clinica_dental_andres = "60bb5e51ce1da1086f556d20";
+
+
+
+      switch((dentival, dental_shine)) {
+
+        case dentival:
+            if(datos.clinic === dentival){
+              return(dentival);
+      }else{
+          console.log('error');
+      }
+        console.log('dentival', dentival);
+          break;
+          case dental_shine:
+            console.log('dental_shine', dental_shine);
+            break;
+        case vitaldent:
+          console.log('vitaldent', vitaldent);
+          break;
+          case clinica_dental_andres:
+          console.log('clinica andres', clinica_dental_andres);
+          break;
+        default:
+        console.log('pruebas');
+
+   }
+}
 
   return (
     <Fragment>
       <ClientNavbar />
-      <div className="content">
+      <div className="contentAppointment">
         <div className="cita">
           <div className="inputClient">
             <input
@@ -87,14 +120,13 @@ const CreateAppointmnet = () => {
             />
           </div>
           <div className="inputClinic inputClient">
-          <input
-              type="name"
-              name="clinic"
-              title="client"
-              placeholder="Nombre del Paciente"
-              onChange={updateCredentials}
-              lenght="30"
-            />
+            <select type="name" name="city" title="city"  onChange={selectClinic}>
+                <option name="timeDropList">--Please Choose a Clinic-</option>
+                <option name="dentival">Dentival</option>
+                <option name="dental_shine">Dentalshine</option>
+                <option name="vitaldent">Vitaldent</option>
+                <option name="clinica dental andres">Clinica Dental Andrés</option>
+            </select>
             {/* <input
                     type='password'
                     name='clinic'
@@ -104,14 +136,14 @@ const CreateAppointmnet = () => {
                 /> */}
           </div>
           <div className="inputDentist inputClient">
-          <input
-              type="name"
-              name="dentist"
-              title="client"
-              placeholder="Nombre del Paciente"
-              onChange={updateCredentials}
-              lenght="30"
-            />
+            <select type="name" name="city" title="city">
+                <option value="timeDropList">--Please Choose a Dentist-</option>
+                <option value="javier">Javier</option>
+                <option value="guillermo">Guillermo</option>
+                <option value="maria">Maria</option>
+                <option value="alfredo">Alefredo</option>
+                <option value="laura">Laura</option>
+            </select>
             {/* <input
                     type='name'
                     name='dentist'

@@ -1,37 +1,31 @@
 
-.content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    margin-top: 3em;
-}
-/* .test {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-} */
-.card3 {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background-color: #cceede;
-    border-radius: 2em;
-    width: 31em;
-    bottom: 9em;
-    height: 29em;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    right: 25em;
+.allContent {
+        width: 100wh;
+        height: 100wh;
+        background-color: #dbf6e9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
 }
 
-.card3:hover {
-    background-color: rgb(69, 87, 126);
-    /* color: #ffc93c; */
+.content {
+    height: 25em;
+    width: 20em;
+    margin: 2em;
+    border-radius: 1em ;
+    border: solid #31326f;
+    background-color: #9ddfd3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clinicsContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 .texto {
     display: flex;
@@ -44,7 +38,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    right: 8em;
     z-index: 1;
     bottom: 0em;
 }
@@ -55,9 +48,9 @@
     position: relative;
     border-radius: 0.6em;
     width: 12em;
-    bottom: -7em;
+    bottom: 0em;
     height: 9em;
-    left: -5.7em;
+    left: 1.4em;
 }
 
 .enviar {
@@ -67,9 +60,11 @@
     border-radius: 0.3em;
     width: 12em;
     background-color: #9ddfd3;
-    top: 3em;
-    left: -1em;
+    top: 0em;
+    right: -1em;
+    cursor: pointer;
     height: 2.5em;
+    box-shadow: 0em 0.2em 0.2em -0.1em black;
     justify-content: center;
 }
 .enviar:hover {
