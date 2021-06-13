@@ -26,8 +26,18 @@ const Clinics = () => {
         }
     }
 
+    let token = localStorage.getItem("token");
+
+    // const llevame = (token === null) ? history.push("/login") : history.push("/appointments");
+
     const llevame = () => {
-        history.push("/appointments");
+
+        if(token === null) {
+            history.push("/login")
+        } else {
+
+            history.push("/appointments");
+        }
     }
 
     if(clinics[0]?._id) {
@@ -48,7 +58,7 @@ const Clinics = () => {
 
                     <div className="content">
                         <div className="" key={index}>
-                            <div><img src={sala1} className="sala1" alt="sala1"/></div>
+                        <img src={clinic.image} alt="img" width="300" height="200"/>
                             <div className="">
                                 <p>Nombre: {clinic.name} </p>
                                 <p>Ciudad: {clinic.city}</p>
