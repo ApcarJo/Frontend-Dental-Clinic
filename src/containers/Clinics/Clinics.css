@@ -42,7 +42,7 @@
     bottom: 0em;
 }
 
-.sala1 {
+.salas {
     display: flex;
     flex-direction: column;
     position: relative;
