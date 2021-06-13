@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import './ClientRegister.css';
+import './DentistRegister.css';
 
 const DentistRegister = () => {
 
@@ -42,9 +42,9 @@ const DentistRegister = () => {
             email : datosUser.email,
             phone: datosUser.phone,
             password : datosUser.password,
-            specialty: datosUser.specialty,
+            speciality: datosUser.specialty,
             city: datosUser.city,
-            iDate: datosUser.iDate
+            incorporationDate: datosUser.iDate
         }
         console.log(body);
 
@@ -122,7 +122,7 @@ const DentistRegister = () => {
             <div>{errors.eEmail}</div>
             <input className="name" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")} placeholder="phone number"></input><br></br>
             <div>{errors.ePhone}</div>
-            <input className="name" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")} placeholder="password"></input><br></br>
+            <input className="name" name="password" type="password" onChange={updateFormulario}  placeholder="password"></input><br></br>
             <div>{errors.ePassword}</div>
             <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")} placeholder="password2"></input><br></br>
             <div>{errors.ePassword2}</div>
@@ -132,7 +132,7 @@ const DentistRegister = () => {
             <div>{errors.eCity}</div>
             <input className="name" name="iDate" type="date" onChange={updateFormulario} onBlur={()=>checkError("iDate")} placeholder="postal code"></input><br></br>
             <div>{errors.eIDate}</div>
-
+            {/* onBlur={()=>checkError("password")} */}
 
             <div className="registerButton" onClick={()=>applyRegister()}>Enviar
             </div>
