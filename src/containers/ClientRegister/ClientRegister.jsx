@@ -64,8 +64,10 @@ const Register = () => {
             break;
 
             case 'email':
-                if (datosUser.email.length < 4){
-                    setErrors({...errors, eEmail: 'El email debe de tener 4 caracteres'});
+                console.log("hola, soy error de email");
+                // if ((datosUser.email.length < 1) && (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(datosUser.email))){
+                if ((datosUser.email.length < 1) && (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(datosUser.email))){
+                    setErrors({...errors, eEmail: 'Introduce un email válido'});
                 }else{
                     setErrors({...errors, eEmail: ''});
                 }
@@ -73,7 +75,6 @@ const Register = () => {
             break;
 
             case 'password':
-                console.log("hola, soy error de password");
                 if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(datosUser.password)){
                 // if (datosUser.password.length < 8){
                     setErrors({...errors, ePassword: '- at least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
