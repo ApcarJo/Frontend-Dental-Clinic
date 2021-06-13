@@ -56,8 +56,8 @@ const Register = () => {
     const checkError = (arg) => {
         switch (arg){
             case 'name':
-                if(datosUser.name.length < 2){
-                    setErrors({...errors, eName: 'El nombre debe de tener 2 caracteres'});
+                if ((datosUser.name.length < 2)||(! /^[a-z ,.'-]+$/i.test(datosUser.name))||(datosUser.name.length > 20)){
+                    setErrors({...errors, eName: 'Introduce un nombre válido'});
                 }else{
                     setErrors({...errors, eName: ''});
                 }
