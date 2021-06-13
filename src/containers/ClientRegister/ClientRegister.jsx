@@ -56,8 +56,8 @@ const Register = () => {
     const checkError = (arg) => {
         switch (arg){
             case 'name':
-                if(datosUser.name.length < 4){
-                    setErrors({...errors, eName: 'El nombre debe de tener 4 caracteres'});
+                if(datosUser.name.length < 2){
+                    setErrors({...errors, eName: 'El nombre debe de tener 2 caracteres'});
                 }else{
                     setErrors({...errors, eName: ''});
                 }
@@ -65,9 +65,8 @@ const Register = () => {
 
             case 'email':
                 console.log("hola, soy error de email");
-                // if ((datosUser.email.length < 1) && (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(datosUser.email))){
-                if ((datosUser.email.length < 1) && (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(datosUser.email))){
-                    setErrors({...errors, eEmail: 'Introduce un email válido'});
+                if (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(datosUser.email)){
+                    setErrors({...errors, eEmail: 'Introduce un email válido 2'});
                 }else{
                     setErrors({...errors, eEmail: ''});
                 }
@@ -77,7 +76,7 @@ const Register = () => {
             case 'password':
                 if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(datosUser.password)){
                 // if (datosUser.password.length < 8){
-                    setErrors({...errors, ePassword: '- at least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
+                    setErrors({...errors, ePassword: 'At least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
                 }else{
                     setErrors({...errors, ePassword: ''});
                 }
