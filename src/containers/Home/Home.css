@@ -1,7 +1,8 @@
-.clinicImg {
-    width: 100wh;
-    height: 100wh;
 
+.homeContainer {
+    width: 100vw;
+    height: 100%;
+    background-color: #ccd4e7;
 
     display: flex;
     flex-direction: column;
@@ -9,16 +10,99 @@
     justify-content: flex-start;
 }
 
-.clinic {
+.clinicHome {
+    padding-top: 2em;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
-    background-image: url("../../assets/clinic/home.jpeg");
 
-    /* background-size: contain; */
-    background-repeat: no-repeat;
-    background-position: center;
-    /* position: relative; */
-    height: 100vh;
-    width: 100em;
+
+.fondo{
+    transition-duration: 1s;
+    background-color:#303e42;
+    width: 70%;
+    height: 35em;
+    opacity: 0.8;
+    border-radius: 0.2em;
+}
+
+.contenedorTexto{
+    width: 30%;
+    height: 35em;
+    padding-left: 6em;
+    background-color: #ccd4e7;
+
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.buttonHome{
+    height:4em;
+    width: 15em;
+    border: solid black 0.15em;
+    cursor: pointer;
+    margin: 1em;
+    background-color: #9aa3b6;
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonHome:hover {
+    transition: 0.2s;
+    background-color: #ccd4e7;
+}
+
+.optionsHome {
+    padding-top: 2em;
+    width: 100vw;
+    height: 23em;
+    margin-bottom: 5em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.option {
+    height: 20em;
+    width: 15em;
+    border: solid black 0.15em;
+    cursor: pointer;
+    margin: 1em;
+    background-color: #9aa3b6;
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttonOption{
+    height:4em;
+    width: 5em;
+    border: solid black 0.15em;
+    cursor: pointer;
+    margin: 1em;
+    background-color: #9aa3b6;
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonOption:hover {
+    transition: 0.2s;
+    background-color: #ccd4e7;
 }
