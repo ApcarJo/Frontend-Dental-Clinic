@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Clinics.css';
 import axios from 'axios';
-import sala1 from '../../assets/clinic/sala1.png';
 // import Map from '../../components/Map/Map';
 import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 

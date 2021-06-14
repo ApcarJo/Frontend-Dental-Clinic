@@ -1,6 +1,6 @@
 .dentistProfile{
     width: 100wh;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #dbf6e9;
 
     display: flex;
@@ -80,21 +80,11 @@
 }
 
 .schedule {
-    height: 40em;
-    width: 60em;
+    height: 30em;
+    width: 55em;
     background-color: burlywood;
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.calendar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 40em;
-    height: 30em;
-    border: solid black;
 }
