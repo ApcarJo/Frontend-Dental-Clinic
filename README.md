@@ -55,7 +55,7 @@ Run the server.
 ## Tools 🔧
 
 
-<img src="src/img/javascript.png" width="50"> <img src="src/img/node.png" width="65"> <img src="src/img/react.png" width="50"> <img src="src/img/redux.png" width="55"> <img src="src/img/trello.png" width="60">
+<img src="src/img/javascript.png" width="50"> <img src="src/img/html5.png" width="50"> <img src="src/img/css3.png" width="50"> <img src="src/img/react.png" width="50"> <img src="src/img/redux.png" width="55"> <img src="src/img/node.png" width="65"> <img src="src/img/trello.png" width="60">
 
 Installed dependencies: Nodemon, React-Router-Dom & Axios.
 
