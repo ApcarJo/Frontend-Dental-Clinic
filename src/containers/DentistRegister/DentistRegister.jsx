@@ -74,7 +74,6 @@ const DentistRegister = () => {
 
             case 'password':
                 if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(datosUser.password)){
-                // if (datosUser.password.length < 8){
                     setErrors({...errors, ePassword: 'At least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
                 }else{
                     setErrors({...errors, ePassword: ''});
@@ -83,7 +82,6 @@ const DentistRegister = () => {
 
             case 'phone':
                 if ((! /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm.test(datosUser.phone))||(datosUser.phone.length > 16)){
-                // if (datosUser.password.length < 8){
                     setErrors({...errors, ePhone: 'Wrong phone number'});
                 }else{
                     setErrors({...errors, ePhone: ''});
