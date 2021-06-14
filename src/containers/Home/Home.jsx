@@ -20,7 +20,7 @@ const Home = () => {
 
             <div className="clinicHome">
 
-                <div class="contenedorTexto">
+                <div className="contenedorTexto">
                         <h1>T R I D E N T</h1>
                         <p>In our clinics you will find the latest equipment to deliver the highest quality treatments, as well as comfortable atmosphere in order to make your stay more pleasant. We have also chosen the best suppliers to guarantee long lasting and solid treatments, delivered by a team of experienced professionals.</p>
                         <div className="buttonHome" onClick={() => goTo("/login")}>MAKE AN APPOINTMENT</div> 
