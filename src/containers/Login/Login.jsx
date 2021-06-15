@@ -132,6 +132,11 @@ const Login = (props) => {
                     <div className="sendButton" onClick={()=>logeame()}>Login</div>
                     <div>{msgError.eValidate}</div>
                     {/* <div className="receiveInfo" onClick={()=>receive()}>ReceiveInfo</div> */}
+
+                
+                        <p>Is this your first time here?</p>
+                        <div className="sendButton" onClick={() => history.push('/register')}>Register here</div>
+                  
                 </div>
         </div>
         

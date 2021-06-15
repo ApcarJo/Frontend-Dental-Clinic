@@ -41,7 +41,7 @@ const DentistProfile = (props) => {
                     <div className="dentistDates">
                         <div className="dentistLeftSide">
                             <h2>MY PROFILE</h2>
-                            <img src={props.credentials?.dentist.image} alt="user" className="imgUser"/>
+                            <img src={props.credentials?.dentist.image} alt="user" className="imgDent"/>
                         </div>
                         <div className="dentistRightSide">
                             <p>NAME : {props.credentials?.dentist.name} </p>
