@@ -1,8 +1,38 @@
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Calendar.css';
 
 const Calendar = () => {
+
+	//HOOK
+	const [datosUser,setDatosUser] = useState(
+        {
+        dia:'',
+        mes:'',
+        anyo:'',
+        mes1:'',
+        mese: '',
+		resto1: '',
+		decenas: '',
+		unidades: '',
+		c1: '',
+		c2: '',
+		c3: '',
+		num: ''
+    });
+
+	//HANDLER
+	const updateFormulario = (e) => {
+        setDatosUser({...datosUser, [e.target.name]: e.target.value})
+    }
+
+	useEffect (()=>{
+
+	},[]);
+
+	useEffect (()=>{
+
+	});
 
 
     const cifra = (num, c1, c2, c3) => {
@@ -48,6 +78,7 @@ const romano = (num) => {
 
 
     const anyos = (anyo, dia, mes1) => {
+		console.log(anyo,dia,mes1, "da valor 0")
 		let x=0, b=0;
 		let principal=1;
 		let dias;
@@ -83,8 +114,9 @@ const romano = (num) => {
 let mese = (mes, dia, mes1, anyo) =>
 	{
 		//Imprimo el mes que hemos dado en la fecha.
+		
 		let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-		console.log(arrayMes[mes], "de");
+		console.log(arrayMes[mes-1], "de");
 
 		romano(anyo);
 
@@ -195,9 +227,9 @@ let mese = (mes, dia, mes1, anyo) =>
 	/* Con esto imprimo los dias del mes y marco el dia del mes que hemos
 	 letroducido en la fecha con un arterisco. */
 
+
 	for (i=1; i<=mesi[mes]; i++)
 	{
-
 		if (dia===i)
 			{
 			console.log("%d*\t", i);
@@ -212,7 +244,7 @@ let mese = (mes, dia, mes1, anyo) =>
 
 		if (a%7===0)
 			{
-			console.log("\n");
+			console.log(" ");
 			}
 			a++;
 
@@ -221,6 +253,7 @@ let mese = (mes, dia, mes1, anyo) =>
 }
 
 const meses = (mes, anyo) => {
+
 	let mesi = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         if ((anyo%4===0 && anyo%100!==0) || (anyo%400===0))
 		mesi[1]=29;
@@ -252,52 +285,15 @@ const meses = (mes, anyo) => {
 
 const men20 = (a) =>
 	{
-		if (a===1)
-		console.log("uno");
-		if (a===2)
-		console.log("dos");
-		if (a===3)
-		console.log("tres");
-		if (a===4)
-		console.log("cuatro");
-		if (a===5)
-		console.log("cinco");
-		if (a===6)
-		console.log("seis");
-		if (a===7)
-		console.log("siete");
-		if (a===8)
-		console.log("ocho");
-		if (a===9)
-		console.log("nueve");
-		if (a===10)
-		console.log("diez");
-		if (a===11)
-		console.log("once");
-		if (a===12)
-		console.log("doce");
-		if (a===13)
-		console.log("trece");
-		if (a===14)
-		console.log("catorce");
-		if (a===15)
-		console.log("quince");
-		if (a===16)
-		console.log("dieciseis");
-		if (a===17)
-		console.log("dieciseite");
-		if (a===18)
-		console.log("dieciocho");
-		if (a===19)
-		console.log("diecinueve");
-		if (a===20)
-		console.log("veinte");
+		a=a-1;
+		let numwrite = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve", "veinte"]
+		console.log(numwrite[a]);
 }
 
 const dec = (decenas) =>
 	{
 		if(decenas===2)
-		console.log("veleti");
+		console.log("veinti");
 
 		if(decenas===3)
 		console.log("treinta y ");
@@ -312,24 +308,10 @@ const dec2 = (decenas) =>
 	}
 
 const unid = (unidades) => {
-		if (unidades===1)
-		console.log("uno");
-		if (unidades===2)
-		console.log("dos");
-		if (unidades===3)
-		console.log("tres");
-		if (unidades===4)
-		console.log("cuatro");
-		if (unidades===5)
-		console.log("cinco");
-		if (unidades===6)
-		console.log("seis");
-		if (unidades===7)
-		console.log("siete");
-		if (unidades===8)
-		console.log("ocho");
-		if (unidades===9)
-		console.log("nueve");
+
+	let arrayNum = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"]
+	unidades=unidades-1;
+	console.log(arrayNum[unidades])
 }
 
 let dia, mes, anyo, mes1,c;
@@ -349,9 +331,17 @@ let dia, mes, anyo, mes1,c;
 	// while ((dia<1 || dia>31)||(mes<1 || mes>12)||(anyo<=1 || anyo>=31999));
 
 	//Llamo a las funciones para que haya un orden a la hora de imprimirlo.
-    dia=7;
-    mes=5;
-    anyo=2037;
+    
+	// dia=16;
+    // mes=6;
+    // anyo=2021;
+	
+
+	dia=parseInt(datosUser.dia);
+    mes=parseInt(datosUser.mes);
+    anyo=parseInt(datosUser.anyo);
+	// console.log(datosUser.dia, datosUser.mes, datosUser.anyo, "con datosUser");
+
 	mes1=meses(mes, anyo);
 	anyos(anyo, dia, mes1);
 
@@ -397,9 +387,12 @@ let dia, mes, anyo, mes1,c;
 
 
 return (
-    <div>
-        hola soy calendar
-    </div>
+
+	<div>
+		<input type='number' className='numberBox' name='dia' onChange={updateFormulario} placeholder="dia"></input>
+		<input type='number' className='numberBox' name='mes' onChange={updateFormulario} placeholder="mes"></input>
+		<input type='number' className='numberBox' name='anyo' onChange={updateFormulario} placeholder="anyo"></input>
+	</div>
 )
 
 }
