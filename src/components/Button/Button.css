@@ -1,0 +1,10 @@
+.button{
+    margin: 1em;
+    transition: 0.2s;
+}
+
+.button:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.2s;
+}
