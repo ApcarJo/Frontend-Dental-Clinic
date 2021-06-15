@@ -2,16 +2,18 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import './ClientProfile.css';
+import { connect } from 'react-redux';
+import { LOGOUT } from '../../redux/types';
 // import imgUser from '../../img/user.png'
 
-const ClientProfile = () => {
+const ClientProfile = (props) => {
 
     let history = useHistory() ;
 
     //hooks
     const [userData, setUserData] = useState({
-        token: localStorage.getItem("token"), 
-        client: JSON.parse(localStorage.getItem("client"))
+        token: props.credentials?.token, 
+        client: props.credentials?.client
     });
 
     useEffect( () => {
@@ -22,12 +24,19 @@ const ClientProfile = () => {
 
     })
 
-    const logout = () => {
-        localStorage.clear();
-        setUserData("");
+    // const logout = () => {
+    //     localStorage.clear();
+    //     setUserData("");
+    // }
+
+
+    const logOut = () => {
+
+        props.dispatch({type:LOGOUT});
+
     }
 
-    if(userData.token) {
+    if( props.credentials?.token) {
 
         return(
             <div className="baseProfile">
@@ -36,17 +45,17 @@ const ClientProfile = () => {
                     <div className="clientDates">
                         <div className="clientLeftSide">
                             <h2>MY PROFILE</h2>
-                            <img src={userData.client.image} alt="user" className="imgUser"/>
+                            <img src={ props.credentials?.client.image} alt="user" className="imgUser"/>
                         </div>
                         <div className="clientRightSide">
-                            <p>NAME : {userData.client.name} </p>
-                            <p>EMAIL : {userData.client.email} </p>
-                            <p>PHONE : {userData.client.phone}</p>
-                            <p>BIRTHDAY : {userData.client.dateOfBirth}</p>
-                            <p>CITY : {userData.client.city}</p>
+                            <p>NAME : { props.credentials?.client.name} </p>
+                            <p>EMAIL : { props.credentials?.client.email} </p>
+                            <p>PHONE : { props.credentials?.client.phone}</p>
+                            <p>BIRTHDAY : { props.credentials?.client.dateOfBirth}</p>
+                            <p>CITY : { props.credentials?.client.city}</p>
                             <div className="buttons">
                                 <div className="buttonUpdate">UPDATE</div>
-                                <div className="buttonLogout" onClick={() => logout()}>LOGOUT</div>
+                                <div className="buttonLogout" onClick={() => logOut()}>LOGOUT</div>
                             </div>
                         </div>
                     </div>
@@ -75,4 +84,8 @@ const ClientProfile = () => {
 
 }
 
-export default ClientProfile;
+export default connect((state) => ({
+
+    credentials:state.credentials
+
+    }))(ClientProfile);

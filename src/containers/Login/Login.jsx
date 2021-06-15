@@ -2,10 +2,11 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
-
+import { connect } from 'react-redux';
+import { LOGIN } from '../../redux/types';
 import './Login.css';
 
-const Login = () => {
+const Login = (props) => {
 
     let history = useHistory();
 
@@ -94,12 +95,15 @@ const Login = () => {
         // Envío por axios
 
         let res = await axios.post(`http://localhost:3006/login/${statusRole.roleStatus}`, body);
-        let token = res.data.token;
+        // let token = res.data.token;
 
         // A falta de redux vamos a usar LocalStorage
-        localStorage.setItem("token", token);
-        localStorage.setItem("client", JSON.stringify(res.data.client));
-        localStorage.setItem("dentist", JSON.stringify(res.data.dentist));
+        // localStorage.setItem("token", token);
+        // localStorage.setItem("client", JSON.stringify(res.data.client));
+        // localStorage.setItem("dentist", JSON.stringify(res.data.dentist));
+
+        //
+        props.dispatch({type:LOGIN, payload:res.data});
 
         // redirección
         setTimeout(()=>{
@@ -135,4 +139,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default connect()(Login);
