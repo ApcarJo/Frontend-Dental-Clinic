@@ -17,10 +17,14 @@ const ClientAppointments = () => {
             let body = {
                 client: user._id,
             }
-            let res = await axios.post('http://localhost:3006/appointment/client',body, {headers:{'authorization':'Bearer ' + token}});
-            setClientAppointment(res.data)
+            console.log(token, "esto es token");
+            console.log(user, "esto es user");
+            console.log(body, "esto es body");
+            let res = await axios.post('http://localhost:3006/appointment/client', body, {headers:{'authorization':'Bearer ' + token}});
+            console.log(res);
+            setClientAppointment(res.data);
         } catch (error){
-            console.log(error)
+            console.log(error);
         }
     }
     if(clientAppointment[0]?.clinicName){
