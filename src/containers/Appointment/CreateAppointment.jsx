@@ -3,9 +3,10 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./CreateAppointment.css";
 import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
+import { connect } from 'react-redux';
 
 
-const CreateAppointmnet = () => {
+const CreateAppointmnet = (props) => {
 
   let history = useHistory();
 
@@ -39,8 +40,8 @@ const CreateAppointmnet = () => {
 
     try{
 
-   // let token = localStorage.getItem("token");
-    let user = JSON.parse(localStorage.getItem("client"));
+      let token = props.credentials?.token;
+      let user = props.credentials?.client;
     // let clinic = "60b653c5c75e9e233617715e";
     // let dentist = "60ba59f8b0dd4138d7bb2040";
     
@@ -54,7 +55,7 @@ const CreateAppointmnet = () => {
 
     console.log(body);
 
-    let res = await axios.post('http://localhost:3006/appointment', body);
+    let res = await axios.post('http://localhost:3006/appointment', body, {headers:{'authorization':'Bearer ' + token}});
 
     console.log(res.data);
 
@@ -185,4 +186,8 @@ const selectClinic = () => {
   );
 };
 
-export default CreateAppointmnet;
+export default connect((state) => ({
+
+  credentials:state.credentials
+
+  }))(CreateAppointmnet);

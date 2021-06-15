@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import './Dentist.css';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 
-const Dentist = () => {
+const Dentist = (props) => {
 
     //hooks
     const [dentists, setDentists] = useState({});
@@ -27,8 +28,8 @@ const Dentist = () => {
 
         try{
 
-            let token = localStorage.getItem("token");
-            let user = JSON.parse(localStorage.getItem("client"));
+            let token = props.credentials?.token;
+            let user = props.credentials?.client;
 
             let body = {
                 city: city.city, //AQUI FALTA INTROUCIR POR PANTALLA
@@ -103,4 +104,8 @@ const Dentist = () => {
 
 }
 
-export default Dentist;
+export default connect((state) => ({
+
+    credentials:state.credentials
+
+    }))(Dentist);

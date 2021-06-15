@@ -40,7 +40,7 @@ const Header = (props) => {
         return(
             <div className="header">
     
-            <img className="headerLogo" src="" alt="LOGO" />
+            <img className="headerLogo" src={logo} alt="LOGO" />
 
             <div className="headerLinks">
                 <Button path="/" destination="HOME"/>
@@ -64,7 +64,7 @@ const Header = (props) => {
         return(
             <div className="header">
     
-                <img className="headerLogo" src="" alt="LOGO" />
+                <img className="headerLogo" src={logo} alt="LOGO" />
     
                 <div className="headerLinks">
                     <Button path="/" destination="HOME"/>

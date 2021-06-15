@@ -17,6 +17,7 @@ import Dentist from './containers/Dentists/Dentist';
 import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
+import DentistSchedule from './containers/DentistSchedule/DentistSchedule';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
            <Route path="/clientappointments" exact component = {ClientAppointments}/>
            <Route path="/clients" exact component = {AllClients}/>
            <Route path="/calendar" exact component = {Calendar}/>
+           <Route path="/dentistschedule" exact component={DentistSchedule}/>
  
     
           </Switch>
