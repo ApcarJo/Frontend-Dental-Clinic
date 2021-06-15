@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faSmile, faHeart, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import {faSmile, faHeart, faPaperPlane, faPhone, faUserNurse, faTooth } from '@fortawesome/free-solid-svg-icons';
 import "./AboutUs.css";
 import Team from '../../assets/clinic/team.png';
 import Prevent from '../../assets/clinic/prevent.png';
@@ -96,13 +96,36 @@ const AboutUs = () => {
             <div className="end">
                 <div className="reservaCard">
                     <p className="experience">Clinicas Trident </p><br></br>
-                    <p className="experience"> Especialistas disponibles: 4</p><br></br>
+                    <div className="nurse" style={{fontSize:"1.5em"}}>
+                    <FontAwesomeIcon icon={faUserNurse}/>
+                    </div>
+                    <p className="experience"> Especialistas disponibles : 4</p><br></br>
                     <div className="send" onClick={() => llevame()}>PEDIR CITA</div>
                 </div>
                 <div className="imagen4">
                     <img  className="team4" src={Reser} alt="sala" />
                 </div>
             </div>
+
+            <footer>
+                <div className="containerAll">
+                    <div className="footerBody">
+                        <div className="column1">
+                            <h2 className="titleFooter">Práctica Dental de la mano del equipo Tridente</h2>
+                            <p className="experience parFooter">Tridente, Clínica con más de 20 años de experiencia</p>
+                        </div>
+                        <div className="tooth" style={{fontSize:"2.5em"}}>
+                            <FontAwesomeIcon icon={faTooth}/>
+                        </div>
+                        <div className="column2">
+                            <div className="phone" style={{fontSize:"2em"}}>
+                            <FontAwesomeIcon icon={faPhone}/> <span> 963456999</span>
+                            </div>
+                            <h2 className="footerContact">Contacto</h2>
+                        </div>
+                    </div>
+                </div>
+            </footer>
     </div>
   );
 };
