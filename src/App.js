@@ -1,5 +1,6 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
+import Calendar from './components/Calendar/Calendar';
 import Header from './components/Header/Header';
 import AboutUs from './containers/AboutUs/AboutUs';
 import AllAppointments from './containers/Appointment/admin/AllAppointments';
@@ -42,6 +43,7 @@ function App() {
            <Route path="/findappointments" exact component = {AllAppointments}/>
            <Route path="/clientappointments" exact component = {ClientAppointments}/>
            <Route path="/clients" exact component = {AllClients}/>
+           <Route path="/calendar" exact component = {Calendar}/>
  
     
           </Switch>
