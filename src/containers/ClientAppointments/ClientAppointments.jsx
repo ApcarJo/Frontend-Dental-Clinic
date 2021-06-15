@@ -2,26 +2,33 @@ import React, {useState, useEffect} from 'react';
 import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import './ClientAppointments.css';
 import axios from 'axios';
-const ClientAppointments = () => {
+import { connect } from 'react-redux';
+
+const ClientAppointments = (props) => {
     //hooks
     const [clientAppointment, setClientAppointment] = useState({});
     useEffect( () => {
         searchAppointments();
     }, [])
-    useEffect( () => {
-    })
+     useEffect( () => {
+       
+        }, [])
     const searchAppointments = async () => {
         try{
-            let token = localStorage.getItem("token");
-            let user = JSON.parse(localStorage.getItem("client"));
+            let token = props.credentials?.token;
+            let user = props.credentials?.client;
+
             let body = {
                 client: user._id,
             }
+
             let res = await axios.post('http://localhost:3006/appointment/client',body, {headers:{'authorization':'Bearer ' + token}});
             console.log('here', res.data);
             setClientAppointment(res.data)
+
         } catch (error){
             console.log(error)
+
         }
     }
     if(clientAppointment[0]?.clinicName){
@@ -51,4 +58,9 @@ const ClientAppointments = () => {
         )
     }
 }
-export default ClientAppointments;
+
+export default connect((state) => ({
+
+    credentials:state.credentials
+
+    }))(ClientAppointments);
