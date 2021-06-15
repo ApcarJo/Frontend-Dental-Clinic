@@ -1,0 +1,179 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.homeContainer {
+    width: 100vw;
+    height: 100%;
+    background-color: #dbf6e9;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clinicHome {
+    background-color: #9ddfd3;
+    padding-top: 2em;
+    padding-left: 2em;
+    margin-bottom: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.team{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    right: 4em;
+    top: -26em;
+    width: 49%;
+    height: 25em;
+    left: 37em;
+    border-radius: 0.5em;
+}
+
+.p {
+    display: flex;
+    position: relative;
+    line-height: 1.5;
+    top: 2.5em;
+}
+.title {
+    display: flex;
+    position: relative;
+    top: 2.5em;
+}
+
+.h1{
+    width: 28%;
+    height: 35em;
+    padding-left: 6em;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.divInfo {
+
+    width: 100vw;
+    height: 25em;
+    margin-bottom: 5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -47em;
+}
+.experience {
+    line-height: 1.5;
+}
+.infoCards {
+
+    height: 20em;
+    width: 19em;
+    /* cursor: pointer; */
+    margin: 5em;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.team2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 4em;
+    left: 49em;
+    width: 42%;
+    height: 24em;
+    border-radius: 0.5em;
+}
+
+.medidas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top: -46em;
+    right: 20em;
+}
+.infoCards2 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 19em;
+    top: -8em;
+    width: 38em;
+}
+
+.sala2 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -66em;
+    left: 6em;
+}
+
+.clinicas {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    top: -25.7em;
+    left: 11em;
+}
+.infoCards3 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 47em;
+    top: -47em;
+    width: 38em;
+}
+.reserva{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -73em;
+    left: 49em;
+}
+.reservaCard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    top: -57em;
+    border: solid #8ca5c580;
+    width: 28em;
+    height: 11em;
+    justify-content: center;
+    left: 11em;
+}
+.send {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 0.2em;
+    width: 12em;
+    background-color: #447bc2b4;
+    right: -7em;
+    cursor: pointer;
+    height: 2.5em;
+    box-shadow: 0em 0.2em 0.2em -0.1em black;
+    justify-content: center;
+}
+.send:hover {
+    color: #ffffff;
+}
