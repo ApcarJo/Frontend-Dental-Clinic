@@ -2,18 +2,20 @@ import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import DentistNavbar from '../../components/DentistNavbar/DentistNavbar';
 //import imgUser from '../../img/user.png';
-import './DentistProfile.css'
+import './DentistProfile.css';
+import { connect } from 'react-redux';
+import { LOGOUT } from '../../redux/types';
 
 
-const DentistProfile = () => {
+const DentistProfile = (props) => {
 
   
     let history = useHistory() ;
 
     //hooks
     const [dentistData, setDentistData] = useState({
-        token: localStorage.getItem("token"), 
-        dentist: JSON.parse(localStorage.getItem("dentist"))
+        token: props.credentials?.token,
+        dentist: props.credentials?.dentist
     });
 
     useEffect( () => {
@@ -24,12 +26,13 @@ const DentistProfile = () => {
 
     })
 
-    const logout = () => {
-        localStorage.clear();
-        setDentistData("");
-    }
+    const logOut = () => {
 
-    if(dentistData.token) {
+        props.dispatch({type:LOGOUT});
+
+    }
+    
+    if(props.credentials?.token) {
 
         return(
             <div className="dentistContainer">
@@ -38,17 +41,17 @@ const DentistProfile = () => {
                     <div className="dentistDates">
                         <div className="dentistLeftSide">
                             <h2>MY PROFILE</h2>
-                            <img src={dentistData.dentist.image} alt="user" className="imgUser"/>
+                            <img src={props.credentials?.dentist.image} alt="user" className="imgUser"/>
                         </div>
                         <div className="dentistRightSide">
-                            <p>NAME : {dentistData.dentist.name} </p>
-                            <p>EMAIL : {dentistData.dentist.email} </p>
-                            <p>PHONE : {dentistData.dentist.phone}</p>
-                            <p>SPECIALITY : {dentistData.dentist.speciality}</p>
-                            <p>CITY : {dentistData.dentist.city}</p>
+                            <p>NAME : {props.credentials?.dentist.name} </p>
+                            <p>EMAIL : {props.credentials?.dentist.email} </p>
+                            <p>PHONE : {props.credentials?.dentist.phone}</p>
+                            <p>SPECIALITY : {props.credentials?.dentist.speciality}</p>
+                            <p>CITY : {props.credentials?.dentist.city}</p>
                             <div className="buttons">
                                 <div className="buttonUpdate">UPDATE</div>
-                                <div className="buttonLogout" onClick={() => logout()}>LOGOUT</div>
+                                <div className="buttonLogout" onClick={() => logOut()}>LOGOUT</div>
                             </div>
                         </div>
                     </div>
@@ -78,4 +81,8 @@ const DentistProfile = () => {
 
 }
 
-export default DentistProfile;
+export default connect((state) => ({
+
+    credentials:state.credentials
+
+    }))(DentistProfile);

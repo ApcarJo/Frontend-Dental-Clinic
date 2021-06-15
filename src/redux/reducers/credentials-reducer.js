@@ -1,7 +1,8 @@
 import {LOGIN, LOGOUT} from '../types';
 
 const initialState = {
-    user : {},
+    client : {},
+    dentist: {},
     token : ''
 };
 
