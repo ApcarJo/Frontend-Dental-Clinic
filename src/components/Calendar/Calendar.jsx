@@ -51,7 +51,7 @@ const romano = (num) => {
 		let x=0, b=0;
 		let principal=1;
 		let dias;
-		let resto;
+		let resto = [];
 
 		//	1 de enero del anyo 1.
 
@@ -68,61 +68,23 @@ const romano = (num) => {
 
 			//Calculo los dias que pasan con los datos x, b, mes1 y dia, mediante un calculo matematico.
 			dias=(b*366)+((x-b)*365)+(dia)+(mes1);
-			resto=dias%7;
+			let i=dias%7;
 
 			/*Los console.log a continuacion me servian para comprobar que el programa realizaba bien los calculos.
 				console.log("\nNumero de años que han pasado: %d", x);
 				console.log("\nNumero de años bisiestos: %d", b);
 				console.log("\nNumero de dias que han pasado: %ld", dias);
 				console.log("\nDia de la semana: %ld", resto); */
-
-			if (resto===1)
-			console.log("\nLunes, ");
-			if (resto===2)
-			console.log("\nMartes, ");
-			if (resto===3)
-			console.log("\nMiercoles, ");
-			if (resto===4)
-			console.log("\nJueves, ");
-			if (resto===5)
-			console.log("\nViernes, ");
-			if (resto===6)
-			console.log("\nSabado, ");
-			if (resto===0)
-			console.log("\nDomingo, ");
+			resto = ["Domingo, ", "Lunes, ", "Martes, ", "Miércoles, ", "Jueves, ", "Viernes", "Sábado"];
+			console.log(resto[i]);
 	}
 
 
 let mese = (mes, dia, mes1, anyo) =>
 	{
 		//Imprimo el mes que hemos dado en la fecha.
-
-		if (mes===1)
-		console.log("Enero");
-		if (mes===2)
-		console.log("Febrero");
-		if (mes===3)
-		console.log("Marzo");
-		if (mes===4)
-		console.log("Abril");
-		if (mes===5)
-		console.log("Mayo");
-		if (mes===6)
-		console.log("Junio");
-		if (mes===7)
-		console.log("Julio");
-		if (mes===8)
-		console.log("Agosto");
-		if (mes===9)
-		console.log("Septiembre");
-		if (mes===10)
-		console.log("Octubre");
-		if (mes===11)
-		console.log("Noviembre");
-		if (mes===12)
-		console.log("Diciembre");
-
-        console.log(" de ");
+		let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+		console.log(arrayMes[mes], "de");
 
 		romano(anyo);
 
@@ -192,6 +154,9 @@ let mese = (mes, dia, mes1, anyo) =>
 
 	console.log("\n\nLun\tMar\tMie\tJue\tVie\tSab\tDom\n");
 
+	a = [1, 2, 3, 4, 5, 6, 7];
+	console.log(a[resto1]);
+	
 	if (resto1===0)
 	{
 	a=1;
@@ -384,9 +349,9 @@ let dia, mes, anyo, mes1,c;
 	// while ((dia<1 || dia>31)||(mes<1 || mes>12)||(anyo<=1 || anyo>=31999));
 
 	//Llamo a las funciones para que haya un orden a la hora de imprimirlo.
-    dia=11;
-    mes=2;
-    anyo=1985;
+    dia=7;
+    mes=5;
+    anyo=2037;
 	mes1=meses(mes, anyo);
 	anyos(anyo, dia, mes1);
 
