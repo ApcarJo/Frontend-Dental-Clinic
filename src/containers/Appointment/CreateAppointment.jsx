@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./CreateAppointment.css";
 import { connect } from 'react-redux';
+import imgAppointment from '../../assets/clinic/createAppointment.jpeg'
+
 
 
 const CreateAppointmnet = (props) => {
@@ -94,9 +96,13 @@ const allClinics = async () => {
 }
 
   return (
+       
     <Fragment>
 
       <div className="contentAppointment">
+      
+        <img src={imgAppointment} alt="img" width="720" />
+     
         <div className="cita">
         
           <div className="inputClinic inputClient">
@@ -117,33 +123,25 @@ const allClinics = async () => {
             </select>
           </div>
 
-          <div className="inputDate inputClient">
-            <input
-              type="date"
-              name="date"
-              title="date"
-              placeholder="Selecciona la Fecha"
-              onChange={updateCredentials}
-              lenght="30"
-            />
+          <div className="timeDate">
+
+                <input className="dateTime" type="date" name="date" title="date" placeholder="Selecciona la Fecha" onChange={updateCredentials} lenght="30"/>
+
+                <input  type="time" name="time" onChange={updateCredentials} />
+
           </div>
 
-          <div className="inputClient inputTime">
-            <input type="time" name="time" onChange={updateCredentials} />
+          <div>
+              <input className="textArea" placeholder="Leave us a message" type="name" name="message" onChange={updateCredentials} />
           </div>
 
-          <div className="inputClient textArea">
-              <input type="name" name="message" onChange={updateCredentials} />
-          </div>
+          <div className="createButton" onClick={() => crearCita()}>Create Appointment</div>
 
-          <div className="sendButton inputClient" onClick={() => crearCita()}>
-            Crear Cita
-          </div>
-
-          <div>{msgError}</div>
+          {/*  <div>{msgError}</div> */}
         </div>
       </div>
-    </Fragment>
+
+      </Fragment>
   );
 };
 
