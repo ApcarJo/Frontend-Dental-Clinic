@@ -81,14 +81,16 @@ const Dentist = (props) => {
             <div className="dentistsAllbyUser"> 
 
                 <h1>DENTISITS</h1>
-                <p>Choose a city :</p>
-                <select type="name" name="city" title="city"  onChange={updateCredentials}>
-                     <option value="">--Please Choose a City-</option>
-                     {allCities.map((cities) => (
-                     <option>{cities}</option>
-                     ))}
-   
-                </select>
+                <div className="choose">
+                    <p>Choose a city :</p>
+                    <select type="name" name="city" title="city"  onChange={updateCredentials}>
+                         <option value="">--Please Choose a City-</option>
+                         {allCities.map((cities) => (
+                         <option>{cities}</option>
+                         ))}
+       
+                    </select>
+                </div>
                 <div className="dentistsContainer">
 
                     {dentists.map((dentist, index) => (
@@ -114,12 +116,16 @@ const Dentist = (props) => {
             <div className="dentistsAllbyUser">
 
                 <h1>DENTISITS</h1>
-                <select type="name" name="city" title="city"  onChange={updateCredentials}>
-                     <option value="">--Please Choose a City-</option>
-                     {allCities.map((cities) => (
-                     <option>{cities}</option>
-                     ))}
-                </select>
+                <div className="choose">
+                    <p>Choose a city :</p>
+                    <select type="name" name="city" title="city"  onChange={updateCredentials}>
+                         <option value="">--Please Choose a City-</option>
+                         {allCities.map((cities) => (
+                         <option>{cities}</option>
+                         ))}
+       
+                    </select>
+                </div>
                 <div className="dentistsContainer">
             </div>
             </div>

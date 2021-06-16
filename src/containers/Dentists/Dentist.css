@@ -1,8 +1,8 @@
 
 .dentistsAllbyUser{
+    margin-top: 1.5em;
     width: 100vw;
     height: 100vh;
-    background-color: #dbf6e9;
 
     display: flex;
     flex-direction: column;
@@ -10,19 +10,26 @@
     justify-content: flex-start;
 }
 
+.choose {
+    width: 100vw;
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .dentistCard {
 
     height: 25em;
-    width: 20em;
+    width: 23em;
     margin: 2em;
-    border-radius: 1em ;
-    border: solid #31326f;
-    background-color: #9ddfd3;
+    background-color:#dfeaf7;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 
 }
 
