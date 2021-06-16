@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
-import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import './ClientProfile.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
@@ -40,7 +39,6 @@ const ClientProfile = (props) => {
 
         return(
             <div className="baseProfile">
-                <ClientNavbar />
                 <div className="clientProfile">
                     <div className="clientDates">
                         <div className="clientLeftSide">
@@ -69,9 +67,9 @@ const ClientProfile = (props) => {
 
         setTimeout(() => {
     
-            history.push("/login")
+            history.push("/")
 
-       }, 2000);
+       });
  
         return(
             <div>

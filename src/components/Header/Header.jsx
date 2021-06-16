@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
 import logo from '../../img/logo.png'
 
+
 const Header = (props) => {
+
 
     const logOut = () => {
 
         props.dispatch({type:LOGOUT});
-
     }
 
     if(props.credentials.client?.name){
@@ -22,9 +23,12 @@ const Header = (props) => {
 
             <div className="headerLinks">
                 <Button path="/" destination="HOME"/>
-                <Button path="/aboutus" destination="ABOUT US"/>
                 <Button path="/clinics" destination="CLINICS"/>
                 <Button path="/contact" destination="CONTACT"/>
+
+                <Button path="/dentists" destination="DENTISTS"/>
+                <Button path="/clientappointments" destination="MY APPOINTMENTS"/>
+                <Button path="/appointments" destination="CREATE APPOINTMENT"/>
             </div>
 
             <div className="headerUser">
@@ -47,6 +51,7 @@ const Header = (props) => {
                 <Button path="/aboutus" destination="ABOUT US"/>
                 <Button path="/clinics" destination="CLINICS"/>
                 <Button path="/contact" destination="CONTACT"/>
+                <Button path="/dentistschedule" destination="MY SCHEDULE"/>
             </div>
 
             <div className="headerUser">

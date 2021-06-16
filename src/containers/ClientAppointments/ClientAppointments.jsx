@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import './ClientAppointments.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -35,7 +34,6 @@ const ClientAppointments = (props) => {
         // si existe, mapeamos los resultados
         return(
             <div className="clientAllAppointmets">
-                <ClientNavbar />
                 <h1>MY APPOINTMENTS</h1>
                 <div className="appointmentsContainer">
                     {clientAppointment.map((appointment, index) => (
