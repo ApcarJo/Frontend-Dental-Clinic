@@ -17,6 +17,9 @@
     height: 6em;
     width: 6em;
 
-    background-color: blue;
+    border: solid 0.1em rgb(79, 69, 255);
+    background-color: rgb(136, 237, 255);
     border-radius: 0.5em;
+    padding: 2em;
+    margin: 0.5em;
 }

@@ -136,15 +136,16 @@ const Calendar = () => {
 		}
 		a++;
 	}
-
+	
 	let diasMes=[];
+	if (resto1!=0){
+		for (let j=0; j<resto1; j++)
+		diasMes.push('');
+	}
+	
 	for (i=1; i<=mesi[mes]; i++){
 		diasMes.push(i);
 	};
-	
-
-
-	i=0;
 	
 	
 	let unidades;
@@ -169,14 +170,7 @@ const Calendar = () => {
 		}
 	}
 
-	let calendarObject = {
-		dia: dia,
-		semana: semana,
-		dias: diasMes,
-		mes: mes,
 
-	}
-	console.log(calendarObject)
 	console.log(arrayDate)
 
 
@@ -191,28 +185,19 @@ return (
 		<div className="drawCalendar">
 
 		{semana.map((semana, index) => (
-
-
 				<div className="" key={index}>
-					
 					<div className="dayBox">
 						<p>{semana} </p>
 						
 					</div>
 				</div>
-
 		))}
 
 		{diasMes.map((diasMes, index) => (
-
-
 			<div className="dayBox" key={index}>
-
 				<div className="texto">
 					<p>{diasMes} </p>
-
 				</div>
-
 		</div>
 		))}
 
