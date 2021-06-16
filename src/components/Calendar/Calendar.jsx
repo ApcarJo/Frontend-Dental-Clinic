@@ -21,6 +21,7 @@ const Calendar = () => {
 		c3: '',
 		date: '',
 		days: '',
+		arrayDate: '',
 		num: ''
     });
 
@@ -41,6 +42,7 @@ const Calendar = () => {
 		a=a-1;
 		let numwrite = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve", "veinte"]
 		arrayDate += numwrite[a];
+		// setDatosUser({...datosUser, arrayDate: numwrite[a]});
 	}
 
 	const dec = (decenas) => {
@@ -178,16 +180,17 @@ const Calendar = () => {
 	const saveData = (dia, mes, anyo) => {
 		let date= dia+'-'+mes+'-'+anyo;
 		console.log(date)
-		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});		
+		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});	
+
 	}
 
 return (
 
 	<div>
-		<input type='number' className='numberBox' name='dia' onChange={updateFormulario} placeholder="dia"></input>
-		<input type='number' className='numberBox' name='mes' onChange={updateFormulario} placeholder="mes"></input>
-		<input type='number' className='numberBox' name='anyo' onChange={updateFormulario} placeholder="anyo"></input>
-		<div type='text' className="writeDate" name='writeDate'>{datosUser.date}{arrayDate}</div>
+		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} placeholder="dia"></input>
+		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} placeholder="mes"></input>
+		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} placeholder="anyo"></input>
+		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
 
 
 		<div className="drawCalendar">
@@ -199,14 +202,12 @@ return (
 		))}
 
 		{diasMes.map((diasMes, index) => (
+
 			<div className="dayBox" id={index} key={index} onClick={()=>saveData(index, mes, anyo)}>
 					<p>{diasMes} </p>
-		</div>
-		))}
+			</div>
 
-
-
-			
+		))}	
 			
 		</div>
 	</div>
