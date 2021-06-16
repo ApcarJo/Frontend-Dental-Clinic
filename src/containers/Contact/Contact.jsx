@@ -8,7 +8,7 @@ const Contact = () => {
 
         <div className="contact">
 
-            <h1>CONTACT US</h1>
+            <h1>How can we help?</h1>
 
         <div className="contactContainter"> 
 
@@ -17,7 +17,7 @@ const Contact = () => {
                <input className="inputForm" id="fname" name="fname" required="required" placeholder="Name"/>
                <input className="inputForm" id="email" name="email" required="required" placeholder="Email" />
                <input className="inputForm" id="phone" name="phone" required="required" placeholder="Phone"/>
-               <textarea name="message" cols="50" rows="10" placeholder="Type your text here"></textarea>
+               <textarea className="text" name="message" cols="50" rows="10" placeholder="Type your text here"></textarea>
                <button className="formButton" onclick="Enviar()" type="button" >Send</button>
 
             </div>
