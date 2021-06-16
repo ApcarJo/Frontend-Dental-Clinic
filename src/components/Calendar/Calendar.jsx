@@ -108,12 +108,8 @@ const Calendar = () => {
 		if(i<0)
 		i=6;
 		semana = ["L", "M", "X", "J", "V", "S", "D"];
-		// semana2 = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
-		arrayDate = semana[i];
-		
-
-		let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-		arrayDate += (arrayMes[mes-1]);
+		let semana2 = ["Lunes ", "Martes ", "Miércoles ", "Jueves ", "Viernes ", "Sábado ", "Domingo "];
+		arrayDate = semana2[i];
 
 		dias=(b*366)+((x-b)*365)+(dia)+(mes1);
 
@@ -177,6 +173,9 @@ const Calendar = () => {
 			unid(unidades);
 		}
 	}
+	let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
+	// let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+		arrayDate += (arrayMes[mes-1]);
 
 
 	console.log(arrayDate)
@@ -185,7 +184,7 @@ const Calendar = () => {
 		if (dia!==''){
 		let date= dia+'-'+mes+'-'+anyo;
 		// setDatosUser({...datosUser, date: date});	
-		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});	
+		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});
 		}
 		else{
 			console.log("ahí no")
@@ -213,6 +212,53 @@ const Calendar = () => {
 	// 	}
 	// }
 
+	const cifra = (num, c1, c2, c3) => {
+		let j, romanoNum = [];
+	
+		if (num === 9) {
+			romanoNum.push(c1, c3);
+			console.log(c1, c3);
+		} else if (num > 4){
+			romanoNum.push(c2);
+			console.log(c2);
+
+			for(j=1; j<=num-5; j++) {
+				romanoNum.push(c1);
+				console.log(c1);
+			}
+
+		} else if (num === 4) {
+			romanoNum.push(c1, c2);
+			console.log(c1, c2);
+		} else {
+			for(j=1; j<=num; j++){
+				romanoNum.push(c1);
+				console.log(c1);
+			}
+		}
+		return romanoNum;
+	}
+	
+	const romano = (num) => {
+
+		// Separar cada cifra del numero introducido
+		let mil=num/1000;
+		let cen=(num%1000)/100;
+		let dec=(num%100)/10;
+		let uni=num%10;
+		let romanoNum2 =[]
+		// Hacer una llamada a la funcion por cada cifra del numero
+		romanoNum2.push(cifra(mil, 'M', ' ', ' '));
+		romanoNum2.push(cifra(cen, 'C', 'D', 'M'));
+		romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
+		romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
+
+	}
+
+	let romanoNum = romano(anyo);
+	
+	
+
 	const selectMonthArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 	
 	let newDate = new Date();
@@ -229,45 +275,38 @@ return (
 			{/* <select className="selectMonth" type="number" name="dia" onChange={updateFormulario}>
     	    		{mesDias.map((valor) => (<option>{valor}</option>))}
     	    </select> */}
-			
-				<select className="selectMonth" type="number" name="mes" onChange={updateFormulario}>
-    	             {selectMonthArray.map((valor) => (<option>{valor}</option>))}
-    	        </select>
-				
-				<select className="selectMonth" type="name" name="dia"  onChange={updateFormulario}>
-    	             {selectAnyo.map((valor) => (<option>{valor}</option>))}
-    	        </select>
 
+			<select className="selectMonth" type="number" name="mes" onChange={updateFormulario}>
+    	         {selectMonthArray.map((valor) => (<option>{valor}</option>))}
+    	    </select>
+			
+			<select className="selectMonth" type="name" name="dia"  onChange={updateFormulario}>
+    	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
+    	    </select>
+		</div>
 			{/*// DEPRECATED*/}
 			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>
 			<div>{errors.eDia}</div>
 			<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")} placeholder="mes" defaultValue={monthy}></input>
-			<div>{errors.eMes}</div>
-			<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} onBlur={()=>checkError("anyo")} placeholder="anyo" defaultValue={year}></input>
-			<div>{errors.eAnyo}</div> */}
+			<div>{errors.eMes}</div>*/}
+			<input type='text' className='numberBox' name='anyo' onChange={updateFormulario}  placeholder="anyo" defaultValue={year}></input>
+			<div>{errors.eAnyo}</div> 
 			
-			<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
-
-
-			<div className="drawCalendar">
-
+		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
+		<div className="drawCalendar">
 			{semana.map((semana, index) => (
 					<div className="dayBox" key={index}>
 							<p>{semana}</p>
 					</div>
 			))}
-
 			{diasMes.map((diasMes, index) => (
-
 				<div className="dayBox" id={index} key={index} onClick={()=>saveData(diasMes, mes, anyo)}>
 						<p>{diasMes} </p>
 				</div>
-
 			))}	
-
-			</div>
 		</div>
 	</div>
+
 )
 
 }
