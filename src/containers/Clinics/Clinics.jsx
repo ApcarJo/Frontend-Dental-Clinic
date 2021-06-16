@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import './Clinics.css';
 import axios from 'axios';
 // import Map from '../../components/Map/Map';
-import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 
 const Clinics = () => {
 
@@ -43,7 +42,6 @@ const Clinics = () => {
         return (
 
             <div className="allContent">
-            <ClientNavbar />
             {/* <div className="vistaLogin">
                 <Boton destino="Login" path="/login"/>
                 <Boton destino="Registers" path="registers"/>
@@ -58,7 +56,7 @@ const Clinics = () => {
                     <div className="content">
                         <div className="" key={index}>
                         <img src={clinic.image} className="salas" alt="salas"/>
-                            <div className="">
+                            <div className="texto">
                                 <p>Nombre: {clinic.name} </p>
                                 <p>Ciudad: {clinic.city}</p>
                                 <p>Dirección: {clinic.adress} </p>

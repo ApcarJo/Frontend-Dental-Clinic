@@ -14,9 +14,9 @@
     width: 20em;
     margin: 2em;
     border-radius: 1em ;
-    border: solid #31326f;
+    border: 1.7px solid #6f6d6d;
     background-color: #9ddfd3;
-
+    box-shadow: 0em 0em 0.1em 0.1em rgb(162, 160, 160);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,8 +31,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    right: -7.6em;
-    bottom: 1em;
+    line-height: 1.5;
 }
 .clinicChoose {
     display: flex;
@@ -48,9 +47,9 @@
     position: relative;
     border-radius: 0.6em;
     width: 12em;
-    bottom: 0em;
+    bottom: 2em;
     height: 9em;
-    left: 1.4em;
+    right: -1em;
 }
 
 .enviar {
@@ -60,7 +59,7 @@
     border-radius: 0.3em;
     width: 12em;
     background-color: #9ddfd3;
-    top: 0em;
+    top: 1.5em;
     right: -1em;
     cursor: pointer;
     height: 2.5em;

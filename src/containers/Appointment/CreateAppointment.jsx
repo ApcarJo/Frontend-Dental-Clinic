@@ -2,7 +2,6 @@ import React, { useState, Fragment, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./CreateAppointment.css";
-import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import { connect } from 'react-redux';
 
 
@@ -106,7 +105,6 @@ const selectClinic = () => {
 
   return (
     <Fragment>
-      <ClientNavbar />
 
       <div className="contentAppointment">
         <div className="cita">

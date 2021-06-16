@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import DentistNavbar from '../../components/DentistNavbar/DentistNavbar';
 import './DentistSchedule.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -46,7 +45,6 @@ const DentistSchedule = (props) => {
                 // si existe, mapeamos los resultados
                 return(
                     <div className="dentistSchedule">
-                        <DentistNavbar />
                         <h1>MY SCHEDULE</h1>
                         <div>SELECCIONE LA FECHA</div>
 

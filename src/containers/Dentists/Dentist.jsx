@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import ClientNavbar from '../../components/ClientNavbar/ClientNavbar';
 import './Dentist.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -55,7 +54,6 @@ const Dentist = (props) => {
 
             <div className="dentistsAllbyUser"> 
 
-                <ClientNavbar />
                 <h1>DENTISITS</h1>
                 <p>Choose a city :</p>
                 <select type="name" name="city" title="city"  onChange={updateCredentials}>
@@ -87,7 +85,7 @@ const Dentist = (props) => {
 
         return(
             <div className="dentistsAllbyUser">
-                <ClientNavbar />
+
                 <h1>DENTISITS</h1>
                 <select type="name" name="city" title="city"  onChange={updateCredentials}>
                      <option value="">--Please Choose a City-</option>
