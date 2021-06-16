@@ -136,14 +136,14 @@ const Calendar = () => {
 		}
 		a++;
 	}
-	
+
 	let diasMes=[];
 	if (resto1!=0){
 		for (let j=0; j<resto1; j++)
 		diasMes.push('');
 	}
 	
-	for (i=1; i<=mesi[mes]; i++){
+	for (i=1; i<=mesi[mes-1]; i++){
 		diasMes.push(i);
 	};
 	
