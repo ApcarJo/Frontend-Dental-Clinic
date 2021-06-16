@@ -110,17 +110,14 @@ const Calendar = () => {
 		semana = ["L", "M", "X", "J", "V", "S", "D"];
 		// semana2 = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 		arrayDate = semana[i];
+		
 
 		let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 		arrayDate += (arrayMes[mes-1]);
 
-		let resto1=0;
-		dias=0;
-		
-
 		dias=(b*366)+((x-b)*365)+(dia)+(mes1);
 
-		resto1=(dias-dia)%7;
+		let resto1=(dias-dia)%7;
 		
 		if (resto1<0) {
 			resto1=resto1*-1;
@@ -183,8 +180,14 @@ const Calendar = () => {
 	console.log(arrayDate)
 
 	const saveData = (dia, mes, anyo) => {
+		if (dia!=null){
 		let date= dia+'-'+mes+'-'+anyo;
+		// setDatosUser({...datosUser, date: date});	
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});	
+		}
+		else{
+			console.log("ahí no")
+		}
 
 	}
 
@@ -212,11 +215,11 @@ const Calendar = () => {
 return (
 
 	<div>
-		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia"></input>
+		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue="16"></input>
 		<div>{errors.eDia}</div>
-		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")}placeholder="mes"></input>
+		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")} placeholder="mes" defaultValue="6"></input>
 		<div>{errors.eMes}</div>
-		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} onBlur={()=>checkError("anyo")}placeholder="anyo"></input>
+		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} onBlur={()=>checkError("anyo")} placeholder="anyo" defaultValue="2021"></input>
 		<div>{errors.eAnyo}</div>
 		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
 
@@ -231,7 +234,7 @@ return (
 
 		{diasMes.map((diasMes, index) => (
 
-			<div className="dayBox" id={index} key={index} onClick={()=>saveData(index, mes, anyo)}>
+			<div className="dayBox" id={index} key={index} onClick={()=>saveData(diasMes, mes, anyo)}>
 					<p>{diasMes} </p>
 			</div>
 
