@@ -18,16 +18,22 @@ const CreateAppointmnet = (props) => {
     message: ""
   });
 
+  const [dentist, setDentist] = useState([]);
+
+  const [clinics, setClinics] = useState([]);
+
   const [msgError, setMensajeError] = useState(false);
 
 
   useEffect( () => {
 
+    allDentists ();
+    allClinics();
+
   }, []);
 
   useEffect( () => {
 
-    crearCita();
   });
 
   //Handlers
@@ -46,7 +52,7 @@ const CreateAppointmnet = (props) => {
     
     let body = {
       client: user._id,
-      clinic: datos.clinic._id,
+      clinic: datos.clinic,
       dentist: datos.dentist,
       date: datos.date,
       message: datos.message
@@ -69,38 +75,22 @@ const CreateAppointmnet = (props) => {
 
 };
 
-const selectClinic = () => {
+const allDentists = async () => {
 
-  let dentival =  "60b653c5c75e9e233617715e";
-  let dental_shine = "60b6597d1249962618753931";
-  let vitaldent = "60bbac205fb3824f0cd8f274";
-  let clinica_dental_andres = "60bb5e51ce1da1086f556d20";
+  let token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjBiYjk5MWJhOGIxZDIyYjFjYjkyYTg4IiwiY3JlYXRlZEF0IjoiMjAyMS0wNi0xNlQxMTo0MDozNS40OTJaIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjIzODQzNjM1fQ.3SQqq6rlsau6XEIf6dVe8VJIR9hXyeSjj8ouy3jjXCE";
+  
+  let result = await axios.get('http://localhost:3006/dentists', {headers:{'authorization':'Bearer ' + token}});
 
+  setDentist(result.data)
 
-      switch((dentival, dental_shine)) {
+}
 
-        case dentival:
-            if(datos.clinic === dentival){
-              console.log('here', dentival);
-              return(dentival);
-      }else{
-          console.log('error');
-      }
-        console.log('dentival', dentival);
-          break;
-          case dental_shine:
-            console.log('dental_shine', dental_shine);
-            break;
-        case vitaldent:
-          console.log('vitaldent', vitaldent);
-          break;
-          case clinica_dental_andres:
-          console.log('clinica andres', clinica_dental_andres);
-          break;
-        default:
-        console.log('pruebas');
+const allClinics = async () => {
 
-   }
+  let result = await axios.get('http://localhost:3006/clinics')
+
+  setClinics(result.data)
+
 }
 
   return (
@@ -108,49 +98,25 @@ const selectClinic = () => {
 
       <div className="contentAppointment">
         <div className="cita">
-          <div className="inputClient">
-            <input
-              type="name"
-              name="client"
-              title="client"
-              placeholder="Nombre del Paciente"
-              onChange={updateCredentials}
-              lenght="30"
-            />
-          </div>
+        
           <div className="inputClinic inputClient">
-            <select type="name" name="city" title="city" onChange={updateCredentials}>
-                <option value="timeDropList">--Please Choose a Clinic-</option>
-                <option value="dentival" onBlur={() => selectClinic("dentival")}>Dentival</option>
-                <option value="dental_shine">Dentalshine</option>
-                <option value="vitaldent">Vitaldent</option>
-                <option value="clinica dental andres">Clinica Dental Andrés</option>
+            <select type="name" name="clinic" title="clinic" onChange={updateCredentials}>
+                <option value="">--Please Choose a Clinic-</option>
+                  {clinics.map((clinic) => (
+                <option value={clinic._id}>{clinic.name}</option>
+                ))}
             </select>
-            {/* <input
-                    type='password'
-                    name='clinic'
-                    title='clinic'
-                    placeholder="Selecciona una Clinica"
-                    onChange={updateCredentials} lenght='30'
-                /> */}
           </div>
+
           <div className="inputDentist inputClient">
-            <select type="name" name="city" title="city" onChange={updateCredentials}>
-                <option value="timeDropList">--Please Choose a Dentist-</option>
-                <option value="javier">Javier</option>
-                <option value="guillermo">Guillermo</option>
-                <option value="maria">Maria</option>
-                <option value="alfredo">Alefredo</option>
-                <option value="laura">Laura</option>
+            <select type="name" name="dentist" title="dentist" onChange={updateCredentials}>
+                <option value="">--Please Choose a Dentist-</option>
+                     {dentist.map((dentist) => (
+                <option value={dentist._id}>{dentist.name}</option>
+                ))}
             </select>
-            {/* <input
-                    type='name'
-                    name='dentist'
-                    title='dentist'
-                    placeholder="Selecciona a tu Dentista"
-                    onChange={updateCredentials} lenght='30'
-                /> */}
           </div>
+
           <div className="inputDate inputClient">
             <input
               type="date"
@@ -161,22 +127,19 @@ const selectClinic = () => {
               lenght="30"
             />
           </div>
+
           <div className="inputClient inputTime">
-            <input
-                  type="time"
-                  name="hora"
-                  onChange={updateCredentials}
-              />
+            <input type="time" name="time" onChange={updateCredentials} />
           </div>
+
           <div className="inputClient textArea">
-              <textarea
-                name="sintomas"
-                onChange={updateCredentials}
-              ></textarea>
+              <input type="name" name="message" onChange={updateCredentials} />
           </div>
+
           <div className="sendButton inputClient" onClick={() => crearCita()}>
             Crear Cita
           </div>
+
           <div>{msgError}</div>
         </div>
       </div>
