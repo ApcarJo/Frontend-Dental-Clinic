@@ -25,6 +25,12 @@ const Calendar = () => {
 		num: ''
     });
 
+	const [errors, setErrors] = useState({
+        eDia: '',
+        eMes: '',
+        eAnyo: ''
+    });
+
 	//HANDLER
 	const updateFormulario = (e) => {
         setDatosUser({...datosUser, [e.target.name]: e.target.value})
@@ -184,10 +190,23 @@ const Calendar = () => {
 
 	}
 
+	const checkError = (arg) => {
+		switch (arg){
+			case 'dia':
+				if (dia<0||dia>31)
+				break;
+			case 'mes':
+				break;
+			case 'anyo':
+				break;
+		}
+
+	}
+
 return (
 
 	<div>
-		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} placeholder="dia"></input>
+		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="dia"></input>
 		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} placeholder="mes"></input>
 		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} placeholder="anyo"></input>
 		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
