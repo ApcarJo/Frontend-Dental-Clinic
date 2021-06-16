@@ -210,8 +210,8 @@ const Calendar = () => {
 	}
 
 return (
-<div>
-	<div className='inputsCalendar'>
+
+	<div>
 		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia"></input>
 		<div>{errors.eDia}</div>
 		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")}placeholder="mes"></input>
@@ -219,9 +219,8 @@ return (
 		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} onBlur={()=>checkError("anyo")}placeholder="anyo"></input>
 		<div>{errors.eAnyo}</div>
 		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
-	</div>
 
-	<div>
+
 		<div className="drawCalendar">
 
 		{semana.map((semana, index) => (
@@ -239,8 +238,6 @@ return (
 		))}	
 			
 		</div>
-	
-	</div>
 	</div>
 )
 
