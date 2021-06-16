@@ -1,0 +1,19 @@
+
+.drawCalendar {
+    display: grid;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    grid-template-columns: repeat(7, 0.5fr);
+    grid-template-rows: repeat(6, 0.2fr);
+}
+
+.dayBox {
+    height: 6em;
+    width: 6em;
+
+    background-color: yellow;
+    border-radius: 100%;
+}

@@ -7,9 +7,9 @@ const Calendar = () => {
 	//HOOK
 	const [datosUser,setDatosUser] = useState(
         {
-        dia:'',
-        mes:'',
-        anyo:'',
+        dia:'16',
+        mes:'6',
+        anyo:'2021',
         mes1:'',
         mese: '',
 		resto1: '',
@@ -18,6 +18,8 @@ const Calendar = () => {
 		c1: '',
 		c2: '',
 		c3: '',
+		date: '',
+		days: '',
 		num: ''
     });
 
@@ -58,23 +60,23 @@ const Calendar = () => {
  
 
 
-const romano = (num) => {
-    let mil, cen, dec, uni;
+	const romano = (num) => {
+	    let mil, cen, dec, uni;
 
-    //console.log("%d\n", num);
+	    //console.log("%d\n", num);
 
-    // Separar cada cifra del numero letroducido
-    mil=num/1000;
-    cen=(num%1000)/100;
-    dec=(num%100)/10;
-    uni=num%10;
+	    // Separar cada cifra del numero introducido
+	    mil=num/1000;
+	    cen=(num%1000)/100;
+	    dec=(num%100)/10;
+	    uni=num%10;
 
-    // Hacer una llamada a la funcion por cada cifra del numero
-    cifra(mil, 'M', ' ', ' ');
-    cifra(cen, 'C', 'D', 'M');
-    cifra(dec, 'X', 'L', 'C');
-    cifra(uni, 'I', 'V', 'X');
-    }
+	    // Hacer una llamada a la funcion por cada cifra del numero
+	    cifra(mil, 'M', ' ', ' ');
+	    cifra(cen, 'C', 'D', 'M');
+	    cifra(dec, 'X', 'L', 'C');
+	    cifra(uni, 'I', 'V', 'X');
+	}
 
 
     const anyos = (anyo, dia, mes1) => {
@@ -111,15 +113,13 @@ const romano = (num) => {
 	}
 
 
-let mese = (mes, dia, mes1, anyo) =>
-	{
+	let mese = (mes, dia, mes1, anyo) => {
 		//Imprimo el mes que hemos dado en la fecha.
 		
 		let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 		console.log(arrayMes[mes-1], "de");
 
 		romano(anyo);
-
 
 		//Inicio el vector mesi[], y dos contadores,'a' e 'i', que utilizare mas adelante.
 
@@ -147,30 +147,28 @@ let mese = (mes, dia, mes1, anyo) =>
 			el dia 1 de cada mes cuando queria que iniciara el contador 'a' en
 			funcion del dia de la semana para poner las tabulaciones. */
 
-	let x=0;
-	let b=0;
-	let resto=0;
-	let resto1=0;
-	let dias=0;
-	let principal=1;
+		let x=0;
+		let b=0;
+		let resto=0;
+		let resto1=0;
+		let dias=0;
+		let principal=1;
 
-	for (principal=1; principal<anyo; principal++)
-		{
-				x++;
-			if ((principal%4===0 && principal%100!==0) || (principal%400===0))
-					{
-					b++;
-					}
+		for (principal=1; principal<anyo; principal++) {
+			x++;
+			if ((principal%4===0 && principal%100!==0) || (principal%400===0)) {
+				b++;
+			}
 		}
-			dias=(b*366)+((x-b)*365)+(dia)+(mes1);
+		dias=(b*366)+((x-b)*365)+(dia)+(mes1);
 
-	//Calculo el dia de la semaba para el dia 1 de dicho mes.
+		//Calculo el dia de la semaba para el dia 1 de dicho mes.
 
-			resto1=(dias-dia)%7;
-			if (resto1<0)
-				{
-				resto1=resto1*-1;
-				}
+		resto1=(dias-dia)%7;
+		
+		if (resto1<0) {
+			resto1=resto1*-1;
+		}
 
 	/*Los console.log a continuacion me servian para comprobar que el programa realizaba bien los calculos.
 
@@ -184,45 +182,44 @@ let mese = (mes, dia, mes1, anyo) =>
 	para la correcta posicion de los dias del mes conforme a los dias de la semana.
 	*/
 
-	console.log("\n\nLun\tMar\tMie\tJue\tVie\tSab\tDom\n");
+		console.log("\n\nLun\tMar\tMie\tJue\tVie\tSab\tDom\n");
 
-	a = [1, 2, 3, 4, 5, 6, 7];
-	console.log(a[resto1]);
-	
-	if (resto1===0)
-	{
-	a=1;
-	}
-	if (resto1===1)
-	{
-	console.log("\t");
-	a=2;
-	}
-	if (resto1===2)
-	{
-	console.log("\t\t");
-	a=3;
-	}
-	if (resto1===3)
-	{
-	console.log("\t\t\t");
-	a=4;
-	}
-	if (resto1===4)
-	{
-	console.log("\t\t\t\t");
-	a=5;
-	}
-	if (resto1===5)
-	{
-	console.log("\t\t\t\t\t");
-	a=6;
-	}
-	if (resto1===6)
-	{
-	console.log("\t\t\t\t\t\t");
-	a=7;
-	}            
+		a = [1, 2, 3, 4, 5, 6, 7];
+		
+		if (resto1===0)
+		{
+		a=1;
+		}
+		if (resto1===1)
+		{
+		console.log("\t");
+		a=2;
+		}
+		if (resto1===2)
+		{
+		console.log("\t\t");
+		a=3;
+		}
+		if (resto1===3)
+		{
+		console.log("\t\t\t");
+		a=4;
+		}
+		if (resto1===4)
+		{
+		console.log("\t\t\t\t");
+		a=5;
+		}
+		if (resto1===5)
+		{
+		console.log("\t\t\t\t\t");
+		a=6;
+		}
+		if (resto1===6)
+		{
+		console.log("\t\t\t\t\t\t");
+		a=7;
+		}            
 
 	/* Con esto imprimo los dias del mes y marco el dia del mes que hemos
 	 letroducido en la fecha con un arterisco. */
@@ -274,6 +271,8 @@ const meses = (mes, anyo) => {
 
 	//Devuelvo la cantidad de dias calculada citada anteriormente.
 
+	// setDatosUser({...datosUser, days: days});
+
 	return days;
 
 }
@@ -283,8 +282,7 @@ const meses = (mes, anyo) => {
 		que me escriba en letras el dia que hemos dado en la fecha.
 		Con la consecuente limitacion logica de 3x. */
 
-const men20 = (a) =>
-	{
+const men20 = (a) => {
 		a=a-1;
 		let numwrite = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve", "veinte"]
 		console.log(numwrite[a]);
@@ -312,6 +310,7 @@ const unid = (unidades) => {
 	let arrayNum = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"]
 	unidades=unidades-1;
 	console.log(arrayNum[unidades])
+	
 }
 
 let dia, mes, anyo, mes1,c;
@@ -394,6 +393,49 @@ return (
 		<input type='number' className='numberBox' name='dia' onChange={updateFormulario} placeholder="dia"></input>
 		<input type='number' className='numberBox' name='mes' onChange={updateFormulario} placeholder="mes"></input>
 		<input type='number' className='numberBox' name='anyo' onChange={updateFormulario} placeholder="anyo"></input>
+
+
+		<div className="drawCalendar">
+			<div className="dayBox">Lunes</div>
+			<div className="dayBox">Martes</div>
+			<div className="dayBox">Miércoles</div>
+			<div className="dayBox">Jueves</div>
+			<div className="dayBox">Viernes</div>
+			<div className="dayBox">Sábado</div>
+			<div className="dayBox">Domingo</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			<div className="dayBox">Hola</div>
+			
+		</div>
 	</div>
 )
 
