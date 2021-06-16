@@ -61,11 +61,9 @@ const DentistProfile = (props) => {
             </div> )
     } else {
 
-        setTimeout(() => {
-    
-            history.push("/login")
 
-       }, 2000);
+        history.push("/")
+
  
         return(
             <div>
