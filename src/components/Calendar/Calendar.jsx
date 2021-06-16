@@ -37,8 +37,6 @@ const Calendar = () => {
 
 	});
 
-	
-
 	const men20 = (a) => {
 		a=a-1;
 		let numwrite = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince", "dieciseis", "diecisiete", "dieciocho", "diecinueve", "veinte"]
@@ -99,7 +97,11 @@ const Calendar = () => {
 		let mes1=days;
 		dias=(b*366)+((x-b)*365)+(dia)+(mes1);
 		let i=dias%7-1;
-		semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+		if(i<0)
+		i=6;
+		console.log(i, "esto est")
+		semana = ["L", "M", "X", "J", "V", "S", "D"];
+		// semana2 = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 		arrayDate = semana[i];
 
 		let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -173,9 +175,10 @@ const Calendar = () => {
 
 	console.log(arrayDate)
 
-	const saveData = () => {
-		let and= this.id;
-		console.log(and);
+	const saveData = (dia, mes, anyo) => {
+		let date= dia+'-'+mes+'-'+anyo;
+		console.log(date)
+		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});		
 	}
 
 return (
@@ -184,6 +187,7 @@ return (
 		<input type='number' className='numberBox' name='dia' onChange={updateFormulario} placeholder="dia"></input>
 		<input type='number' className='numberBox' name='mes' onChange={updateFormulario} placeholder="mes"></input>
 		<input type='number' className='numberBox' name='anyo' onChange={updateFormulario} placeholder="anyo"></input>
+		<div type='text' className="writeDate" name='writeDate'>{datosUser.date}{arrayDate}</div>
 
 
 		<div className="drawCalendar">
@@ -195,10 +199,12 @@ return (
 		))}
 
 		{diasMes.map((diasMes, index) => (
-			<div className="dayBox" id={index} key={index} onClick={()=>saveData()}>
+			<div className="dayBox" id={index} key={index} onClick={()=>saveData(index, mes, anyo)}>
 					<p>{diasMes} </p>
 		</div>
 		))}
+
+
 
 			
 			
