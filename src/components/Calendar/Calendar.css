@@ -38,5 +38,9 @@
 
 .numberBox {
     width: 5em;
+    outline: none;
+    border: none;
+    border-bottom: solid 0.1em red;
+    
 }
 

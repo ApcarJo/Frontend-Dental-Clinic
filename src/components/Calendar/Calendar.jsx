@@ -107,7 +107,6 @@ const Calendar = () => {
 		let i=dias%7-1;
 		if(i<0)
 		i=6;
-		console.log(i, "esto est")
 		semana = ["L", "M", "X", "J", "V", "S", "D"];
 		// semana2 = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
 		arrayDate = semana[i];
@@ -185,7 +184,6 @@ const Calendar = () => {
 
 	const saveData = (dia, mes, anyo) => {
 		let date= dia+'-'+mes+'-'+anyo;
-		console.log(date)
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});	
 
 	}
@@ -193,25 +191,37 @@ const Calendar = () => {
 	const checkError = (arg) => {
 		switch (arg){
 			case 'dia':
-				if (dia<0||dia>31)
+				if (dia<0||dia>31){
+					setErrors({...errors, eDia: 'Introduce un dia válido'});
+				}
 				break;
 			case 'mes':
+				if (mes<0||mes>12){
+					setErrors({...errors, eMes: 'Introduce un mes válido'});
+				}
 				break;
 			case 'anyo':
+				if (anyo<0){
+					setErrors({...errors, eAnyo: 'Introduce un anyo válido'});
+				}
 				break;
 		}
 
 	}
 
 return (
+<div>
+	<div className='inputsCalendar'>
+		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia"></input>
+		<div>{errors.eDia}</div>
+		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")}placeholder="mes"></input>
+		<div>{errors.eMes}</div>
+		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} onBlur={()=>checkError("anyo")}placeholder="anyo"></input>
+		<div>{errors.eAnyo}</div>
+		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
+	</div>
 
 	<div>
-		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="dia"></input>
-		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} placeholder="mes"></input>
-		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} placeholder="anyo"></input>
-		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
-
-
 		<div className="drawCalendar">
 
 		{semana.map((semana, index) => (
@@ -229,6 +239,8 @@ return (
 		))}	
 			
 		</div>
+	
+	</div>
 	</div>
 )
 
