@@ -1,0 +1,84 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 90vw;
+    bottom: 0;
+    border-bottom: 1.9px solid #c7c7c7;
+    border-top: 1.9px solid #c7c7c7;
+    border-left: none;
+    border-right: none;
+    top: -0.5em;
+}
+.tooth {
+    display: flex;
+    position: relative;
+    color: rgb(96, 93, 93);
+    right: 2.8em;
+}
+
+.containerAll {
+    max-width: 500px;
+}
+
+.footerBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 11em;
+    right: 6em;
+}
+.column1 {
+    display: flex;
+    position: relative;
+    width: 250%;
+    right: 11em;
+    top: -1em;
+}
+
+.titleFooter {
+    display: flex;
+    position: relative;
+    width: 21em;
+    left: 4.5em;
+}
+.parFooter {
+    display: flex;
+    position: relative;
+    top: 4.5em;
+    left: -13em;
+}
+.column2 {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    left: 9em;
+    top: -2.5em;
+}
+.phone{
+    display: flex;
+    position: relative;
+    top: 1.3em;
+    right: 1em;
+    color: rgb(63, 59, 59);
+    cursor: pointer;
+}
+.footerContact {
+    display: flex;
+    position: relative;
+    right: 8em;
+    color: rgb(58, 55, 55);
+}
+
+.buttonContact {
+    display: flex;
+    position: relative;
+    top: 2.4em;
+    left: 2.4em;
+    color: black;
+    cursor: pointer;
+    font-size: 1.3em;
+}

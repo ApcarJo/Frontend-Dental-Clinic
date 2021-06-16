@@ -18,6 +18,7 @@ import Home from './containers/Home/Home';
 import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
 import DentistSchedule from './containers/DentistSchedule/DentistSchedule';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -49,7 +50,7 @@ function App() {
  
     
           </Switch>
-        
+          <Footer />
         </BrowserRouter>
 
     </div>
