@@ -14,12 +14,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6em;
-    width: 6em;
+    height: 4em;
+    width: 4em;
+    box-sizing: border-box;
+    overflow: hidden;
 
-    border: solid 0.1em rgb(79, 69, 255);
+    border-bottom: solid 0.05em rgb(79, 69, 255);
     background-color: rgb(136, 237, 255);
-    border-radius: 0.5em;
-    padding: 2em;
-    margin: 0.5em;
+    font-size: small;
+    transition: 0.2s;
 }
+
+.dayBox:focus{
+    background-color: red;
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dayBox:hover{
+    background-color: white;
+    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+

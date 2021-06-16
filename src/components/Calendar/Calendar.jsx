@@ -118,7 +118,7 @@ const Calendar = () => {
 		}
 
 
-		let a = [' ', "\t", "\t\t", "\t\t\t", "\t\t\t\t", "\t\t\t\t\t", "\t\t\t\t\t\t"];
+		let a;
 
 
 	for (i=1; i<=mesi[mes-1]; i++)
@@ -173,6 +173,10 @@ const Calendar = () => {
 
 	console.log(arrayDate)
 
+	const saveData = () => {
+		let and= this.id;
+		console.log(and);
+	}
 
 return (
 
@@ -185,19 +189,14 @@ return (
 		<div className="drawCalendar">
 
 		{semana.map((semana, index) => (
-				<div className="" key={index}>
-					<div className="dayBox">
-						<p>{semana} </p>
-						
-					</div>
+				<div className="dayBox" key={index}>
+						<p>{semana}</p>
 				</div>
 		))}
 
 		{diasMes.map((diasMes, index) => (
-			<div className="dayBox" key={index}>
-				<div className="texto">
+			<div className="dayBox" id={index} key={index} onClick={()=>saveData()}>
 					<p>{diasMes} </p>
-				</div>
 		</div>
 		))}
 
