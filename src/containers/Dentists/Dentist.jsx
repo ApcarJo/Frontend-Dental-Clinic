@@ -9,19 +9,45 @@ const Dentist = (props) => {
     //hooks
     const [dentists, setDentists] = useState({});
     const [city, setCity] = useState({city: ""});
+    const [allCities, setAllCities] = useState([]);
 
     useEffect( () => {
 
-
+        cities();
+ 
     }, [])
 
     useEffect( () => {
-        searchDentists();
+
+       searchDentists();
+
     })
 
     const updateCredentials = (e) => {
         setCity({ ...city, [e.target.name]: e.target.value });
     };
+
+    const cities = async () => {
+
+        let token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjBiYjk5MWJhOGIxZDIyYjFjYjkyYTg4IiwiY3JlYXRlZEF0IjoiMjAyMS0wNi0xNlQxMTo0MDozNS40OTJaIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjIzODQzNjM1fQ.3SQqq6rlsau6XEIf6dVe8VJIR9hXyeSjj8ouy3jjXCE";
+        
+        let result = await axios.get('http://localhost:3006/dentists', {headers:{'authorization':'Bearer ' + token}});
+        let arrayCity = [];
+
+       for(let i=0; i< result.data.length; i++){
+           
+           arrayCity.push(result.data[i].city)
+       }
+
+       const onlyUnique = (value, index, self) => {
+        return self.indexOf(value) === index;
+      }
+
+       let arrayCityUnique = arrayCity.filter(onlyUnique);
+
+       setAllCities(arrayCityUnique)
+
+    }
 
     const searchDentists = async () => {
 
@@ -58,9 +84,10 @@ const Dentist = (props) => {
                 <p>Choose a city :</p>
                 <select type="name" name="city" title="city"  onChange={updateCredentials}>
                      <option value="">--Please Choose a City-</option>
-                     <option>Valencia</option>
-                     <option>Castellon</option>
-                     <option>Barcelona</option>
+                     {allCities.map((cities) => (
+                     <option>{cities}</option>
+                     ))}
+   
                 </select>
                 <div className="dentistsContainer">
 
@@ -89,9 +116,9 @@ const Dentist = (props) => {
                 <h1>DENTISITS</h1>
                 <select type="name" name="city" title="city"  onChange={updateCredentials}>
                      <option value="">--Please Choose a City-</option>
-                     <option>Valencia</option>
-                     <option>Castellon</option>
-                     <option>Barcelona</option>
+                     {allCities.map((cities) => (
+                     <option>{cities}</option>
+                     ))}
                 </select>
                 <div className="dentistsContainer">
             </div>

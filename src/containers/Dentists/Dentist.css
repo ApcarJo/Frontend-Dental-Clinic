@@ -1,7 +1,7 @@
 
 .dentistsAllbyUser{
-    width: 100wh;
-    height: 100wh;
+    width: 100vw;
+    height: 100vh;
     background-color: #dbf6e9;
 
     display: flex;
