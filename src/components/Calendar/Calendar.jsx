@@ -359,17 +359,19 @@ let dia, mes, anyo, mes1,c;
 			men20(dia);
 		}
 
-	decenas=dia/10;
+	decenas=parseInt(dia/10);
 	unidades=dia%10;
 
 	if (dia>20)
+
 		{
 			if (unidades===0)
 					dec2(decenas);
 
 			if (unidades!==0)
 					{
-					decenas=dia/10;
+
+					decenas=parseInt(dia/10);
 					dec(decenas);
 
 					unidades=dia%10;
