@@ -144,13 +144,15 @@ const Calendar = () => {
 	}
 
 	let diasMes=[];
-	if (resto1!=0){
+	let mesDias=[];
+	if (resto1!==0){
 		for (let j=0; j<resto1; j++)
 		diasMes.push('');
 	}
 	
 	for (i=1; i<=mesi[mes-1]; i++){
 		diasMes.push(i);
+		mesDias.push(i);
 	};
 	
 	
@@ -180,7 +182,7 @@ const Calendar = () => {
 	console.log(arrayDate)
 
 	const saveData = (dia, mes, anyo) => {
-		if (dia!=null){
+		if (dia!==''){
 		let date= dia+'-'+mes+'-'+anyo;
 		// setDatosUser({...datosUser, date: date});	
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});	
@@ -190,56 +192,80 @@ const Calendar = () => {
 		}
 
 	}
+	//	DEPRECATED
+	// const checkError = (arg) => {
+	// 	switch (arg){
+	// 		case 'dia':
+	// 			if (dia<0||dia>31){
+	// 				setErrors({...errors, eDia: 'Introduce un dia válido'});
+	// 			}
+	// 			break;
+	// 		case 'mes':
+	// 			if (mes<0||mes>12){
+	// 				setErrors({...errors, eMes: 'Introduce un mes válido'});
+	// 			}
+	// 			break;
+	// 		case 'anyo':
+	// 			if (anyo<0){
+	// 				setErrors({...errors, eAnyo: 'Introduce un anyo válido'});
+	// 			}
+	// 			break;
+	// 	}
+	// }
 
-	const checkError = (arg) => {
-		switch (arg){
-			case 'dia':
-				if (dia<0||dia>31){
-					setErrors({...errors, eDia: 'Introduce un dia válido'});
-				}
-				break;
-			case 'mes':
-				if (mes<0||mes>12){
-					setErrors({...errors, eMes: 'Introduce un mes válido'});
-				}
-				break;
-			case 'anyo':
-				if (anyo<0){
-					setErrors({...errors, eAnyo: 'Introduce un anyo válido'});
-				}
-				break;
-		}
+	const selectMonthArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+	
+	let newDate = new Date();
+	let year = newDate.getFullYear();
+	let monthy = newDate.getMonth()+1;
+	let day = newDate.getDate();
 
-	}
+	const selectAnyo = [year, (year+1)];
 
 return (
+	<div className="vistaCalendar">
 
-	<div>
-		<input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue="16"></input>
-		<div>{errors.eDia}</div>
-		<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")} placeholder="mes" defaultValue="6"></input>
-		<div>{errors.eMes}</div>
-		<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} onBlur={()=>checkError("anyo")} placeholder="anyo" defaultValue="2021"></input>
-		<div>{errors.eAnyo}</div>
-		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
-
-
-		<div className="drawCalendar">
-
-		{semana.map((semana, index) => (
-				<div className="dayBox" key={index}>
-						<p>{semana}</p>
-				</div>
-		))}
-
-		{diasMes.map((diasMes, index) => (
-
-			<div className="dayBox" id={index} key={index} onClick={()=>saveData(diasMes, mes, anyo)}>
-					<p>{diasMes} </p>
-			</div>
-
-		))}	
+		<div className="inputCalendar">
+			{/* <select className="selectMonth" type="number" name="dia" onChange={updateFormulario}>
+    	    		{mesDias.map((valor) => (<option>{valor}</option>))}
+    	    </select> */}
 			
+				<select className="selectMonth" type="number" name="mes" onChange={updateFormulario}>
+    	             {selectMonthArray.map((valor) => (<option>{valor}</option>))}
+    	        </select>
+				
+				<select className="selectMonth" type="name" name="dia"  onChange={updateFormulario}>
+    	             {selectAnyo.map((valor) => (<option>{valor}</option>))}
+    	        </select>
+
+			{/*// DEPRECATED*/}
+			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>
+			<div>{errors.eDia}</div>
+			<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")} placeholder="mes" defaultValue={monthy}></input>
+			<div>{errors.eMes}</div>
+			<input type='text' className='numberBox' name='anyo' onChange={updateFormulario} onBlur={()=>checkError("anyo")} placeholder="anyo" defaultValue={year}></input>
+			<div>{errors.eAnyo}</div> */}
+			
+			<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
+
+
+			<div className="drawCalendar">
+
+			{semana.map((semana, index) => (
+					<div className="dayBox" key={index}>
+							<p>{semana}</p>
+					</div>
+			))}
+
+			{diasMes.map((diasMes, index) => (
+
+				<div className="dayBox" id={index} key={index} onClick={()=>saveData(diasMes, mes, anyo)}>
+						<p>{diasMes} </p>
+				</div>
+
+			))}	
+
+			</div>
 		</div>
 	</div>
 )

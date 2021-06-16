@@ -49,3 +49,11 @@
     outline: none;
 }
 
+.inputCalendar {
+    background-color: yellow;
+    width: 5em;
+    height: 25em;
+    outline: none;
+    border: none;
+    border: solid 0.2em red;
+}
