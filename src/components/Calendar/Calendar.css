@@ -6,14 +6,17 @@
     justify-content: center;
     text-align: center;
 
-    grid-template-columns: repeat(7, 0.5fr);
+    grid-template-columns: repeat(7, 0.1fr);
     grid-template-rows: repeat(6, 0.2fr);
 }
 
 .dayBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 6em;
     width: 6em;
 
-    background-color: yellow;
-    border-radius: 100%;
+    background-color: blue;
+    border-radius: 0.5em;
 }
