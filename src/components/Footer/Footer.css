@@ -1,82 +1,104 @@
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    width: 90vw;
-    bottom: 0;
     border-bottom: 1.9px solid #c7c7c7;
     border-top: 1.9px solid #c7c7c7;
-    border-left: none;
-    border-right: none;
     top: -0.5em;
 }
 .tooth {
-    display: flex;
-    position: relative;
     color: rgb(96, 93, 93);
-    right: 2.8em;
+    width: 20%;
 }
-.containerAll {
-    max-width: 500px;
-}
+
 .footerBody {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content:flex-start;
     align-items: center;
-    position: relative;
+    background-color:#dfeaf7;
+
+    width: 100vw;
     height: 11em;
-    right: 6em;
 }
 .column1 {
     display: flex;
-    position: relative;
-    width: 250%;
-    right: 11em;
-    top: -1em;
-}
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
 
-.titleFooter {
-    display: flex;
-    position: relative;
-    width: 21em;
-    left: 4.5em;
+    width: 30%;
+    margin-left: 3em;
 }
 .parFooter {
-    display: flex;
-    position: relative;
-    top: 4.5em;
-    left: -13em;
+    margin-top: 1em;
 }
 .column2 {
+    width: 70%;
+    margin-right: 3em;
+
     display: flex;
-    position: relative;
-    justify-content: center;
-    left: 9em;
-    top: -2.5em;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
 }
-.phone{
+.tittle {
+    margin-left: .8em;
+    margin-bottom: 0.5em;
+}
+
+.support{
     display: flex;
-    position: relative;
-    top: 1.3em;
-    right: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    width: 15em;
+    height: 10em;
     color: rgb(63, 59, 59);
     cursor: pointer;
+    margin-right: 3em;
 }
-.footerContact {
+.phone {
+    width: 12em;
+    margin-left: 1em;
     display: flex;
-    position: relative;
-    right: 8em;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.mail , .tlf, .social {
+    margin-left: 1em;
+
+}
+
+.redes{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+}
+
+.follow{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    width: 12em;
+    height: 9em;
+    color: rgb(63, 59, 59);
+    cursor: pointer;
+    margin-right: 3em;
+}
+
+.footerContact {
+
     color: rgb(58, 55, 55);
 }
 
 .buttonContact {
-    display: flex;
-    position: relative;
-    top: 2.4em;
-    left: 2.4em;
     color: black;
     cursor: pointer;
     font-size: 1.3em;
+}
+
+.buttonContact:hover{
+    text-decoration: underline;
 }

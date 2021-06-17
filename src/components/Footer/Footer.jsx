@@ -1,9 +1,9 @@
 import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faTooth } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope, facebook,  } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
-
+import logo from '../../img/logo.png'
 const Footer = () => {
 
     let history = useHistory();
@@ -14,17 +14,39 @@ const Footer = () => {
                 <div className="containerAll">
                     <div className="footerBody">
                         <div className="column1">
-                            <h2 className="titleFooter">Práctica Dental de la mano del equipo Tridente</h2>
-                            <p className="experience parFooter">Tridente, Clínica con más de 20 años de experiencia</p>
+                            <h3 className="titleFooter">T R I D E N T</h3>
+                            <p className="experience parFooter">Clínica con más de 20 años de experiencia</p>
                         </div>
-                        <div className="tooth" style={{fontSize:"2.5em"}}>
-                            <FontAwesomeIcon icon={faTooth}/>
-                        </div>
+                        {/* <div className="tooth">
+                            <img src={logo} alt="logo"  width="70"/>
+                        </div> */}
                         <div className="column2">
-                            <div className="phone" style={{fontSize:"2em"}}>
-                            <FontAwesomeIcon icon={faPhone}/> <a class="tlf" href="tel:+3495323123">95323123</a>
+                            <div className="support">
+                                <h3 className="tittle">SUPPORT</h3>
+                                <div className="phone">
+                                    <FontAwesomeIcon icon={faPhone}/> 
+                                    <a className="tlf" href="tel:+3495323123">95323123</a>
+                                </div>
+                                <div className="phone">
+                                    <FontAwesomeIcon icon={faEnvelope}/> 
+                                    <a className="mail" href="mailto:info@trident.com">info@trident.com</a>
+                                </div>
                             </div>
-                            <div className="buttonContact" onClick={() => history.push("/contact")}>CONTACT</div>
+                            <div className="follow">
+                                <h3 className="tittle">FOLLOW US</h3>
+                                <div className="redes">
+                                    <FontAwesomeIcon icon={faPhone}/>
+                                    <p className="social" >Facebook</p>
+                                </div>
+                                <div className="redes">
+                                    <FontAwesomeIcon icon={faPhone}/>
+                                    <p className="social" >Twitter</p>
+                                </div>
+                                <div className="redes">
+                                    <FontAwesomeIcon icon={faPhone}/>
+                                    <p className="social" >Instagram</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
