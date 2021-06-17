@@ -19,7 +19,7 @@ footer {
     right: 2.8em;
 }
 .containerAll {
-    min-width: 500px;
+    max-width: 500px;
 }
 .footerBody {
     display: flex;

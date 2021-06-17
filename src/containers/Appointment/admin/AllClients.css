@@ -1,6 +1,6 @@
 .allClients {
-    width: 100wh;
-    height: 100wh;
+    /* width: 100vw; */
+    /* height: 100wh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,19 +13,32 @@
 }
 
 .clientCards {
-    width: 20em;
-    margin: 2em;
-    border-radius: 1em ;
-    border: solid #31326f;
-    background-color:#dfeaf7;
-    display: flex;
     flex-direction: column;
-    line-height: 1.5;
     align-items: center;
     justify-content: center;
+    display: flex;
+    width: 21em;
+    height: 23em;
+    margin: 2em;
+    border-radius: 1em ;
+    border: 1.7px solid #6f6d6d;
+    background-color:#dfeaf7;
+    box-shadow: 0em 0em 0.1em 0.1em rgb(162, 160, 160);
+    display: flex;
+    line-height: 1.5;
 }
-
+.infoClients{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.9;
+}
+.mailClient {
+    text-decoration: none;
+}
 .imgClient {
+    display: flex;
+    position: relative;
+    top: 0.4em;
     height: 10em;
     width: 10em;
     border-radius: 50%;
