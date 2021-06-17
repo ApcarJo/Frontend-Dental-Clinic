@@ -4,10 +4,12 @@ import './Header.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
 import logo from '../../img/logo.png'
+import { useHistory } from 'react-router-dom';
 
 
 const Header = (props) => {
 
+    let history = useHistory();
 
     const logOut = () => {
 
@@ -18,11 +20,11 @@ const Header = (props) => {
 
         return(
             <div className="header">
-    
-            <img className="headerLogo" src={logo} alt="LOGO"/>
+
+            <img className="headerLogo" src={logo} alt="LOGO" onClick={() => history.push('/') }></img>
 
             <div className="headerLinks">
-                <Button path="/" destination="HOME"/>
+                
                 <Button path="/clinics" destination="CLINICS"/>
                 <Button path="/aboutus" destination="ABOUT US"/>
 

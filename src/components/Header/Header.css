@@ -16,6 +16,10 @@
     width: 4em;
 }
 
+.headerLogo:hover {
+    cursor: pointer;
+}
+
 .headerLinks {
     width: 60%;
     display: flex;

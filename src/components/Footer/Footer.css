@@ -30,15 +30,16 @@ footer {
 .parFooter {
     margin-top: 1em;
 }
+
 .column2 {
     width: 70%;
-    margin-right: 3em;
 
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: flex-end;
 }
+
 .tittle {
     margin-left: .8em;
     margin-bottom: 0.5em;
