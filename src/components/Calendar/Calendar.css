@@ -5,6 +5,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    border: solid 0.05em black;
+    padding: 0.5em;
+    border-radius: 0.2em;
 
     grid-template-columns: repeat(7, 0.1fr);
     grid-template-rows: repeat(7, 0.2fr);
@@ -24,20 +27,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 4em;
-    width: 4em;
+    height: 2.5em;
+    width: 2.5em;
     box-sizing: border-box;
     overflow: hidden;
 
-    border-bottom: solid 0.05em rgb(79, 69, 255);
-    background-color: rgb(136, 237, 255);
+    border-bottom: solid 0.05em rgb(128, 128, 128);
+    background-color: none;
     font-size: small;
     transition: 0.2s;
 }
 
 .dayBox:focus{
     background-color: red;
-    transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .dayBox:hover{
