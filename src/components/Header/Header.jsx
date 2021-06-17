@@ -24,7 +24,7 @@ const Header = (props) => {
             <div className="headerLinks">
                 <Button path="/" destination="HOME"/>
                 <Button path="/clinics" destination="CLINICS"/>
-                <Button path="/contact" destination="CONTACT"/>
+                <Button path="/aboutus" destination="ABOUT US"/>
 
                 <Button path="/dentists" destination="DENTISTS"/>
                 <Button path="/clientappointments" destination="MY APPOINTMENTS"/>

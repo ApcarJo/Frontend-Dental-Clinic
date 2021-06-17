@@ -2,7 +2,6 @@
 .homeContainer {
     width: 100vw;
     height: 100%;
-    background-color: #dbf6e9;
 
     display: flex;
     flex-direction: column;
@@ -32,13 +31,19 @@
     width: 30%;
     height: 35em;
     padding-left: 6em;
+    line-height: 1.5;
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
-
+.parrafos {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    top: -3em;
+}
 
 .buttonHome{
     height:4em;
@@ -56,7 +61,7 @@
 
 .buttonHome:hover {
     transition: 0.2s;
-    background-color: #ffc93c;
+    background-color: #f0cf7d;
 }
 
 .optionsHome {
@@ -65,34 +70,41 @@
     height: 23em;
     margin-bottom: 5em;
 
+    gap: 9em;
     display: flex;
     flex-direction: row;
     align-items: center;
+    display: flex;
+    position: relative;
     justify-content: center;
 }
 
 .option {
-    background-color: #9ddfd3;
-    height: 20em;
-    width: 15em;
-    border: solid #31326f 0.2em;
-    cursor: pointer;
-    margin: 1em;
-    transition: 0.2s;
-
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: rgb(175,70,73);
+    background: linear-gradient(343deg, rgba(175,70,73,1) 0%, rgba(175,70,73,1) 0%, rgba(163,172,165,1) 0%, rgba(157,223,211,1) 0%, rgba(162,179,171,1) 0%, rgba(162,178,170,1) 0%, rgba(162,177,169,1) 0%, rgba(162,176,168,1) 0%, rgba(215,232,222,1) 100%, rgba(161,175,167,1) 100%, rgba(160,173,166,1) 100%, rgba(96,101,105,1) 100%, rgba(149,80,84,1) 100%, rgba(175,70,73,1) 100%, rgba(0,0,0,1) 100%, rgba(175,70,73,1) 100%, rgba(125,126,130,1) 100%, rgba(174,72,74,1) 100%, rgba(157,223,211,1) 100%, rgba(141,145,145,1) 100%);
+    height: 20em;
+    width: 15em;
+    border: solid #31326f 0.1em;
+    box-shadow: 0em 1em 1em -01em black;
+    cursor: pointer;
+    margin: 1em;
+    transition: 0.2s;
+    border-radius: 1em;
+
 }
 
-.buttonOption{
+/* .buttonOption{
     height:4em;
     width: 8em;
     border: solid #31326f 0.15em;
     cursor: pointer;
     margin: 1em;
-    background-color: #fcdb87;
+    background-color: #f0cf7d;
     transition: 0.2s;
 
     display: flex;
@@ -102,5 +114,56 @@
 
 .buttonOption:hover {
     transition: 0.2s;
-    background-color: #ffc93c;
+    background-color: #f5e6bf;
+} */
+
+.buttonOption {
+    display: flex;
+    position: relative;
+    padding: 2.5rem 7rem;
+    width: 8em;
+    height: 4em;
+
+    border: solid #31326f 0.1em;
+    transition: 0.2s;
+    cursor: pointer;
+    background-color: #f0cf7d;
+    overflow: hidden;
+}
+
+.buttonOption::before{
+    content: 'CLICK HERE!';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-weight: 700;
+    text-shadow: .1rem .1rem .1rem #333;
+    transition: .2s ease;
+}
+.buttonOption::after{
+    content: 'TRIDENT TEAM';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-weight: 700;
+    text-shadow: .1rem .1rem .1rem #333;
+    transition: .2s ease;
+    opacity: 0;
+}
+
+.buttonOption:hover::before {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+}
+.buttonOption:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
 }

@@ -7,12 +7,13 @@
 }
 .aboutContainer {
     display: flex;
-    position: absolute;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     width: 100vw;
-    height: 0%;
+    height: 142em;
+    /* height: 0%; */
 }
 .divUp {
     display: flex;
@@ -168,13 +169,31 @@
     top: 16em;
     left: 21em;
 }
-.nurse {
+.logo2 {
     display: flex;
     position: relative;
-    top: 0.8em;
-    left: 3em;
-    color: rgb(73, 70, 70);
-
+    right: -2em;
+    top: 3.5em;
+    width: 6em;
+    height: 6em;
+}
+.clinics {
+    display: flex;
+    position: relative;
+    left: 15em;
+    top: -1.8em;
+}
+.clinics2 {
+    display: flex;
+    position: relative;
+    left: 13em;
+    top: -2.4em;
+}
+.clinics3 {
+    display: flex;
+    position: relative;
+    left: 11em;
+    top: -3em;
 }
 .takeDate {
     display: flex;
@@ -255,8 +274,10 @@
     flex-direction: column;
     justify-content: center;
     top: 6em;
-    border: 1.5px solid #c7c7c7;
+    border: 3px solid #c7c7c7;
     border-radius: 0.5em;
+    background-color:#dfeaf7;
+    box-shadow: 0em 0em 0.2em 0em rgb(43, 41, 41);
     width: 28em;
     height: 11em;
     left: -18em;
@@ -267,8 +288,9 @@
     position: relative;
     border-radius: 1em;
     width: 11em;
-    background: rgba(143, 140, 140, 0.411);
-    right: -8em;
+    background-color: #c1c1c1;
+    right: -12em;
+    top: -3.4em;
     cursor: pointer;
     height: 2.5em;
     box-shadow: 0em 0.2em 0.2em -0.1em black;
@@ -276,77 +298,5 @@
     justify-content: center;
 }
 .send:hover {
-    color: #ffffff;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    width: 80%;
-    top: -58em;
-    border-bottom: 1.9px solid #c7c7c7;
-    border-top: 1.9px solid #c7c7c7;
-    border-left: none;
-    border-right: none;
-}
-.tooth {
-    display: flex;
-    position: relative;
-    color: rgb(96, 93, 93);
-    right: 4em;
-}
-
-.containerAll {
-    max-width: 500px;
-}
-
-.footerBody {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 11em;
-}
-.column1 {
-    display: flex;
-    position: relative;
-    width: 250%;
-    right: 19em;
-    top: -2em;
-}
-
-.titleFooter {
-    display: flex;
-    position: relative;
-    width: 21em;
-    left: 4.5em;
-}
-.parFooter {
-    display: flex;
-    position: relative;
-    top: 4.5em;
-    left: -12em;
-}
-.column2 {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    left: 12em;
-    top: -2.5em;
-}
-.phone{
-    display: flex;
-    position: relative;
-    top: 1.3em;
-    right: 1em;
-    color: rgb(63, 59, 59);
-}
-.footerContact {
-    display: flex;
-    position: relative;
-    right: 8em;
-    color: rgb(58, 55, 55);
+    color: #027979;
 }
