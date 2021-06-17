@@ -7,8 +7,9 @@ const AdminNavbar = () => {
     return(
 
         <div className="adminNav">
-            <Button path="/clinics" destination="CLINICS"/>
+            <Button path="/findappointments" destination="APPOINTMENTS"/>
             <Button path="/clients" destination="CLIENTS"/>
+            <Button path="/clinics" destination="CLINICS"/>
         </div>
     )
 
