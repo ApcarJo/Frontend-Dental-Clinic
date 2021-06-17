@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import "./ClientRegister.css";
+import Calendar from '../../components/Calendar/Calendar';
 
 const Register = () => {
 
@@ -130,13 +131,13 @@ const Register = () => {
             <div>{errors.ePassword}</div>
             <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")} placeholder="password2"></input><br></br>
             <div>{errors.ePassword2}</div>
-            <input className="name" name="dateOfBirth" type="date" onChange={updateFormulario} onBlur={()=>checkError("dateOfBirth")} placeholder="dateOfBirth"></input><br></br>
-            <div>{errors.eDateofbirth}</div>
             <input className="name" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
             <div>{errors.eCity}</div>
             <input className="name" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")} placeholder="postal code"></input><br></br>
             <div>{errors.eCp}</div>
-
+            <Calendar name="dateOfBirth" onChange={updateFormulario}/>
+            {/* <input className="name" name="dateOfBirth" type="date" onChange={updateFormulario} onBlur={()=>checkError("dateOfBirth")} placeholder="dateOfBirth"></input><br></br>
+            <div>{errors.eDateofbirth}</div> */}
 
             <div className="registerButton" onClick={()=>applyRegister()}>Enviar
             </div>

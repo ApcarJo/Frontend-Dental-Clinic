@@ -82,9 +82,23 @@
 .schedule {
     height: 30em;
     width: 55em;
-    background-color: burlywood;
+    background-color: rgb(160, 154, 146);
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.drawCalendar {
+    display: grid;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid 0.05em black;
+    padding: 0.5em;
+    border-radius: 0.2em;
+
+    grid-template-columns: repeat(7, 0.1fr);
+    grid-template-rows: repeat(7, 0.2fr);
 }
