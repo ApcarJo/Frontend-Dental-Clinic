@@ -1,4 +1,4 @@
-import {LOGIN, LOGOUT} from '../types';
+import {LOGIN, LOGOUT, UPDATE_USER} from '../types';
 
 const initialState = {
     client : {},
@@ -15,6 +15,8 @@ const credentialsReducer = (state = initialState, action) => {
         case LOGOUT :
             return initialState;
 
+        case UPDATE_USER:
+            return {...state, client: action.payload}    
 
         default:
             return state

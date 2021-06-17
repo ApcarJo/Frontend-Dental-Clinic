@@ -16,13 +16,9 @@
     justify-content: space-evenly;
     align-items: center;
 
-    /*border-radius: 0.4em;*/
-    /* border: solid #31326f; */
     background-color:#dfeaf7;
     width: 45em;
     height: 36em;
-
-
 }
 
 input {

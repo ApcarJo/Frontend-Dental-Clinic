@@ -9,11 +9,11 @@ const ClientProfile = (props) => {
 
     let history = useHistory() ;
 
-    //hooks
-    const [userData, setUserData] = useState({
-        token: props.credentials?.token, 
-        client: props.credentials?.client
-    });
+    // //hooks
+    // const [userData, setUserData] = useState({
+    //     token: props.credentials?.token, 
+    //     client: props.credentials?.client
+    // });
 
     useEffect( () => {
 
@@ -22,11 +22,6 @@ const ClientProfile = (props) => {
     useEffect( () => {
 
     })
-
-    // const logout = () => {
-    //     localStorage.clear();
-    //     setUserData("");
-    // }
 
 
     const logOut = () => {
@@ -52,7 +47,7 @@ const ClientProfile = (props) => {
                             <p>BIRTHDAY : { props.credentials?.client.dateOfBirth}</p>
                             <p>CITY : { props.credentials?.client.city}</p>
                             <div className="buttons">
-                                <div className="buttonUpdate">UPDATE</div>
+                                <div className="buttonUpdate" onClick={() => history.push('/updateclient')} >UPDATE</div>
                                 <div className="buttonLogout" onClick={() => logOut()}>LOGOUT</div>
                             </div>
                         </div>
