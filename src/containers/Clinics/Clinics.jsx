@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Clinics.css';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 
-const Clinics = () => {
+const Clinics = (props) => {
 
     let history = useHistory();
 
@@ -24,11 +25,12 @@ const Clinics = () => {
         }
     }
 
-    let token = localStorage.getItem("token");
 
     // const llevame = (token === null) ? history.push("/login") : history.push("/appointments");
 
     const llevame = () => {
+
+        let token = props.credentials.token
 
         if(token === null) {
             history.push("/login")
@@ -71,4 +73,8 @@ const Clinics = () => {
     }
 }
 
-export default Clinics;
+export default connect((state) => ({
+
+    credentials:state.credentials
+
+}))(Clinics);
