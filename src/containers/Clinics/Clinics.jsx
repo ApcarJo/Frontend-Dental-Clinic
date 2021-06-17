@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Clinics.css';
 import axios from 'axios';
-// import Map from '../../components/Map/Map';
+
 
 const Clinics = () => {
 
@@ -42,12 +42,6 @@ const Clinics = () => {
         return (
 
             <div className="allContent">
-            {/* <div className="vistaLogin">
-                <Boton destino="Login" path="/login"/>
-                <Boton destino="Registers" path="registers"/>
-                <Boton destino="/" path="clinics"/>
-            </div> */}
-                    <h1 className="clinicChoose">Selecciona tu clinica más cercana</h1>
 
                     <div className="clinicsContent">
 
@@ -64,7 +58,6 @@ const Clinics = () => {
                                 <p>Teléfono: {clinic.phone} </p>
                             </div>
                             <div className="enviar" onClick={() => llevame()}>PEDIR CITA</div>
-                            {/* <div className="map"><Map /></div> */}
                         </div>
                     </div>
                 ))}
