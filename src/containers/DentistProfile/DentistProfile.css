@@ -16,13 +16,11 @@
 }
 
 .buttonLogout, .buttonUpdate{
-    height: 3em;
-    width: 6em;
-    border-radius: .5em;
+    height:4em;
+    width: 12em;
+    border: solid rgb(60, 90, 60) 0.15em;
     cursor: pointer;
-    margin: 1em;
-
-    background-color: #fcdb87;
+    background-color: white;
     transition: 0.2s;
 
     display: flex;

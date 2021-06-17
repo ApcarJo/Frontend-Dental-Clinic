@@ -35,7 +35,7 @@ const ClientProfile = (props) => {
         return(
             <div className="baseProfile">
                 <div className="clientProfile">
-                    <div className="clientDates">
+                    <div className="clientDates1">
                         <div className="clientLeftSide">
                             <h2>MY PROFILE</h2>
                             <img src={ props.credentials?.client.image} alt="user" className="imgUser"/>
@@ -47,8 +47,8 @@ const ClientProfile = (props) => {
                             <p>BIRTHDAY : { props.credentials?.client.dateOfBirth}</p>
                             <p>CITY : { props.credentials?.client.city}</p>
                             <div className="buttons">
-                                <div className="buttonUpdate" onClick={() => history.push('/updateclient')} >UPDATE</div>
-                                <div className="buttonLogout" onClick={() => logOut()}>LOGOUT</div>
+                                <div className="buttonUpdateC" onClick={() => history.push('/updateclient')} >UPDATE</div>
+                                <div className="buttonLogoutC" onClick={() => logOut()}>LOGOUT</div>
                             </div>
                         </div>
                     </div>

@@ -13,31 +13,32 @@
     
 }
 
-.buttonLogout, .buttonUpdate{
-    height: 3em;
-    width: 6em;
-    border-radius: .5em;
+.buttonLogoutC, .buttonUpdateC{
+    height:4em;
+    width: 6.2em;
+    border: solid rgb(60, 90, 60) 0.15em;
     cursor: pointer;
-    margin: 1em;
-
-    background-color: #fcdb87;
+    background-color: #f1f6fd;
     transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
-.buttonLogout:hover, .buttonUpdate:hover {
-    background-color: #ffc93c;
+.buttonLogoutC:hover, .buttonUpdateC:hover {
     transition: 0.2s;
+    background-color: white;
 }
 
-.clientDates{
+.clientDates1{
     width: 17em;
+    height: 40em;
     margin: 2em;
-    border-radius: 1em ;
-    border: solid #31326f;
+    border: solid 0.2em#dfeaf7;;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,22 +46,20 @@
 }
 
 .clientLeftSide {
-    border-radius: 0.8em 0.8em 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 
-    background-color: #9ddfd3;
+    background-color:#dfeaf7;
     height: 15em;
     width: 17em;
 }
 
 .clientRightSide {
-    border-radius: 0 0 0.8em 0.8em;
     background-color: white;
     height: 25em;
-    width: 17em;
+    width: 15em;
 
     display: flex;
     flex-direction: column;
