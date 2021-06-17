@@ -276,7 +276,8 @@
     top: 6em;
     border: 3px solid #c7c7c7;
     border-radius: 0.5em;
-    box-shadow: 0em 0em 0.2em 0em black;
+    background-color:#dfeaf7;
+    box-shadow: 0em 0em 0.2em 0em rgb(43, 41, 41);
     width: 28em;
     height: 11em;
     left: -18em;
@@ -287,7 +288,7 @@
     position: relative;
     border-radius: 1em;
     width: 11em;
-    background: rgba(143, 140, 140, 0.411);
+    background-color: #c1c1c1;
     right: -12em;
     top: -3.4em;
     cursor: pointer;
@@ -297,5 +298,5 @@
     justify-content: center;
 }
 .send:hover {
-    color: #ffffff;
+    color: #027979;
 }
