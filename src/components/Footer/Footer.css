@@ -18,11 +18,9 @@ footer {
     color: rgb(96, 93, 93);
     right: 2.8em;
 }
-
 .containerAll {
-    max-width: 500px;
+    min-width: 500px;
 }
-
 .footerBody {
     display: flex;
     justify-content: center;
