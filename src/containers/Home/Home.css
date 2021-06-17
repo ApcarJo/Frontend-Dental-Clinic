@@ -53,7 +53,7 @@
     margin: 1em;
     background-color: #fcdb87;
     transition: 0.2s;
-
+    border-radius: 0.5em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,8 +85,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgb(175,70,73);
-    background: linear-gradient(343deg, rgba(175,70,73,1) 0%, rgba(175,70,73,1) 0%, rgba(163,172,165,1) 0%, rgba(157,223,211,1) 0%, rgba(162,179,171,1) 0%, rgba(162,178,170,1) 0%, rgba(162,177,169,1) 0%, rgba(162,176,168,1) 0%, rgba(215,232,222,1) 100%, rgba(161,175,167,1) 100%, rgba(160,173,166,1) 100%, rgba(96,101,105,1) 100%, rgba(149,80,84,1) 100%, rgba(175,70,73,1) 100%, rgba(0,0,0,1) 100%, rgba(175,70,73,1) 100%, rgba(125,126,130,1) 100%, rgba(174,72,74,1) 100%, rgba(157,223,211,1) 100%, rgba(141,145,145,1) 100%);
+    background-color:#cfdcec;
     height: 20em;
     width: 15em;
     border: solid #31326f 0.1em;
@@ -95,27 +94,8 @@
     margin: 1em;
     transition: 0.2s;
     border-radius: 1em;
-
 }
 
-/* .buttonOption{
-    height:4em;
-    width: 8em;
-    border: solid #31326f 0.15em;
-    cursor: pointer;
-    margin: 1em;
-    background-color: #f0cf7d;
-    transition: 0.2s;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.buttonOption:hover {
-    transition: 0.2s;
-    background-color: #f5e6bf;
-} */
 
 .buttonOption {
     display: flex;
@@ -123,11 +103,11 @@
     padding: 2.5rem 7rem;
     width: 8em;
     height: 4em;
-
     border: solid #31326f 0.1em;
     transition: 0.2s;
     cursor: pointer;
-    background-color: #f0cf7d;
+    background-color: #fcdb87;
+    border-radius: 0.5em;
     overflow: hidden;
 }
 

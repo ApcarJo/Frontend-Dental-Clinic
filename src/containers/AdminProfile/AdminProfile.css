@@ -1,0 +1,56 @@
+.admin {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.adminContent {
+    display: flex;
+    position: relative;
+    right: 27em;
+    top: -12.3em;
+}
+.textparra{
+    line-height: 2.1;
+}
+.adminCard {
+    width: 20em;
+    margin: 2em;
+    height: 20em;
+    border-radius: 1em ;
+    border: solid #31326f;
+    background-color:#dfeaf7;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    align-items: center;
+    justify-content: center;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonLogout, .buttonUpdate{
+    height: 3em;
+    width: 6em;
+    border-radius: .5em;
+    cursor: pointer;
+    margin: 1em;
+    background-color: #fcdb87;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonLogout:hover, .buttonUpdate:hover {
+    background-color: #ffc93c;
+    transition: 0.2s;
+}
+.imgAdmin {
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+}

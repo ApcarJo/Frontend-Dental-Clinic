@@ -19,18 +19,22 @@ import Login from './containers/Login/Login';
 import Register from './containers/Register/Register';
 import DentistSchedule from './containers/DentistSchedule/DentistSchedule';
 import Footer from './components/Footer/Footer';
+<<<<<<< HEAD
 import ClientUpdate from './containers/ClientUpdate/ClientUpdate';
+=======
+import AdminProfile from './containers/AdminProfile/AdminProfile';
+>>>>>>> feature/ADMIN
 
 function App() {
   return (
     <div className="App">
 
        <BrowserRouter>
-          
+
           <Header/>
 
           <Switch>
-    
+
            <Route path="/" exact component={Home}/>
            <Route path="/aboutus" exact component={AboutUs}/>
            <Route path="/contact" exact component={Contact}/>
@@ -46,11 +50,14 @@ function App() {
            <Route path="/findappointments" exact component = {AllAppointments}/>
            <Route path="/clientappointments" exact component = {ClientAppointments}/>
            <Route path="/clients" exact component = {AllClients}/>
+<<<<<<< HEAD
            <Route path="/updateclient" exact component={ClientUpdate}/>
+=======
+           <Route path="/admin" exact component = {AdminProfile}/>
+>>>>>>> feature/ADMIN
            <Route path="/calendar" exact component = {Calendar}/>
            <Route path="/dentistschedule" exact component={DentistSchedule}/>
- 
-    
+
           </Switch>
           <Footer />
         </BrowserRouter>
