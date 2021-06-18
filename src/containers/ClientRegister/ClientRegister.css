@@ -5,15 +5,16 @@
     justify-content: center;
     align-items: center;
     height: 50em;
+    width: 35em;
     border-radius: 0.1em;
-    background-color: #9ddfd3;
+    background-color: #dfeaf7;
 
     box-sizing: border-box;
     padding: 0em;
 }
 
 .errorsText {
-    font-size: 0.5em;
+    font-size: 0.7em;
     color: red;
 }
 
@@ -38,25 +39,6 @@
 .botonCuco:hover{
     background-color: lightpink;
     transition: 0.2s;
-}
-
-.red {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-
-    height: 1em;
-
-    border: solid 0.2em red;
-    outline: none;
-    border-radius: 0.2em;
-    padding-left: 1em;
-    font-size: 1em;
-    cursor: auto;
-
-    box-shadow: 0 0 0 0 black;
 }
 
 .registerButton{
