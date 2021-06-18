@@ -32,7 +32,8 @@ const DentistProfile = (props) => {
 
     }
 
-  
+    console.log(props.calendar?.semana)
+    console.log(props.calendar?.diasMes)
     
     if(props.credentials?.token) {
 

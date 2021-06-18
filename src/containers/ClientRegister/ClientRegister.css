@@ -42,7 +42,12 @@
 }
 
 .registerButton{
-    border-radius: 0.5em;
-    border: solid #31326f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    border-radius: 0.2em;
+    border: solid 0.02em #31326f;
     cursor: pointer;
 }

@@ -4,8 +4,7 @@ import axios from 'axios';
 import "./ClientRegister.css";
 import { connect } from 'react-redux';
 import Calendar from '../../components/Calendar/Calendar';
-import { REMOVE_CAL, DATE_CAL } from '../../redux/types';
-import Moment from 'react-moment';
+
 
 const Register = (props) => {
 
@@ -41,8 +40,6 @@ const Register = (props) => {
 
     const applyRegister = async () => {
         // e.preventDefault();
-
-        console.log(props.calendar?.dateOfBirth, "jkja")
 
         let body = {
             name: datosUser.name,
@@ -140,7 +137,7 @@ const Register = (props) => {
                 <div className="box1">
                 <div className="errorsText">{errors.eEmail}</div>
                     <form className="form1">
-                        <input className="input1" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")}required/>
+                        <input className="input1" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")} required/>
                         <label className="lbl-nombre1">
                           <span className="text-nomb1">Email</span>
                         </label>

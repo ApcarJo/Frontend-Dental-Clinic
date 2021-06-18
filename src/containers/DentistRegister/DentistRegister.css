@@ -5,12 +5,18 @@
     justify-content: center;
     align-items: center;
 
-    height: 65em;
+    padding-top: 2em;
+
+    height: 45em;
     width: 35em;
     border-radius: 0.5em;
     border: solid #31326f;
-    background-color: #9ddfd3;
+    background-color: #dfeaf7;
     
+}
+
+.vistaRegisterDentist {
+
 }
 
 
