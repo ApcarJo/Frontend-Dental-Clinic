@@ -46,7 +46,7 @@ const Register = (props) => {
             email : datosUser.email,
             phone: datosUser.phone,
             password : datosUser.password,
-            dateOfBirth: Date.parse(props.calendar?.date),
+            dateOfBirth: props.calendar?.date,
             city: datosUser.city,
             cp: datosUser.cp
         }

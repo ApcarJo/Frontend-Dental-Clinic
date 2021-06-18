@@ -170,14 +170,16 @@ const Calendar = (props) => {
 
 	const saveData = (dia, mes, anyo) => {
 		if (dia!==''){
-		let date= dia+'-'+mes+'-'+anyo;
+		let date= anyo+'-'+mes+'-'+dia;
 		// let date= dia+'-'+mes+'-'+anyo;
+		let newDate = new Date (date);
+		console.log(newDate) 
 		
 		// setDatosUser({...datosUser, date: date});	
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
 
 		let datePicker = {
-			date: date,
+			date: newDate,
 			actualDate: datosUser.actualDate
 		}
 		props.dispatch({type:DATE_CAL, payload:datePicker});

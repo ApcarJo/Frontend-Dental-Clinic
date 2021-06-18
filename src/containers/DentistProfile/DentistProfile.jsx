@@ -19,6 +19,7 @@ const DentistProfile = (props) => {
     //hooks
     const [dentistData, setDentistData] = useState({
         data: [],
+        schedule: [],
         token: props.credentials?.token,
         dentist: props.credentials?.dentist
     });
@@ -54,29 +55,43 @@ const DentistProfile = (props) => {
         
             let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
-            setDentistData({...dentistData, data: res?.data})
+            setDentistData({...dentistData, data: res?.data, schedule: props.schedule})
             console.log(res?.data, "esto es res?.data")
             // console.log(agenda.data, "esto es agenda.data")
-            console.log(props.schedule, "esto es props.data")
+            console.log(props?.data, "esto es props.data")
         
             // setDentistAgenda({...agenda, data: res?.data})
             
         
         } catch (error){
             console.log(error)
-        
         }
-     }
+    }
 
     console.log(props.calendar?.semana, "semana imprimir console")
     console.log(props.calendar?.diasMes, "diasMes imprimir console")
 
-    let arrayToDraw = [];
+    for (let j = 0; j<31 ;j++){  
+    console.log(props.calendar?.diasMes[j]);
+    // let moca = dentistData.data[i].date;
+    // console.log(moca, "es moca")
+    // if (get.props.calendar?.diasMes[i]===)
 
-    // for (let i=0; i<dentistData.data.length; i++){
-    // console.log(dentistData.data[i].date, "esto es dentistdata")
+    }
+    
+    
+    console.log(dentistData.data, "aaaaaaaaaaaaaaaaaaaa")
+
+    let arrayToDraw = [];
+    
+    for (let i=0; i<dentistData.data.length; i++){
+    console.log(dentistData.data[i].date, "esto es dentistdata")
+    let moca = (dentistData.data[i].date);
+    console.log(moca, "esto es moca2")
+    }
+    
     // console.log(Date.toString(dentistData.data[i].date), "esto es tostring");
-    // // console.log(props.schedule?[i])
+    // console.log(props.schedule?[i])
     //     if (dentistData.data[i].date==4){
     //         console.log("hola")
     //     }
