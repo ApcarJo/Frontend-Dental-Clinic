@@ -6,7 +6,7 @@
     align-items: center;
     
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 
 .updateContainer {
@@ -16,8 +16,9 @@
     align-items: center;
     
     background-color:#dfeaf7;
-    width: 35em;
-    height: 45em;
+    padding-top: 2em;
+    width: 32em;
+    height: 49em;
     margin-bottom: 2em;
 }
 

@@ -46,10 +46,10 @@ const Header = (props) => {
         return(
             <div className="header">
     
-            <img className="headerLogo" src={logo} alt="LOGO" />
+            <img className="headerLogo" src={logo} alt="LOGO" onClick={() => history.push('/') }></img>
+
 
             <div className="headerLinks">
-                <Button path="/" destination="HOME"/>
                 <Button path="/aboutus" destination="ABOUT US"/>
                 <Button path="/clinics" destination="CLINICS"/>
                 <Button path="/contact" destination="CONTACT"/>
@@ -71,10 +71,9 @@ const Header = (props) => {
         return(
             <div className="header">
     
-                <img className="headerLogo" src={logo} alt="LOGO" />
-    
+                <img className="headerLogo" src={logo} alt="LOGO" onClick={() => history.push('/') }></img>
+
                 <div className="headerLinks">
-                    <Button path="/" destination="HOME"/>
                     <Button path="/aboutus" destination="ABOUT US"/>
                     <Button path="/clinics" destination="CLINICS"/>
                     <Button path="/contact" destination="CONTACT"/>
