@@ -4,6 +4,8 @@ import {useHistory} from 'react-router-dom';
 import './DentistProfile.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
+import dentistSchedule from '../../redux/reducers/dentistSchedule-reducer';
+import { DATES_DENTIST } from '../../redux/types';
 import Calendar from '../../components/Calendar/Calendar';
 
 
@@ -35,10 +37,6 @@ const DentistProfile = (props) => {
     console.log(props.calendar?.semana, "semana imprimir console")
     console.log(props.calendar?.diasMes, "diasMes imprimir console")
     
-    const sayHola = () => {
-        let barbilla = 9;
-        return barbilla;
-    }
 
     if(props.credentials?.token) {
 
@@ -74,7 +72,7 @@ const DentistProfile = (props) => {
 
 			                {props.calendar?.diasMes.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
-			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>5</p>)}
+			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}a</p>)}
 			                	</div>
 			                ))}	
 		            </div>
@@ -83,24 +81,17 @@ const DentistProfile = (props) => {
             </div>
         )
     } else {
-
-
         history.push("/")
-
- 
         return(
             <div>
                 CARGANDO DATOS
             </div>
         )
-
     }
-
-
-
 }
 
 export default connect((state) => ({
     credentials: state.credentials,
-    calendar: state.calendar
+    calendar: state.calendar,
+    dentistSchedule: state.dentistSchedule
 }))(DentistProfile);

@@ -1,22 +1,24 @@
 import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
 import './DentistSchedule.css';
 import axios from 'axios';
-import calendar from '../../redux/reducers/calendar-reducer';
-import { connect } from 'react-redux';
 
 const DentistSchedule = (props) => {
+    
     //hooks
-
-    const [dentistSchedule, setDentistSchedule] = useState({});
+    const [dentistSchedule, setDentistSchedule] = useState({
+        data: '',
+        date: "2010-05-06T22:00:00.000+00:00"
+    });
     const [date, setDate] = useState('');
-
-    useEffect( () => {
-       
-    }, [])
 
     useEffect( () => {
         searchAppointments();
     }, [])
+
+    useEffect( () => {
+        
+    })
 
     const updateCredentials = (e) => {
         setDate({ ...date, [e.target.name]: e.target.value });
@@ -29,12 +31,13 @@ const DentistSchedule = (props) => {
         
             let body = {
               
-                date: "2010-05-06T22:00:00.000+00:00", //FALTA QUE FUNCIONE COGER EL DATE POR CALENDARIO
+                // date: Date.parse(dentistSchedule.date), //FALTA QUE FUNCIONE COGER EL DATE POR CALENDARIO
                 dentist: user._id
             } 
         
-            let res = await axios.post('http://localhost:3006/appointment/schedule',body, {headers:{'authorization':'Bearer ' + token}});
-            setDentistSchedule(res.data)
+            let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
+            setDentistSchedule({...dentistSchedule, data: res.data})
+            console.log(dentistSchedule.data)
         
         } catch (error){
             console.log(error)
@@ -42,7 +45,7 @@ const DentistSchedule = (props) => {
         }
      }
 
-     if(dentistSchedule[0]?.date){
+     if(dentistSchedule?.data){
                 // si existe, mapeamos los resultados
                 return(
                     <div className="dentistSchedule">
@@ -52,12 +55,12 @@ const DentistSchedule = (props) => {
                         <input type="date" name="date" title="date" onChange={updateCredentials}/>
 
                         <div className="appointmentsContainer">
-                            {dentistSchedule.map((appointment, index) => (
+                            {dentistSchedule?.data.map((appointment, index) => (
                                 <div key={index} className="appointmentCard">
-                                    <p>CLIENT : {appointment.client.name}</p>
-                                    <p>CLINIC : {appointment.clinic.name}</p>
-                                    <p>PHONE : {appointment.clinic.phone}</p>
-                                    <p>CITY : {appointment.clinic.city}</p>
+                                    <p>CLIENT : {appointment.clientName}</p>
+                                    <p>CLINIC : {appointment.clinicName}</p>
+                                    <p>PHONE : {appointment.clinicPhone}</p>
+                                    <p>CITY : {appointment.clinicCity}</p>
                                     <p>DATE : {appointment.date}</p>
        
                                 </div>
@@ -83,6 +86,6 @@ const DentistSchedule = (props) => {
 export default connect((state) => ({
 
     credentials:state.credentials,
-    calendar: state.calendar
-
+    calendar: state.calendar,
+    schedule: state.schedule
     }))(DentistSchedule);
