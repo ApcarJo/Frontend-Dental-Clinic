@@ -47,7 +47,7 @@ const Clinics = (props) => {
 
                 <div className="ClinicImage">
                     <div className="fondoclinics"></div>
-                    <p className="ourClinics">OUR CLINICS</p>
+                    <p className="ourClinics">C L I N I C S</p>
                 </div>
 
                 <div className="clinicsContent">
