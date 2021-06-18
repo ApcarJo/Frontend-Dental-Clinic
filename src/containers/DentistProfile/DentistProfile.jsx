@@ -5,6 +5,7 @@ import './DentistProfile.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
 import axios from 'axios';
+import Moment from 'react-moment';
 import dentistSchedule from '../../redux/reducers/dentistSchedule-reducer';
 import { DATES_DENTIST, SCHEDULE_CAL } from '../../redux/types';
 import Calendar from '../../components/Calendar/Calendar';
@@ -56,7 +57,7 @@ const DentistProfile = (props) => {
             setDentistData({...dentistData, data: res?.data})
             console.log(res?.data, "esto es res?.data")
             // console.log(agenda.data, "esto es agenda.data")
-            console.log(props?.schedule, "esto es props.data")
+            console.log(props.schedule, "esto es props.data")
         
             // setDentistAgenda({...agenda, data: res?.data})
             
@@ -69,9 +70,17 @@ const DentistProfile = (props) => {
 
     console.log(props.calendar?.semana, "semana imprimir console")
     console.log(props.calendar?.diasMes, "diasMes imprimir console")
-    
-    for (let i=0; i<dentistData.data.length; i++){
-    console.log(dentistData.data[i].date, "esto es dentistdata")}
+
+    let arrayToDraw = [];
+
+    // for (let i=0; i<dentistData.data.length; i++){
+    // console.log(dentistData.data[i].date, "esto es dentistdata")
+    // console.log(Date.toString(dentistData.data[i].date), "esto es tostring");
+    // // console.log(props.schedule?[i])
+    //     if (dentistData.data[i].date==4){
+    //         console.log("hola")
+    //     }
+    // }
     
 
     if(props.credentials?.token) {
@@ -108,7 +117,7 @@ const DentistProfile = (props) => {
 
 			                {props.calendar?.diasMes.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
-			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}a</p>)}
+			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)}
 			                	</div>
 			                ))}	
 		            </div>

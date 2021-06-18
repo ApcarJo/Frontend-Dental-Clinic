@@ -30,7 +30,8 @@ const ClientUpdate = (props) => {
         ePassword: '',
         ePassword2: '',
         eCity: '',
-        eCp: ''
+        eCp: '',
+        eValidate:''
 
     });
 
@@ -77,24 +78,24 @@ const ClientUpdate = (props) => {
 
     const updatePassword = async () => {
 
-        let token = props.credentials?.token;
-        let user = props.credentials?.client;
+       try{
 
-        let body = {
+            let token = props.credentials?.token;
+            let user = props.credentials?.client;
+            let body = {
+                client: user._id,
+                oldPassword : passwords.oldPassword,
+                newPassword : passwords.newPassword
+            
+            }
+            let res = await axios.put('http://localhost:3006/clients/updatepassword', body, {headers:{'authorization':'Bearer ' + token}});
+            setTimeout(()=>{
+                history.push('/clientprofile');
+            },750);
 
-            client: user._id,
-            oldPassword : passwords.oldPassword,
-            newPassword : passwords.newPassword
-        
-        }
-
-        let res = await axios.put('http://localhost:3006/clients/updatepassword', body, {headers:{'authorization':'Bearer ' + token}});
-
-
-        setTimeout(()=>{
-            history.push('/clientprofile');
-        },750);
-
+       } catch {
+           setErrors({...errors, eValidate: 'Wrong password, please try again'});
+       }
 
         
     }
@@ -166,7 +167,6 @@ const ClientUpdate = (props) => {
                       <span className="text-nomb">Old Password</span>
                     </label>
                 </form>
-                {/* <div>{errors.ePassword}</div> */}
                 <form className="form">
                     <input type="password" name="newPassword" onChange={updatePasswordClient} onBlur={()=>checkError("password")}/> 
                     <label className="lbl-nombre">
@@ -181,6 +181,8 @@ const ClientUpdate = (props) => {
                     </label>
                 </form>
                 <div>{errors.ePassword2}</div>
+
+                <div>{errors.eValidate}</div>
 
                 <div className="updateButton" onClick={() => updatePassword()}>UPDATE</div>
 
