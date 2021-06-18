@@ -124,91 +124,74 @@ const Register = (props) => {
     return (
         <div className="vistaRegisterClient">
             <div className="leftSide">
-            <pre>{JSON.stringify(datosUser, null,2)}</pre>
+            {/* <pre>{JSON.stringify(datosUser, null,2)}</pre> */}
             </div>
-            <div className="form11">
+            <div className="formulario1">
                 <div className="box1">
-                    <div>
-                        <form className="form">
-                            <input className="input" name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")}></input>
-                            <label className="lbl-nombre">
-                              <span className="text-nomb">Name</span>
-                            </label>
-                        </form>
-                    </div>
                     <div className="errorsText">{errors.eName}</div>
+                    <form className="form">
+                        <input className="input" name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")} required/>
+                        <label className="lbl-nombre">
+                          <span className="text-nomb">Name</span>
+                        </label>
+                    </form>
                 </div>
-                <br></br>
+                
                 <div className="box1">
-                    <div>
-                        <form className="form1">
-                            <input className="input1" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")}></input>
-                            <label className="lbl-nombre1">
-                              <span className="text-nomb1">Email</span>
-                            </label>
-                        </form>
-                    </div>
-                    <div className="errorsText">{errors.eEmail}</div>
-                </div>
-                <br></br>
-                <div className="box1">
-                    <div>
-                        <form className="form2">
-                            <input className="input2" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")}></input>
-                            <label className="lbl-nombre2">
-                              <span className="text-nomb2">Phone</span>
-                            </label>
-                        </form>
-                    </div>
-                <div className="errorsText">{errors.ePhone}</div>
-                </div>
-                <br></br>
-                <div className="box1">
-                    <div>
-                        <form className="form3">
-                            <input className="input3" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")}></input>
-                            <label className="lbl-nombre3">
-                              <span className="text-nomb3">Password</span>
-                            </label>
-                        </form>
-                    </div>
-                <div className="errorsText">{errors.ePassword}</div>
+                <div className="errorsText">{errors.eEmail}</div>
+                    <form className="form1">
+                        <input className="input1" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")}required/>
+                        <label className="lbl-nombre1">
+                          <span className="text-nomb1">Email</span>
+                        </label>
+                    </form>
                 </div>
                 <div className="box1">
-                    <div>
-                        <form className="form4">
-                            <input className="input4" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")}></input>
-                            <label className="lbl-nombre4">
-                              <span className="text-nomb4">Repeat Password</span>
-                            </label>
-                        </form>
-                    </div>
-                <div className="errorsText">{errors.ePassword2}</div>
+                    <div className="errorsText">{errors.ePhone}</div>
+                    <form className="form2">
+                        <input className="input2" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")}required/>
+                        <label className="lbl-nombre2">
+                          <span className="text-nomb2">Phone</span>
+                        </label>
+                    </form>
                 </div>
-                <br></br>
+                <div className="box1">
+                    <div className="errorsText">{errors.ePassword}</div>
+                    <form className="form3">
+                        <input className="input3" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")}required/>
+                        <label className="lbl-nombre3">
+                          <span className="text-nomb3">Password</span>
+                        </label>
+                    </form>
+                </div>
+                <div className="box1">
+                    <div className="errorsText">{errors.ePassword2}</div>
+                    <form className="form4">
+                        <input className="input4" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")}required/>
+                        <label className="lbl-nombre4">
+                          <span className="text-nomb4">Repeat Password</span>
+                        </label>
+                    </form>
+                </div>
                 <div className="box1">  
-                    <div>  
+                    <div className="errorsText">{errors.eCity}</div>
                         <form className="form5">
-                            <input className="input5" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")}></input>
+                            <input className="input5" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")}required/>
                             <label className="lbl-nombre5">
                               <span className="text-nomb5">City</span>
                             </label>
                         </form>
-                    </div>
-                <div className="errorsText">{errors.eCity}</div>
-                </div>
-                <br></br>    
+                </div>  
                 <div className="box1">
-                    <div>
-                        <form className="form6">
-                            <input className="input6" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")}></input>
-                            <label className="lbl-nombre6">
-                              <span className="text-nomb6">Postal Code</span>
-                            </label>
-                        </form>
-                    </div>
-                <div className="errorsText">{errors.eCp}</div> 
+                    <div className="errorsText">{errors.eCp}</div> 
+                    <form className="form6">
+                        <input className="input6" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")}required/>
+                        <label className="lbl-nombre6">
+                          <span className="text-nomb6">Postal Code</span>
+                        </label>
+                    </form>
                 </div>
+                
                 <Calendar/>
                     {/* <input className="name" name="dateOfBirth" type="date" onChange=        {updateFormulario} onBlur={()=>checkError("dateOfBirth")}      placeholder="dateOfBirth"></  input><br></br>
                     <div>{errors.eDateofbirth}</div> */}
