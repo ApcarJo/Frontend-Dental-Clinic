@@ -21,6 +21,7 @@ import DentistSchedule from './containers/DentistSchedule/DentistSchedule';
 import Footer from './components/Footer/Footer';
 import ClientUpdate from './containers/ClientUpdate/ClientUpdate';
 import AdminProfile from './containers/AdminProfile/AdminProfile';
+import UpdateAppointments from './containers/UpdateAppointments/UpdateAppointments';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
            <Route path="/calendar" exact component = {Calendar}/>
            <Route path="/dentistschedule" exact component={DentistSchedule}/>
            <Route path="/admin" exact component={AdminProfile}/>
+           <Route path="/updateappointments" exact component={UpdateAppointments}/>
 
           </Switch>
           <Footer />
