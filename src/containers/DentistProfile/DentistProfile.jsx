@@ -32,8 +32,8 @@ const DentistProfile = (props) => {
 
     }
 
-    console.log(props.calendar?.semana)
-    console.log(props.calendar?.diasMes)
+    console.log(props.calendar?.semana, "semana imprimir console")
+    console.log(props.calendar?.diasMes, "diasMes imprimir console")
     
     if(props.credentials?.token) {
 
@@ -97,6 +97,7 @@ const DentistProfile = (props) => {
 
 export default connect((state) => ({
 
-    credentials:state.credentials
+    credentials: state.credentials,
+    calendar: state.calendar
 
     }))(DentistProfile);

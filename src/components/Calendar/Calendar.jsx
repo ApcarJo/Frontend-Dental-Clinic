@@ -118,17 +118,14 @@ const Calendar = (props) => {
 
 	for (i=1; i<=mesi[mes-1]; i++)
 	{
-		if (dia===i){
+		if (dia===i)
 			console.log(i+'*');
-		}
 
-		if (dia!==i){
+		if (dia!==i)
 			console.log(i);
-		}
 
-		if (a%7===0){
+		if (a%7===0)
 			console.log(" ");
-		}
 		a++;
 	}
 
@@ -180,9 +177,8 @@ const Calendar = (props) => {
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
 
 		let datePicker = {
-			date: date
+			dateOfBirth: date
 		}
-
 		props.dispatch({type:DATE_CAL, payload:datePicker});
 		}
 		else{
@@ -254,8 +250,6 @@ const Calendar = (props) => {
 	}
 
 	let romanoNum = romano(anyo);
-	
-	
 
 	const selectMonthArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -284,7 +278,6 @@ const Calendar = (props) => {
 	}
 return (
 	<div className="vistaCalendar">
-
 		<div className="inputCalendar">
 			{/* <select className="selectMonth" type="number" name="dia" onChange={updateFormulario}>
     	    		{mesDias.map((valor) => (<option>{valor}</option>))}
@@ -297,7 +290,7 @@ return (
 			{/* <select className="selectMonth" type="name" name="anyo" onChange={updateFormulario} defaultValue={day}>
     	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
     	    </select> */}
-		
+		</div>
 			{/*// DEPRECATED*/}
 			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>
 			<div>{errors.eDia}</div>
@@ -305,7 +298,7 @@ return (
 			<div>{errors.eMes}</div>*/}
 			<input type='text' className='numberBox' name='anyo' onChange={updateFormulario}  placeholder="anyo" defaultValue={year}></input>
 			<div>{errors.eAnyo}</div> 
-		</div>	
+			
 		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
 		
 		<div className="drawCalendar">
