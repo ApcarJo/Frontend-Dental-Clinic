@@ -13,7 +13,6 @@ const ClientUpdate = (props) => {
         name : props.credentials?.client.name,
         email: props.credentials?.client.email,
         phone : props.credentials?.client.phone,
-        password : "",
         city: props.credentials?.client.city,
         cp: props.credentials?.client.cp
     });
@@ -45,7 +44,6 @@ const ClientUpdate = (props) => {
             name: updateInfo.name,
             email: updateInfo.email,
             phone: updateInfo.phone,
-            password: updateInfo.password,
             city: updateInfo.city,
             cp: updateInfo.cp
         
@@ -145,14 +143,7 @@ const ClientUpdate = (props) => {
                     </label>
                 </form>
                 <div>{errors.ePhone}</div>
-                <form className="form">
-                    {/* aqui no muestra nada pq al logear no se guarda la contraseña (backend) */}
-                    <input type="password" name="password" placeholder="New password" onChange={updateInfoClient} /> 
-                    <label className="lbl-nombre">
-                      <span className="text-nomb">Password</span>
-                    </label>
-                </form>
-                <div>{errors.ePassword}</div>
+
                 <form className="form">
                     <input type="text" name="city" placeholder={props.credentials?.client.city} onChange={updateInfoClient} onBlur={()=>checkError("city")}/>
                     <label className="lbl-nombre">
@@ -189,3 +180,15 @@ export default connect((state) => ({
     credentials:state.credentials
   
     }))(ClientUpdate);
+
+
+//passworddd
+
+//     <form className="form">
+//     {/* aqui no muestra nada pq al logear no se guarda la contraseña (backend) */}
+//     <input type="password" name="password" placeholder="New password" onChange={updateInfoClient} /> 
+//     <label className="lbl-nombre">
+//       <span className="text-nomb">Password</span>
+//     </label>
+// </form>
+// <div>{errors.ePassword}</div>
