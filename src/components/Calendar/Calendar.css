@@ -19,8 +19,8 @@
     justify-content: center;
     align-items: center;
 
-    height: 35em;
-    
+    height: 40vh;
+    width: 35em;
 }
 
 .dayBox {
@@ -52,9 +52,7 @@
 .numberBox {
     width: 5em;
     outline: none;
-    border: none;
-    border-bottom: solid 0.1em red;
-    
+    border: none;    
 }
 
 .selectMonth {
@@ -62,7 +60,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 4em;
+    width: 5em;
     border: none;
     outline: none;
 }
