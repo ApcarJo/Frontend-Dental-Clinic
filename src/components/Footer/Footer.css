@@ -11,6 +11,7 @@ footer {
     border-left: none;
     border-right: none;
     top: -0.5em;
+    height: 10em;
 }
 .tooth {
     display: flex;
@@ -26,7 +27,6 @@ footer {
     justify-content: center;
     align-items: center;
     position: relative;
-    height: 11em;
     right: 6em;
 }
 .column1 {
