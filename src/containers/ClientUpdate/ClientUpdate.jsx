@@ -13,6 +13,7 @@ const ClientUpdate = (props) => {
         name : props.credentials?.client.name,
         email: props.credentials?.client.email,
         phone : props.credentials?.client.phone,
+        password : "",
         city: props.credentials?.client.city,
         cp: props.credentials?.client.cp
     });
@@ -40,16 +41,22 @@ const ClientUpdate = (props) => {
 
         let body = {
 
-            _id: user._id,
+            client: user._id,
             name: updateInfo.name,
             email: updateInfo.email,
             phone: updateInfo.phone,
+            password: updateInfo.password,
             city: updateInfo.city,
             cp: updateInfo.cp
         
         }
 
+        console.log(body,"bodyy")
+
+
         let res = await axios.put('http://localhost:3006/clients', body, {headers:{'authorization':'Bearer ' + token}});
+
+        console.log(res.data)
 
         props.dispatch({type:UPDATE_USER, payload:res.data});
 
@@ -140,7 +147,7 @@ const ClientUpdate = (props) => {
                 <div>{errors.ePhone}</div>
                 <form className="form">
                     {/* aqui no muestra nada pq al logear no se guarda la contraseña (backend) */}
-                    <input type="password"  value="password"/> 
+                    <input type="password" name="password" placeholder="New password" onChange={updateInfoClient} /> 
                     <label className="lbl-nombre">
                       <span className="text-nomb">Password</span>
                     </label>
