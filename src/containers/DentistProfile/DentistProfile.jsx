@@ -35,6 +35,11 @@ const DentistProfile = (props) => {
     console.log(props.calendar?.semana, "semana imprimir console")
     console.log(props.calendar?.diasMes, "diasMes imprimir console")
     
+    const sayHola = () => {
+        let barbilla = 9;
+        return barbilla;
+    }
+
     if(props.credentials?.token) {
 
         return(
@@ -60,16 +65,16 @@ const DentistProfile = (props) => {
                     <div className="schedule">
                         <div className="calendar"></div>
                         {/* <h1> AQUI VA EL CALENDARIO!!!! </h1> */}
-                        <div className="drawCalendar">
+                        <div className="drawDentistCalendar">
 			                {props.calendar?.semana.map((semana, index) => (
-					            <div className="dayBox" key={index}>
-							        <p>{semana}aa</p>
+					            <div className="dayDentistBox" key={index}>
+							        <p>{semana}</p>
 					            </div>
 			                ))}
 
 			                {props.calendar?.diasMes.map((diasMes, index) => (
-			                	<div className="dayBox" id={index} key={index}>
-			                			<p>{diasMes}aa</p>
+			                	<div className="dayDentistBox" id={index} key={index}>
+			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>5</p>)}
 			                	</div>
 			                ))}	
 		            </div>
@@ -96,8 +101,6 @@ const DentistProfile = (props) => {
 }
 
 export default connect((state) => ({
-
     credentials: state.credentials,
     calendar: state.calendar
-
-    }))(DentistProfile);
+}))(DentistProfile);

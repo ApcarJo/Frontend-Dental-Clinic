@@ -100,3 +100,26 @@
     grid-template-columns: repeat(7, 0.1fr);
     grid-template-rows: repeat(7, 0.2fr);
 }
+
+.dayDentistBox {
+    color: white;
+
+    cursor: pointer;
+}
+
+.drawDentistCalendar {
+    display: grid;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid 0.05em black;
+    padding: 0em;
+    border-radius: 0.2em;
+
+    height: 30em;
+    width: 55em;
+
+    grid-template-columns: repeat(7, 0.2fr);
+    grid-template-rows: repeat(7, 0.3fr);
+}
