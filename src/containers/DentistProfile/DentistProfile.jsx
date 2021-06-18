@@ -5,10 +5,8 @@ import './DentistProfile.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
 import axios from 'axios';
-import Moment from 'react-moment';
-import dentistSchedule from '../../redux/reducers/dentistSchedule-reducer';
 import { DATES_DENTIST, SCHEDULE_CAL } from '../../redux/types';
-import Calendar from '../../components/Calendar/Calendar';
+
 
 
 const DentistProfile = (props) => {
@@ -83,11 +81,16 @@ const DentistProfile = (props) => {
     console.log(dentistData.data, "aaaaaaaaaaaaaaaaaaaa")
 
     let arrayToDraw = [];
-    
+    let newDate;
+    let moca;
     for (let i=0; i<dentistData.data.length; i++){
     console.log(dentistData.data[i].date, "esto es dentistdata")
-    let moca = (dentistData.data[i].date);
+    newDate = new Date (dentistData.data[i].date)
+    console.log(newDate, "esto es newdate")
+    moca = newDate.getDate();
+    // moca = (dentistData.data[i].date);
     console.log(moca, "esto es moca2")
+    
     }
     
     // console.log(Date.toString(dentistData.data[i].date), "esto es tostring");
