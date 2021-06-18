@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react';
 import './Calendar.css';
 import { DRAW_CAL, DATE_CAL } from '../../redux/types';
 import { connect } from 'react-redux';
-import Moment from 'react-moment';
 
 const Calendar = (props) => {
 	var arrayDate = [];
