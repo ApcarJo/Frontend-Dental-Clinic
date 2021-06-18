@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import './DentistRegister.css';
+import Calendar from '../../components/Calendar/Calendar';
 
 const DentistRegister = () => {
 
@@ -131,8 +132,9 @@ const DentistRegister = () => {
             <div>{errors.eSpecialty}</div>
             <input className="name" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
             <div>{errors.eCity}</div>
-            <input className="name2" name="iDate" type="date" onChange={updateFormulario} onBlur={()=>checkError("iDate")} placeholder="postal code"></input><br></br>
-            <div>{errors.eIDate}</div>
+            <Calendar name="iDate" onChange={updateFormulario}/>
+            {/* <input className="name2" name="iDate" type="date" onChange={updateFormulario} onBlur={()=>checkError("iDate")} placeholder="postal code"></input><br></br>
+            <div>{errors.eIDate}</div> */}
             {/* onBlur={()=>checkError("password")} */}
 
             <div className="registerButton" onClick={()=>applyRegister()}>Enviar

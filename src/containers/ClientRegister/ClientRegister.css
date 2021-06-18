@@ -13,6 +13,10 @@
     
 }
 
+.vistaRegister{
+    display: flex;
+}
+
 
 .botonCuco:hover{
     background-color: lightpink;

@@ -1,8 +1,7 @@
 
-import { OmitProps } from 'antd/lib/transfer/ListBody';
 import React, {useEffect, useState} from 'react';
 import './Calendar.css';
-import { DRAW_CAL } from '../../redux/types';
+import { DRAW_CAL, DATE_CAL } from '../../redux/types';
 import { connect } from 'react-redux';
 
 const Calendar = (props) => {
@@ -39,7 +38,7 @@ const Calendar = (props) => {
 	},[]);
 
 	useEffect (()=>{
-		initiateDate();
+		// initiateDate();
 	});
 
 	const men20 = (a) => {
@@ -168,15 +167,22 @@ const Calendar = (props) => {
 		}
 	}
 	let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
-	// let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+	let arrayMes2 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 		arrayDate += (arrayMes[mes-1]);
 
 
 	const saveData = (dia, mes, anyo) => {
 		if (dia!==''){
-		let date= dia+'-'+mes+'-'+anyo;
+		let date= anyo+'-'+dia+'-'+mes;
+		// let date= dia+'-'+mes+'-'+anyo;
+		
 		// setDatosUser({...datosUser, date: date});	
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
+
+		let datePicker = {
+			dateOfBirth: date
+		}
+		props.dispatch({type:DATE_CAL, payload:datePicker});
 		}
 		else{
 			console.log("ahí no")
@@ -267,11 +273,14 @@ const Calendar = (props) => {
 		}
 
 	// Guardo en RDX
-	props.dispatch({type:DRAW_CAL, payload:actualDate});
+	props.dispatch({type:DATE_CAL, payload:actualDate});
 	}
 
 	const selectAnyo = [year, (year+1)];
 
+	const traductor = (val) => {
+		updateFormulario(selectMonthArray[val])
+	}
 return (
 	<div className="vistaCalendar">
 
@@ -284,9 +293,9 @@ return (
     	         {selectMonthArray.map((valor) => (<option>{valor}</option>))}
     	    </select>
 			
-			<select className="selectMonth" type="name" name="dia"  onChange={updateFormulario} defaultValue={day}>
+			{/* <select className="selectMonth" type="name" name="anyo" onChange={updateFormulario} defaultValue={day}>
     	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
-    	    </select>
+    	    </select> */}
 		</div>
 			{/*// DEPRECATED*/}
 			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>

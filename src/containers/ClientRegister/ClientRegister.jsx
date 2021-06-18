@@ -2,9 +2,11 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import "./ClientRegister.css";
+import { connect } from 'react-redux';
 import Calendar from '../../components/Calendar/Calendar';
+import { REMOVE_CAL, DATE_CAL } from '../../redux/types';
 
-const Register = () => {
+const Register = (props) => {
 
     // Hook
     const [datosUser,setDatosUser] = useState(
@@ -38,6 +40,8 @@ const Register = () => {
 
     const applyRegister = async () => {
         // e.preventDefault();
+
+        console.log(props.calendar?.date, "jkja")
 
         let body = {
             name: datosUser.name,
@@ -115,34 +119,46 @@ const Register = () => {
 
         return errorDefault;
      }
+
+     const prueba = (arg) => {
+         console.log(arg, "jkasldjsalkdjaskldjaskljdlkasjdklasjdklsajdlaskj")
+     }
+
     return (
-
-        <div className="formulario">
-            
+        <div className="vistaRegister">
+            <div className="leftSide">
             <pre>{JSON.stringify(datosUser, null,2)}</pre>
-            
-            <input className={errorStyle("name")} name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="name"></input><br></br>
-            <div>{errors.eName}</div>
-            <input className="name" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")} placeholder="email"></input><br></br>
-            <div>{errors.eEmail}</div>
-            <input className="name" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")} placeholder="phone number"></input><br></br>
-            <div>{errors.ePhone}</div>
-            <input className="name" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")} placeholder="password"></input><br></br>
-            <div>{errors.ePassword}</div>
-            <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")} placeholder="password2"></input><br></br>
-            <div>{errors.ePassword2}</div>
-            <input className="name" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
-            <div>{errors.eCity}</div>
-            <input className="name" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")} placeholder="postal code"></input><br></br>
-            <div>{errors.eCp}</div>
-            <Calendar name="dateOfBirth" onChange={updateFormulario}/>
-            {/* <input className="name" name="dateOfBirth" type="date" onChange={updateFormulario} onBlur={()=>checkError("dateOfBirth")} placeholder="dateOfBirth"></input><br></br>
-            <div>{errors.eDateofbirth}</div> */}
-
-            <div className="registerButton" onClick={()=>applyRegister()}>Enviar
             </div>
+                <div className="formulario">
+
+                    
+
+                    <input className={errorStyle("name")} name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="name"></    input><br></ br>
+                    <div>{errors.eName}</div>
+                    <input className="name" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")} placeholder="email"></input><br></br>
+                    <div>{errors.eEmail}</div>
+                    <input className="name" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")} placeholder="phone number"></input><br></br>
+                    <div>{errors.ePhone}</div>
+                    <input className="name" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")}     placeholder="password"></input><br></br>
+                    <div>{errors.ePassword}</div>
+                    <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")}    placeholder="password2"></input><br></br>
+                    <div>{errors.ePassword2}</div>
+                    <input className="name" name="city" type="text" onChange={updateFormulario}onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
+                    <div>{errors.eCity}</div>
+                    <input className="name" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")} placeholder="postal code"></input><br></br>
+                    <div>{errors.eCp}</div>
+                    <Calendar/>
+                    {/* <input className="name" name="dateOfBirth" type="date" onChange=        {updateFormulario} onBlur={()=>checkError("dateOfBirth")}   placeholder="dateOfBirth"></  input><br></br>
+                    <div>{errors.eDateofbirth}</div> */}
+
+                    <div className="registerButton" onClick={()=>applyRegister()}>Enviar
+                    </div>
+                </div>
+            
         </div>
     )
 }
 
-export default Register;
+export default connect((state)=>({
+    calendar: state.calendar
+}))(Register);
