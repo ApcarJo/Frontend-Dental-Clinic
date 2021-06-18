@@ -17,9 +17,15 @@ const DentistProfile = (props) => {
 
     //hooks
     const [dentistData, setDentistData] = useState({
+        data: [],
         token: props.credentials?.token,
         dentist: props.credentials?.dentist
     });
+
+    //Handler
+    const updateDentistData = (e) => {
+        setDentistData({ ...dentistData, [e.target.name]: e.target.value });
+    }
 
     useEffect( () => {
         searchAppointments();
@@ -47,9 +53,10 @@ const DentistProfile = (props) => {
         
             let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
+            setDentistData({...dentistData, data: res?.data})
             console.log(res?.data, "esto es res?.data")
             // console.log(agenda.data, "esto es agenda.data")
-            console.log(props.schedule, "esto es props.data")
+            console.log(props?.schedule, "esto es props.data")
         
             // setDentistAgenda({...agenda, data: res?.data})
             
@@ -62,6 +69,9 @@ const DentistProfile = (props) => {
 
     console.log(props.calendar?.semana, "semana imprimir console")
     console.log(props.calendar?.diasMes, "diasMes imprimir console")
+    
+    for (let i=0; i<dentistData.data.length; i++){
+    console.log(dentistData.data[i].date, "esto es dentistdata")}
     
 
     if(props.credentials?.token) {
