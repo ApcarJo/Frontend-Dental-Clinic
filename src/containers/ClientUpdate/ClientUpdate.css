@@ -17,8 +17,8 @@
     
     background-color:#dfeaf7;
     padding-top: 2em;
-    width: 32em;
-    height: 49em;
+    width: 30em;
+    height: 40em;
     margin-bottom: 2em;
 }
 
@@ -38,4 +38,22 @@
 .updateButton:hover {
     transition: 0.2s;
     background-color: #f1f6fd;
+}
+
+.updatePassword {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    background-color:#dfeaf7;
+    margin-right: 5em;
+    padding-top: 2em;
+    width: 30em;
+    height: 25em;
+    margin-bottom: 2em;
+}
+
+.titleUpdate {
+    margin-bottom: 3em;
 }
