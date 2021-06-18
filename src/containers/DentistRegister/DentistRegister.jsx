@@ -3,7 +3,7 @@ import axios from 'axios';
 import './DentistRegister.css';
 import Calendar from '../../components/Calendar/Calendar';
 
-const DentistRegister = () => {
+const DentistRegister = (props) => {
 
     // Hook
     const [datosUser,setDatosUser] = useState(
@@ -45,7 +45,7 @@ const DentistRegister = () => {
             password : datosUser.password,
             speciality: datosUser.specialty,
             city: datosUser.city,
-            incorporationDate: datosUser.iDate
+            incorporationDate: Date.parse(props.calendar?.date),
         }
         console.log(body);
 
@@ -113,31 +113,31 @@ const DentistRegister = () => {
         return errorDefault;
      }
     return (
+        <div className="vistaRegisterClient">
+            <div className="leftSide">
+                <pre>{JSON.stringify(datosUser, null,2)}</pre>
+            </div>
+            <div className="formulario">
+                <input className={errorStyle("name")} name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="name"></input><br></br>
+                <div>{errors.eName}</div>
+                <input className="name" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")} placeholder="email"></input><br></br>
+                <div>{errors.eEmail}</div>
+                <input className="name" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")} placeholder="phone number"></input><br></br>
+                <div>{errors.ePhone}</div>
+                <input className="name" name="password" type="password" onChange={updateFormulario}  placeholder="password"></input><br></br>
+                <div>{errors.ePassword}</div>
+                <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")} placeholder="password2"></input><br></br>
+                <div>{errors.ePassword2}</div>
+                <input className="name" name="specialty" type="text" onChange={updateFormulario} onBlur={()=>checkError("specialty")} placeholder="specialty"></input><br></br>
+                <div>{errors.eSpecialty}</div>
+                <input className="name" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
+                <div>{errors.eCity}</div>
+                <Calendar name="iDate" onChange={updateFormulario}/>
+                {/* <input className="name2" name="iDate" type="date" onChange={updateFormulario} onBlur={()=>checkError("iDate")} placeholder="postal code"></input><br></br>
+                <div>{errors.eIDate}</div> */}
+                {/* onBlur={()=>checkError("password")} */}
 
-        <div className="formulario">
-            
-            <pre>{JSON.stringify(datosUser, null,2)}</pre>
-            
-            <input className={errorStyle("name")} name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="name"></input><br></br>
-            <div>{errors.eName}</div>
-            <input className="name" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")} placeholder="email"></input><br></br>
-            <div>{errors.eEmail}</div>
-            <input className="name" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")} placeholder="phone number"></input><br></br>
-            <div>{errors.ePhone}</div>
-            <input className="name" name="password" type="password" onChange={updateFormulario}  placeholder="password"></input><br></br>
-            <div>{errors.ePassword}</div>
-            <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")} placeholder="password2"></input><br></br>
-            <div>{errors.ePassword2}</div>
-            <input className="name" name="specialty" type="text" onChange={updateFormulario} onBlur={()=>checkError("specialty")} placeholder="specialty"></input><br></br>
-            <div>{errors.eSpecialty}</div>
-            <input className="name" name="city" type="text" onChange={updateFormulario} onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
-            <div>{errors.eCity}</div>
-            <Calendar name="iDate" onChange={updateFormulario}/>
-            {/* <input className="name2" name="iDate" type="date" onChange={updateFormulario} onBlur={()=>checkError("iDate")} placeholder="postal code"></input><br></br>
-            <div>{errors.eIDate}</div> */}
-            {/* onBlur={()=>checkError("password")} */}
-
-            <div className="registerButton" onClick={()=>applyRegister()}>Enviar
+                <div className="registerButton" onClick={()=>applyRegister()}>Enviar</div>
             </div>
         </div>
     )

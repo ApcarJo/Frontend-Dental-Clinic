@@ -5,6 +5,7 @@ import "./ClientRegister.css";
 import { connect } from 'react-redux';
 import Calendar from '../../components/Calendar/Calendar';
 import { REMOVE_CAL, DATE_CAL } from '../../redux/types';
+import Moment from 'react-moment';
 
 const Register = (props) => {
 
@@ -41,14 +42,14 @@ const Register = (props) => {
     const applyRegister = async () => {
         // e.preventDefault();
 
-        console.log(props.calendar?.date, "jkja")
+        console.log(props.calendar?.dateOfBirth, "jkja")
 
         let body = {
             name: datosUser.name,
             email : datosUser.email,
             phone: datosUser.phone,
             password : datosUser.password,
-            dateOfBirth: datosUser.dateOfBirth,
+            dateOfBirth: Date.parse(props.calendar?.date),
             city: datosUser.city,
             cp: datosUser.cp
         }
@@ -125,33 +126,93 @@ const Register = (props) => {
      }
 
     return (
-        <div className="vistaRegister">
+        <div className="vistaRegisterClient">
             <div className="leftSide">
             <pre>{JSON.stringify(datosUser, null,2)}</pre>
             </div>
                 <div className="formulario">
 
-                    
-
-                    <input className={errorStyle("name")} name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")} placeholder="name"></    input><br></ br>
+                <div className="box1">
+                    <form className="form">
+                        <input className="input" name="name" type="text" onChange={updateFormulario} onBlur={()=>checkError("name")}></input>
+                        <label className="lbl-nombre">
+                          <span className="text-nomb">Name</span>
+                        </label>
+                    </form>
                     <div>{errors.eName}</div>
-                    <input className="name" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")} placeholder="email"></input><br></br>
+                </div>
+
+                <br></br>
+                <div className="box1">
+                    <form className="form1">
+                        <input className="input1" name="email" type="text" onChange={updateFormulario} onBlur={()=>checkError("email")}></input>
+                        <label className="lbl-nombre1">
+                          <span className="text-nomb1">Email</span>
+                        </label>
+                    </form>
                     <div>{errors.eEmail}</div>
-                    <input className="name" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")} placeholder="phone number"></input><br></br>
-                    <div>{errors.ePhone}</div>
-                    <input className="name" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")}     placeholder="password"></input><br></br>
-                    <div>{errors.ePassword}</div>
-                    <input className="name" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")}    placeholder="password2"></input><br></br>
-                    <div>{errors.ePassword2}</div>
-                    <input className="name" name="city" type="text" onChange={updateFormulario}onBlur={()=>checkError("city")} placeholder="city"></input><br></br>
-                    <div>{errors.eCity}</div>
-                    <input className="name" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")} placeholder="postal code"></input><br></br>
-                    <div>{errors.eCp}</div>
-                    <Calendar/>
+                </div>
+
+
+                <br></br>
+                <div className="box1">
+                <form className="form2">
+                    <input className="input2" name="phone" type="text" onChange={updateFormulario} onBlur={()=>checkError("phone")}></input>
+                    <label className="lbl-nombre2">
+                      <span className="text-nomb2">Phone</span>
+                    </label>
+                </form>
+                <div>{errors.ePhone}</div>
+                </div>
+
+                <br></br>
+                <div className="box1">
+                <form className="form3">
+                    <input className="input3" name="password" type="password" onChange={updateFormulario} onBlur={()=>checkError("password")}></input>
+                    <label className="lbl-nombre3">
+                      <span className="text-nomb3">Password</span>
+                    </label>
+                </form>
+                <div>{errors.ePassword}</div>
+                </div>
+
+                <div className="box1">
+                <form className="form4">
+                    <input className="input4" name="password2" type="password" onChange={updateFormulario} onBlur={()=>checkError("password2")}></input>
+                    <label className="lbl-nombre4">
+                      <span className="text-nomb4">Repeat Password</span>
+                    </label>
+                </form>
+                <div>{errors.ePassword2}</div>
+                </div>
+
+                <br></br>
+                <div className="box1">    
+                <form className="form5">
+                    <input className="input5" name="city" type="text" onChange={updateFormulario}onBlur={()=>checkError("city")}></input>
+                    <label className="lbl-nombre5">
+                      <span className="text-nomb5">City</span>
+                    </label>
+                </form>
+                <div>{errors.eCity}</div>
+                </div>
+
+                <br></br>    
+                <div className="box1">
+                <form className="form6">
+                    <input className="input6" name="cp" type="text" onChange={updateFormulario} onBlur={()=>checkError("cp")}></input>
+                    <label className="lbl-nombre6">
+                      <span className="text-nomb6">Postal Code</span>
+                    </label>
+                </form>
+                <div>{errors.eCp}</div> 
+                </div>
+                    
+                <Calendar/>
                     {/* <input className="name" name="dateOfBirth" type="date" onChange=        {updateFormulario} onBlur={()=>checkError("dateOfBirth")}   placeholder="dateOfBirth"></  input><br></br>
                     <div>{errors.eDateofbirth}</div> */}
 
-                    <div className="registerButton" onClick={()=>applyRegister()}>Enviar
+                <div className="registerButton" onClick={()=>applyRegister()}>Enviar
                     </div>
                 </div>
             

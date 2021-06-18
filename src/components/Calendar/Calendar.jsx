@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import './Calendar.css';
 import { DRAW_CAL, DATE_CAL } from '../../redux/types';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
 
 const Calendar = (props) => {
 	var arrayDate = [];
@@ -180,8 +181,9 @@ const Calendar = (props) => {
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
 
 		let datePicker = {
-			dateOfBirth: date
+			date: date
 		}
+
 		props.dispatch({type:DATE_CAL, payload:datePicker});
 		}
 		else{
@@ -296,7 +298,7 @@ return (
 			{/* <select className="selectMonth" type="name" name="anyo" onChange={updateFormulario} defaultValue={day}>
     	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
     	    </select> */}
-		</div>
+		
 			{/*// DEPRECATED*/}
 			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>
 			<div>{errors.eDia}</div>
@@ -304,7 +306,7 @@ return (
 			<div>{errors.eMes}</div>*/}
 			<input type='text' className='numberBox' name='anyo' onChange={updateFormulario}  placeholder="anyo" defaultValue={year}></input>
 			<div>{errors.eAnyo}</div> 
-			
+		</div>	
 		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
 		
 		<div className="drawCalendar">
