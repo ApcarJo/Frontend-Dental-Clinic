@@ -1,8 +1,9 @@
 import React from 'react';
 import './Footer.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelope, facebook,  } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import logo from '../../img/logo.png'
 const Footer = () => {
 
@@ -34,18 +35,19 @@ const Footer = () => {
                             </div>
                             <div className="follow">
                                 <h3 className="tittle">FOLLOW US</h3>
-                                <div className="redes">
-                                    <FontAwesomeIcon icon={faPhone}/>
+                                <a href="https://es-es.facebook.com/ " className="redes">
+                                    <FontAwesomeIcon icon={faFacebook}/>
                                     <p className="social" >Facebook</p>
-                                </div>
-                                <div className="redes">
-                                    <FontAwesomeIcon icon={faPhone}/>
+                                </a>
+                                <a href="https://twitter.com/?lang=es" className="redes">
+                                    <FontAwesomeIcon icon={faTwitter}/>
                                     <p className="social" >Twitter</p>
-                                </div>
-                                <div className="redes">
-                                    <FontAwesomeIcon icon={faPhone}/>
+                                </a>
+                               
+                                <a href="https://www.instagram.com/ " className="redes">
+                                    <FontAwesomeIcon icon={faInstagram}/>
                                     <p className="social" >Instagram</p>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
