@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { APPOINTMENT } from "../../redux/types";
 
 const ClientAppointments = (props) => {
+
   let history = useHistory(); //hooks
 
   const [clientAppointment, setClientAppointment] = useState({});
@@ -14,7 +15,7 @@ const ClientAppointments = (props) => {
     searchAppointments();
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const searchAppointments = async () => {
     try {
@@ -26,10 +27,9 @@ const ClientAppointments = (props) => {
       };
 
       let res = await axios.post(
-        "http://localhost:3006/appointment/client",
-        body,
-        { headers: { authorization: "Bearer " + token } }
-      );
+        "http://localhost:3006/appointment/client", body, {
+        headers: { authorization: "Bearer " + token }
+      });
       // console.log('here', res.data);
       setClientAppointment(res.data);
     } catch (error) {
@@ -45,25 +45,47 @@ const ClientAppointments = (props) => {
     history.push("/updateappointments");
   };
 
+  const deleteAppointment = async (appointment) => {
+
+    let token = props.credentials?.token;
+    let user = props.credentials?.client;
+
+    let body = {
+      id: appointment.id,
+      client: user._id,
+      clinic: appointment.clinicId
+    };
+
+    console.log(body)
+
+    let res = await axios.delete('http://localhost:3006/appointment', body, {
+      headers: { authorization: "Bearer " + token }
+    });
+
+
+    history.push("/clientappointments");
+
+  }
+
   if (clientAppointment[0]?.id) {
     // si existe, mapeamos los resultados
     return (
       <div className="clientAllAppointmets">
-                        <h1>MY APPOINTMENTS</h1>
-                        
+        <h1>MY APPOINTMENTS</h1>
+
         <div className="appointmentsContainer">
-                              
+
           {clientAppointment.map((appointment, index) => (
             <div key={index} className="appointmentCard">
-                                          
+
               <p> CLINIC : {appointment.clinicName} </p>
-                                          
+
               <p> PHONE : {appointment.clinicPhone} </p>
-                                          
+
               <p> EMAIL : {appointment.clinicEmail} </p>
-                                          
+
               <p> DENTIST : {appointment.dentistName} </p>
-                                          
+
               <p> DATE : {appointment.date} </p>
               <div className="buttons1">
                 <div
@@ -72,18 +94,18 @@ const ClientAppointments = (props) => {
                 >
                   UPDATE
                 </div>
-                <div className="buttonLogoutC1">REMOVE</div>
+                <div className="buttonLogoutC1" onClick={() => deleteAppointment(appointment)}>REMOVE</div>
               </div>
-                                     
+
             </div>
           ))}
-                          
+
         </div>
-                    
+
       </div>
     );
   } else {
-    return <div>                ESTOY CARGANDO             </div>;
+    return <div>ESTOY CARGANDO</div>;
   }
 };
 

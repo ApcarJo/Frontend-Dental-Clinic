@@ -20,7 +20,7 @@ const UpdateAppointments = (props) => {
     allClinics();
   }, []);
 
-  useEffect(() => {});
+  useEffect(() => { });
 
   const updateInfoAppointment = (e) => {
     setUpdateInfo({ ...updateInfo, [e.target.name]: e.target.value });
@@ -37,8 +37,9 @@ const UpdateAppointments = (props) => {
       date: updateInfo.date,
     };
     console.log("body", body);
+
     let res = await axios.put("http://localhost:3006/appointment", body, {
-      headers: { authorization: "Bearer " + token },
+      headers: { authorization: "Bearer " + token }
     });
 
     console.log(res.data);
@@ -46,7 +47,7 @@ const UpdateAppointments = (props) => {
 
     setTimeout(() => {
       history.push("/clientappointments");
-    }, 750);
+    }, 550);
   };
 
   const allClinics = async () => {
