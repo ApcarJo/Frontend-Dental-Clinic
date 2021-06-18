@@ -1,10 +1,13 @@
 
-import {DATES_DENTIST} from '../types';
+import {DATES_DENTIST, SCHEDULE_CAL} from '../types';
 
 const initialState = {
-    client : {},
-    dentist: {},
-    token : ''
+    client: {},
+    data: [],
+    phoneclient: '',
+    clinic: {},
+    phoneclinic: '',
+    date : ''
 };
 
 const dentistScheduleReducer = (state = initialState, action) => {
@@ -13,8 +16,8 @@ const dentistScheduleReducer = (state = initialState, action) => {
         case DATES_DENTIST :
             return action.payload;
 
-        // case LOGOUT :
-        //     return initialState;
+        case SCHEDULE_CAL :
+            return action.payload;
 
         // case UPDATE_USER:
         //     return {...state, client: action.payload}    

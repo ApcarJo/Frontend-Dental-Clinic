@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
+import axios from 'axios';
 //import imgUser from '../../img/user.png';
 import './DentistProfile.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
-import dentistSchedule from '../../redux/reducers/dentistSchedule-reducer';
-import { DATES_DENTIST } from '../../redux/types';
+import { DATES_DENTIST, SCHEDULE_CAL, DATE_CAL } from '../../redux/types';
 import Calendar from '../../components/Calendar/Calendar';
 
 
@@ -20,8 +20,13 @@ const DentistProfile = (props) => {
         dentist: props.credentials?.dentist
     });
 
-    useEffect( () => {
+    const [dateInitial, setDateInitial] = useState({
 
+    })
+
+    useEffect( () => {
+        // searchAppointments();
+        // initiateDate();
     }, [])
 
     useEffect( () => {
@@ -33,6 +38,45 @@ const DentistProfile = (props) => {
         props.dispatch({type:LOGOUT});
 
     }
+    // let newDate = new Date();
+	// let year = newDate.getFullYear();
+	// let monthy = newDate.getMonth()+1;
+	// let day = newDate.getDate();
+
+    // const initiateDate = () => {
+	// 	const actualDate = {
+	// 		year: newDate.getFullYear(),
+	// 		monthy: newDate.getMonth()+1,
+	// 		day: newDate.getDate(),
+	// 	}
+
+	// // Guardo en RDX
+	// props.dispatch({type:DATE_CAL, payload:actualDate});
+	// }
+    // const searchAppointments = async () => {
+    //     try{
+    //         let token = props.credentials?.token;
+    //         let user = props.credentials?.dentist;
+        
+    //         let body = {
+    //             // date: Date.parse(dentistSchedule.date), //FALTA QUE FUNCIONE COGER EL DATE POR CALENDARIO
+    //             dentist: user._id
+    //         } 
+        
+    //         let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
+    //         props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
+    //         console.log(res?.data, "esto es res?.data")
+    //         // console.log(agenda.data, "esto es agenda.data")
+    //         console.log(props.schedule, "esto es props.data")
+        
+    //         // setDentistAgenda({...agenda, data: res?.data})
+            
+        
+    //     } catch (error){
+    //         console.log(error)
+        
+    //     }
+    //  }
 
     console.log(props.calendar?.semana, "semana imprimir console")
     console.log(props.calendar?.diasMes, "diasMes imprimir console")

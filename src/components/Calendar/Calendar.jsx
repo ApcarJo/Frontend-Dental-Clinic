@@ -18,8 +18,8 @@ const Calendar = (props) => {
 		day: '',
 		year: '',
 		monthy: '',
-		arrayDate: ''
-
+		arrayDate: '',
+		actualDate: ''
     });
 
 	const [errors, setErrors] = useState({
@@ -170,18 +170,18 @@ const Calendar = (props) => {
 
 	const saveData = (dia, mes, anyo) => {
 		if (dia!==''){
-		let date= anyo+'-'+dia+'-'+mes;
+		let date= dia+'-'+mes+'-'+anyo;
 		// let date= dia+'-'+mes+'-'+anyo;
 		
 		// setDatosUser({...datosUser, date: date});	
 		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
 
 		let datePicker = {
-			dateOfBirth: date
+			date: date,
+			actualDate: datosUser.actualDate
 		}
 		props.dispatch({type:DATE_CAL, payload:datePicker});
-		}
-		else{
+		}else{
 			console.log("ahí no")
 		}
 	}
@@ -259,6 +259,7 @@ const Calendar = (props) => {
 	let day = newDate.getDate();
 
 	const initiateDate = () => {
+		
 		const actualDate = {
 			year: newDate.getFullYear(),
 			monthy: newDate.getMonth()+1,
@@ -266,7 +267,8 @@ const Calendar = (props) => {
 			semana: semana2,
 			diasMes: diasMes
 		}
-
+	// Guardo en Hooks
+	setDatosUser({...datosUser, actualDate: actualDate});
 	// Guardo en RDX
 	props.dispatch({type:DATE_CAL, payload:actualDate});
 	}
