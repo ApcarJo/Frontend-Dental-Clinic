@@ -47,7 +47,7 @@ const DentistRegister = (props) => {
             password : datosUser.password,
             speciality: datosUser.specialty,
             city: datosUser.city,
-            incorporationDate: Date.parse(props.calendar?.date),
+            incorporationDate: props.calendar?.date
         }
         console.log(body);
 
