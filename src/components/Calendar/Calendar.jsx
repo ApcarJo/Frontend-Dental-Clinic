@@ -1,8 +1,11 @@
 
 import React, {useEffect, useState} from 'react';
 import './Calendar.css';
+import { DRAW_CAL, DATE_CAL } from '../../redux/types';
+import { connect } from 'react-redux';
+import Moment from 'react-moment';
 
-const Calendar = () => {
+const Calendar = (props) => {
 	var arrayDate = [];
 
 	//HOOK
@@ -11,18 +14,13 @@ const Calendar = () => {
         dia:'16',
         mes:'6',
         anyo:'2021',
-        mes1:'',
-        mese: '',
-		resto1: '',
-		decenas: '',
-		unidades: '',
-		c1: '',
-		c2: '',
-		c3: '',
-		date: '',
-		days: '',
-		arrayDate: '',
-		num: ''
+        semana: [],
+        diasMes: '',
+		day: '',
+		year: '',
+		monthy: '',
+		arrayDate: ''
+
     });
 
 	const [errors, setErrors] = useState({
@@ -37,11 +35,11 @@ const Calendar = () => {
     }
 
 	useEffect (()=>{
-
+		initiateDate();
 	},[]);
 
 	useEffect (()=>{
-
+		// initiateDate();
 	});
 
 	const men20 = (a) => {
@@ -72,6 +70,7 @@ const Calendar = () => {
 		arrayDate += (arrayNum[unidades]);
 	}
 
+	// Saco los valores de HOOK
 	let dia=parseInt(datosUser.dia);
     let mes=parseInt(datosUser.mes);
     let anyo=parseInt(datosUser.anyo);
@@ -81,47 +80,42 @@ const Calendar = () => {
 	let dias;
 	let semana = [];
 
-		for (principal=1; principal<anyo; principal++){
-			x++;
-			if ((principal%4===0 && principal%100!==0) || (principal%400===0)){
-				b++;
-			}
+	for (principal=1; principal<datosUser.anyo; principal++){
+		x++;
+		if ((principal%4===0 && principal%100!==0) || (principal%400===0)){
+			b++;
 		}
-		let mesi = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        if ((anyo%4===0 && anyo%100!==0) || (anyo%400===0)) {
-			mesi[1]=29;
-		}else{
-			mesi[1]=28;
-		}
-
-		
-
-		let days=0;
+	}
+	let mesi = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if ((anyo%4===0 && anyo%100!==0) || (anyo%400===0)) {
+		mesi[1]=29;
+	}else{
+		mesi[1]=28;
+	}
 	
-		for (let i=0; i<mes-1; i++)
-			{
-				days=days+mesi[i];
-			}
-		let mes1=days;
-		dias=(b*366)+((x-b)*365)+(dia)+(mes1);
-		let i=dias%7-1;
-		if(i<0)
-		i=6;
-		semana = ["L", "M", "X", "J", "V", "S", "D"];
-		let semana2 = ["Lunes ", "Martes ", "Miércoles ", "Jueves ", "Viernes ", "Sábado ", "Domingo "];
-		arrayDate = semana2[i];
+	let days=0;
 
-		dias=(b*366)+((x-b)*365)+(dia)+(mes1);
-
-		let resto1=(dias-dia)%7;
-		
-		if (resto1<0) {
-			resto1=resto1*-1;
+	for (let i=0; i<mes-1; i++)
+		{
+			days=days+mesi[i];
 		}
+	let mes1=days;
+	dias=(b*366)+((x-b)*365)+(dia)+(mes1);
+	let i=dias%7-1;
+	if(i<0)
+	i=6;
 
+	semana = ["L", "M", "X", "J", "V", "S", "D"];
+	let semana2 = ["Lunes ", "Martes ", "Miércoles ", "Jueves ", "Viernes ", "Sábado ", "Domingo "];
+	arrayDate = semana2[i];
+	dias=(b*366)+((x-b)*365)+(dia)+(mes1);
+	let resto1=(dias-dia)%7;
+	
+	if (resto1<0) {
+		resto1=resto1*-1;
+	}
 
-		let a;
-
+	let a;
 
 	for (i=1; i<=mesi[mes-1]; i++)
 	{
@@ -174,22 +168,27 @@ const Calendar = () => {
 		}
 	}
 	let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
-	// let arrayMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+	let arrayMes2 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 		arrayDate += (arrayMes[mes-1]);
 
 
-	console.log(arrayDate)
-
 	const saveData = (dia, mes, anyo) => {
 		if (dia!==''){
-		let date= dia+'-'+mes+'-'+anyo;
+		let date= anyo+'-'+dia+'-'+mes;
+		// let date= dia+'-'+mes+'-'+anyo;
+		
 		// setDatosUser({...datosUser, date: date});	
-		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo});
+		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
+
+		let datePicker = {
+			date: date
+		}
+
+		props.dispatch({type:DATE_CAL, payload:datePicker});
 		}
 		else{
 			console.log("ahí no")
 		}
-
 	}
 	//	DEPRECATED
 	// const checkError = (arg) => {
@@ -260,14 +259,30 @@ const Calendar = () => {
 	
 
 	const selectMonthArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-	
+
 	let newDate = new Date();
 	let year = newDate.getFullYear();
 	let monthy = newDate.getMonth()+1;
 	let day = newDate.getDate();
 
+	const initiateDate = () => {
+		const actualDate = {
+			year: newDate.getFullYear(),
+			monthy: newDate.getMonth()+1,
+			day: newDate.getDate(),
+			semana: semana2,
+			diasMes: diasMes
+		}
+
+	// Guardo en RDX
+	props.dispatch({type:DATE_CAL, payload:actualDate});
+	}
+
 	const selectAnyo = [year, (year+1)];
 
+	const traductor = (val) => {
+		updateFormulario(selectMonthArray[val])
+	}
 return (
 	<div className="vistaCalendar">
 
@@ -276,14 +291,14 @@ return (
     	    		{mesDias.map((valor) => (<option>{valor}</option>))}
     	    </select> */}
 
-			<select className="selectMonth" type="number" name="mes" onChange={updateFormulario}>
+			<select className="selectMonth" type="number" name="mes" onChange={updateFormulario} defaultValue={monthy}>
     	         {selectMonthArray.map((valor) => (<option>{valor}</option>))}
     	    </select>
 			
-			<select className="selectMonth" type="name" name="dia"  onChange={updateFormulario}>
+			{/* <select className="selectMonth" type="name" name="anyo" onChange={updateFormulario} defaultValue={day}>
     	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
-    	    </select>
-		</div>
+    	    </select> */}
+		
 			{/*// DEPRECATED*/}
 			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>
 			<div>{errors.eDia}</div>
@@ -291,8 +306,9 @@ return (
 			<div>{errors.eMes}</div>*/}
 			<input type='text' className='numberBox' name='anyo' onChange={updateFormulario}  placeholder="anyo" defaultValue={year}></input>
 			<div>{errors.eAnyo}</div> 
-			
+		</div>	
 		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
+		
 		<div className="drawCalendar">
 			{semana.map((semana, index) => (
 					<div className="dayBox" key={index}>
@@ -311,4 +327,6 @@ return (
 
 }
 
-export default Calendar;
+export default connect((state)=>({
+	calendar: state.calendar
+}))(Calendar);

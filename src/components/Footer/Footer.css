@@ -2,6 +2,7 @@ footer {
     border-bottom: 1.9px solid #c7c7c7;
     border-top: 1.9px solid #c7c7c7;
     top: -0.5em;
+    height: 10em;
 }
 .tooth {
     color: rgb(96, 93, 93);
