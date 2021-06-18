@@ -119,15 +119,27 @@ const Login = (props) => {
 
     return(
         <div className="vistaLogin">
-                <pre>{JSON.stringify(credentials, null,2)}</pre>
+                {/* <pre>{JSON.stringify(credentials, null,2)}</pre> */}
                 <div className="loginCard">
-                    <input type='text' className='loginBox' name='email' onChange={updateCredentials} onBlur={()=>checkError("email")} placeholder="your@email"></input>
+                    <div className="box1">
+                        <div className="errorsText">{msgError.ePassword}</div>
+                        <form className="form1">
+                            <input className="input1" name="email" type="text"  onChange={updateCredentials} onBlur={()=>checkError   ("email")} required/>
+                            <label className="lbl-nombre1">
+                              <span className="text-nomb1">Email</span>
+                            </label>
+                        </form>
+                    </div>
 
-                    <div>{msgError.eEmail}</div>
-
-                    <input type='text' className='loginBox' name='password' onChange={updateCredentials} onBlur={()=>checkError("password")}  placeholder="password"></input>
-
-                    <div>{msgError.ePassword}</div>
+                    <div className="box1">
+                        <div className="errorsText">{msgError.ePassword}</div>
+                        <form className="form3">
+                            <input className="input3" name="password"      type="password" onChange={updateCredentials} onBlur={()     =>checkError("password")}required/>
+                            <label className="lbl-nombre3">
+                              <span className="text-nomb3">Password</span>
+                            </label>
+                        </form>
+                    </div>
 
                     <div className="sendButton" onClick={()=>logeame()}>Login</div>
                     <div>{msgError.eValidate}</div>

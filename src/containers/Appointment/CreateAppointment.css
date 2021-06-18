@@ -1,7 +1,8 @@
 
 
 .contentAppointment {
-    margin-top: 1.5em;
+    margin-top: 3em;
+    margin-bottom: 3em;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

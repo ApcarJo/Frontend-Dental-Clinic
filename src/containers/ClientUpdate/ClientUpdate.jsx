@@ -17,6 +17,12 @@ const ClientUpdate = (props) => {
         cp: props.credentials?.client.cp
     });
 
+    const [passwords, setPasswords] = useState({
+        oldPassword : "",
+        newPassword : "",
+        newPassword2 : ""
+    });
+
     const [errors, setErrors] = useState({
         eName: '',
         eEmail: '',
@@ -24,14 +30,20 @@ const ClientUpdate = (props) => {
         ePassword: '',
         ePassword2: '',
         eCity: '',
-        eCp: ''
+        eCp: '',
+        eValidate:''
 
     });
 
-    // Handler
+    // Handlers
     const updateInfoClient = (e) => {
         setUpdateInfo({...updateInfo, [e.target.name]: e.target.value})
     }
+
+    const updatePasswordClient = (e) => {
+        setPasswords({...passwords, [e.target.name]: e.target.value})
+    }
+
 
     const updateUser = async () => {
 
@@ -61,9 +73,34 @@ const ClientUpdate = (props) => {
         setTimeout(()=>{
             history.push('/clientprofile');
         },750);
-
-
+ 
     }
+
+    const updatePassword = async () => {
+
+       try{
+
+            let token = props.credentials?.token;
+            let user = props.credentials?.client;
+            let body = {
+                client: user._id,
+                oldPassword : passwords.oldPassword,
+                newPassword : passwords.newPassword
+            
+            }
+            let res = await axios.put('http://localhost:3006/clients/updatepassword', body, {headers:{'authorization':'Bearer ' + token}});
+            setTimeout(()=>{
+                history.push('/clientprofile');
+            },750);
+
+       } catch {
+           setErrors({...errors, eValidate: 'Wrong password, please try again'});
+       }
+
+        
+    }
+
+
     const checkError = (arg) => {
         switch (arg){
             case 'name':
@@ -85,7 +122,7 @@ const ClientUpdate = (props) => {
             break;
 
             case 'password':
-                if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(updateInfo.password)){
+                if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(passwords.newPassword)){
                 // if (updateInfo.password.length < 8){
                     setErrors({...errors, ePassword: 'At least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
                 }else{
@@ -103,7 +140,7 @@ const ClientUpdate = (props) => {
             break;
 
             case 'password2':
-                if (updateInfo.password !== updateInfo.password2){
+                if (passwords.newPassword !== passwords.newPassword2){
                     setErrors({...errors, ePassword2: 'Password should be the same'});
                 }else{
                     setErrors({...errors, ePassword2: ''});
@@ -119,8 +156,41 @@ const ClientUpdate = (props) => {
     if( props.credentials?.token ) {
        return(
            <div className="clientUpdateContainer">
+
+            <div className="updatePassword">
+
+                <h3 className="titleUpdate">Update your password</h3>
+
+                <form className="form">
+                    <input type="password" name="oldPassword" onChange={updatePasswordClient} /> 
+                    <label className="lbl-nombre">
+                      <span className="text-nomb">Old Password</span>
+                    </label>
+                </form>
+                <form className="form">
+                    <input type="password" name="newPassword" onChange={updatePasswordClient} onBlur={()=>checkError("password")}/> 
+                    <label className="lbl-nombre">
+                      <span className="text-nomb">New Password 1</span>
+                    </label>
+                </form>
+                <div>{errors.ePassword}</div>
+                <form className="form">
+                    <input type="password" name="newPassword2" onChange={updatePasswordClient} onBlur={()=>checkError("password2")} /> 
+                    <label className="lbl-nombre">
+                      <span className="text-nomb">New Password 2</span>
+                    </label>
+                </form>
+                <div>{errors.ePassword2}</div>
+
+                <div>{errors.eValidate}</div>
+
+                <div className="updateButton" onClick={() => updatePassword()}>UPDATE</div>
+
+            </div>
                
             <div className="updateContainer">
+
+                <h3 className="titleUpdate">Update your info</h3>
     
                 <form className="form">
                     <input type="text" name="name" placeholder={props.credentials?.client.name} onBlur={()=>checkError("name")} onChange={updateInfoClient} />
@@ -180,15 +250,3 @@ export default connect((state) => ({
     credentials:state.credentials
   
     }))(ClientUpdate);
-
-
-//passworddd
-
-//     <form className="form">
-//     {/* aqui no muestra nada pq al logear no se guarda la contraseña (backend) */}
-//     <input type="password" name="password" placeholder="New password" onChange={updateInfoClient} /> 
-//     <label className="lbl-nombre">
-//       <span className="text-nomb">Password</span>
-//     </label>
-// </form>
-// <div>{errors.ePassword}</div>

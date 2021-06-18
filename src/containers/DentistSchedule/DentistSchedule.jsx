@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './DentistSchedule.css';
 import axios from 'axios';
+import calendar from '../../redux/reducers/calendar-reducer';
 import { connect } from 'react-redux';
 
 const DentistSchedule = (props) => {
@@ -81,6 +82,7 @@ const DentistSchedule = (props) => {
 
 export default connect((state) => ({
 
-    credentials:state.credentials
+    credentials:state.credentials,
+    calendar: state.calendar
 
     }))(DentistSchedule);

@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import './DentistProfile.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
+import Calendar from '../../components/Calendar/Calendar';
 
 
 const DentistProfile = (props) => {
@@ -30,6 +31,9 @@ const DentistProfile = (props) => {
         props.dispatch({type:LOGOUT});
 
     }
+
+    console.log(props.calendar?.semana)
+    console.log(props.calendar?.diasMes)
     
     if(props.credentials?.token) {
 
@@ -56,9 +60,23 @@ const DentistProfile = (props) => {
                     <div className="schedule">
                         <div className="calendar"></div>
                         {/* <h1> AQUI VA EL CALENDARIO!!!! </h1> */}
+                        <div className="drawCalendar">
+			                {props.calendar?.semana.map((semana, index) => (
+					            <div className="dayBox" key={index}>
+							        <p>{semana}aa</p>
+					            </div>
+			                ))}
+
+			                {props.calendar?.diasMes.map((diasMes, index) => (
+			                	<div className="dayBox" id={index} key={index}>
+			                			<p>{diasMes}aa</p>
+			                	</div>
+			                ))}	
+		            </div>
                     </div>
                 </div>
-            </div> )
+            </div>
+        )
     } else {
 
 
