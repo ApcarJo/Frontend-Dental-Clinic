@@ -98,7 +98,7 @@ if(props.credentials?.token) {
 
       <div className="contentAppointment">
       
-        <img src={imgAppointment} alt="img" width="720" />
+        <img className="imgCreate" src={imgAppointment} alt="img" width="720" />
      
         <div className="cita">
         

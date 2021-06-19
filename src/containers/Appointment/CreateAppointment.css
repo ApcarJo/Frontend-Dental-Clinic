@@ -11,6 +11,11 @@
     width: 100vw;
     height: 100%;
 }
+
+.imgCreate{
+    opacity: 0.9;
+}
+
 .cita {
     display: flex;
     flex-direction: column;
@@ -20,6 +25,8 @@
     background-color:#dfeaf7;
     width: 45em;
     height: 36em;
+    border: 1.9px solid #c7c7c7;
+    border-right: unset;
 }
 
 input {
@@ -32,7 +39,7 @@ input {
     margin-bottom: 1em;
     padding: 0.5em 0;
     font-size: 1em;
-    border: .1em solid rgb(60, 90, 60);
+    border: .1em solid black;
 }
 
 .dateTime{
@@ -48,7 +55,7 @@ select {
     margin-bottom: 1em;
     padding: 0.5em 0;
     font-size: 1em;
-    border: .1em solid  rgb(60, 90, 60);
+    border: .1em solid black;
 }
 
 /* .inputClient {
@@ -88,7 +95,7 @@ select {
 .createButton {
     height:4em;
     width: 12em;
-    border: solid rgb(60, 90, 60) 0.15em;
+    border: solid rgb(51, 50, 50) 0.15em;
     cursor: pointer;
     background-color: white;
     transition: 0.2s;

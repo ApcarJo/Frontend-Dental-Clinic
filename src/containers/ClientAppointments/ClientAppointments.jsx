@@ -73,15 +73,15 @@ const ClientAppointments = (props) => {
     return (
       <div className="clientAllAppointmets">
         <div className="appointImage">
-                    <div className="fondoclinics"></div>
-                    <p className="myAppoint">A P P O I N T M E N T S</p>
-                </div>
+              <div className="fondoclinics"></div>
+              <p className="myAppoint">A P P O I N T M E N T S</p>
+        </div>
 
-        <div className="appointmentsContainer">
+        <div className="appointmentsClientContainer">
 
           {clientAppointment.map((appointment, index) => (
-            <div className="appointment">
-                <div key={index} className="appointmentCard">
+           
+                <div key={index} className="appointmentCard1">
     
                   <p> CLINIC : {appointment.clinicName} </p>
     
@@ -101,7 +101,7 @@ const ClientAppointments = (props) => {
                     </div>
                     <div className="buttonDeleteA" onClick={() => deleteAppointment(appointment)}>REMOVE</div>
                   </div>
-                </div>
+               
             </div>
           ))}
 

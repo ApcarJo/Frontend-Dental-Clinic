@@ -62,7 +62,7 @@ const Clinics = (props) => {
                                     <p>Correo: {clinic.email} </p>
                                     <p>Teléfono: {clinic.phone} </p>
                               
-                                <div className="enviar" onClick={() => llevame()}>PEDIR CITA</div>
+                                <div className="enviar" onClick={() => llevame()}>Make An Appointment</div>
                             </div>
                         </div>
                     ))}
