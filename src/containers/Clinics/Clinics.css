@@ -10,7 +10,7 @@
 
 .ClinicImage{
     width: 100vw;
-    height: 17em;
+    height: 15em;
     background-image: url('../../assets/clinic/ourClinics');
     background-size: cover;
 
@@ -21,10 +21,9 @@
     opacity: 0.7;
 }
 
-
 .ourClinics{
     position: absolute;
-    font-size: 5em;
+    font-size: 3.5em;
 }
 
 .clinicsContent {

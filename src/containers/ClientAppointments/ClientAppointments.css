@@ -10,7 +10,7 @@
 
 .appointImage{
     width: 100vw;
-    height: 17em;
+    height: 15em;
     background-image: url('../../assets/clinic/myAppointments.jpeg');
     background-size: cover;
     background-position: center;
@@ -24,7 +24,7 @@
 
 .myAppoint{
     position: absolute;
-    font-size: 5em;
+    font-size: 3.5em;
 }
 
 .aappointmentsContainer {
