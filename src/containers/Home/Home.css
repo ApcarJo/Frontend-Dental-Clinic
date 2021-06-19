@@ -14,9 +14,12 @@
     padding-top: 2em;
     padding-left: 2em;
     margin-bottom: 3em;
+    border-bottom: 1.9px solid #c7c7c7;
+
     display: flex;
     flex-direction: row;
     align-items: center;
+
 }
 
 
@@ -39,21 +42,23 @@
     align-items: center;
 }
 .parrafos {
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     display: flex;
     position: relative;
     flex-direction: column;
-    top: -3em;
 }
 
 .buttonHome{
-    height:4em;
-    width: 15em;
-    border: solid #31326f 0.15em;
+    height:5em;
+    width: 17em;
+    border: solid rgb(51, 50, 50) 0.15em;
     cursor: pointer;
-    margin: 1em;
-    background-color: #fcdb87;
+    background-color: #f1f6fd;
     transition: 0.2s;
-    border-radius: 0.5em;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,14 +66,15 @@
 
 .buttonHome:hover {
     transition: 0.2s;
-    background-color: #f0cf7d;
+    background-color: white;
 }
 
+
 .optionsHome {
-    padding-top: 2em;
     width: 100vw;
     height: 23em;
     margin-bottom: 5em;
+    margin-top: 5em;
 
     gap: 9em;
     display: flex;
@@ -81,33 +87,30 @@
 
 .option {
     display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background-color:#cfdcec;
-    height: 20em;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    background-color:#dfeaf7;
+    padding-top: 2em;
     width: 15em;
-    border: solid #31326f 0.1em;
-    box-shadow: 0em 1em 1em -01em black;
-    cursor: pointer;
-    margin: 1em;
-    transition: 0.2s;
-    border-radius: 1em;
+    height: 20em;
+    margin-bottom: 2em;
+    border: 1.9px solid #c7c7c7;
 }
 
 
 .buttonOption {
     display: flex;
     position: relative;
-    padding: 2.5rem 7rem;
-    width: 8em;
+    padding: 2.5rem 5rem;
+    margin-bottom: 1em;
+    width: 6em;
     height: 4em;
     border: solid #31326f 0.1em;
     transition: 0.2s;
     cursor: pointer;
-    background-color: #fcdb87;
-    border-radius: 0.5em;
+    background-color: #a5d0dd;
     overflow: hidden;
 }
 
