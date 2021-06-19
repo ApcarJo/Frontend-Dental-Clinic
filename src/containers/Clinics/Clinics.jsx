@@ -55,15 +55,15 @@ const Clinics = (props) => {
                     {clinics.map((clinic, index) => (
     
                         <div className="content">
-                            <div className="" key={index}>
+                            <div className="content2" key={index}>
                             <img src={clinic.image} className="salas" alt="salas"/>
-                                <div className="texto">
+                             
                                     <p>Nombre: {clinic.name} </p>
                                     <p>Ciudad: {clinic.city}</p>
                                     <p>Dirección: {clinic.adress} </p>
                                     <p>Correo: {clinic.email} </p>
                                     <p>Teléfono: {clinic.phone} </p>
-                                </div>
+                              
                                 <div className="enviar" onClick={() => llevame()}>PEDIR CITA</div>
                             </div>
                         </div>

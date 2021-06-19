@@ -14,6 +14,7 @@ const Header = (props) => {
     const logOut = () => {
 
         props.dispatch({type:LOGOUT});
+        history.push("/")
     }
 
     if(props.credentials.client?.name){
