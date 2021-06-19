@@ -71,32 +71,36 @@ const ClientAppointments = (props) => {
     // si existe, mapeamos los resultados
     return (
       <div className="clientAllAppointmets">
-        <h1>MY APPOINTMENTS</h1>
+        <div className="appointImage">
+                    <div className="fondoclinics"></div>
+                    <p className="myAppoint">A P P O I N T M E N T S</p>
+                </div>
 
         <div className="appointmentsContainer">
 
           {clientAppointment.map((appointment, index) => (
-            <div key={index} className="appointmentCard">
-
-              <p> CLINIC : {appointment.clinicName} </p>
-
-              <p> PHONE : {appointment.clinicPhone} </p>
-
-              <p> EMAIL : {appointment.clinicEmail} </p>
-
-              <p> DENTIST : {appointment.dentistName} </p>
-
-              <p> DATE : {appointment.date} </p>
-              <div className="buttons1">
-                <div
-                  className="buttonUpdateC1"
-                  onClick={() => saveAppointment(appointment)}
-                >
-                  UPDATE
+            <div className="appointment">
+                <div key={index} className="appointmentCard">
+    
+                  <p> CLINIC : {appointment.clinicName} </p>
+    
+                  <p> PHONE : {appointment.clinicPhone} </p>
+    
+                  <p> EMAIL : {appointment.clinicEmail} </p>
+    
+                  <p> DENTIST : {appointment.dentistName} </p>
+    
+                  <p> DATE : {appointment.date} </p>
+                  <div className="buttons1">
+                    <div
+                      className="buttonUpdateA"
+                      onClick={() => saveAppointment(appointment)}
+                    >
+                      UPDATE
+                    </div>
+                    <div className="buttonDeleteA" onClick={() => deleteAppointment(appointment)}>REMOVE</div>
+                  </div>
                 </div>
-                <div className="buttonLogoutC1" onClick={() => deleteAppointment(appointment)}>REMOVE</div>
-              </div>
-
             </div>
           ))}
 
@@ -105,6 +109,7 @@ const ClientAppointments = (props) => {
       </div>
     );
   } else {
+    
     return <div>ESTOY CARGANDO</div>;
   }
 };
