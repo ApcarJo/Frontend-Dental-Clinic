@@ -15,7 +15,8 @@ const ClientAppointments = (props) => {
     searchAppointments();
   }, []);
 
-  useEffect(() => { }, []);
+  useEffect(() => { 
+  });
 
   const searchAppointments = async () => {
     try {
@@ -58,12 +59,11 @@ const ClientAppointments = (props) => {
 
     console.log(body)
 
-    let res = await axios.delete('http://localhost:3006/appointment', body, {
+    let res = await axios.post('http://localhost:3006/appointment/delete', body, {
       headers: { authorization: "Bearer " + token }
     });
 
-
-    history.push("/clientappointments");
+    window.location.reload();
 
   }
 
