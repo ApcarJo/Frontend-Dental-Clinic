@@ -102,10 +102,15 @@
 
 .dayDentistBox {
     display: flex;
+    box-sizing: border-box;
+
+    
     /* align-items: center; */
     justify-content: center;
     border: solid 0.1em black;
     height: 6.65em;
+    width: 8em;
+    
     color: white;
 
     cursor: pointer;

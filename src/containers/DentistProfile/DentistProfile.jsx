@@ -109,7 +109,7 @@ const DentistProfile = (props) => {
             do {
                 if ((arrayToDraw[h]===appDay)&&(props.calendar?.monthy===appMonth)){
                 // if (arrayToDraw[h]===appDay){
-                    arrayApp2[h]=dataArray[i].clientName;
+                    arrayApp2[h]=dataArray[i];
                     count++;
                     // console.log(count)
                     // console.log(arrayApp2, "arraApp", count, "count", )
@@ -120,6 +120,7 @@ const DentistProfile = (props) => {
                 }else if (!arrayApp2[h]){
                     // console.log(arrayApp2[h], "arrayApp2", arrayToDraw[h], "array to draw")
                     arrayApp2[h]=arrayToDraw[h];
+                    // arrayApp2[h]=0;
                 }
                 h++;
             } while (h<arrayToDraw.length)
@@ -214,8 +215,14 @@ const DentistProfile = (props) => {
 
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
-			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)}
-                                        {/* {(diasMes==0) ? (<p>{if (typeof arrayToDraw.map((diasMes2)=><p>{index}</p>)}</p>) : (<p>{diasMes}</p>)} */}
+			                			{/* {diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)} */}
+                                        {(typeof diasMes === 'object') ? (<div className="dateApp">
+                                            <p>{(diasMes.clientName)}</p>
+                                            <p>{(diasMes.clinicName)}</p>
+                                            <p>{(diasMes.dentistName)}</p>
+                                            <p>{(diasMes.city)}</p>
+                                            
+                                        </div>) : (<p>{diasMes}</p>)}
 			                	</div>
 			                ))}	
 		            </div>
