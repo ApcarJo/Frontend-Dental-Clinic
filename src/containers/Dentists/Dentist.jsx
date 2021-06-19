@@ -57,7 +57,7 @@ const Dentist = (props) => {
             let user = props.credentials?.client;
 
             let body = {
-                city: city.city, //AQUI FALTA INTROUCIR POR PANTALLA
+                city: city.city, 
                 client: user._id
             }    
 
@@ -85,9 +85,10 @@ const Dentist = (props) => {
                     <p>Choose a city :</p>
                     <select type="name" name="city" title="city"  onChange={updateCredentials}>
                          <option value="">--Please Choose a City-</option>
-                         {allCities.map((cities) => (
-                         <option>{cities}</option>
+                         {allCities.map((cities, index) => (
+                            <option key={index}>{cities}</option>
                          ))}
+       
        
                     </select>
                 </div>
@@ -120,8 +121,8 @@ const Dentist = (props) => {
                     <p>Choose a city :</p>
                     <select type="name" name="city" title="city"  onChange={updateCredentials}>
                          <option value="">--Please Choose a City-</option>
-                         {allCities.map((cities) => (
-                         <option>{cities}</option>
+                         {allCities.map((cities, index) => (
+                            <option key={index}>{cities}</option>
                          ))}
        
                     </select>

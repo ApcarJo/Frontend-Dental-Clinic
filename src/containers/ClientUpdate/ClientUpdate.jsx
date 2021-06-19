@@ -106,7 +106,7 @@ const ClientUpdate = (props) => {
         switch (arg){
             case 'name':
                 if ((updateInfo.name.length < 2)||(! /^[a-z ,.'-]+$/i.test(updateInfo.name))||(updateInfo.name.length > 20)){
-                    setErrors({...errors, eName: 'Introduce un nombre válido'});
+                    setErrors({...errors, eName: 'Please enter a valid name'});
                 }else{
                     setErrors({...errors, eName: ''});
                 }
@@ -115,7 +115,7 @@ const ClientUpdate = (props) => {
             case 'email':
                 console.log("hola, soy error de email");
                 if (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(updateInfo.email)){
-                    setErrors({...errors, eEmail: 'Introduce un email válido'});
+                    setErrors({...errors, eEmail: 'Please enter a valid e-mail'});
                 }else{
                     setErrors({...errors, eEmail: ''});
                 }
