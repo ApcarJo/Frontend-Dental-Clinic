@@ -109,7 +109,7 @@ const DentistProfile = (props) => {
             do {
                 if ((arrayToDraw[h]===appDay)&&(props.calendar?.monthy===appMonth)){
                 // if (arrayToDraw[h]===appDay){
-                    arrayApp2[h]=dataArray[i];
+                    arrayApp2[h]+=(dataArray[i]);
                     count++;
                     // console.log(count)
                     // console.log(arrayApp2, "arraApp", count, "count", )
@@ -125,6 +125,7 @@ const DentistProfile = (props) => {
                 h++;
             } while (h<arrayToDraw.length)
         }
+        console.log(arrayApp2, "esto es arrayPPPPP")
 
         
 
@@ -216,13 +217,14 @@ const DentistProfile = (props) => {
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
 			                			{/* {diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)} */}
-                                        {(typeof diasMes === 'object') ? (<div className="dateApp">
-                                            <p>{(diasMes.clientName)}</p>
-                                            <p>{(diasMes.clinicName)}</p>
-                                            <p>{(diasMes.dentistName)}</p>
-                                            <p>{(diasMes.city)}</p>
+                                        {(typeof diasMes === 'object') ? (<div className="gridDate"><div className="dateApp">
+                                            <p>hola</p>
+                                            <p>{diasMes.clientName}</p> 
+                                            <p>{diasMes.clinicName}</p>
+                                            <p>{diasMes.dentistName}</p>
+                                            <p>{diasMes.city}</p>
                                             
-                                        </div>) : (<p>{diasMes}</p>)}
+                                        </div></div>) : (<p>{diasMes}</p>)}
 			                	</div>
 			                ))}	
 		            </div>

@@ -110,7 +110,7 @@
     border: solid 0.1em black;
     height: 6.65em;
     width: 8em;
-    
+
     color: white;
 
     cursor: pointer;
@@ -131,4 +131,18 @@
 
     grid-template-columns: repeat(7, 0.2fr);
     grid-template-rows: repeat(7, 0.3fr);
+}
+
+.dateApp {
+    display: flex;
+    padding: 3em;
+    flex-direction: column;
+    height: 0.5em;
+    font-size: 0.4em;
+}
+
+.gridDate {
+    display: grid;
+    grid-template-columns: repeat(4, 0.1fr);
+    grid-template-rows: repeat(3, 0.2fr);
 }
