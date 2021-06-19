@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
 import axios from 'axios';
 import { DATES_DENTIST, SCHEDULE_CAL } from '../../redux/types';
-
+import spinner from '../../img/spinner2.gif'
 
 
 const DentistProfile = (props) => {
@@ -223,12 +223,16 @@ const DentistProfile = (props) => {
             </div>
         )
     } else {
-        history.push("/")
-        return(
-            <div>
-                CARGANDO DATOS
-            </div>
-        )
+        setTimeout(()=> {
+            history.push('/')
+        },1000)
+        return (
+            <div className="spinnerContainer">
+              <div className="spinner">
+                 <img  src={spinner} alt="spinner" width="60" />
+              </div>
+        </div>)
+       
     }
 }
 

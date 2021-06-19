@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AllAppointments.css';
+import spinner from '../../../img/spinner2.gif';
 
 const AllAppointments = () => {
 
@@ -57,11 +58,13 @@ const AllAppointments = () => {
         )
     } else {
         return (
-            <div>
-                <h1>Buscando Citas...</h1>
-            </div>
-        )
+            <div className="spinnerContainer">
+              <div className="spinner">
+                 <img  src={spinner} alt="spinner" width="60" />
+              </div>
+        </div>)
     }
+    
 }
 
 export default AllAppointments;

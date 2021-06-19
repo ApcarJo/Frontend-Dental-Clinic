@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./CreateAppointment.css";
 import { connect } from 'react-redux';
-import imgAppointment from '../../assets/clinic/createAppointment.jpeg'
+import imgAppointment from '../../assets/clinic/createAppointment.jpeg';
+import spinner from '../../img/spinner2.gif';
 
 
 
@@ -60,12 +61,7 @@ const CreateAppointmnet = (props) => {
       message: datos.message
     };
 
-    console.log(body);
-
     let res = await axios.post('http://localhost:3006/appointment', body, {headers:{'authorization':'Bearer ' + token}});
-
-    console.log(res.data);
-
 
     setTimeout(()=>{
       history.push("/clientprofile");
@@ -95,6 +91,7 @@ const allClinics = async () => {
 
 }
 
+if(props.credentials?.token) {
   return (
        
     <Fragment>
@@ -143,7 +140,22 @@ const allClinics = async () => {
 
       </Fragment>
   );
-};
+  } else {
+
+    setTimeout(()=> {
+      history.push('/login')
+    },500)
+
+    return (
+
+      <div className="spinnerContainer">
+        <div className="spinner">
+           <img  src={spinner} alt="spinner" width="60" />
+        </div>
+      </div>
+    );   
+    }
+} 
 
 export default connect((state) => ({
 

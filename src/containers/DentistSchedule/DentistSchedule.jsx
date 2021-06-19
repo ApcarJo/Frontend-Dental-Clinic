@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import './DentistSchedule.css';
 import axios from 'axios';
 import { SCHEDULE_CAL } from '../../redux/types'
+import spinner from '../../img/spinner2.gif';
+
 
 const DentistSchedule = (props) => {
     
@@ -77,7 +79,7 @@ const DentistSchedule = (props) => {
                         </div>
                     </div>
                 )
-            }else {
+            }else  if(props.credentials?.dentist){
                 return(
                     <div>
 
@@ -85,10 +87,17 @@ const DentistSchedule = (props) => {
 
                         <input type="date" name="date" title="date" onChange={updateCredentials}/>
 
-                        <div> ESTOY CARGANDO </div>
                     </div>
                 )
-            }
+            } else {
+            
+            return (
+                <div className="spinnerContainer">
+                  <div className="spinner">
+                     <img  src={spinner} alt="spinner" width="60" />
+                  </div>
+                </div>);
+        }
 
 }
 

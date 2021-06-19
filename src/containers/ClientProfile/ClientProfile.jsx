@@ -4,6 +4,7 @@ import './ClientProfile.css';
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
 // import imgUser from '../../img/user.png'
+import spinner from '../../img/spinner2.gif'
 
 const ClientProfile = (props) => {
 
@@ -60,17 +61,16 @@ const ClientProfile = (props) => {
         )
     } else {
 
-        setTimeout(() => {
-    
-            history.push("/")
-
-       });
- 
-        return(
-            <div>
-                CARGANDO DATOS
-            </div>
-        )
+        setTimeout(()=> {
+            history.push('/')
+        },1000)
+        
+        return (
+            <div className="spinnerContainer">
+              <div className="spinner">
+                 <img  src={spinner} alt="spinner" width="60" />
+              </div>
+        </div>)
 
     }
 

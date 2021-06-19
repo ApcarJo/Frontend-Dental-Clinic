@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './Clinics.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import spinner from '../../img/spinner2.gif';
 
 
 const Clinics = (props) => {
@@ -25,14 +26,11 @@ const Clinics = (props) => {
         }
     }
 
-
-    // const llevame = (token === null) ? history.push("/login") : history.push("/appointments");
-
     const llevame = () => {
 
-        let token = props.credentials.token
+        let token = props.credentials?.token;
 
-        if(token === null) {
+        if(!token) {
             history.push("/login")
         } else {
 
@@ -73,8 +71,13 @@ const Clinics = (props) => {
         )
     } else {
         return (
-            <div>Loading...</div>
-         );
+
+            <div className="spinnerContainer">
+              <div className="spinner">
+                 <img  src={spinner} alt="spinner" width="60" />
+              </div>
+            </div>
+        ); 
     }
 }
 

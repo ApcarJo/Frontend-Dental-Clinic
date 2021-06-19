@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../components/AdminNavbar/AdminNavbar';
 import './AdminProfile.css';
+import spinner from '../../img/spinner2.gif';
 //RDX
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
+
 
 
 const AdminProfile = (props) => {
@@ -71,10 +73,12 @@ const AdminProfile = (props) => {
         )
     } else {
         return (
-            <div>
-                <h1>Buscando Citas...</h1>
+            <div className="spinnerContainer">
+              <div className="spinner">
+                 <img  src={spinner} alt="spinner" width="60" />
+              </div>
             </div>
-        )
+        );    
     }
 }
 

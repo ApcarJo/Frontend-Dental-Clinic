@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './ClientUpdate.css';
-import axios from 'axios'
+import axios from 'axios';
 import { connect } from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import { UPDATE_USER } from '../../redux/types';
+import spinner from '../../img/spinner2.gif';
 
 const ClientUpdate = (props) => {
 
@@ -241,13 +242,13 @@ const ClientUpdate = (props) => {
        )
     } else {
 
-
-    return (
-        <div>
-            CARGANDO DATOS
-        </div>
-    )}
-
+        return (
+            <div className="spinnerContainer">
+              <div className="spinner">
+                 <img  src={spinner} alt="spinner" width="60" />
+              </div>
+        </div>)
+    }
 }
 
 export default connect((state) => ({

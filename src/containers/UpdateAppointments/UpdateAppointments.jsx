@@ -4,6 +4,7 @@ import "./UpdateAppointments.css";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { UPDATE_APPOINTMENT } from "../../redux/types";
+import spinner from '../../img/spinner2.gif'
 
 const UpdateAppointments = (props) => {
   let history = useHistory();
@@ -92,7 +93,12 @@ const UpdateAppointments = (props) => {
       </div>
     );
   } else {
-    return <div>CARGANDO</div>;
+    return (
+    <div className="spinnerContainer">
+      <div className="spinner">
+         <img  src={spinner} alt="spinner" width="60" />
+      </div>
+    </div>);
   }
 };
 
