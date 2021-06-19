@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './DentistRegister.css';
 import { connect } from 'react-redux';
@@ -47,7 +47,7 @@ const DentistRegister = (props) => {
             password : datosUser.password,
             speciality: datosUser.specialty,
             city: datosUser.city,
-            incorporationDate: Date.parse(props.calendar?.date),
+            incorporationDate: props.calendar?.date
         }
         console.log(body);
 

@@ -44,7 +44,7 @@ const DentistSchedule = (props) => {
             props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
             console.log(res?.data, "esto es res?.data")
             console.log(agenda.data, "esto es agenda.data")
-            console.log(props.schedule, "esto es props.data")
+            console.log(props.schedule, "esto es props.schedule")
         
             setDentistAgenda({...agenda, data: res?.data})
             

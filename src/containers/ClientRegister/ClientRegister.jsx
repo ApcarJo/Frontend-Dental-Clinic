@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import "./ClientRegister.css";
 import { connect } from 'react-redux';
@@ -46,7 +46,7 @@ const Register = (props) => {
             email : datosUser.email,
             phone: datosUser.phone,
             password : datosUser.password,
-            dateOfBirth: Date.parse(props.calendar?.date),
+            dateOfBirth: props.calendar?.date,
             city: datosUser.city,
             cp: datosUser.cp
         }
