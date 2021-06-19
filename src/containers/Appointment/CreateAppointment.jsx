@@ -25,7 +25,12 @@ const CreateAppointmnet = (props) => {
 
   const [clinics, setClinics] = useState([]);
 
-  const [msgError, setMensajeError] = useState(false);
+  
+  const [errors, setErrors] = useState({
+
+    eValidate:''
+
+});
 
 
   useEffect( () => {
@@ -67,9 +72,9 @@ const CreateAppointmnet = (props) => {
       history.push("/clientprofile");
     },750);
 
-  } catch (err){
-    console.log({message : err.message})
-}
+  } catch {
+           setErrors({...errors, eValidate: 'Appointment could not be created, please try again'});
+  }
 
 };
 
@@ -134,7 +139,7 @@ if(props.credentials?.token) {
 
           <div className="createButton" onClick={() => crearCita()}>Create Appointment</div>
 
-          {/*  <div>{msgError}</div> */}
+          <div className="errorsText">{errors.eValidate}</div>
         </div>
       </div>
 

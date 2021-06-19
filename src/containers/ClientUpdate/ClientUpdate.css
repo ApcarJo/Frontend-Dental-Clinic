@@ -20,12 +20,13 @@
     width: 30em;
     height: 40em;
     margin-bottom: 2em;
+    border: 1.9px solid #c7c7c7;
 }
 
 .updateButton {
     height:4em;
     width: 12em;
-    border: solid rgb(60, 90, 60) 0.15em;
+    border: solid rgb(51, 50, 50)0.15em;
     cursor: pointer;
     background-color: white;
     transition: 0.2s;
@@ -52,6 +53,7 @@
     width: 30em;
     height: 25em;
     margin-bottom: 2em;
+    border: 1.9px solid #c7c7c7;
 }
 
 .titleUpdate {
