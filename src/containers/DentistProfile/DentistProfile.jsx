@@ -213,7 +213,8 @@ const DentistProfile = (props) => {
 
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
-			                			<p>{diasMes}</p>
+			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)}
+                                        {/* {(diasMes==0) ? (<p>{arrayToDraw.map((diasMes2)=><p>{index}</p>)}</p>) : (<p>{diasMes}</p>)} */}
 			                	</div>
 			                ))}	
 		            </div>
