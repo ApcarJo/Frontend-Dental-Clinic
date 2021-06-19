@@ -57,3 +57,17 @@
 .titleUpdate {
     margin-bottom: 3em;
 }
+
+.errorsText {
+    font-size: 0.7em;
+    color: red;
+    width: 28em;
+}
+
+.box2 {
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}

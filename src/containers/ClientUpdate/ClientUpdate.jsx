@@ -162,27 +162,31 @@ const ClientUpdate = (props) => {
                 <h3 className="titleUpdate">Update your password</h3>
 
                 <form className="form">
-                    <input type="password" name="oldPassword" onChange={updatePasswordClient} /> 
+                    <input type="password" name="oldPassword" onChange={updatePasswordClient} required/> 
                     <label className="lbl-nombre">
                       <span className="text-nomb">Old Password</span>
                     </label>
                 </form>
-                <form className="form">
-                    <input type="password" name="newPassword" onChange={updatePasswordClient} onBlur={()=>checkError("password")}/> 
-                    <label className="lbl-nombre">
-                      <span className="text-nomb">New Password 1</span>
-                    </label>
-                </form>
-                <div>{errors.ePassword}</div>
-                <form className="form">
-                    <input type="password" name="newPassword2" onChange={updatePasswordClient} onBlur={()=>checkError("password2")} /> 
-                    <label className="lbl-nombre">
-                      <span className="text-nomb">New Password 2</span>
-                    </label>
-                </form>
-                <div>{errors.ePassword2}</div>
-
-                <div>{errors.eValidate}</div>
+                <div className="box2">
+                    <div className="errorsText">{errors.ePassword}</div>
+                    <form className="form">
+                        <input type="password" name="newPassword" onChange={updatePasswordClient} onBlur={()=>checkError("password")}required/> 
+                        <label className="lbl-nombre">
+                          <span className="text-nomb">New Password</span>
+                        </label>
+                    </form>
+                </div>
+                <div className="box2">
+                    <div className="errorsText">{errors.ePassword2}</div>
+                    <form className="form">
+                        <input type="password" name="newPassword2" onChange={updatePasswordClient} onBlur={()=>checkError("password2")} required/> 
+                        <label className="lbl-nombre">
+                          <span className="text-nomb">Repeat New Password</span>
+                        </label>
+                    </form>     
+                </div>
+                
+                <div className="errorsText">{errors.eValidate}</div>
 
                 <div className="updateButton" onClick={() => updatePassword()}>UPDATE</div>
 
@@ -191,43 +195,44 @@ const ClientUpdate = (props) => {
             <div className="updateContainer">
 
                 <h3 className="titleUpdate">Update your info</h3>
-    
+
+                <div className="errorsText">{errors.eName}</div>
                 <form className="form">
-                    <input type="text" name="name" placeholder={props.credentials?.client.name} onBlur={()=>checkError("name")} onChange={updateInfoClient} />
+                    <input type="text" name="name" placeholder={props.credentials?.client.name} onBlur={()=>checkError("name")} onChange={updateInfoClient} required/>
                     <label className="lbl-nombre">
                       <span className="text-nomb">Nombre</span>
                     </label>
                 </form>
-                <div>{errors.eName}</div>
+                <div className="errorsText">{errors.eEmail}</div>
                 <form className="form">
-                   <input type="email" name="email" placeholder={props.credentials?.client.email} onChange={updateInfoClient} onBlur={()=>checkError("email")}/>
+                   <input type="email" name="email" placeholder={props.credentials?.client.email} onChange={updateInfoClient} onBlur={()=>checkError("email")} required/>
                     <label className="lbl-nombre">
                       <span className="text-nomb">E-mail</span>
                     </label>
                 </form>
-                <div>{errors.eEmail}</div>
+                 <div className="errorsText">{errors.ePhone}</div>
                 <form className="form">
-                    <input type="text" name="phone" placeholder={props.credentials?.client.phone} onChange={updateInfoClient} onBlur={()=>checkError("phone")} />
+                    <input type="text" name="phone" placeholder={props.credentials?.client.phone} onChange={updateInfoClient} onBlur={()=>checkError("phone")}required />
                     <label className="lbl-nombre">
                       <span className="text-nomb">Phone</span>
                     </label>
                 </form>
-                <div>{errors.ePhone}</div>
-
+               
+                <div className="errorsText">{errors.eCity}</div>
                 <form className="form">
-                    <input type="text" name="city" placeholder={props.credentials?.client.city} onChange={updateInfoClient} onBlur={()=>checkError("city")}/>
+                    <input type="text" name="city" placeholder={props.credentials?.client.city} onChange={updateInfoClient} onBlur={()=>checkError("city")}required/>
                     <label className="lbl-nombre">
                       <span className="text-nomb">City</span>
                     </label>
                 </form>
-                <div>{errors.eCity}</div>
+                <div className="errorsText">{errors.eCp}</div>
                 <form className="form">
-                    <input type="text" name="cp" placeholder={props.credentials?.client.cp} onChange={updateInfoClient} onBlur={()=>checkError("cp")}/>
+                    <input type="text" name="cp" placeholder={props.credentials?.client.cp} onChange={updateInfoClient} onBlur={()=>checkError("cp")} required/>
                     <label className="lbl-nombre">
                       <span className="text-nomb">Postal Code</span>
                     </label>
                 </form>
-                <div>{errors.eCp}</div>
+                
                 <div className="updateButton" onClick={() => updateUser()}>UPDATE</div>
     
             </div>
