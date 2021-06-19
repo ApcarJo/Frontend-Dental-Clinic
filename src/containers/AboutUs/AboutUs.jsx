@@ -7,19 +7,22 @@ import Team from '../../assets/clinic/team.png';
 import Prevent from '../../assets/clinic/prevent.png';
 import Vistas from '../../assets/clinic/vistas.jpeg';
 import Reser from '../../assets/clinic/reser.jpeg';
-import logo from '../../img/logo.png'
+import logo from '../../img/logo.png';
+import { connect } from 'react-redux';
 
 
-const AboutUs = () => {
+const AboutUs = (props) => {
 
     let history = useHistory();
 
-    let token = localStorage.getItem("token");
+    
 
     const llevame = () => {
+        
+        let token = props.credentials?.token;
 
-        if(token === null) {
-            history.push("/register")
+        if(!token) {
+            history.push("/login")
         } else {
 
             history.push("/appointments");
@@ -111,4 +114,8 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default connect((state) => ({
+
+    credentials:state.credentials
+
+}))(AboutUs);
