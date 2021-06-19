@@ -80,7 +80,7 @@ const Dentist = (props) => {
 
             <div className="dentistsAllbyUser"> 
 
-                <h1>DENTISITS</h1>
+                <h1>DENTISTS</h1>
                 <div className="choose">
                     <p>Choose a city :</p>
                     <select type="name" name="city" title="city"  onChange={updateCredentials}>
