@@ -18,11 +18,11 @@ const Register = () => {
             
             <div className="registerOptions">
 
-                <h1>WELCOME</h1>   
-                <h3>Are you a new dentist?</h3>
-                <div className="buttonRegister" onClick={() => goTo("/dentistregister")}>CLICK</div> 
-                <h3>Are you a new client?</h3>
-                <div className="buttonRegister" onClick={() => goTo("/clientregister")}>CLICK</div> 
+                <h2>W E L C O M E</h2>   
+                <h4>Are you a new dentist?</h4>
+                <div className="buttonRegister" onClick={() => goTo("/dentistregister")}>Sign up!</div> 
+                <h4>Are you a new client?</h4>
+                <div className="buttonRegister" onClick={() => goTo("/clientregister")}>Sign up!</div> 
 
             </div>
         </div>

@@ -24,7 +24,6 @@
 
 .buttonLogoutC1:hover, .buttonUpdateC1:hover {
     transition: 0.2s;
-    color: rgb(49, 80, 49);
     background-color: white;
 }
 
