@@ -54,7 +54,7 @@ const DentistProfile = (props) => {
             } 
         
             let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
-            props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
+            // props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
             setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes})
             console.log(res?.data, "esto es res?.data")
             // console.log(agenda.data, "esto es agenda.data")
@@ -68,17 +68,17 @@ const DentistProfile = (props) => {
         }
     }
 
-    console.log(props.calendar?.semana, "semana imprimir console")
-    console.log(props.calendar?.diasMes, "diasMes imprimir console")
-    console.log(dentistData.data, "aaaaaaaaaaaaaaaaaaaa")
+    // console.log(props.calendar?.semana, "semana imprimir console")
+    // console.log(props.calendar?.diasMes, "diasMes imprimir console")
+    // console.log(dentistData.data, "aaaaaaaaaaaaaaaaaaaa")
     
     let arrayApp2 = [];
     let arrayApp = [];
-    let counter;
+    let counter=[];
     let dataArray = dentistData.data;
     let arrayToDraw = dentistData.diasMes;
     let newDate;
-    let appDay;
+    let appDay, appMonth;
 
     dentistData.data.map((valor)=>{
         // console.log(valor, "valordate")
@@ -92,11 +92,6 @@ const DentistProfile = (props) => {
         // arrayToDraw.push(dataArray)
         // })
     })
-    let bodyguard = {
-        fiera: "fiera",
-        edad: "36",
-        codigo: "abc"
-    }
 
         let count=0, h=0;
         for (let i=0; i<dataArray.length; i++){
@@ -104,20 +99,26 @@ const DentistProfile = (props) => {
             newDate = new Date (dataArray[i].date)
             // console.log(newDate, "esto es newdate")
             appDay = newDate.getDate();
+            appMonth = newDate.getMonth()+1;
+            counter.push(appMonth)
+            // console.log(appMonth, "appMonth", props.calendar.monthy, "monthy", counter, "counter")
+            console.log(appMonth, "appMonth", props.calendar.monthy, "monthy")
+            console.log(dataArray[i].date)
             // moca = (dentistData.data[i].date);
             h=0;
             do {
-                if (arrayToDraw[h]===appDay){
+                if ((arrayToDraw[h]===appDay)&&(props.calendar?.monthy===appMonth)){
+                // if (arrayToDraw[h]===appDay){
                     arrayApp2[h]=dataArray[i].clientName;
                     count++;
-                    console.log(count)
-                    console.log(arrayApp2, "arraApp", count, "count")
-                    console.log(arrayToDraw[h], "arraytodraw", appDay)
+                    // console.log(count)
+                    // console.log(arrayApp2, "arraApp", count, "count", )
+                    // console.log(arrayToDraw[h], "arraytodraw", appDay)
                 // console.log(dataArray.length)
                 // console.log(dataArray)
                 // console.log(dataArray[i])
                 }else if (!arrayApp2[h]){
-                    console.log(arrayApp2[h], arrayToDraw[h])
+                    // console.log(arrayApp2[h], "arrayApp2", arrayToDraw[h], "array to draw")
                     arrayApp2[h]=arrayToDraw[h];
                 }
                 h++;
@@ -214,7 +215,7 @@ const DentistProfile = (props) => {
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
 			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)}
-                                        {/* {(diasMes==0) ? (<p>{arrayToDraw.map((diasMes2)=><p>{index}</p>)}</p>) : (<p>{diasMes}</p>)} */}
+                                        {/* {(diasMes==0) ? (<p>{if (typeof arrayToDraw.map((diasMes2)=><p>{index}</p>)}</p>) : (<p>{diasMes}</p>)} */}
 			                	</div>
 			                ))}	
 		            </div>
