@@ -19,6 +19,7 @@ const DentistProfile = (props) => {
         diasMes: [],
         data: [],
         schedule: [],
+        actualDate: [],
         token: props.credentials?.token,
         dentist: props.credentials?.dentist,
         arrayToDraw: []
@@ -55,7 +56,7 @@ const DentistProfile = (props) => {
         
             let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             // props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
-            setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes})
+            setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes, actualDate: props.calendar?.actualDate})
             console.log(res?.data, "esto es res?.data")
             // console.log(agenda.data, "esto es agenda.data")
             console.log(props?.data, "esto es props.data")
@@ -76,7 +77,7 @@ const DentistProfile = (props) => {
     let arrayApp = [];
     let counter=[];
     let dataArray = dentistData.data;
-    let arrayToDraw = dentistData.diasMes;
+    let arrayToDraw = dentistData.actualDate.diasMes;
     let newDate;
     let appDay, appMonth;
     
@@ -108,7 +109,7 @@ const DentistProfile = (props) => {
             // moca = (dentistData.data[i].date);
             h=0;
             do {
-                if ((arrayToDraw[h]===appDay)&&(props.calendar?.monthy===appMonth)){
+                if ((arrayToDraw[h]===appDay)&&(dentistData.actualDate.monthy===appMonth)){
                 // if (arrayToDraw[h]===appDay){
                     // arrayApp2[h].pop(arrayToDraw[h]);
                     arrayApp2[h]=arrayToDraw[h]+'*';
@@ -218,7 +219,7 @@ const DentistProfile = (props) => {
                         <div className="calendar"></div>
                         {/* <h1> AQUI VA EL CALENDARIO!!!! </h1> */}
                         <div className="drawDentistCalendar">
-			                {props.calendar?.semana.map((semana, index) => (
+			                {props.calendar.actualDate?.semana.map((semana, index) => (
 					            <div className="dayDentistWeek" key={index}>
 							        <p>{semana}</p>
 					            </div>
