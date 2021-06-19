@@ -111,7 +111,7 @@ const DentistProfile = (props) => {
                 if ((arrayToDraw[h]===appDay)&&(props.calendar?.monthy===appMonth)){
                 // if (arrayToDraw[h]===appDay){
                     // arrayApp2[h].pop(arrayToDraw[h]);
-                    arrayApp2[h]=(dataArray[i]);
+                    arrayApp2[h]=arrayToDraw[h]+'*';
                     counter.push(<div className="dateApp">            
                     <p>{dataArray[i].clientName}</p>
                     <p>{dataArray[i].clinicName}</p>
@@ -121,7 +121,7 @@ const DentistProfile = (props) => {
                     count++;
                     // console.log(count)
                     // console.log(arrayApp2, "arraApp", count, "count", )
-                    console.log(arrayToDraw[h], "arraytodraw", appDay, arrayApp2[h], console.log(counter))
+                    // console.log(arrayToDraw[h], "arraytodraw", appDay, arrayApp2[h])
                 // console.log(dataArray.length)
                 // console.log(dataArray)
                 // console.log(dataArray[i])
@@ -133,7 +133,8 @@ const DentistProfile = (props) => {
                 h++;
             } while (h<arrayToDraw.length)
         }
-        console.log(arrayApp2, "esto es arrayPPPPP")
+        // console.log(arrayApp2, "esto es arrayPPPPP")
+        console.log(counter, "counter")
 
 
         
@@ -218,7 +219,7 @@ const DentistProfile = (props) => {
                         {/* <h1> AQUI VA EL CALENDARIO!!!! </h1> */}
                         <div className="drawDentistCalendar">
 			                {props.calendar?.semana.map((semana, index) => (
-					            <div className="dayDentistBox" key={index}>
+					            <div className="dayDentistWeek" key={index}>
 							        <p>{semana}</p>
 					            </div>
 			                ))}
@@ -226,7 +227,10 @@ const DentistProfile = (props) => {
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
 			                			{/* {diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)} */}
-                                        {((typeof diasMes !== 'number')&&(diasMes !== '')) ? (<div className="gridDate">            
+                                        {((typeof diasMes !== 'number')&&(diasMes !== '')) ? (<div>
+                                            <p>{diasMes}</p>  
+                                            <div className="gridDate">
+    
                                             {/* <p>{diasMes.clientName}</p>
                                             <p>{diasMes.clinicName}</p>
                                             <p>{diasMes.dentistName}</p>
@@ -234,7 +238,7 @@ const DentistProfile = (props) => {
                                         {counter.map((valor5)=>(
                                             <div>{valor5}</div>))}
                                             
-                                        </div>) : (<p>{diasMes}</p>)}
+                                        </div></div>) : (<p>{diasMes}</p>)}
 			                	</div>
 			                ))}	
 		                </div>
