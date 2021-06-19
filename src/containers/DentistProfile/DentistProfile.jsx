@@ -108,7 +108,7 @@ const DentistProfile = (props) => {
             h=0;
             do {
                 if (arrayToDraw[h]===appDay){
-                    arrayApp2[h]=dataArray[i];
+                    arrayApp2[h]=dataArray[i].clientName;
                     count++;
                     console.log(count)
                     console.log(arrayApp2, "arraApp", count, "count")
@@ -211,9 +211,9 @@ const DentistProfile = (props) => {
 					            </div>
 			                ))}
 
-			                {arrayToDraw.map((diasMes, index) => (
+			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
-			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)}
+			                			<p>{diasMes}</p>
 			                	</div>
 			                ))}	
 		            </div>
