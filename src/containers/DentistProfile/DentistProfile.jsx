@@ -79,6 +79,7 @@ const DentistProfile = (props) => {
     let arrayToDraw = dentistData.diasMes;
     let newDate;
     let appDay, appMonth;
+    
 
     dentistData.data.map((valor)=>{
         // console.log(valor, "valordate")
@@ -100,20 +101,27 @@ const DentistProfile = (props) => {
             // console.log(newDate, "esto es newdate")
             appDay = newDate.getDate();
             appMonth = newDate.getMonth()+1;
-            counter.push(appMonth)
+            // counter.push(appMonth)
             // console.log(appMonth, "appMonth", props.calendar.monthy, "monthy", counter, "counter")
-            console.log(appMonth, "appMonth", props.calendar.monthy, "monthy")
+            // console.log(appMonth, "appMonth", props.calendar.monthy, "monthy")
             console.log(dataArray[i].date)
             // moca = (dentistData.data[i].date);
             h=0;
             do {
                 if ((arrayToDraw[h]===appDay)&&(props.calendar?.monthy===appMonth)){
                 // if (arrayToDraw[h]===appDay){
-                    arrayApp2[h]+=(dataArray[i]);
+                    // arrayApp2[h].pop(arrayToDraw[h]);
+                    arrayApp2[h]=(dataArray[i]);
+                    counter.push(<div className="dateApp">            
+                    <p>{dataArray[i].clientName}</p>
+                    <p>{dataArray[i].clinicName}</p>
+                    <p>{dataArray[i].dentistName}</p>
+                    <p>{dataArray[i].city}</p>
+                    </div>);
                     count++;
                     // console.log(count)
                     // console.log(arrayApp2, "arraApp", count, "count", )
-                    // console.log(arrayToDraw[h], "arraytodraw", appDay)
+                    console.log(arrayToDraw[h], "arraytodraw", appDay, arrayApp2[h], console.log(counter))
                 // console.log(dataArray.length)
                 // console.log(dataArray)
                 // console.log(dataArray[i])
@@ -126,6 +134,7 @@ const DentistProfile = (props) => {
             } while (h<arrayToDraw.length)
         }
         console.log(arrayApp2, "esto es arrayPPPPP")
+
 
         
 
@@ -217,17 +226,18 @@ const DentistProfile = (props) => {
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
 			                			{/* {diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)} */}
-                                        {(typeof diasMes === 'object') ? (<div className="gridDate"><div className="dateApp">
-                                            <p>hola</p>
-                                            <p>{diasMes.clientName}</p> 
+                                        {((typeof diasMes !== 'number')&&(diasMes !== '')) ? (<div className="gridDate">            
+                                            {/* <p>{diasMes.clientName}</p>
                                             <p>{diasMes.clinicName}</p>
                                             <p>{diasMes.dentistName}</p>
-                                            <p>{diasMes.city}</p>
+                                            <p>{diasMes.city}</p> */}
+                                        {counter.map((valor5)=>(
+                                            <div>{valor5}</div>))}
                                             
-                                        </div></div>) : (<p>{diasMes}</p>)}
+                                        </div>) : (<p>{diasMes}</p>)}
 			                	</div>
 			                ))}	
-		            </div>
+		                </div>
                     </div>
                 </div>
             </div>
