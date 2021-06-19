@@ -78,7 +78,7 @@
 }
 
 .schedule {
-    height: 30em;
+    height: 40em;
     width: 55em;
     background-color: rgb(160, 154, 146);
 
@@ -102,6 +102,11 @@
 }
 
 .dayDentistBox {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    border: solid 0.1em black;
+    height: 6.65em;
     color: white;
 
     cursor: pointer;
@@ -113,11 +118,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: solid 0.05em black;
+    border: solid 0.1em black;
     padding: 0em;
     border-radius: 0.2em;
 
-    height: 30em;
+    height: 40em;
     width: 55em;
 
     grid-template-columns: repeat(7, 0.2fr);

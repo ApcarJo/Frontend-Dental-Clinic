@@ -108,15 +108,16 @@ const DentistProfile = (props) => {
             h=0;
             do {
                 if (arrayToDraw[h]===appDay){
-                    
                     arrayApp2[h]=dataArray[i];
                     count++;
                     console.log(count)
-                console.log(arrayToDraw[h], "arraytodraw", appDay)
+                    console.log(arrayApp2, "arraApp", count, "count")
+                    console.log(arrayToDraw[h], "arraytodraw", appDay)
                 // console.log(dataArray.length)
                 // console.log(dataArray)
                 // console.log(dataArray[i])
-                }else {
+                }else if (!arrayApp2[h]){
+                    console.log(arrayApp2[h], arrayToDraw[h])
                     arrayApp2[h]=arrayToDraw[h];
                 }
                 h++;
@@ -126,7 +127,7 @@ const DentistProfile = (props) => {
         
 
     // arrayApp.sort();
-    console.log(arrayApp2, "arraApp", count, "count")
+    
     // for (let k=0; k<dentistData.diasMes.length; k++){
     //         if (arrayToDraw[k]===arrayApp[h]){
 
@@ -210,7 +211,7 @@ const DentistProfile = (props) => {
 					            </div>
 			                ))}
 
-			                {props.calendar?.diasMes.map((diasMes, index) => (
+			                {arrayToDraw.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
 			                			{diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)}
 			                	</div>
