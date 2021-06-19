@@ -41,7 +41,7 @@ const Login = (props) => {
             case 'email':
 
                 if (credentials.email.length < 1){
-                    setMensajeError({...msgError, eEmail: "Introduce un email"});
+                    setMensajeError({...msgError, eEmail: "Please enter your email"});
                 }else {
                     setMensajeError({...msgError, eEmail: ""});
                 }
@@ -67,7 +67,7 @@ const Login = (props) => {
             case 'password':
 
                 if (credentials.password.length < 1){
-                    setMensajeError({...msgError, ePassword: "Introduce un password"});
+                    setMensajeError({...msgError, ePassword: "Please enter your password"});
                 }else {
                     setMensajeError({...msgError, ePassword: ""});
                 }
@@ -121,8 +121,12 @@ const Login = (props) => {
         <div className="vistaLogin">
                 {/* <pre>{JSON.stringify(credentials, null,2)}</pre> */}
                 <div className="loginCard">
+
+                    <h2>L O G I N</h2>
+                    <br />
+
                     <div className="box1">
-                        <div className="errorsText">{msgError.ePassword}</div>
+                        <div className="errorsText">{msgError.eEmail}</div>
                         <form className="form1">
                             <input className="input1" name="email" type="text"  onChange={updateCredentials} onBlur={()=>checkError   ("email")} required/>
                             <label className="lbl-nombre1">
@@ -144,10 +148,8 @@ const Login = (props) => {
                     <div className="sendButton" onClick={()=>logeame()}>Login</div>
                     <div>{msgError.eValidate}</div>
                     {/* <div className="receiveInfo" onClick={()=>receive()}>ReceiveInfo</div> */}
-
-                
-                        <p>Is this your first time here?</p>
-                        <div className="sendButton" onClick={() => history.push('/register')}>Register here</div>
+                        <p>First time here?</p>
+                        <div className="sendButton" onClick={() => history.push('/register')}>Sign up!</div>
                   
                 </div>
         </div>

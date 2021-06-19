@@ -10,7 +10,7 @@
 .buttonLogoutC1, .buttonUpdateC1{
     height:4em;
     width: 6.2em;
-    border: solid rgb(60, 90, 60) 0.15em;
+    border: solid black 0.15em;
     cursor: pointer;
     background-color: #f1f6fd;
     transition: 0.2s;
@@ -24,7 +24,6 @@
 
 .buttonLogoutC1:hover, .buttonUpdateC1:hover {
     transition: 0.2s;
-    color: rgb(49, 80, 49);
     background-color: white;
 }
 
