@@ -1,7 +1,6 @@
 .dentistProfile{
-    width: 100wh;
-    /* height: 100vh; */
-    background-color: #dbf6e9;
+    width: 100vw;
+    height: 100vh;
 
     display: flex;
     justify-content: space-evenly;
@@ -15,29 +14,31 @@
     
 }
 
-.buttonLogout, .buttonUpdate{
+.buttonLogoutD, .buttonUpdateD{
     height:4em;
-    width: 12em;
+    width: 6.2em;
     border: solid rgb(60, 90, 60) 0.15em;
     cursor: pointer;
-    background-color: white;
+    background-color: #f1f6fd;
     transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.buttonLogout:hover, .buttonUpdate:hover {
-    background-color: #ffc93c;
+.buttonLogoutD:hover, .buttonUpdateD:hover {
     transition: 0.2s;
-}
+    background-color: white;
+}    
 
 .dentistDates{
     width: 17em;
+    height: 40em;
     margin: 2em;
-    border-radius: 1em ;
-    border: solid #31326f;
+    border: solid 0.2em#dfeaf7;;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,34 +46,32 @@
 }
 
 .dentistLeftSide {
-    border-radius: 0.8em 0.8em 0 0;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 
-    background-color: #9ddfd3;
+    background-color:#dfeaf7;
     height: 15em;
     width: 17em;
 }
 
 .dentistRightSide {
-    border-radius: 0 0 0.8em 0.8em;
     background-color: white;
     height: 25em;
-    width: 17em;
+    width: 15em;
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-
 }
 
 .imgDent {
 
-    height: 9em;
-    width: 9em;
+    height: 10em;
+    width: 10em;
     border-radius: 50%;
 
 }

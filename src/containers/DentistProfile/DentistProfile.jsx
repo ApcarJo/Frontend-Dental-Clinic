@@ -196,8 +196,8 @@ const DentistProfile = (props) => {
                             <p>SPECIALITY : {props.credentials?.dentist.speciality}</p>
                             <p>CITY : {props.credentials?.dentist.city}</p>
                             <div className="buttons">
-                                <div className="buttonUpdate">UPDATE</div>
-                                <div className="buttonLogout" onClick={() => logOut()}>LOGOUT</div>
+                                <div className="buttonUpdateD">UPDATE</div>
+                                <div className="buttonLogoutD" onClick={() => logOut()}>LOGOUT</div>
                             </div>
                         </div>
                     </div>
