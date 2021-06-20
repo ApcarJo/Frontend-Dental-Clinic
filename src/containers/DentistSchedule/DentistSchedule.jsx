@@ -57,15 +57,14 @@ const DentistSchedule = (props) => {
      if(agenda?.data){
                 // si existe, mapeamos los resultados
                 return(
-                    <div className="dentistSchedule">
-                        <h1>MY SCHEDULE</h1>
-                        <div>SELECCIONE LA FECHA</div>
-
-                        <input type="date" name="date" title="date" onChange={updateCredentials}/>
-
-                        <div className="appointmentsContainer">
+                    <div className="dentistScheduleContainer">
+                        <div className="appointImage">
+                              <div className="fondoclinics"></div>
+                              <p className="myAppoint">S C H E D U L E</p>
+                        </div>
+                        <div className="appointmentsContainerDentist">
                             {agenda?.data.map((appointment, index) => (
-                                <div key={index} className="appointmentsCard">
+                                <div key={index} className="appointmentsCardDentist">
                                     <p>CLIENT : {appointment.clientName}</p>
                                     <p>CLINIC : {appointment.clinicName}</p>
                                     <p>PHONE : {appointment.clinicPhone}</p>
