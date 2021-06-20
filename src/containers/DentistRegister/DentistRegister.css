@@ -9,8 +9,8 @@
 
     height: 60em;
     width: 35em;
-    border-radius: 0.5em;
-    border: solid #31326f;
+    border-radius: 0.1em;
+    /* border: solid #31326f; */
     background-color: #dfeaf7;
     
 }

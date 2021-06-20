@@ -4,13 +4,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50em;
+
+    box-sizing: border-box;
+    height: 55em;
     width: 35em;
     border-radius: 0.1em;
     background-color: #dfeaf7;
 
     box-sizing: border-box;
-    padding: 0em;
+    padding-top: 1em;
 }
 
 .errorsText {
@@ -27,12 +29,13 @@
 
 .vistaRegisterClient{
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60em;
+    height: 55em;
 
-    background-color: red;
+    /* background-color: red; */
 }
 
 

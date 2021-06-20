@@ -12,7 +12,7 @@ const Calendar = (props) => {
         {
         dia:'16',
         mes:'6',
-		mesW: '',
+		mesW: 'Marzo',
         anyo:'2021',
         semana: [],
         diasMes: '',
@@ -41,6 +41,7 @@ const Calendar = (props) => {
 
 	useEffect (()=>{
 		// initiateDate();
+		// traductor();
 	});
 
 	const men20 = (a) => {
@@ -174,15 +175,13 @@ const Calendar = (props) => {
 		// 	for (let i=0; i<arrayMes2.length; i++) {
 		// 		console.log(arrayMes2[i], datosUser.mesW, datosUser.mes);
 		// 		if (arrayMes2[i]===datosUser.mesW){
-		// 			i=i+1
+		// 			let mes=i+1
 		// 			console.log(i)
-		// 			const alfred = setDatosUser({...datosUser, mes: i});
-				
-					
+		// 			setDatosUser({...datosUser, mes: mes})	
 		// 		}
 		// 	}
 		// }
-			// console.log(datosUser.mes, "jkkkkkkkkkkkkkkkkkkkkkkkkk", arrayMes2)
+		// 	console.log(datosUser.mes)
 
 
 
@@ -280,10 +279,10 @@ return (
 			{/* <select className="selectMonth" type="number" name="dia" onChange={updateFormulario}>
     	    		{mesDias.map((valor) => (<option>{valor}</option>))}
     	    </select> */}
-			<div type='text' className="writeDate" name='writeDate'> <br></br>{arrayDate}<br></br></div>
-			<div>
+			
+
 				<form className="form1">
-				<select className="input1" type="number" name="mes" onChange={updateFormulario} required>
+				<select className="input1" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
     	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
 					
     	    	</select>
@@ -291,16 +290,18 @@ return (
             	            <span className="text-nomb1">Month</span>
             	        </label>
             	</form>
-			</div>
+
 			<div>{errors.eAnyo}</div> 
-			<div>
+
 				<form className="form1">
 					<input type='text' className='input1' name='anyo' onChange={updateFormulario} required></input>
             	        <label className="lbl-nombre1">
             	            <span className="text-nomb1">Year</span>
             	        </label>
             	</form>
-			</div>
+
+			<br></br><br></br><br></br>
+			<div type='text' className="writeDate" name='writeDate'> {arrayDate}</div><br></br>
 			{/* <select className="selectMonth" type="name" name="anyo" onChange={updateFormulario} defaultValue={day}>
     	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
     	    </select> */}

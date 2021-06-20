@@ -5,9 +5,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: solid 0.05em black;
-    padding: 0.5em;
-    border-radius: 0.2em;
+    /* border: solid 0.5em rgb(255, 9, 9); */
+    padding: 0.4em;
+    border-radius: 0.5em;
 
     grid-template-columns: repeat(7, 0.1fr);
     grid-template-rows: repeat(7, 0.2fr);
@@ -38,9 +38,10 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    border-bottom: solid 0.05em rgb(128, 128, 128);
+    border-bottom: solid 0.05em rgb(74, 132, 149);
     background-color: none;
     font-size: small;
+    border-radius: 0.5em;
     transition: 0.2s;
 }
 
@@ -66,7 +67,7 @@
 
 
 .selectMonth:after {
-    border: 0;
+
 }
 
 .inputCalendar {
@@ -74,7 +75,8 @@
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
+    
     outline: none;
     border: none;
 }
