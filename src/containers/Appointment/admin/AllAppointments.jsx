@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AllAppointments.css';
 import spinner from '../../../img/spinner2.gif';
+import { connect } from 'react-redux';
 
-const AllAppointments = () => {
+const AllAppointments = (props) => {
 
-    const [allAppointments, setAppointments] = useState({});
+    const [allAppointments, setAppointments] = useState([]);
 
     useEffect( () => {
 
@@ -20,11 +21,12 @@ const AllAppointments = () => {
 
         try {
 
-            let token = localStorage.getItem("token");
+            let token = props.credentials?.token;
 
             let res = await axios.get("http://localhost:3006/appointment",  {headers:{'authorization':'Bearer ' + token}});
-
+            console.log(res.data, "no imprime nada")
             setAppointments(res.data);
+            
 
         } catch (error) {
             console.log(error);
@@ -67,4 +69,7 @@ const AllAppointments = () => {
     
 }
 
-export default AllAppointments;
+export default connect((state)=>({
+    credentials: state.credentials,
+	calendar: state.calendar
+}))(AllAppointments);;
