@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import './ClientProfile.css';
+import axios from "axios";
 import { connect } from 'react-redux';
 import { LOGOUT } from '../../redux/types';
 // import imgUser from '../../img/user.png'
-import spinner from '../../img/spinner2.gif'
+import spinner from '../../img/spinner2.gif';
 
 const ClientProfile = (props) => {
 
@@ -16,13 +17,36 @@ const ClientProfile = (props) => {
     //     client: props.credentials?.client
     // });
 
-    useEffect( () => {
+    const [clientApp, setClientApp] = useState([])
 
-    }, [])
+    useEffect(() => {
+        searchAppointments();
+      }, []);
+    
+    useEffect(() => { 
+    });
 
-    useEffect( () => {
+    const searchAppointments = async () => {
+        try {
+          let token = props.credentials?.token;
+          let user = props.credentials?.client;
+    
+          let body = {
+            client: user._id,
+          };
+    
+          let res = await axios.post(
+            "http://localhost:3006/appointment/client", body, {
+            headers: { authorization: "Bearer " + token }
+          });
 
-    })
+          console.log(res.data)
+          setClientApp(res.data);
+
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
 
     const logOut = () => {
@@ -53,9 +77,28 @@ const ClientProfile = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="clientAppointments">
-                            <h1> AQUI VA LA PROXIMA CITA!!!!!</h1>
+                    <div className="clientAppointmentProfile">
+
+
+                       {clientApp.map((appointment, index) => (
+                        
+                        <div key={index} className="appointmentCardProfile">
+                    
+                          <p> CLINIC : {appointment.clinicName} </p>
+                    
+                          <p> PHONE : {appointment.clinicPhone} </p>
+                    
+                          <p> EMAIL : {appointment.clinicEmail} </p>
+                    
+                          <p> DENTIST : {appointment.dentistName} </p>
+                    
+                          <p> DATE : {appointment.date} </p>
+
+                        </div>
+
+                       ))}
                     </div>
+               
                 </div>
             </div>
         )
@@ -67,10 +110,11 @@ const ClientProfile = (props) => {
         
         return (
             <div className="spinnerContainer">
-              <div className="spinner">
+              <div className="spinnerC">
                  <img  src={spinner} alt="spinner" width="60" />
               </div>
-        </div>)
+            </div>
+        )
 
     }
 

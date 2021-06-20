@@ -38,7 +38,7 @@
 .formButton{
     height:4em;
     width: 6em;
-    border: solid rgb(60, 90, 60) 0.15em;
+    border: solid rgb(61, 65, 61) 0.15em;
     cursor: pointer;
     background-color: white;
     transition: 0.2s;
@@ -67,7 +67,7 @@ a{
     width: 25em;
     margin: 2em;
     font-size: 1em;
-    border: .1em solid rgb(60, 90, 60);
+    border: .1em solid rgb(80, 83, 80);
 
     display: flex;
     align-items: flex-start;

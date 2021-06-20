@@ -76,12 +76,24 @@
 
 }
 
-.clientAppointments {
+.clientAppointmentProfile {
     height:30em;
     width: 60em;
     background-color: burlywood;
 
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.appointmentCardProfile{
+    height:15em;
+    width: 20em;
+    padding: 1em;
+    padding-left: 2em;
+    border: .1em solid rgb(80, 83, 80);
+
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }

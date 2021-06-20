@@ -32,7 +32,7 @@ const ClientAppointments = (props) => {
         "http://localhost:3006/appointment/client", body, {
         headers: { authorization: "Bearer " + token }
       });
-      // console.log('here', res.data);
+
       setClientAppointment(res.data);
     } catch (error) {
       console.log(error);
