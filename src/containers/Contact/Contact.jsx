@@ -11,7 +11,7 @@ const Contact = () => {
           <form className="form">
             <input type="text" required />
             <label className="lbl-nombre">
-              <span className="text-nomb">Nombre</span>
+              <span className="text-nomb">Name</span>
             </label>
           </form>
 
