@@ -82,15 +82,21 @@ const Dentist = (props) => {
 
                 <h1>DENTISTS</h1>
                 <div className="choose">
-                    <p>Choose a city :</p>
-                    <select type="name" name="city" title="city"  onChange={updateCredentials}>
-                         <option value="">--Please Choose a City-</option>
+                    {/* <select type="name" name="city" title="city"  onChange={updateCredentials} defaultValue="Barcelona">
                          {allCities.map((cities, index) => (
                             <option key={index}>{cities}</option>
                          ))}
-       
-       
-                    </select>
+                         
+                    </select> */}
+                    <form className="form7">
+                    <select className="input7" type="name" name="city" title="city" onChange={updateCredentials} defaultValue="Valencia" required>
+                     {allCities?.map((cities, index) => (<option key={index}>{cities}</option>))}
+    	    	    </select>
+            	        <label className="lbl-nombre7">
+            	            <span className="text-nomb7">Month</span>
+            	        </label>
+                    </form>
+            	   
                 </div>
                 <div className="dentistsContainer">
 
