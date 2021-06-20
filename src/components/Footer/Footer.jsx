@@ -23,7 +23,7 @@ const Footer = () => {
                         </div> */}
                         <div className="column2">
                             <div className="support">
-                                <h3 className="tittle">SUPPORT</h3>
+                                <h3 className="tittle" onClick={() => history.push('/contact')}>SUPPORT</h3>
                                 <div className="phone">
                                     <FontAwesomeIcon icon={faPhone}/> 
                                     <a className="tlf" href="tel:+3495323123">95323123</a>

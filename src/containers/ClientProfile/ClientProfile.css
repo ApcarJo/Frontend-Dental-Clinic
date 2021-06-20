@@ -118,7 +118,7 @@
     width: 4em;
     border: solid rgb(60, 90, 60) 0.15em;
     cursor: pointer;
-    background-color: #f1f6fd;
+    background-color: white;
     transition: 0.2s;
     margin: 0.5em;
     font-size: smaller;
@@ -131,5 +131,5 @@
 
 .buttonGo:hover {
     transition: 0.2s;
-    background-color: white;
+    background-color: #f1f6fd;
 }

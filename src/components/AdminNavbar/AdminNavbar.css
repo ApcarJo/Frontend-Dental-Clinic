@@ -5,12 +5,11 @@
     flex-direction: column;
     align-items: center;
 
-    color: rgb(60, 90, 60);
     width: 20em;
     height:  20em;
     left: 27em;
-    border-radius: 1em ;
-    border: solid #31326f;
+    background-color: #dfeaf7;
     bottom: -11.5em;
-    background-color:#dfeaf7;
+    
+    
 }

@@ -30,6 +30,16 @@ const AllClients = () => {
         }
     }
 
+    const convertDate = (date) => {
+        let newDate = new Date (date)
+        let day = newDate.getDate();
+        let month = newDate.getMonth()+1;
+        let year = newDate.getFullYear();
+        let date2= day+'/'+month+'/'+year;
+        return date2;
+        }
+        
+
 
     if( clients[0]?._id ) {
 
@@ -46,7 +56,7 @@ const AllClients = () => {
                             <p className="infoClients"><a class="mailClient" href="mailto:info@trident.com"> EMAIL : {clients.email} </a></p>
                             <p className="infoClients"> CITY : {clients.city} </p>
                             <p className="infoClients"> CP : {clients.cp} </p>
-                            <p className="infoClients"> BIRTHDAY : {clients.dateOfBirth} </p>
+                            <p className="infoClients"> BIRTHDAY : {convertDate(clients.dateOfBirth)} </p>
                             <img src={clients.image} alt="client" className="imgClient"/>
                         </div>
                     ))}
