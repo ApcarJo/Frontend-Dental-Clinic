@@ -4,7 +4,10 @@ import "./Contact.css";
 const Contact = () => {
   return (
     <div className="contact">
-      <h1>How can we help?</h1>
+      <div className="contactImage">
+                    <div className="fondoclinics"></div>
+                    <p className="ourClinics">HOW CAN WE HELP?</p>
+                </div>
 
       <div className="contactContainer">
         <div className="form11">
@@ -42,14 +45,13 @@ const Contact = () => {
         </div>
 
         <div className="contactInfo">
-          <h1>Client Support</h1>
-          <h3>Call us</h3>
+          <h2>CALL US</h2>
           <a class="tlf" href="tel:+3495323123">
             95323123
           </a>
-          <h3>Office Hours</h3>
+          <h2>OFFICE HOURS</h2>
           <p>Monday to Friday: 7am to 5:15 pm.</p>
-          <h3>Write to us</h3>
+          <h2>WRITE TO US</h2>
           <a class="mail" href="mailto:info@trident.com">
             info@trident.com
           </a>
