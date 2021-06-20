@@ -7,6 +7,7 @@ import { LOGOUT } from '../../redux/types';
 import axios from 'axios';
 import { DATES_DENTIST, SCHEDULE_CAL } from '../../redux/types';
 import spinner from '../../img/spinner2.gif'
+import Calendar from '../../components/Calendar/Calendar';
 
 
 const DentistProfile = (props) => {
@@ -20,6 +21,8 @@ const DentistProfile = (props) => {
         data: [],
         schedule: [],
         actualDate: [],
+        dateDay: '',
+        counter3: [],
         token: props.credentials?.token,
         dentist: props.credentials?.dentist,
         arrayToDraw: []
@@ -31,12 +34,11 @@ const DentistProfile = (props) => {
     }
 
     useEffect( () => {
-        searchAppointments();
-
+        searchAppointments();   
     }, [])
 
     useEffect( () => {
-
+        // drawAppointments();
     })
 
     const logOut = () => {
@@ -65,36 +67,27 @@ const DentistProfile = (props) => {
 
     
     let arrayApp2 = [];
-    let arrayApp = [];
     let counter=[];
     let dataArray = dentistData.data;
     let arrayToDraw = dentistData.actualDate.diasMes;
     let newDate;
-    let appDay, appMonth;
+    let appDay, appMonth, appYear;
+    let h=0;
+
+    // dentistData.data.map((valor)=>{
+    //     arrayApp.push(new Date(valor.date).getDate())
+    // })
+
     
-
-    dentistData.data.map((valor)=>{
-        arrayApp.push(new Date(valor.date).getDate())
-    })
-
-    let count=0, h=0;
     for (let i=0; i<dataArray.length; i++){
         newDate = new Date (dataArray[i].date)
         appDay = newDate.getDate();
         appMonth = newDate.getMonth()+1;
+        appYear = newDate.getFullYear();
         h=0;
         do {
-            if ((arrayToDraw[h]===appDay)&&(dentistData.actualDate.monthy===appMonth)){
-            // if (arrayToDraw[h]===appDay){
-                // arrayApp2[h].pop(arrayToDraw[h]);
+            if ((arrayToDraw[h]===appDay)&&(dentistData.actualDate.monthy===appMonth)&&(dentistData.actualDate.year === appYear)){
                 arrayApp2[h]=arrayToDraw[h]+'*';
-                counter.push(<div className="dateApp">            
-                <p>{dataArray[i].clientName}</p>
-                <p>{dataArray[i].clinicName}</p>
-                <p>{dataArray[i].dentistName}</p>
-                <p>{dataArray[i].city}</p>
-                </div>);
-                count++;
             }else if (!arrayApp2[h]){
                 arrayApp2[h]=arrayToDraw[h];
             }
@@ -102,14 +95,33 @@ const DentistProfile = (props) => {
         } while (h<arrayToDraw.length)
     }
 
-    const drawAppointments = () => {
 
+    const drawAppointments = (dateDay) => {
+        dateDay=parseInt(dateDay.slice(0,-1));
+        counter = [];
+        // console.log(dateDay)
+        for (let i=0; i<dentistData.data.length; i++){
+            newDate = new Date (dentistData.data[i].date)
+            appDay = newDate.getDate();
+            appMonth = newDate.getMonth()+1;
+            appYear = newDate.getFullYear();
 
+            if ((dateDay === appDay)&&(dentistData.actualDate.monthy===appMonth)&&(dentistData.actualDate.year === appYear)){
+                counter.push(<div className="dateApp">            
+                <p>{dataArray[i].clientName}</p>
+                <p>{dataArray[i].clinicName}</p>
+                <p>{dataArray[i].dentistName}</p>
+                <p>{dataArray[i].city}</p>
+                </div>);
+                // console.log(appMonth, appDay, dateDay, dentistData.actualDate.monthy)
+            }
+        }
         
+        
+        const palabra = ()=>setDentistData({...dentistData, counter3: counter})
     }
 
     if(props.credentials?.token) {
-
         return(
             <div className="dentistContainer">
                 <div className="dentistProfile">
@@ -119,11 +131,17 @@ const DentistProfile = (props) => {
                             <img src={props.credentials?.dentist.image} alt="user" className="imgDent"/>
                         </div>
                         <div className="dentistRightSide">
-                            <p>NAME : {props.credentials?.dentist.name} </p>
-                            <p>EMAIL : {props.credentials?.dentist.email} </p>
-                            <p>PHONE : {props.credentials?.dentist.phone}</p>
-                            <p>SPECIALITY : {props.credentials?.dentist.speciality}</p>
-                            <p>CITY : {props.credentials?.dentist.city}</p>
+                            <div>NAME : {props.credentials?.dentist.name} </div>
+                            <div>EMAIL : {props.credentials?.dentist.email} </div>
+                            <div>PHONE : {props.credentials?.dentist.phone}</div>
+                            <div>SPECIALITY : {props.credentials?.dentist.speciality}</div>
+                            <div>CITY : {props.credentials?.dentist.city}</div>
+
+                            {/* <div className="divTap">NAME</div> <div className="divTap">{props.credentials?.dentist.name} </div>
+                            <div className="divTap">EMAIL</div>  <div className="divTap">{props.credentials?.dentist.email} </div>
+                            <div className="divTap">PHONE</div>  <div className="divTap">{props.credentials?.dentist.phone}</div>
+                            <div className="divTap">SPECIALITY</div> <div className="divTap"> {props.credentials?.dentist.speciality}</div>
+                            <div className="divTap">CITY</div>  <div className="divTap">{props.credentials?.dentist.city}</div>*/}
                             <div className="buttons">
                                 <div className="buttonUpdateD">UPDATE</div>
                                 <div className="buttonLogoutD" onClick={() => logOut()}>LOGOUT</div>
@@ -142,7 +160,6 @@ const DentistProfile = (props) => {
 
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
-			                			{/* {diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)} */}
                                         {((typeof diasMes !== 'number')&&(diasMes !== '')) ? ( <div>
                                             <p>{diasMes}</p>  
                                             <div className="gridDate">
@@ -151,7 +168,8 @@ const DentistProfile = (props) => {
                                             <p>{diasMes.clinicName}</p>
                                             <p>{diasMes.dentistName}</p>
                                             <p>{diasMes.city}</p> */}
-
+                                        {/* {drawAppointments(diasMes)} */}
+                                        {drawAppointments(diasMes)}
                                         {counter.map((valor5)=>(
                                             <div>{valor5}</div>))}
                                             
@@ -160,6 +178,7 @@ const DentistProfile = (props) => {
 			                ))}	
 		                </div>
                     </div>
+                    <div><Calendar/></div>
                 </div>
             </div>
         )

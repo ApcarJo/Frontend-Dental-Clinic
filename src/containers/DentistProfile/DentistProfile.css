@@ -1,9 +1,9 @@
 .dentistProfile{
     width: 100vw;
-    height: 100vh;
+    height: 40em;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     flex-direction:row; 
 }
@@ -58,9 +58,14 @@
 }
 
 .dentistRightSide {
+
+
     background-color: white;
     height: 25em;
     width: 15em;
+
+    grid-template-columns: repeat(2, 0.1fr);
+    grid-template-rows: repeat(5, 0.2fr);
 
     display: flex;
     flex-direction: column;
@@ -113,9 +118,7 @@
     padding-top: 0.3em;
 
     background-color: rgb(28, 107, 255);
-
     color: white;
-
     cursor: pointer;
 }
 
@@ -162,6 +165,6 @@
     align-items: center;
     /* background-color: yellow; */
     margin-top: 0.3em;
-    grid-template-columns: repeat(2, 0.4fr);
-    grid-template-rows: repeat(2, 0.3fr);
+    grid-template-columns: repeat(2, 0fr);
+    grid-template-rows: repeat(2, 0fr);
 }

@@ -19,8 +19,14 @@
     justify-content: center;
     align-items: center;
 
-    height: 40vh;
-    width: 35em;
+    height: 24em;
+
+}
+
+.writeDate {
+
+    margin-top: -4em;
+    /* background-color: red; */
 }
 
 .dayBox {
@@ -50,20 +56,14 @@
 }
 
 .numberBox {
-    width: 5em;
+    width: 3em;
+    height: 1em;
     outline: none;
-    border: none;    
+    border: none;   
+    background-color: yellow; 
 }
 
-.selectMonth {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 5em;
-    border: none;
-    outline: none;
-}
+
 
 .selectMonth:after {
     border: 0;
@@ -71,12 +71,10 @@
 
 .inputCalendar {
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    width: 10em;
-
     outline: none;
     border: none;
-
 }
