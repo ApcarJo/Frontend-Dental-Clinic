@@ -4,11 +4,25 @@
     justify-content: center;
     align-items: center;
 
-    grid-template-columns: repeat(4, 0.1fr);
+    height: 40em;
+    width: 60em;
+    /* background-color: red; */
+
+    grid-gap: 0.2em;
+    grid-template-columns: repeat(4, 0fr);
 }
 
 .appointmentsCard {
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    height: 10em;
+    width: 10em;
+
+    background-color: rgb(195, 225, 245);
+    border-radius: 0.2em;
+
 }

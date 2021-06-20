@@ -44,9 +44,6 @@ const DentistSchedule = (props) => {
         
             let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
-            console.log(res?.data, "esto es res?.data")
-            console.log(agenda.data, "esto es agenda.data")
-            console.log(props.schedule, "esto es props.schedule")
         
             setDentistAgenda({...agenda, data: res?.data})
             
@@ -68,7 +65,7 @@ const DentistSchedule = (props) => {
 
                         <div className="appointmentsContainer">
                             {agenda?.data.map((appointment, index) => (
-                                <div key={index} className="appointmentCard">
+                                <div key={index} className="appointmentsCard">
                                     <p>CLIENT : {appointment.clientName}</p>
                                     <p>CLINIC : {appointment.clinicName}</p>
                                     <p>PHONE : {appointment.clinicPhone}</p>

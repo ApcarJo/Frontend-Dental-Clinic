@@ -94,19 +94,14 @@ const DentistProfile = (props) => {
         // arrayToDraw.push(dataArray)
         // })
     })
+    console.log(dentistData.data)
 
         let count=0, h=0;
         for (let i=0; i<dataArray.length; i++){
-            // console.log(dentistData.data[i].date, "esto es dentistdata")
             newDate = new Date (dataArray[i].date)
-            // console.log(newDate, "esto es newdate")
             appDay = newDate.getDate();
             appMonth = newDate.getMonth()+1;
-            // counter.push(appMonth)
-            // console.log(appMonth, "appMonth", props.calendar.monthy, "monthy", counter, "counter")
-            // console.log(appMonth, "appMonth", props.calendar.monthy, "monthy")
-            console.log(dataArray[i].date)
-            // moca = (dentistData.data[i].date);
+
             h=0;
             do {
                 if ((arrayToDraw[h]===appDay)&&(dentistData.actualDate.monthy===appMonth)){
@@ -120,16 +115,8 @@ const DentistProfile = (props) => {
                     <p>{dataArray[i].city}</p>
                     </div>);
                     count++;
-                    // console.log(count)
-                    // console.log(arrayApp2, "arraApp", count, "count", )
-                    // console.log(arrayToDraw[h], "arraytodraw", appDay, arrayApp2[h])
-                // console.log(dataArray.length)
-                // console.log(dataArray)
-                // console.log(dataArray[i])
                 }else if (!arrayApp2[h]){
-                    // console.log(arrayApp2[h], "arrayApp2", arrayToDraw[h], "array to draw")
                     arrayApp2[h]=arrayToDraw[h];
-                    // arrayApp2[h]=0;
                 }
                 h++;
             } while (h<arrayToDraw.length)
