@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { LOGOUT } from "../../redux/types";
 // import imgUser from '../../img/user.png'
 import spinner from "../../img/spinner2.gif";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const ClientProfile = (props) => {
   let history = useHistory();
@@ -106,9 +108,11 @@ const ClientProfile = (props) => {
   for (let j = 0; j < data1.length; j++) {
     if (clientApp.i == j) {
       result.push(
-        <div className="clientAppointmentProfile">
+        <div className="clientAppointmentAll" >
+        <h1>A P P O I N T M E N T S</h1>
+        <div className="clientAppointmentProfile" >
           <div className="buttonGo" onClick={() => goLeft()}>
-            -
+          <FontAwesomeIcon icon={faArrowLeft}/>
           </div>
 
           <div className="appointmentCardProfile">
@@ -120,9 +124,10 @@ const ClientProfile = (props) => {
           </div>
 
           <div className="buttonGo" onClick={() => goRight()}>
-            +
+          <FontAwesomeIcon icon={faArrowRight}/>
           </div>
         </div>
+        </div> 
       );
     }
   }

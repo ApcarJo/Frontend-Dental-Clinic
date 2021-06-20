@@ -76,11 +76,22 @@
 
 }
 
-.clientAppointmentProfile {
+.clientAppointmentAll {
     height:30em;
     width: 60em;
     background-color: #f1f6fd;
-    border: .1em solid rgb(80, 83, 80);
+    border: .1em solid #c7c7c7;
+    padding-top: 5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clientAppointmentProfile {
+    height:30em;
+    width: 60em;
 
     display: flex;
     flex-direction: row;
