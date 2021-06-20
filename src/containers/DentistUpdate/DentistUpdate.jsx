@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import './ClientUpdate.css';
+import './DentistUpdate.css';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import { UPDATE_USER } from '../../redux/types';
+import { UPDATE_DENTIST } from '../../redux/types';
 import spinner from '../../img/spinner2.gif';
 
-const ClientUpdate = (props) => {
+const DentistUpdate = (props) => {
 
     let history = useHistory();
 
     const [updateInfo, setUpdateInfo] = useState({
-        name : props.credentials?.client.name,
-        email: props.credentials?.client.email,
-        phone : props.credentials?.client.phone,
-        city: props.credentials?.client.city,
-        cp: props.credentials?.client.cp
+        name : props.credentials?.dentist.name,
+        email: props.credentials?.dentist.email,
+        phone : props.credentials?.dentist.phone,
+        city: props.credentials?.dentist.city,
+        speciality: props.credentials?.dentist.speciality
     });
 
     const [passwords, setPasswords] = useState({
@@ -31,48 +31,46 @@ const ClientUpdate = (props) => {
         ePassword: '',
         ePassword2: '',
         eCity: '',
-        eCp: '',
         eValidate:''
 
     });
 
     // Handlers
-    const updateInfoClient = (e) => {
+    const updateInfoDentist = (e) => {
         setUpdateInfo({...updateInfo, [e.target.name]: e.target.value})
     }
 
-    const updatePasswordClient = (e) => {
+    const updatePasswordDentist = (e) => {
         setPasswords({...passwords, [e.target.name]: e.target.value})
     }
 
 
     const updateUser = async () => {
 
-        try {
+        try{
 
             let token = props.credentials?.token;
-            let user = props.credentials?.client;
+            let user = props.credentials?.dentist;
     
             let body = {
     
-                client: user._id,
+                dentist: user._id,
                 name: updateInfo.name,
                 email: updateInfo.email,
                 phone: updateInfo.phone,
                 city: updateInfo.city,
-                cp: updateInfo.cp
+                speciality: updateInfo.speciality
             
             }
     
-            let res = await axios.put('http://localhost:3006/clients', body, {headers:{'authorization':'Bearer ' + token}});
-    
-            props.dispatch({type:UPDATE_USER, payload:res.data});
+            let res = await axios.put('http://localhost:3006/dentists', body, {headers:{'authorization':'Bearer ' + token}});
+            props.dispatch({type:UPDATE_DENTIST, payload:res.data});
     
             setTimeout(()=>{
-                history.push('/clientprofile');
+                history.push('/dentistprofile');
             },750);
 
-        } catch {
+        }catch {
             setErrors({...errors, eValidate: 'Could not be completed., please try again'});
         }
  
@@ -83,16 +81,17 @@ const ClientUpdate = (props) => {
        try{
 
             let token = props.credentials?.token;
-            let user = props.credentials?.client;
+            let user = props.credentials?.dentist;
             let body = {
-                client: user._id,
+                dentist: user._id,
                 oldPassword : passwords.oldPassword,
                 newPassword : passwords.newPassword
             
             }
-            let res = await axios.put('http://localhost:3006/clients/updatepassword', body, {headers:{'authorization':'Bearer ' + token}});
+            let res = await axios.put('http://localhost:3006/dentists/updatepassword', body, {headers:{'authorization':'Bearer ' + token}});
+
             setTimeout(()=>{
-                history.push('/clientprofile');
+                history.push('/dentistprofile');
             },750);
 
        } catch {
@@ -164,7 +163,7 @@ const ClientUpdate = (props) => {
                 <h3 className="titleUpdate">Update your password</h3>
 
                 <form className="form">
-                    <input type="password" name="oldPassword" onChange={updatePasswordClient} required/> 
+                    <input type="password" name="oldPassword" onChange={updatePasswordDentist } required/> 
                     <label className="lbl-nombre">
                       <span className="text-nomb">Old Password</span>
                     </label>
@@ -172,7 +171,7 @@ const ClientUpdate = (props) => {
                 <div className="box2">
                     <div className="errorsText">{errors.ePassword}</div>
                     <form className="form">
-                        <input type="password" name="newPassword" onChange={updatePasswordClient} onBlur={()=>checkError("password")}required/> 
+                        <input type="password" name="newPassword" onChange={updatePasswordDentist } onBlur={()=>checkError("password")}required/> 
                         <label className="lbl-nombre">
                           <span className="text-nomb">New Password</span>
                         </label>
@@ -181,7 +180,7 @@ const ClientUpdate = (props) => {
                 <div className="box2">
                     <div className="errorsText">{errors.ePassword2}</div>
                     <form className="form">
-                        <input type="password" name="newPassword2" onChange={updatePasswordClient} onBlur={()=>checkError("password2")} required/> 
+                        <input type="password" name="newPassword2" onChange={updatePasswordDentist} onBlur={()=>checkError("password2")} required/> 
                         <label className="lbl-nombre">
                           <span className="text-nomb">Repeat New Password</span>
                         </label>
@@ -200,21 +199,21 @@ const ClientUpdate = (props) => {
 
                 <div className="errorsText">{errors.eName}</div>
                 <form className="form">
-                    <input type="text" name="name" placeholder={props.credentials?.client.name} onBlur={()=>checkError("name")} onChange={updateInfoClient} required/>
+                    <input type="text" name="name" placeholder={props.credentials?.dentist.name} onBlur={()=>checkError("name")} onChange={updateInfoDentist} required/>
                     <label className="lbl-nombre">
                       <span className="text-nomb">Nombre</span>
                     </label>
                 </form>
                 <div className="errorsText">{errors.eEmail}</div>
                 <form className="form">
-                   <input type="email" name="email" placeholder={props.credentials?.client.email} onChange={updateInfoClient} onBlur={()=>checkError("email")} required/>
+                   <input type="email" name="email" placeholder={props.credentials?.dentist.email} onChange={updateInfoDentist } onBlur={()=>checkError("email")} required/>
                     <label className="lbl-nombre">
                       <span className="text-nomb">E-mail</span>
                     </label>
                 </form>
                  <div className="errorsText">{errors.ePhone}</div>
                 <form className="form">
-                    <input type="text" name="phone" placeholder={props.credentials?.client.phone} onChange={updateInfoClient} onBlur={()=>checkError("phone")}required />
+                    <input type="text" name="phone" placeholder={props.credentials?.dentist.phone} onChange={updateInfoDentist } onBlur={()=>checkError("phone")}required />
                     <label className="lbl-nombre">
                       <span className="text-nomb">Phone</span>
                     </label>
@@ -222,16 +221,16 @@ const ClientUpdate = (props) => {
                
                 <div className="errorsText">{errors.eCity}</div>
                 <form className="form">
-                    <input type="text" name="city" placeholder={props.credentials?.client.city} onChange={updateInfoClient} onBlur={()=>checkError("city")}required/>
+                    <input type="text" name="city" placeholder={props.credentials?.dentist.city} onChange={updateInfoDentist } onBlur={()=>checkError("city")}required/>
                     <label className="lbl-nombre">
                       <span className="text-nomb">City</span>
                     </label>
                 </form>
                 <div className="errorsText">{errors.eCp}</div>
                 <form className="form">
-                    <input type="text" name="cp" placeholder={props.credentials?.client.cp} onChange={updateInfoClient} onBlur={()=>checkError("cp")} required/>
+                    <input type="text" name="speciality" placeholder={props.credentials?.dentist.speciality} onChange={updateInfoDentist} onBlur={()=>checkError("cp")} required/>
                     <label className="lbl-nombre">
-                      <span className="text-nomb">Postal Code</span>
+                      <span className="text-nomb">Speciality</span>
                     </label>
                 </form>
                 
@@ -256,4 +255,4 @@ export default connect((state) => ({
 
     credentials:state.credentials
   
-    }))(ClientUpdate);
+    }))(DentistUpdate);
