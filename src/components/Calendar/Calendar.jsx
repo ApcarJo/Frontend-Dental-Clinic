@@ -54,11 +54,9 @@ const Calendar = (props) => {
 	const dec = (decenas) => {
 		if(decenas===2)
 		arrayDate += "veinti";
-		
 
 		if(decenas===3)
 		arrayDate += "treinta y ";
-		
 	}
 
 	const dec2 = (decenas) => {
@@ -88,6 +86,7 @@ const Calendar = (props) => {
 			b++;
 		}
 	}
+	
 	let mesi = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     if ((anyo%4===0 && anyo%100!==0) || (anyo%400===0)) {
 		mesi[1]=29;
@@ -97,10 +96,10 @@ const Calendar = (props) => {
 	
 	let days=0;
 
-	for (let i=0; i<mes-1; i++)
-		{
-			days=days+mesi[i];
-		}
+	for (let i=0; i<mes-1; i++){
+		days=days+mesi[i];
+	}
+
 	let mes1=days;
 	dias=(b*366)+((x-b)*365)+(dia)+(mes1);
 	let i=dias%7-1;
@@ -119,18 +118,22 @@ const Calendar = (props) => {
 
 	let a;
 
-	// for (i=1; i<=mesi[mes-1]; i++)
-	// {
-	// 	if (dia===i)
-	// 		console.log(i+'*');
+	const calendarConsole = () => {
+		for (i=1; i<=mesi[mes-1]; i++)
+		{
+			if (dia===i)
+				console.log(i+'*');
 
-	// 	if (dia!==i)
-	// 		console.log(i);
+			if (dia!==i)
+				console.log(i);
 
-	// 	if (a%7===0)
-	// 		console.log(" ");
-	// 	a++;
-	// }
+			if (a%7===0)
+				console.log(" ");
+			a++;
+		}
+	}
+
+	// let calendarConsole2 = calendarConsole();
 
 	let diasMes=[];
 	let mesDias=[];
@@ -171,63 +174,43 @@ const Calendar = (props) => {
 		arrayDate += (arrayMes[mes-1]);
 		
 
-		// const traductor = () => {
-		// 	for (let i=0; i<arrayMes2.length; i++) {
-		// 		console.log(arrayMes2[i], datosUser.mesW, datosUser.mes);
-		// 		if (arrayMes2[i]===datosUser.mesW){
-		// 			let mes=i+1
-		// 			console.log(i)
-		// 			setDatosUser({...datosUser, mes: mes})	
-		// 		}
-		// 	}
-		// }
-		// 	console.log(datosUser.mes)
-
-
-
-	const saveData = (dia, mes, anyo) => {
-		if (dia!==''){
-		let date= anyo+'-'+mes+'-'+dia;
-		// let date= dia+'-'+mes+'-'+anyo;
-		let newDate = new Date (date);
-		
-		// setDatosUser({...datosUser, date: date});	
-		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
-
-		let datePicker = {
-			date: newDate,
-			actualDate: datosUser.actualDate
+		const traductor = () => {
+			for (let i=0; i<arrayMes2.length; i++) {
+				console.log(arrayMes2[i], datosUser.mesW, datosUser.mes);
+				if (arrayMes2[i]===datosUser.mesW){
+					let mes=i+1
+					console.log(i)
+					setDatosUser({...datosUser, mes: mes})	
+				}
+			}
 		}
-		props.dispatch({type:DATE_CAL, payload:datePicker});
-		}else{
-			console.log("ahí no")
-		}
-	}
+			console.log(datosUser.mesW)
 
+	// DRAW IN ROME NUMBERS THE YEAR
 	const cifra = (num, c1, c2, c3) => {
 		let j, romanoNum = [];
 	
-		// if (num === 9) {
-		// 	romanoNum.push(c1, c3);
-		// 	console.log(c1, c3);
-		// } else if (num > 4){
-		// 	romanoNum.push(c2);
-		// 	console.log(c2);
+		if (num === 9) {
+			romanoNum+=(c1, c3);
+			console.log(c1, c3);
+		} else if (num > 4){
+			romanoNum+=(c2);
+			console.log(c2);
 
-		// 	for(j=1; j<=num-5; j++) {
-		// 		romanoNum.push(c1);
-		// 		console.log(c1);
-		// 	}
+			for(j=1; j<=num-5; j++) {
+				romanoNum+=(c1);
+				console.log(c1);
+			}
 
-		// } else if (num === 4) {
-		// 	romanoNum.push(c1, c2);
-		// 	console.log(c1, c2);
-		// } else {
-		// 	for(j=1; j<=num; j++){
-		// 		romanoNum.push(c1);
-		// 		console.log(c1);
-		// 	}
-		// }
+		} else if (num === 4) {
+			romanoNum+=(c1, c2);
+			console.log(c1, c2);
+		} else {
+			for(j=1; j<=num; j++){
+				romanoNum+=(c1);
+				console.log(c1);
+			}
+		}
 		return romanoNum;
 	}
 	
@@ -244,7 +227,8 @@ const Calendar = (props) => {
 		romanoNum2.push(cifra(cen, 'C', 'D', 'M'));
 		romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
 		romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
-
+		
+		console.log(romanoNum2);
 	}
 
 	let romanoNum = romano(anyo);
@@ -271,47 +255,57 @@ const Calendar = (props) => {
 	}
 
 	const selectAnyo = [year, (year+1)];	
+
+	const saveData = (dia, mes, anyo) => {
+		if (dia!==''){
+		let date= anyo+'-'+mes+'-'+dia;
+		// let date= dia+'-'+mes+'-'+anyo;
+		let newDate = new Date (date);
+		
+		// setDatosUser({...datosUser, date: date});	
+		setDatosUser({...datosUser, date: date, dia: dia, mes: mes, anyo: anyo, semana: semana2, diasMes: diasMes, day: day, monthy: monthy, year: year});
+
+		let datePicker = {
+			date: newDate,
+			actualDate: datosUser.actualDate
+		}
+		props.dispatch({type:DATE_CAL, payload:datePicker});
+		}else{
+			console.log("Pick correct date")
+		}
+	}
 	
 
 return (
 	<div className="vistaCalendar">
 		<div className="inputCalendar">
-			{/* <select className="selectMonth" type="number" name="dia" onChange={updateFormulario}>
-    	    		{mesDias.map((valor) => (<option>{valor}</option>))}
-    	    </select> */}
-			
 
-				<form className="form1">
-				<select className="input1" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
+				<form className="form7">
+				{/* <select className="input7" type="number" name="mesW" onChange={updateFormulario} defaultValue="Febrero" required>
+    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))} */}
+				<select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
     	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
 					
     	    	</select>
-            	        <label className="lbl-nombre1">
-            	            <span className="text-nomb1">Month</span>
+            	        <label className="lbl-nombre7">
+            	            <span className="text-nomb7">Month</span>
             	        </label>
             	</form>
 
 			<div>{errors.eAnyo}</div> 
 
-				<form className="form1">
-					<input type='text' className='input1' name='anyo' onChange={updateFormulario} required></input>
-            	        <label className="lbl-nombre1">
-            	            <span className="text-nomb1">Year</span>
+				<form className="form8">
+					<input type='text' className='input8' name='anyo' onChange={updateFormulario} required></input>
+            	        <label className="lbl-nombre8">
+            	            <span className="text-nomb8">Year</span>
             	        </label>
             	</form>
 
 			<br></br><br></br><br></br>
 			<div type='text' className="writeDate" name='writeDate'> {arrayDate}</div><br></br>
-			{/* <select className="selectMonth" type="name" name="anyo" onChange={updateFormulario} defaultValue={day}>
-    	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
-    	    </select> */}
 			
 		</div>
-			{/*// DEPRECATED*/}
-			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>
-			<div>{errors.eDia}</div>
-			<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")} placeholder="mes" defaultValue={monthy}></input>
-			<div>{errors.eMes}</div>*/}
+			
 
 		<div className="drawCalendar">
 			{semana.map((semana, index) => (
