@@ -180,7 +180,7 @@ const DentistProfile = (props) => {
                         
                     </div>
                     <div className="addMonth" name="diasMes">+</div>
-                    <div><Calendar/></div>
+                    {/* <div><Calendar/></div> */}
                 </div>
             </div>
         )
