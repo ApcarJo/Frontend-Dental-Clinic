@@ -22,7 +22,11 @@ const DentistProfile = (props) => {
         schedule: [],
         actualDate: [],
         dateDay: '',
+        day: '',
+        month: '',
+        year: '',
         counter3: [],
+        semana: ["Lunes ", "Martes ", "Miércoles ", "Jueves ", "Viernes ", "Sábado ", "Domingo "],
         token: props.credentials?.token,
         dentist: props.credentials?.dentist,
         arrayToDraw: []
@@ -39,6 +43,7 @@ const DentistProfile = (props) => {
 
     useEffect( () => {
         // drawAppointments();
+        // searchAppointments();  
     })
 
     const logOut = () => {
@@ -58,7 +63,8 @@ const DentistProfile = (props) => {
         
             let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             // props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
-            setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes, actualDate: props.calendar?.actualDate})    
+            console.log(dentistData.diasMes)
+            setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes, day: props.calendar?.day, month: props.calendar?.month, year: props.calendar?.year})
         
         } catch (error){
             console.log(error)
@@ -68,11 +74,16 @@ const DentistProfile = (props) => {
     
     let arrayApp2 = [];
     let counter=[];
-    let dataArray = dentistData.data;
-    let arrayToDraw = dentistData.actualDate.diasMes;
+    let dataArray = dentistData?.data;
+    let arrayToDraw = props.calendar?.diasMes;
     let newDate;
     let appDay, appMonth, appYear;
     let h=0;
+
+    console.log(dentistData.data, "ahora")
+    console.log(props.calendar?.month, "jkladsjklsajdlksajkl")
+    console.log(props.calendar?.year, "jkladsjklsajdlksajkl")
+
 
     // dentistData.data.map((valor)=>{
     //     arrayApp.push(new Date(valor.date).getDate())
@@ -86,7 +97,7 @@ const DentistProfile = (props) => {
         appYear = newDate.getFullYear();
         h=0;
         do {
-            if ((arrayToDraw[h]===appDay)&&(dentistData.actualDate.monthy===appMonth)&&(dentistData.actualDate.year === appYear)){
+            if ((arrayToDraw[h]===appDay)&&(props.calendar?.month===appMonth)&&(props.calendar?.year === appYear)){
                 arrayApp2[h]=arrayToDraw[h]+'*';
             }else if (!arrayApp2[h]){
                 arrayApp2[h]=arrayToDraw[h];
@@ -95,10 +106,13 @@ const DentistProfile = (props) => {
         } while (h<arrayToDraw.length)
     }
 
-
+     
     const drawAppointments = (dateDay) => {
+        // setDentistData({...dentistData, diasMes: props.calendar?.diasMes, actualDate: props.calendar?.actualDate})   
         dateDay=parseInt(dateDay.slice(0,-1));
         counter = [];
+        console.log(props.calendar?.month, "jkladsjklsajdlksajkl")
+    console.log(props.calendar?.year, "jkladsjklsajdlksajkl")
         // console.log(dateDay)
         for (let i=0; i<dentistData.data.length; i++){
             newDate = new Date (dentistData.data[i].date)
@@ -106,7 +120,7 @@ const DentistProfile = (props) => {
             appMonth = newDate.getMonth()+1;
             appYear = newDate.getFullYear();
 
-            if ((dateDay === appDay)&&(dentistData.actualDate.monthy===appMonth)&&(dentistData.actualDate.year === appYear)){
+            if ((dateDay === appDay)&&(props.calendar?.month===appMonth)&&(props.calendar?.year === appYear)){
                 counter.push(<div className="dateApp">            
                 <p>{dataArray[i].clientName}</p>
                 <p>{dataArray[i].clinicName}</p>
@@ -143,7 +157,7 @@ const DentistProfile = (props) => {
                             <div className="divTap">SPECIALITY</div> <div className="divTap"> {props.credentials?.dentist.speciality}</div>
                             <div className="divTap">CITY</div>  <div className="divTap">{props.credentials?.dentist.city}</div>*/}
                             <div className="buttons">
-                                <div className="buttonUpdateD" onClick={() => history.push('/updatedentist')} >UPDATE</div>
+                                <div className="buttonUpdateD">UPDATE</div>
                                 <div className="buttonLogoutD" onClick={() => logOut()}>LOGOUT</div>
                             </div>
                         </div>
@@ -152,7 +166,7 @@ const DentistProfile = (props) => {
                         <div className="calendar"></div>
                         {/* <h1> AQUI VA EL CALENDARIO!!!! </h1> */}
                         <div className="drawDentistCalendar">
-			                {props.calendar.actualDate?.semana.map((semana, index) => (
+			                {dentistData.semana.map((semana, index) => (
 					            <div className="dayDentistWeek" key={index}>
 							        <p>{semana}</p>
 					            </div>
@@ -180,7 +194,7 @@ const DentistProfile = (props) => {
                         
                     </div>
                     <div className="addMonth" name="diasMes">+</div>
-                    {/* <div><Calendar/></div> */}
+                    <div><Calendar/></div>
                 </div>
             </div>
         )
