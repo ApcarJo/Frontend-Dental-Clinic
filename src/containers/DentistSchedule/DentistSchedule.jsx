@@ -29,7 +29,7 @@ const DentistSchedule = (props) => {
       };
 
     const updateAgenda = (e) => {
-        setDentistAgenda({ ...date, [e.target.name]: e.target.value });
+        setDentistAgenda({ ...agenda, [e.target.name]: e.target.value });
       };
 
     const searchAppointments = async () => {
@@ -54,6 +54,15 @@ const DentistSchedule = (props) => {
         }
      }
 
+     const convertDate = (date) => {
+        let newDate = new Date (date)
+        let day = newDate.getDate();
+        let month = newDate.getMonth()+1;
+        let year = newDate.getFullYear();
+        let date2= day+'/'+month+'/'+year;
+        return date2;
+        }
+
      if(agenda?.data){
                 // si existe, mapeamos los resultados
                 return(
@@ -69,7 +78,7 @@ const DentistSchedule = (props) => {
                                     <p>CLINIC : {appointment.clinicName}</p>
                                     <p>PHONE : {appointment.clinicPhone}</p>
                                     <p>CITY : {appointment.city}</p>
-                                    <p>DATE : {appointment.date}</p>
+                                    <p>DATE : {convertDate(agenda.date)}</p>
                                 </div>
                             ))}
                         </div>

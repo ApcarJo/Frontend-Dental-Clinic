@@ -59,7 +59,7 @@ const ClientProfile = (props) => {
     props.dispatch({ type: LOGOUT });
   };
   
-  console.log(userData.client)
+
   const convertDate = (date) => {
   let newDate = new Date (date)
   let day = newDate.getDate();

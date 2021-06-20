@@ -280,7 +280,6 @@ const Calendar = (props) => {
 		}else{
 			console.log("Pick correct date")
 		}
-		console.log(diasMes)
 	}
 	
 

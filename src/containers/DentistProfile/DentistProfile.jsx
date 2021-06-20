@@ -80,15 +80,9 @@ const DentistProfile = (props) => {
     let appDay, appMonth, appYear;
     let h=0;
 
-    console.log(dentistData.data, "ahora")
-    console.log(props.calendar?.month, "jkladsjklsajdlksajkl")
-    console.log(props.calendar?.year, "jkladsjklsajdlksajkl")
-
-
     // dentistData.data.map((valor)=>{
     //     arrayApp.push(new Date(valor.date).getDate())
     // })
-
     
     for (let i=0; i<dataArray.length; i++){
         newDate = new Date (dataArray[i].date)
