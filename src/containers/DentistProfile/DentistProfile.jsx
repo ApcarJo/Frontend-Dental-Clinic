@@ -115,11 +115,14 @@ const DentistProfile = (props) => {
                 </div>);
                 // console.log(appMonth, appDay, dateDay, dentistData.actualDate.monthy)
             }
-        }
-        
-        
+        }   
         const palabra = ()=>setDentistData({...dentistData, counter3: counter})
     }
+
+    const addMonth = () => {
+        console.log("hola")
+    }
+
 
     if(props.credentials?.token) {
         return(
@@ -179,7 +182,7 @@ const DentistProfile = (props) => {
 		                </div>
                         
                     </div>
-                    <div className="addMonth" name="diasMes">+</div>
+                    <div className="addMonth" name="diasMes" onClick={()=>addMonth()}>+</div>
                     {/* <div><Calendar/></div> */}
                 </div>
             </div>

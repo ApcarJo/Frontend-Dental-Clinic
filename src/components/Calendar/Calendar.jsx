@@ -204,30 +204,31 @@ const Calendar = (props) => {
 		}
 	}
 
+	// DRAW IN ROME NUMBERS THE YEAR
 	const cifra = (num, c1, c2, c3) => {
 		let j, romanoNum = [];
 	
-		// if (num === 9) {
-		// 	romanoNum.push(c1, c3);
-		// 	console.log(c1, c3);
-		// } else if (num > 4){
-		// 	romanoNum.push(c2);
-		// 	console.log(c2);
+		if (num === 9) {
+			romanoNum+=(c1, c3);
+			console.log(c1, c3);
+		} else if (num > 4){
+			romanoNum+=(c2);
+			console.log(c2);
 
-		// 	for(j=1; j<=num-5; j++) {
-		// 		romanoNum.push(c1);
-		// 		console.log(c1);
-		// 	}
+			for(j=1; j<=num-5; j++) {
+				romanoNum+=(c1);
+				console.log(c1);
+			}
 
-		// } else if (num === 4) {
-		// 	romanoNum.push(c1, c2);
-		// 	console.log(c1, c2);
-		// } else {
-		// 	for(j=1; j<=num; j++){
-		// 		romanoNum.push(c1);
-		// 		console.log(c1);
-		// 	}
-		// }
+		} else if (num === 4) {
+			romanoNum+=(c1, c2);
+			console.log(c1, c2);
+		} else {
+			for(j=1; j<=num; j++){
+				romanoNum+=(c1);
+				console.log(c1);
+			}
+		}
 		return romanoNum;
 	}
 	
@@ -244,7 +245,8 @@ const Calendar = (props) => {
 		romanoNum2.push(cifra(cen, 'C', 'D', 'M'));
 		romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
 		romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
-
+		
+		console.log(romanoNum2);
 	}
 
 	let romanoNum = romano(anyo);
