@@ -111,8 +111,7 @@ const DentistProfile = (props) => {
         // setDentistData({...dentistData, diasMes: props.calendar?.diasMes, actualDate: props.calendar?.actualDate})   
         dateDay=parseInt(dateDay.slice(0,-1));
         counter = [];
-        console.log(props.calendar?.month, "jkladsjklsajdlksajkl")
-    console.log(props.calendar?.year, "jkladsjklsajdlksajkl")
+        
         // console.log(dateDay)
         for (let i=0; i<dentistData.data.length; i++){
             newDate = new Date (dentistData.data[i].date)

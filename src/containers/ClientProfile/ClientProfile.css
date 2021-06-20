@@ -81,12 +81,14 @@
     width: 60em;
     background-color: burlywood;
 
-    display: grid;
-  grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .appointmentCardProfile{
-    height:15em;
+    height:30em;
     width: 20em;
     padding: 1em;
     padding-left: 2em;
@@ -96,4 +98,26 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
+}
+
+.buttonGo{
+
+    height:4em;
+    width: 4em;
+    border: solid rgb(60, 90, 60) 0.15em;
+    cursor: pointer;
+    background-color: #f1f6fd;
+    transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttonGo:hover {
+    transition: 0.2s;
+    background-color: white;
 }
