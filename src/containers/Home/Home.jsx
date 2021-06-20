@@ -68,19 +68,22 @@ const Home = (props) => {
             </div>
 
             <div className="optionsHome">
-                <div className="option">
-                    <p className="parrafos">CLINICS</p>
-                    <div className="buttonOption" onClick={() => goTo("/clinics")}></div>
+                    <div className="option">
+                        <p>CLINICS</p>
+                        <p className="parrafos">We have more than 100 clinics with everything you need to make your stay as pleasant as possible and solve all your dental needs with the greatest comfort. </p>
+                        <div className="buttonOption" onClick={() => goTo("/clinics")}></div>
+                    </div>
+                    <div className="option">
+                        <p >CONTACT</p>
+                        <p className="parrafos">If you have any questions, do not doubt to contact our customer service department. We will be glad to help you!</p>
+                        <div className="buttonOption" onClick={() => goTo("/contact")}></div>
+                    </div>
+                    <div className="option">
+                        <p>ABOUT US</p>
+                        <p className="parrafos">25 years of experience learning every day to solve the problems of our patients and solving totally hopeless cases.</p>
+                        <div className="buttonOption" onClick={() => goTo("/aboutus")}></div>
+                    </div>
                 </div>
-                <div className="option">
-                <p className="parrafos">CONTACT</p>
-                    <div className="buttonOption" onClick={() => goTo("/contact")}></div>
-                </div>
-                <div className="option">
-                <p className="parrafos">ABOUT US</p>
-                    <div className="buttonOption" onClick={() => goTo("/aboutus")}></div>
-                </div>
-            </div>
         </div>
     )
     }
