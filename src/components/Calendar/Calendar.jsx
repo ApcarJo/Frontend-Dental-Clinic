@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import './Calendar.css';
 import { DRAW_CAL, DATE_CAL } from '../../redux/types';
 import { connect } from 'react-redux';
+import { faCommentDollar } from '@fortawesome/free-solid-svg-icons';
 
 const Calendar = (props) => {
 	var arrayDate = [];
@@ -12,7 +13,7 @@ const Calendar = (props) => {
         {
         dia:'16',
         mes:'6',
-		mesW: 'Marzo',
+		mesW: '',
         anyo:'2021',
         semana: [],
         diasMes: '',
@@ -36,7 +37,7 @@ const Calendar = (props) => {
 
 	useEffect (()=>{
 		initiateDate();
-		// traductor();
+		traductor();
 	},[]);
 
 	useEffect (()=>{
@@ -176,14 +177,16 @@ const Calendar = (props) => {
 
 		const traductor = () => {
 			for (let i=0; i<arrayMes2.length; i++) {
-				console.log(arrayMes2[i], datosUser.mesW, datosUser.mes);
+
+				console.log("aquí entra")
 				if (arrayMes2[i]===datosUser.mesW){
-					let mes=i+1
-					console.log(i)
-					setDatosUser({...datosUser, mes: mes})	
+					let mes2=i+1
+					setDatosUser({...datosUser, mes: mes2})	
+					return mes2;
 				}
-			}
+			}	
 		}
+		// console.log(datosUser.mesW)
 
 	// DRAW IN ROME NUMBERS THE YEAR
 	const cifra = (num, c1, c2, c3) => {
@@ -259,6 +262,7 @@ const Calendar = (props) => {
 	const selectAnyo = [year, (year+1)];	
 
 	const saveData = (dia, mes, anyo) => {
+		mes = traductor(datosUser.mesW);
 		if (dia!==''){
 		let date= anyo+'-'+mes+'-'+dia;
 		// let date= dia+'-'+mes+'-'+anyo;
@@ -288,10 +292,10 @@ return (
 		<div className="inputCalendar">
 
 				<form className="form7">
-				{/* <select className="input7" type="number" name="mesW" onChange={updateFormulario} defaultValue="Febrero" required>
-    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))} */}
-				<select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
-    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
+				<select className="input7" type="number" name="mesW" onChange={updateFormulario} onSelect={()=>saveData(diasMes, mes, anyo)} defaultValue="Febrero" required>
+    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))}
+				{/* <select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
+    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))} */}
 					
     	    	</select>
             	        <label className="lbl-nombre7">

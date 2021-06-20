@@ -399,11 +399,13 @@
     height: 100%;
     background: none;
     color: black;
-    padding: 0.25em;
-    padding-left: 7em;
+    /* padding: 0.25em; */
+    padding-left: 4.7em;
+    padding-top: 1em;
+    font-size: 1.2em;
     
     border: none;
-    outline: 0px;
+    outline: 0em;
 }
 .form7 .lbl-nombre7 {
     position: absolute;
