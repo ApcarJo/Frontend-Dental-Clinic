@@ -39,6 +39,15 @@ const ClientAppointments = (props) => {
     }
   };
 
+  const convertDate = (date) => {
+    let newDate = new Date (date)
+    let day = newDate.getDate();
+    let month = newDate.getMonth()+1;
+    let year = newDate.getFullYear();
+    let date2= day+'/'+month+'/'+year;
+    return date2;
+  }
+
   const saveAppointment = (appointment) => {
     let newApp = appointment;
 
@@ -91,7 +100,7 @@ const ClientAppointments = (props) => {
     
                   <p> DENTIST : {appointment.dentistName} </p>
     
-                  <p> DATE : {appointment.date} </p>
+                  <p> DATE : {convertDate(appointment.date)} </p>
                   <div className="buttons1">
                     <div
                       className="buttonUpdateA"
