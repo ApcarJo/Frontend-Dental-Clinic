@@ -24,8 +24,11 @@
 Challenge from the Fullstack Developer Bootcamp at <a href="https://geekshubsacademy.com/">GeeksHubs Academy</a> where we have to create the frontend for a dental clinic.
 
 The purpose of this design is to recreate the frontend part of our Dental Clinic. 
-In this website you could register as a dentist or as a client and finally login or logout. 
-If you are a dentist you could see your profile, find all the active clinics and view your schedule in the last month. 
+
+In this website you could register as a dentist or as a client and then login or logout. 
+
+If you are a dentist you could see your profile, find all the active clinics, view your schedule in the last month or update your information. 
+
 If you are a client you could view all dentists and clinics, create a new appointment, modify or delete it and finally you could also modify your personal information if you need.
 
 This Project has been done by [José Luis Aparicio](https://github.com/ApcarJo), [Alejandro Urbina](https://github.com/2020-JAUG) and [Adriana Fayos](https://github.com/AdrianaFayos). 
