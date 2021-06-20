@@ -192,7 +192,7 @@
 .clinics3 {
     display: flex;
     position: relative;
-    left: 11em;
+    left: 8em;
     top: -3em;
 }
 .takeDate {
@@ -292,7 +292,7 @@
     right: -12em;
     top: -3.4em;
     cursor: pointer;
-    height: 2.5em;
+    height: 4em;
     box-shadow: 0em 0.2em 0.2em -0.1em black;
     border-bottom: 1.9px solid #c7c7c7;
     justify-content: center;

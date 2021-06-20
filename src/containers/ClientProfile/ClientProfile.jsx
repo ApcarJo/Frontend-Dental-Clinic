@@ -70,17 +70,16 @@ const ClientProfile = (props) => {
   let date2= day+'/'+month+'/'+year;
   return date2;
   }
+  
   let birth = convertDate(userData.client.dateOfBirth)
   let i = clientApp.dateApp.length - 1;
 
-  console.log(i, "soy i");
 
   const goRight = () => {
     let i = clientApp.i;
 
     if (i < clientApp.dateApp.length - 1) {
       i++;
-      console.log(i, "suma");
     } else {
       i= 0;
     }
@@ -92,14 +91,12 @@ const ClientProfile = (props) => {
 
     if (i > 0) {
       i--;
-      console.log(i, "resta");
     } else {
       i = clientApp.dateApp.length - 1;
     }
     setClientApp({ ...clientApp, i: i });
   };
 
-  console.log(i, "ESTO TIENE QUE TENER UN VALOR");
 
   let data1 = clientApp.dateApp;
   let arrayData1 = [];

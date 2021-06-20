@@ -50,7 +50,7 @@ const AdminProfile = (props) => {
 
                 <AdminNavbar />
 
-                <h2>Welcome Back!</h2>
+                <h2>WELCOME BACK!</h2>
 
                 <div className="adminContent">
                     {admin.map((admin, index) => (
@@ -60,7 +60,7 @@ const AdminProfile = (props) => {
                             <p className="textparra"> ADMIN : {admin.name} </p>
                             <p className="textparra"> PHONE : {admin.phone} </p>
                             <p className="textparra"> EMAIL : {admin.email} </p>
-                            <img src={admin.image} alt="admin" className="imgAdmin"/>
+
 
                             <div className="buttons">
                                 <div className="buttonUpdate">UPDATE</div>

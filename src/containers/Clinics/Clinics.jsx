@@ -56,11 +56,11 @@ const Clinics = (props) => {
                             <div className="content2" key={index}>
                             <img src={clinic.image} className="salas" alt="salas"/>
                              
-                                    <p>Nombre: {clinic.name} </p>
-                                    <p>Ciudad: {clinic.city}</p>
-                                    <p>Dirección: {clinic.adress} </p>
-                                    <p>Correo: {clinic.email} </p>
-                                    <p>Teléfono: {clinic.phone} </p>
+                                    <p>Name: {clinic.name} </p>
+                                    <p>City: {clinic.city}</p>
+                                    <p>Address: {clinic.adress} </p>
+                                    <p>Email: {clinic.email} </p>
+                                    <p>Phone: {clinic.phone} </p>
                               
                                 <div className="enviar" onClick={() => llevame()}>Make An Appointment</div>
                             </div>

@@ -17,13 +17,11 @@
     align-items: center;
     justify-content: center;
     display: flex;
+
     width: 21em;
     height: 23em;
     margin: 2em;
-    border-radius: 1em ;
-    border: 1.7px solid #6f6d6d;
     background-color:#dfeaf7;
-    box-shadow: 0em 0em 0.1em 0.1em rgb(162, 160, 160);
     display: flex;
     line-height: 1.5;
 }
