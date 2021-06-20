@@ -281,22 +281,22 @@ return (
     	    </select> */}
 			
 
-				<form className="form1">
-				<select className="input1" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
+				<form className="form7">
+				<select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
     	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
 					
     	    	</select>
-            	        <label className="lbl-nombre1">
-            	            <span className="text-nomb1">Month</span>
+            	        <label className="lbl-nombre7">
+            	            <span className="text-nomb7">Month</span>
             	        </label>
             	</form>
 
 			<div>{errors.eAnyo}</div> 
 
-				<form className="form1">
-					<input type='text' className='input1' name='anyo' onChange={updateFormulario} required></input>
-            	        <label className="lbl-nombre1">
-            	            <span className="text-nomb1">Year</span>
+				<form className="form8">
+					<input type='text' className='input8' name='anyo' onChange={updateFormulario} required></input>
+            	        <label className="lbl-nombre8">
+            	            <span className="text-nomb8">Year</span>
             	        </label>
             	</form>
 
