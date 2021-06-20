@@ -54,7 +54,7 @@ Run the server.
 On the other side, you will need to clone the backend from [this repository](https://github.com/2020-JAUG/Backend-Dental-Clinic.git) and follow its instructions to run it.
 
 <a name="images"></a>
-## Screenshots :
+## Screenshots 📸
 
 Home
 
