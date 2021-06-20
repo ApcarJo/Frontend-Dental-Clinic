@@ -20,6 +20,8 @@ const DentistProfile = (props) => {
         data: [],
         schedule: [],
         actualDate: [],
+        dateDay: '',
+        counter3: [],
         token: props.credentials?.token,
         dentist: props.credentials?.dentist,
         arrayToDraw: []
@@ -31,12 +33,11 @@ const DentistProfile = (props) => {
     }
 
     useEffect( () => {
-        searchAppointments();
-
+        searchAppointments();   
     }, [])
 
     useEffect( () => {
-
+        // drawAppointments();
     })
 
     const logOut = () => {
@@ -67,11 +68,11 @@ const DentistProfile = (props) => {
     let arrayApp2 = [];
     let arrayApp = [];
     let counter=[];
+    let counter2=[];
     let dataArray = dentistData.data;
     let arrayToDraw = dentistData.actualDate.diasMes;
     let newDate;
     let appDay, appMonth;
-    
 
     dentistData.data.map((valor)=>{
         arrayApp.push(new Date(valor.date).getDate())
@@ -88,7 +89,7 @@ const DentistProfile = (props) => {
             // if (arrayToDraw[h]===appDay){
                 // arrayApp2[h].pop(arrayToDraw[h]);
                 arrayApp2[h]=arrayToDraw[h]+'*';
-                counter.push(<div className="dateApp">            
+                counter2.push(<div className="dateApp">            
                 <p>{dataArray[i].clientName}</p>
                 <p>{dataArray[i].clinicName}</p>
                 <p>{dataArray[i].dentistName}</p>
@@ -102,10 +103,32 @@ const DentistProfile = (props) => {
         } while (h<arrayToDraw.length)
     }
 
-    const drawAppointments = () => {
+    const drawAppointments = (dateDay) => {
+        dateDay=parseInt(dateDay.slice(0,-1));
+        counter = [];
+        // console.log(dateDay)
+        for (let i=0; i<dentistData.data.length; i++){
+            newDate = new Date (dentistData.data[i].date)
+            appDay = newDate.getDate();
+            appMonth = newDate.getMonth()+1;
 
-
+            if ((dateDay === appDay)&&(dentistData.actualDate.monthy===appMonth)){
+                counter.push(<div className="dateApp">            
+                <p>{dataArray[i].clientName}</p>
+                <p>{dataArray[i].clinicName}</p>
+                <p>{dataArray[i].dentistName}</p>
+                <p>{dataArray[i].city}</p>
+                </div>);
+                // console.log("hola", dentistData.data.length, dentistData.data[i].date)
+                console.log(appMonth, appDay, dateDay, dentistData.actualDate.monthy)
+                
+            }
+            
+                // console.log(dateDay, appDay)
+        }
         
+        
+        const palabra = ()=>setDentistData({...dentistData, counter3: counter})
     }
 
     if(props.credentials?.token) {
@@ -142,7 +165,6 @@ const DentistProfile = (props) => {
 
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
-			                			{/* {diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)} */}
                                         {((typeof diasMes !== 'number')&&(diasMes !== '')) ? ( <div>
                                             <p>{diasMes}</p>  
                                             <div className="gridDate">
@@ -151,7 +173,8 @@ const DentistProfile = (props) => {
                                             <p>{diasMes.clinicName}</p>
                                             <p>{diasMes.dentistName}</p>
                                             <p>{diasMes.city}</p> */}
-
+                                        {/* {drawAppointments(diasMes)} */}
+                                        {drawAppointments(diasMes)}
                                         {counter.map((valor5)=>(
                                             <div>{valor5}</div>))}
                                             
