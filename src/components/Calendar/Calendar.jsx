@@ -163,9 +163,9 @@ const Calendar = (props) => {
 			unid(unidades);
 		}
 	}
-	let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
+	// let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
 	let arrayMes2 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-		arrayDate += (arrayMes[mes-1]);
+		// arrayDate += (arrayMes[mes-1]);
 
 
 	const saveData = (dia, mes, anyo) => {
@@ -240,7 +240,6 @@ const Calendar = (props) => {
 	let day = newDate.getDate();
 
 	const initiateDate = () => {
-		
 		const actualDate = {
 			year: newDate.getFullYear(),
 			monthy: newDate.getMonth()+1,
@@ -265,24 +264,41 @@ return (
 			{/* <select className="selectMonth" type="number" name="dia" onChange={updateFormulario}>
     	    		{mesDias.map((valor) => (<option>{valor}</option>))}
     	    </select> */}
-
-			<select className="selectMonth" type="number" name="mes" onChange={updateFormulario} defaultValue={monthy}>
-    	         {selectMonthArray.map((valor) => (<option>{valor}</option>))}
-    	    </select>
-			
+			<div type='text' className="writeDate" name='writeDate'> <br></br>{arrayDate}<br></br></div>
+			<div>
+				<form className="form1">
+				<select className="input1" type="number" name="mes" onChange={updateFormulario} required>
+    	    	     {selectMonthArray.map((valor) => (<option>{valor}</option>))}
+    	    	</select>
+            	        <label className="lbl-nombre1">
+            	            <span className="text-nomb1">Month</span>
+            	        </label>
+            	</form>
+			</div>
+			<div>{errors.eAnyo}</div> 
+			<div>
+				<form className="form1">
+					<input type='text' className='input1' name='anyo' onChange={updateFormulario} required></input>
+            	        <label className="lbl-nombre1">
+            	            <span className="text-nomb1">Year</span>
+            	        </label>
+            	</form>
+			</div>
 			{/* <select className="selectMonth" type="name" name="anyo" onChange={updateFormulario} defaultValue={day}>
     	         {selectAnyo.map((valor) => (<option>{valor}</option>))}
     	    </select> */}
+			
 		</div>
 			{/*// DEPRECATED*/}
 			{/* <input type='text' className='numberBox' name='dia' onChange={updateFormulario} onBlur={()=>checkError("dia")} placeholder="dia" defaultValue={day}></input>
 			<div>{errors.eDia}</div>
 			<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")} placeholder="mes" defaultValue={monthy}></input>
 			<div>{errors.eMes}</div>*/}
-			<input type='text' className='numberBox' name='anyo' onChange={updateFormulario}  placeholder="anyo" defaultValue={year}></input>
-			<div>{errors.eAnyo}</div> 
 			
-		<div type='text' className="writeDate" name='writeDate'>{datosUser.date} <br></br>{arrayDate}</div>
+			
+			
+			
+		
 		
 		<div className="drawCalendar">
 			{semana.map((semana, index) => (
