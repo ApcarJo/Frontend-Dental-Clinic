@@ -99,4 +99,10 @@ Installed dependencies: Redux, React-redux, Redux-localstorage-simple, Nodemon, 
 
 Thanks to all our classmates for the help and work as a great team.
 
+Things we runned out of time to implement:
+- Dentist management of their availability in "isActive" option and how this affect the view of the clients of the list of dentist.
+- Client filter dentist over specialty.
+- Register mail confirmation througth "node mailer"
+- 
+
 [🔝](#top)

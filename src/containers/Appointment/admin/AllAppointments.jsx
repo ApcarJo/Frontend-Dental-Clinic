@@ -24,7 +24,6 @@ const AllAppointments = (props) => {
             let token = props.credentials?.token;
 
             let res = await axios.get("http://localhost:3006/appointment",  {headers:{'authorization':'Bearer ' + token}});
-            console.log(res.data, "no imprime nada")
             setAppointments(res.data);
             
 
@@ -32,6 +31,34 @@ const AllAppointments = (props) => {
             console.log(error);
         }
     }
+
+    const convertDate = (date) => {
+        let newDate = new Date (date)
+        let day = newDate.getDate();
+        let month = newDate.getMonth()+1;
+        let year = newDate.getFullYear();
+        let date2= day+'/'+month+'/'+year;
+        return date2;
+    }
+    const deleteAppointment = async (appointment) => {
+        console.log(appointment)
+        let token = props.credentials?.token;
+        let user = props.credentials?.client;
+    
+        let body = {
+          id: appointment._id,
+          clinic: appointment.clinicId
+        };
+    
+        console.log(body)
+    
+        let res = await axios.post('http://localhost:3006/appointment/delete', body, {
+          headers: { authorization: "Bearer " + token }
+        });
+    
+        window.location.reload();
+    }
+      
 
     if( allAppointments[0]?._id ) {
 
@@ -51,7 +78,10 @@ const AllAppointments = (props) => {
                             <p className="texto"> <a class="mailClient" href="tel:+3495323123">  PHONE : {appointments.clinic.phone} </a></p>
                             <p className="texto"> CITY : {appointments.clinic.city} </p>
                             <p className="texto"> DENTIST : {appointments.dentist.name} </p>
-                            <p className="texto"> DATE : {appointments.date} </p>
+                            <p className="texto"> DATE : {convertDate(appointments.date)} </p>
+
+                            <div className="buttonDeleteA" onClick={() => deleteAppointment(appointments)}>REMOVE</div>
+                            
 
                         </div>
                     ))}
