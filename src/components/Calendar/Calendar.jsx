@@ -12,6 +12,7 @@ const Calendar = (props) => {
         {
         dia:'16',
         mes:'6',
+		mesW: '',
         anyo:'2021',
         semana: [],
         diasMes: '',
@@ -35,6 +36,7 @@ const Calendar = (props) => {
 
 	useEffect (()=>{
 		initiateDate();
+		// traductor();
 	},[]);
 
 	useEffect (()=>{
@@ -116,18 +118,18 @@ const Calendar = (props) => {
 
 	let a;
 
-	for (i=1; i<=mesi[mes-1]; i++)
-	{
-		if (dia===i)
-			console.log(i+'*');
+	// for (i=1; i<=mesi[mes-1]; i++)
+	// {
+	// 	if (dia===i)
+	// 		console.log(i+'*');
 
-		if (dia!==i)
-			console.log(i);
+	// 	if (dia!==i)
+	// 		console.log(i);
 
-		if (a%7===0)
-			console.log(" ");
-		a++;
-	}
+	// 	if (a%7===0)
+	// 		console.log(" ");
+	// 	a++;
+	// }
 
 	let diasMes=[];
 	let mesDias=[];
@@ -163,9 +165,25 @@ const Calendar = (props) => {
 			unid(unidades);
 		}
 	}
-	// let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
+	let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
 	let arrayMes2 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-		// arrayDate += (arrayMes[mes-1]);
+		arrayDate += (arrayMes[mes-1]);
+		
+
+		// const traductor = () => {
+		// 	for (let i=0; i<arrayMes2.length; i++) {
+		// 		console.log(arrayMes2[i], datosUser.mesW, datosUser.mes);
+		// 		if (arrayMes2[i]===datosUser.mesW){
+		// 			i=i+1
+		// 			console.log(i)
+		// 			const alfred = setDatosUser({...datosUser, mes: i});
+				
+					
+		// 		}
+		// 	}
+		// }
+			// console.log(datosUser.mes, "jkkkkkkkkkkkkkkkkkkkkkkkkk", arrayMes2)
+
 
 
 	const saveData = (dia, mes, anyo) => {
@@ -190,27 +208,27 @@ const Calendar = (props) => {
 	const cifra = (num, c1, c2, c3) => {
 		let j, romanoNum = [];
 	
-		if (num === 9) {
-			romanoNum.push(c1, c3);
-			console.log(c1, c3);
-		} else if (num > 4){
-			romanoNum.push(c2);
-			console.log(c2);
+		// if (num === 9) {
+		// 	romanoNum.push(c1, c3);
+		// 	console.log(c1, c3);
+		// } else if (num > 4){
+		// 	romanoNum.push(c2);
+		// 	console.log(c2);
 
-			for(j=1; j<=num-5; j++) {
-				romanoNum.push(c1);
-				console.log(c1);
-			}
+		// 	for(j=1; j<=num-5; j++) {
+		// 		romanoNum.push(c1);
+		// 		console.log(c1);
+		// 	}
 
-		} else if (num === 4) {
-			romanoNum.push(c1, c2);
-			console.log(c1, c2);
-		} else {
-			for(j=1; j<=num; j++){
-				romanoNum.push(c1);
-				console.log(c1);
-			}
-		}
+		// } else if (num === 4) {
+		// 	romanoNum.push(c1, c2);
+		// 	console.log(c1, c2);
+		// } else {
+		// 	for(j=1; j<=num; j++){
+		// 		romanoNum.push(c1);
+		// 		console.log(c1);
+		// 	}
+		// }
 		return romanoNum;
 	}
 	
@@ -253,11 +271,9 @@ const Calendar = (props) => {
 	props.dispatch({type:DATE_CAL, payload:actualDate});
 	}
 
-	const selectAnyo = [year, (year+1)];
+	const selectAnyo = [year, (year+1)];	
+	
 
-	const traductor = (val) => {
-		updateFormulario(selectMonthArray[val])
-	}
 return (
 	<div className="vistaCalendar">
 		<div className="inputCalendar">
@@ -268,7 +284,8 @@ return (
 			<div>
 				<form className="form1">
 				<select className="input1" type="number" name="mes" onChange={updateFormulario} required>
-    	    	     {selectMonthArray.map((valor) => (<option>{valor}</option>))}
+    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
+					
     	    	</select>
             	        <label className="lbl-nombre1">
             	            <span className="text-nomb1">Month</span>
@@ -294,12 +311,7 @@ return (
 			<div>{errors.eDia}</div>
 			<input type='text' className='numberBox' name='mes' onChange={updateFormulario} onBlur={()=>checkError("mes")} placeholder="mes" defaultValue={monthy}></input>
 			<div>{errors.eMes}</div>*/}
-			
-			
-			
-			
-		
-		
+
 		<div className="drawCalendar">
 			{semana.map((semana, index) => (
 					<div className="dayBox" key={index}>

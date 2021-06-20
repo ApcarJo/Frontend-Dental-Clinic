@@ -66,7 +66,6 @@ const DentistRegister = (props) => {
             break;
 
             case 'email':
-                console.log("hola, soy error de email");
                 if (! /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(datosUser.email)){
                     setErrors({...errors, eEmail: 'Introduce un email válido 2'});
                 }else{
