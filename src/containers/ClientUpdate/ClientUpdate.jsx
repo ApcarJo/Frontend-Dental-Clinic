@@ -48,32 +48,33 @@ const ClientUpdate = (props) => {
 
     const updateUser = async () => {
 
-        let token = props.credentials?.token;
-        let user = props.credentials?.client;
+        try {
 
-        let body = {
+            let token = props.credentials?.token;
+            let user = props.credentials?.client;
+    
+            let body = {
+    
+                client: user._id,
+                name: updateInfo.name,
+                email: updateInfo.email,
+                phone: updateInfo.phone,
+                city: updateInfo.city,
+                cp: updateInfo.cp
+            
+            }
+    
+            let res = await axios.put('http://localhost:3006/clients', body, {headers:{'authorization':'Bearer ' + token}});
+    
+            props.dispatch({type:UPDATE_USER, payload:res.data});
+    
+            setTimeout(()=>{
+                history.push('/clientprofile');
+            },750);
 
-            client: user._id,
-            name: updateInfo.name,
-            email: updateInfo.email,
-            phone: updateInfo.phone,
-            city: updateInfo.city,
-            cp: updateInfo.cp
-        
+        } catch {
+            setErrors({...errors, eValidate: 'Could not be completed., please try again'});
         }
-
-        console.log(body,"bodyy")
-
-
-        let res = await axios.put('http://localhost:3006/clients', body, {headers:{'authorization':'Bearer ' + token}});
-
-        console.log(res.data)
-
-        props.dispatch({type:UPDATE_USER, payload:res.data});
-
-        setTimeout(()=>{
-            history.push('/clientprofile');
-        },750);
  
     }
 

@@ -143,7 +143,7 @@ const DentistProfile = (props) => {
                             <div className="divTap">SPECIALITY</div> <div className="divTap"> {props.credentials?.dentist.speciality}</div>
                             <div className="divTap">CITY</div>  <div className="divTap">{props.credentials?.dentist.city}</div>*/}
                             <div className="buttons">
-                                <div className="buttonUpdateD">UPDATE</div>
+                                <div className="buttonUpdateD" onClick={() => history.push('/updatedentist')} >UPDATE</div>
                                 <div className="buttonLogoutD" onClick={() => logOut()}>LOGOUT</div>
                             </div>
                         </div>
