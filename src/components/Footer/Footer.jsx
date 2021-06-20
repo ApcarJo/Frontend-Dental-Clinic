@@ -16,7 +16,7 @@ const Footer = () => {
                     <div className="footerBody">
                         <div className="column1">
                             <h3 className="titleFooter">T R I D E N T</h3>
-                            <p className="experience parFooter">Clínica con más de 20 años de experiencia</p>
+                            <p className="experience parFooter">Clinic with more than 20 years of experience</p>
                         </div>
                         {/* <div className="tooth">
                             <img src={logo} alt="logo"  width="70"/>
