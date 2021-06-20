@@ -186,26 +186,6 @@ const Calendar = (props) => {
 			console.log("ahí no")
 		}
 	}
-	//	DEPRECATED
-	// const checkError = (arg) => {
-	// 	switch (arg){
-	// 		case 'dia':
-	// 			if (dia<0||dia>31){
-	// 				setErrors({...errors, eDia: 'Introduce un dia válido'});
-	// 			}
-	// 			break;
-	// 		case 'mes':
-	// 			if (mes<0||mes>12){
-	// 				setErrors({...errors, eMes: 'Introduce un mes válido'});
-	// 			}
-	// 			break;
-	// 		case 'anyo':
-	// 			if (anyo<0){
-	// 				setErrors({...errors, eAnyo: 'Introduce un anyo válido'});
-	// 			}
-	// 			break;
-	// 	}
-	// }
 
 	const cifra = (num, c1, c2, c3) => {
 		let j, romanoNum = [];

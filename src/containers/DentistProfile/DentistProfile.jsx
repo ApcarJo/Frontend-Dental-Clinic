@@ -56,22 +56,13 @@ const DentistProfile = (props) => {
         
             let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             // props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
-            setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes, actualDate: props.calendar?.actualDate})
-            console.log(res?.data, "esto es res?.data")
-            // console.log(agenda.data, "esto es agenda.data")
-            console.log(props?.data, "esto es props.data")
-        
-            // setDentistAgenda({...agenda, data: res?.data})
-            
+            setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes, actualDate: props.calendar?.actualDate})    
         
         } catch (error){
             console.log(error)
         }
     }
 
-    // console.log(props.calendar?.semana, "semana imprimir console")
-    // console.log(props.calendar?.diasMes, "diasMes imprimir console")
-    // console.log(dentistData.data, "aaaaaaaaaaaaaaaaaaaa")
     
     let arrayApp2 = [];
     let arrayApp = [];
@@ -83,102 +74,39 @@ const DentistProfile = (props) => {
     
 
     dentistData.data.map((valor)=>{
-        // console.log(valor, "valordate")
-        // dataArray=valor;
-        // arrayToDraw.push(dataArray)
         arrayApp.push(new Date(valor.date).getDate())
-        // counter+=new Date(valor.date).getDate()
-        // dentistData.diasMes.map((valor2)=>{
-            // console.log(valor2, "valor2")
-        // if (counter===valor2)
-        // arrayToDraw.push(dataArray)
-        // })
     })
-    console.log(dentistData.data)
 
-        let count=0, h=0;
-        for (let i=0; i<dataArray.length; i++){
-            newDate = new Date (dataArray[i].date)
-            appDay = newDate.getDate();
-            appMonth = newDate.getMonth()+1;
+    let count=0, h=0;
+    for (let i=0; i<dataArray.length; i++){
+        newDate = new Date (dataArray[i].date)
+        appDay = newDate.getDate();
+        appMonth = newDate.getMonth()+1;
+        h=0;
+        do {
+            if ((arrayToDraw[h]===appDay)&&(dentistData.actualDate.monthy===appMonth)){
+            // if (arrayToDraw[h]===appDay){
+                // arrayApp2[h].pop(arrayToDraw[h]);
+                arrayApp2[h]=arrayToDraw[h]+'*';
+                counter.push(<div className="dateApp">            
+                <p>{dataArray[i].clientName}</p>
+                <p>{dataArray[i].clinicName}</p>
+                <p>{dataArray[i].dentistName}</p>
+                <p>{dataArray[i].city}</p>
+                </div>);
+                count++;
+            }else if (!arrayApp2[h]){
+                arrayApp2[h]=arrayToDraw[h];
+            }
+            h++;
+        } while (h<arrayToDraw.length)
+    }
 
-            h=0;
-            do {
-                if ((arrayToDraw[h]===appDay)&&(dentistData.actualDate.monthy===appMonth)){
-                // if (arrayToDraw[h]===appDay){
-                    // arrayApp2[h].pop(arrayToDraw[h]);
-                    arrayApp2[h]=arrayToDraw[h]+'*';
-                    counter.push(<div className="dateApp">            
-                    <p>{dataArray[i].clientName}</p>
-                    <p>{dataArray[i].clinicName}</p>
-                    <p>{dataArray[i].dentistName}</p>
-                    <p>{dataArray[i].city}</p>
-                    </div>);
-                    count++;
-                }else if (!arrayApp2[h]){
-                    arrayApp2[h]=arrayToDraw[h];
-                }
-                h++;
-            } while (h<arrayToDraw.length)
-        }
-        // console.log(arrayApp2, "esto es arrayPPPPP")
-        console.log(counter, "counter")
+    const drawAppointments = () => {
 
 
         
-
-    // arrayApp.sort();
-    
-    // for (let k=0; k<dentistData.diasMes.length; k++){
-    //         if (arrayToDraw[k]===arrayApp[h]){
-
-    //         }
-    // }
-    
-    // for (let h=0; h<dentistData.diasMes.length; h++){
-
-        
-    //     for (let j=0; j= dentistData.data.length; j++) {
-    //         newDate = new Date (dentistData.data[j].date)
-    //         appDay = newDate.getDate();
-    //         if (arrayToDraw[h]==appDay)
-    //         arrayToDraw[h]=(dentistData.data[j])
-    //     }
-    //     console.log(arrayToDraw, "si esto va")
-        
-        
-    // }
-    
-
-    // dentistData.diasMes.map((valor2)=>{
-    //     console.log(valor2)
-        
-    //     dentistData.data.map((valor)=>{
-    //         console.log(valor.date)
-    //         arrayApp.push(new Date(valor.date).getDate())
-    //         if (valor.date===valor2)
-    //         arrayToDraw.push(dentistData.data)
-    //     })
-    // })
-
-   
-        
-        
-    
-    // console.log(arrayApp.sort())
-    // console.log(arrayToDraw, "arraytodraw")
-    
-    
-
-         
-        
-        // let moca = dentistData.data[i].date;
-        // console.log(moca, "es moca")
-        // if (get.props.calendar?.diasMes[i]===)
-    
-
-
-    
+    }
 
     if(props.credentials?.token) {
 
@@ -215,7 +143,7 @@ const DentistProfile = (props) => {
 			                {arrayApp2.map((diasMes, index) => (
 			                	<div className="dayDentistBox" id={index} key={index}>
 			                			{/* {diasMes==4 ? (<p>{diasMes}</p>) : (<p>{diasMes}</p>)} */}
-                                        {((typeof diasMes !== 'number')&&(diasMes !== '')) ? (<div>
+                                        {((typeof diasMes !== 'number')&&(diasMes !== '')) ? ( <div>
                                             <p>{diasMes}</p>  
                                             <div className="gridDate">
     
@@ -223,6 +151,7 @@ const DentistProfile = (props) => {
                                             <p>{diasMes.clinicName}</p>
                                             <p>{diasMes.dentistName}</p>
                                             <p>{diasMes.city}</p> */}
+
                                         {counter.map((valor5)=>(
                                             <div>{valor5}</div>))}
                                             
