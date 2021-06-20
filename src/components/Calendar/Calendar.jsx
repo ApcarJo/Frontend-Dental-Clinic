@@ -184,7 +184,6 @@ const Calendar = (props) => {
 				}
 			}
 		}
-			console.log(datosUser.mesW)
 
 	// DRAW IN ROME NUMBERS THE YEAR
 	const cifra = (num, c1, c2, c3) => {
@@ -223,12 +222,12 @@ const Calendar = (props) => {
 		let uni=num%10;
 		let romanoNum2 =[]
 		// Hacer una llamada a la funcion por cada cifra del numero
-		romanoNum2.push(cifra(mil, 'M', ' ', ' '));
-		romanoNum2.push(cifra(cen, 'C', 'D', 'M'));
-		romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
-		romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
+		// romanoNum2.push(cifra(mil, 'M', ' ', ' '));
+		// romanoNum2.push(cifra(cen, 'C', 'D', 'M'));
+		// romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
+		// romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
 		
-		console.log(romanoNum2);
+		// console.log(romanoNum2);
 	}
 
 	let romanoNum = romano(anyo);
@@ -242,9 +241,12 @@ const Calendar = (props) => {
 
 	const initiateDate = () => {
 		const actualDate = {
-			year: newDate.getFullYear(),
-			monthy: newDate.getMonth()+1,
-			day: newDate.getDate(),
+			// year: newDate.getFullYear(),
+			// monthy: newDate.getMonth()+1,
+			// day: newDate.getDate(),
+			year: anyo,
+			day: dia,
+			monthy: mes,
 			semana: semana2,
 			diasMes: diasMes
 		}
@@ -267,12 +269,18 @@ const Calendar = (props) => {
 
 		let datePicker = {
 			date: newDate,
-			actualDate: datosUser.actualDate
+			day: dia,
+			month: mes,
+			year: anyo,
+			// actualDate: datosUser.actualDate,
+			diasMes: diasMes,
+			semana: semana2
 		}
 		props.dispatch({type:DATE_CAL, payload:datePicker});
 		}else{
 			console.log("Pick correct date")
 		}
+		console.log(diasMes)
 	}
 	
 
@@ -295,7 +303,7 @@ return (
 			<div>{errors.eAnyo}</div> 
 
 				<form className="form8">
-					<input type='text' className='input8' name='anyo' onChange={updateFormulario} required></input>
+					<input type='text' className='input8' name='anyo' onChange={updateFormulario} defaultValue="2021" required></input>
             	        <label className="lbl-nombre8">
             	            <span className="text-nomb8">Year</span>
             	        </label>
