@@ -1,6 +1,6 @@
 .dentistContainer {
     width: 100vw;
-    height: 100vh;
+    height: 73vh;
 
     display: flex;
     justify-content: space-evenly;
@@ -127,7 +127,7 @@
     width: 8em;
     padding-top: 0.3em;
 
-    background-color: rgb(28, 107, 255);
+    background-color: #027979;
     color: white;
     cursor: pointer;
 }
