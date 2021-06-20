@@ -14,7 +14,7 @@ const AllAppointments = (props) => {
     }, []);
 
     useEffect( () => {
-
+        findAppointments();
     });
 
     const findAppointments = async () => {
