@@ -52,11 +52,27 @@ On the other side, you will need to clone the backend from [this repository](htt
 
 <a name="images"></a>
 ## Screenshots :
-- Home
-- Login
-- Register
+
+Home
+
+<img src="src/img/screenshots/home.png" width="1000">
+
+Login
+
+<img src="src/img/screenshots/login.png" width="1000">
+
+Client profile
+
+<img src="src/img/screenshots/clientProfile.png" width="1000">
+
+Create new appointment
+
+<img src="src/img/screenshots/createAppointment.png" width="1000">
+
 - Profile
-- ...
+- Dentist Register
+- Dentist Profie
+- Dentist Update
 <a name="tools"></a>
 ## Tools 🔧
 
