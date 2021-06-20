@@ -10,11 +10,11 @@ import spinner from "../../img/spinner2.gif";
 const ClientProfile = (props) => {
   let history = useHistory();
 
-  // //hooks
-  // const [userData, setUserData] = useState({
-  //     token: props.credentials?.token,
-  //     client: props.credentials?.client
-  // });
+  //hooks
+  const [userData, setUserData] = useState({
+      token: props.credentials?.token,
+      client: props.credentials?.client
+  });
 
   const [clientApp, setClientApp] = useState({
     dateApp: [],
@@ -58,7 +58,17 @@ const ClientProfile = (props) => {
   const logOut = () => {
     props.dispatch({ type: LOGOUT });
   };
-
+  
+  console.log(userData.client)
+  const convertDate = (date) => {
+  let newDate = new Date (date)
+  let day = newDate.getDate();
+  let month = newDate.getMonth()+1;
+  let year = newDate.getFullYear();
+  let date2= day+'/'+month+'/'+year;
+  return date2;
+  }
+  let birth = convertDate(userData.client.dateOfBirth)
   let i = clientApp.dateApp.length - 1;
 
   console.log(i, "soy i");
@@ -106,7 +116,7 @@ const ClientProfile = (props) => {
             <p>PHONE : {data1[j].clinicPhone}</p>
             <p>EMAIL : {data1[j].clinicEmail}</p>
             <p>DENTIST : {data1[j].dentistName}</p>
-            <p>DATE : {data1[j].date}</p>
+            <p>DATE : {convertDate(data1[j].date)}</p>
           </div>
 
           <div className="buttonGo" onClick={() => goRight()}>
@@ -134,7 +144,7 @@ const ClientProfile = (props) => {
               <p>NAME : {props.credentials?.client.name} </p>
               <p>EMAIL : {props.credentials?.client.email} </p>
               <p>PHONE : {props.credentials?.client.phone}</p>
-              <p>BIRTHDAY : {props.credentials?.client.dateOfBirth}</p>
+              <p>BIRTHDAY : {birth}</p>
               <p>CITY : {props.credentials?.client.city}</p>
               <div className="buttons">
                 <div
