@@ -76,13 +76,13 @@ As a dentist, check your schedule
 <img src="src/img/screenshots/schedule_datepicker.jpg" width="1000">
 
 Update your profile
-<img src="src/img/screenshots/updateDentist.png" width="1000">
+<img src="src/img/screenshots/updateDentist.PNG" width="1000">
 
 Check your appointments history
-<img src="src/img/screenshots/HistoryApp.png" width="1000">
+<img src="src/img/screenshots/HistoryApp.PNG" width="1000">
 
 Register with our new bran datepicker
-<img src="src/img/screenshots/registerClient.png" width="1000">
+<img src="src/img/screenshots/registerClient.PNG" width="1000">
 
 <a name="tools"></a>
 ## Tools 🔧
