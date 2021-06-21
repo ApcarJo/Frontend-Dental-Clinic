@@ -54,7 +54,7 @@ const Header = (props) => {
                 <Button path="/aboutus" destination="ABOUT US"/>
                 <Button path="/clinics" destination="CLINICS"/>
                 <Button path="/contact" destination="CONTACT"/>
-                <Button path="/dentistschedule" destination="MY SCHEDULE"/>
+                <Button path="/dentistschedule" destination="MY HISTORY"/>
             </div>
 
             <div className="headerUser">

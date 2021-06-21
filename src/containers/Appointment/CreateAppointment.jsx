@@ -121,7 +121,7 @@ if(props.credentials?.token) {
                 <option value={clinic._id}>{clinic.name}</option>))}
     	        </select>
               <label className="lbl-nombre7">
-                  <span className="text-nomb7">Month</span>
+                  <span className="text-nomb7">Clinic</span>
               </label>
             </form>
 
@@ -142,7 +142,7 @@ if(props.credentials?.token) {
                 ))}
     	        </select>
               <label className="lbl-nombre7">
-                  <span className="text-nomb7">Month</span>
+                  <span className="text-nomb7">Dentist</span>
               </label>
             </form>
           

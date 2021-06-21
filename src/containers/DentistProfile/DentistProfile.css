@@ -1,6 +1,6 @@
 .dentistContainer {
     width: 100vw;
-    height: 73vh;
+    height: 100vh;
 
     display: flex;
     justify-content: space-evenly;
