@@ -37,7 +37,7 @@ const Calendar = (props) => {
 
 	useEffect (()=>{
 		initiateDate();
-		traductor();
+		// traductor();
 	},[]);
 
 	useEffect (()=>{
@@ -175,16 +175,16 @@ const Calendar = (props) => {
 		arrayDate += (arrayMes[mes-1]);
 		
 
-		const traductor = () => {
-			for (let i=0; i<arrayMes2.length; i++) {
+		// const traductor = () => {
+		// 	for (let i=0; i<arrayMes2.length; i++) {
 
-				if (arrayMes2[i]===datosUser.mesW){
-					let mes2=i+1
-					setDatosUser({...datosUser, mes: mes2, diasMes: mesi[mes2]})	
-					return mes2;
-				}
-			}	
-		}
+		// 		if (arrayMes2[i]===datosUser.mesW){
+		// 			let mes2=i+1
+		// 			setDatosUser({...datosUser, mes: mes2, diasMes: mesi[mes2]})	
+		// 			return mes2;
+		// 		}
+		// 	}	
+		// }
 
 
 	// DRAW IN ROME NUMBERS THE YEAR
@@ -261,7 +261,7 @@ const Calendar = (props) => {
 	const selectAnyo = [year, (year+1)];	
 
 	const saveData = (dia, mes, anyo) => {
-		mes = traductor(datosUser.mesW);
+		// mes = traductor(datosUser.mesW);
 		if (dia!==''){
 		let date= anyo+'-'+mes+'-'+dia;
 		// let date= dia+'-'+mes+'-'+anyo;
@@ -291,10 +291,10 @@ const Calendar = (props) => {
 			<div className="inputCalendar">
 
 					<form className="form7">
-					<select className="input7" type="number" name="mesW" onChange={updateFormulario} required>
-	    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))}
-					{/* <select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
-	    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))} */}
+					{/* <select className="input7" type="number" name="mesW" onChange={updateFormulario} required>
+	    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))} */}
+					<select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
+	    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
 
 	    	    	</select>
 	            	    <label className="lbl-nombre7">
