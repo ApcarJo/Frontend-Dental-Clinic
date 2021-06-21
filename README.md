@@ -72,10 +72,18 @@ Create new appointment
 
 <img src="src/img/screenshots/createAppointment.png" width="1000">
 
-- Profile
-- Dentist Register
-- Dentist Profile
-- Dentist Update
+As a dentist, check your schedule
+<img src="src/img/screenshots/schedule_datepicker.jpg" width="1000">
+
+Update your profile
+<img src="src/img/screenshots/updateDentist.png" width="1000">
+
+Check your appointments history
+<img src="src/img/screenshots/HistoryApp.png" width="1000">
+
+Register with our new bran datepicker
+<img src="src/img/screenshots/registerClient.png" width="1000">
+
 <a name="tools"></a>
 ## Tools 🔧
 
@@ -103,7 +111,7 @@ Things we runned out of time to implement:
 - Dentist management of their availability in "isActive" option and how this affect the view of the clients of the list of dentist.
 - Client filter dentist over specialty.
 - Register mail confirmation througth "node mailer"
-- Improved the behaviour of the dentistprofile schedule view
+- Improved the behaviour of the dentistprofile schedule view and interact with the appointments in the schedule
 
 
 [🔝](#top)
