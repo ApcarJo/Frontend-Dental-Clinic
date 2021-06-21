@@ -22,7 +22,7 @@ const Calendar = (props) => {
 		monthy: '',
 		arrayDate: '',
 		actualDate: ''
-    });
+    	});
 
 	const [errors, setErrors] = useState({
         eDia: '',
@@ -171,22 +171,21 @@ const Calendar = (props) => {
 		}
 	}
 	let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
-	let arrayMes2 = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+	let arrayMes2 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 		arrayDate += (arrayMes[mes-1]);
 		
 
 		const traductor = () => {
 			for (let i=0; i<arrayMes2.length; i++) {
 
-				console.log("aquí entra")
 				if (arrayMes2[i]===datosUser.mesW){
 					let mes2=i+1
-					setDatosUser({...datosUser, mes: mes2})	
+					setDatosUser({...datosUser, mes: mes2, diasMes: mesi[mes2]})	
 					return mes2;
 				}
 			}	
 		}
-		// console.log(datosUser.mesW)
+
 
 	// DRAW IN ROME NUMBERS THE YEAR
 	const cifra = (num, c1, c2, c3) => {
@@ -225,12 +224,12 @@ const Calendar = (props) => {
 		let uni=num%10;
 		let romanoNum2 =[]
 		// Hacer una llamada a la funcion por cada cifra del numero
-		// romanoNum2.push(cifra(mil, 'M', ' ', ' '));
-		// romanoNum2.push(cifra(cen, 'C', 'D', 'M'));
-		// romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
-		// romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
+		romanoNum2.push(cifra(mil, 'M', '', ''));
+		romanoNum2.push(cifra(cen, 'C', 'D', 'M'));
+		romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
+		romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
 		
-		// console.log(romanoNum2);
+		console.log(romanoNum2);
 	}
 
 	let romanoNum = romano(anyo);
@@ -287,53 +286,51 @@ const Calendar = (props) => {
 	}
 	
 
-return (
-	<div className="vistaCalendar">
-		<div className="inputCalendar">
+	return (
+		<div className="vistaCalendar">
+			<div className="inputCalendar">
 
-				<form className="form7">
-				<select className="input7" type="number" name="mesW" onChange={updateFormulario} onSelect={()=>saveData(diasMes, mes, anyo)} defaultValue="Febrero" required>
-    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))}
-				{/* <select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
-    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))} */}
-					
-    	    	</select>
-            	        <label className="lbl-nombre7">
-            	            <span className="text-nomb7">Month</span>
-            	        </label>
-            	</form>
+					<form className="form7">
+					<select className="input7" type="number" name="mesW" onChange={updateFormulario} required>
+	    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))}
+					{/* <select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
+	    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))} */}
 
-			<div>{errors.eAnyo}</div> 
+	    	    	</select>
+	            	    <label className="lbl-nombre7">
+	            	        <span className="text-nomb7">Month</span>
+	            	    </label>
+	            	</form>
 
-				<form className="form8">
-					<input type='text' className='input8' name='anyo' onChange={updateFormulario} defaultValue="2021" required></input>
-            	        <label className="lbl-nombre8">
-            	            <span className="text-nomb8">Year</span>
-            	        </label>
-            	</form>
+				<div>{errors.eAnyo}</div> 
 
-			<br></br><br></br><br></br>
-			<div type='text' className="writeDate" name='writeDate'> {arrayDate}</div><br></br>
-			
-		</div>
-			
+					<form className="form8">
+						<input type='text' className='input8' name='anyo' onChange={updateFormulario} defaultValue="2021" required></input>
+	            	        <label className="lbl-nombre8">
+	            	            <span className="text-nomb8">Year</span>
+	            	        </label>
+	            	</form>
 
-		<div className="drawCalendar">
-			{semana.map((semana, index) => (
-					<div className="dayBox" key={index}>
-							<p>{semana}</p>
+				<br></br><br></br><br></br>
+				<div type='text' className="writeDate" name='writeDate'> {arrayDate}</div><br></br>
+					 
+			</div>
+					 
+
+			<div className="drawCalendar">
+				{semana.map((semana, index) => (
+						<div className="dayBox" key={index}>
+								<p>{semana}</p>
+						</div>
+				))}
+				{diasMes.map((diasMes, index) => (
+					<div className="dayBox" id={index} key={index} onClick={()=>saveData(diasMes, mes, anyo)}>
+							<p>{diasMes}</p>
 					</div>
-			))}
-			{diasMes.map((diasMes, index) => (
-				<div className="dayBox" id={index} key={index} onClick={()=>saveData(diasMes, mes, anyo)}>
-						<p>{diasMes} </p>
-				</div>
-			))}	
+				))}
+			</div>
 		</div>
-	</div>
-
-)
-
+	)
 }
 
 export default connect((state)=>({
