@@ -64,7 +64,7 @@ Login
 
 <img src="src/img/screenshots/login.png" width="1000">
 
-Client profile
+Client profile with our OWN CODE for a INFINITE LOOP SLIDER.
 
 <img src="src/img/screenshots/clientProfile.png" width="1000">
 
@@ -76,7 +76,7 @@ As a dentist, check your dynamic schedule that updates all the info and shows in
 
 <img src="src/img/screenshots/schedule_datepicker.jpg" width="1000">
 
-This is our DatePicker pure javascript code created for the project. It's a component that uses redux to send the data to each container where is used (clientregister.jsx, dentistregister.jsx, and dentistprofile.jsx container views). It can show the months by name, write the year in roman numerals, and some other calculations related to the date, this options are in the code but not activated for the project. Part of the code is used to create the dynamic schedule draw in dentist profile.
+This is our DATEPICKER PURE JAVASCRIPT CODE created for the project. It's a component that uses redux to send the data to each container where is used (clientregister.jsx, dentistregister.jsx, and dentistprofile.jsx container views). It can show the months by name, write the year in roman numerals, and some other calculations related to the date, this options are in the code but not activated for the project. Part of the code is used to create the dynamic schedule draw in dentist profile.
 
 <img src="src/img/screenshots/purecode_datepicker.PNG" width="1000">
 
@@ -88,7 +88,7 @@ Check your appointments history
 
 <img src="src/img/screenshots/HistoryApp.PNG" width="1000">
 
-Register with our new bran datepicker
+Register with our new bran datepicker and our smooth MODERN CSS ANIMATION for the inputs
 
 <img src="src/img/screenshots/registerClient.PNG" width="1000">
 
