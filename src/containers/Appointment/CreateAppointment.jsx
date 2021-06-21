@@ -5,7 +5,7 @@ import "./CreateAppointment.css";
 import { connect } from 'react-redux';
 import imgAppointment from '../../assets/clinic/createAppointment.jpeg';
 import spinner from '../../img/spinner2.gif';
-
+import Calendar from "../../components/Calendar/Calendar";
 
 
 const CreateAppointmnet = (props) => {
@@ -14,23 +14,22 @@ const CreateAppointmnet = (props) => {
 
   //Hooks
   const [datos, setDatos] = useState({
-    clinic: "",
-    dentist: "",
-    time: "",
-    date: "",
-    message: ""
+    clinic: '',
+    dentist: '',
+    time: '',
+    date: '',
+    message: ''
   });
 
   const [dentist, setDentist] = useState([]);
 
   const [clinics, setClinics] = useState([]);
-
   
   const [errors, setErrors] = useState({
 
     eValidate:''
 
-});
+  });
 
 
   useEffect( () => {
@@ -55,22 +54,21 @@ const CreateAppointmnet = (props) => {
 
       let token = props.credentials?.token;
       let user = props.credentials?.client;
-    // let clinic = "60b653c5c75e9e233617715e";
-    // let dentist = "60ba59f8b0dd4138d7bb2040";
     
     let body = {
       client: user._id,
       clinic: datos.clinic,
       dentist: datos.dentist,
-      date: datos.date,
+      date: props.calendar?.date,
       message: datos.message
     };
+    console.log(props.calendar?.date, body)
 
     let res = await axios.post('http://localhost:3006/appointment', body, {headers:{'authorization':'Bearer ' + token}});
 
     setTimeout(()=>{
       history.push("/clientprofile");
-    },750);
+    },250);
 
   } catch {
            setErrors({...errors, eValidate: 'Appointment could not be created, please try again'});
@@ -98,16 +96,9 @@ const allClinics = async () => {
 
 if(props.credentials?.token) {
   return (
-       
-    <Fragment>
-
       <div className="contentAppointment">
-      
         <img className="imgCreate" src={imgAppointment} alt="img" width="720" />
-     
         <div className="cita">
-        
-  
             {/* <select type="name" name="clinic" title="clinic" onChange={updateCredentials}>
                 <option value="">--Please Choose a Clinic-</option>
                   {clinics.map((clinic) => (
@@ -146,14 +137,14 @@ if(props.credentials?.token) {
               </label>
             </form>
           
-
-          <div className="timeDate">
+                <Calendar/>
+          {/* <div className="timeDate">
 
                 <input className="dateTime" type="date" name="date" title="date" placeholder="Selecciona la Fecha" onChange={updateCredentials} lenght="30"/>
 
                 <input  type="time" name="time" onChange={updateCredentials} />
 
-          </div>
+          </div> */}
 
           <div>
               <input className="textArea" placeholder="Leave us a message" type="name" name="message" onChange={updateCredentials} />
@@ -165,7 +156,7 @@ if(props.credentials?.token) {
         </div>
       </div>
 
-      </Fragment>
+   
   );
   } else {
 
@@ -185,7 +176,7 @@ if(props.credentials?.token) {
 } 
 
 export default connect((state) => ({
-
+  calendar: state.calendar,
   credentials:state.credentials
 
   }))(CreateAppointmnet);

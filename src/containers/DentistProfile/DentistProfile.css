@@ -2,6 +2,7 @@
     width: 100vw;
     height: 100vh;
 
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -115,8 +116,9 @@
 
 .dayDentistBox {
     display: flex;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 
+    overflow: hidden;
     
     /* align-items: center; */
     justify-content: center;
@@ -126,6 +128,8 @@
     height: 7.7em;
     width: 8em;
     padding-top: 0.3em;
+
+    flex-wrap: wrap;
 
     background-color: #91c7c7;
     color: white;
@@ -163,7 +167,7 @@
     /* margin-top: 2.5em; */
 
     /* height: 4em; */
-    font-size: 0.65em;
+    font-size: 0.55em;
     /* border: solid 0.1em rgb(255, 255, 255); */
     background-color: rgb(64, 89, 90);
 }
