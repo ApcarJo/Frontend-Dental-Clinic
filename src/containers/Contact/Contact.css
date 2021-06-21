@@ -1,0 +1,100 @@
+.contact {
+    width: 100vw;
+    height: 100%;
+    margin-bottom: 3em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.contactImage{
+    width: 100vw;
+    height: 15em;
+    background-image: url('../../assets/clinic/contact.jpeg');
+    background-size: cover;
+    background-position: top;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.contactContainer {
+    width: 100vw;
+    height: 100%;
+    padding: 2em;
+    margin-top: 2em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form11 {
+    margin-left: 4em;
+    margin-right: 4em;
+    background-color:#dfeaf7;
+    padding: 3em;
+    padding-top: 5em;
+    width: 35em;
+    height: 36em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content : space-evenly;
+}
+
+.formButton{
+    height:4em;
+    width: 6em;
+    border: solid rgb(61, 65, 61) 0.15em;
+    cursor: pointer;
+    background-color: white;
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formButton:hover {
+    transition: 0.2s;
+    background-color: #f1f6fd;
+}
+
+a{
+    all: unset;
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+
+}
+.text {
+    all: unset;
+    height: 12em;
+    background-color: white;
+    width: 25em;
+    margin: 2em;
+    font-size: 1em;
+    border: .1em solid rgb(80, 83, 80);
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.contactInfo {
+    width: 35em;
+    height: 25em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}

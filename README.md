@@ -1,70 +1,117 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a name="top"></a>
 
-## Available Scripts
+<h1 align="center">
+  <br>🦷 Dental Clinic Frontend 🦷
+</h1>
 
-In the project directory, you can run:
+---
+
+- [About](#about)   
+
+- [Instructions](#instructions)
+
+- [Screenshots](#images)
+
+- [Tools](#tools)
+
+- [Developers](#developers)
+
+---
+<a name="about"></a>
+## About :speech_balloon:
+
+Challenge from the Fullstack Developer Bootcamp at <a href="https://geekshubsacademy.com/">GeeksHubs Academy</a> where we have to create the frontend for a dental clinic.
+
+The purpose of this design is to recreate the frontend part of our Dental Clinic. 
+
+In this website you could register as a dentist or as a client and then login or logout. 
+
+If you are a dentist you could see your profile, find all the active clinics, view your schedule in the last month or update your information. 
+
+If you are a client you could view all dentists and clinics, create a new appointment, modify or delete it and finally you could also modify your personal information if you need.
+
+This Project has been done by [José Luis Aparicio](https://github.com/ApcarJo), [Alejandro Urbina](https://github.com/2020-JAUG) and [Adriana Fayos](https://github.com/AdrianaFayos). 
+
+Starting date: June 8th 2021. <br>
+Due date: June 20th 2021.
+
+We have used the Trello in order to share the tasks and to have a better organization.
+
+<a name="instructions"></a> 
+## Instructions :clipboard: 
+
+The first step is to clone the repository and install the project dependencies.
+
+### `npm i`
+
+Run the server.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+On the other side, you will need to clone the backend from [this repository](https://github.com/2020-JAUG/Backend-Dental-Clinic.git) and follow its instructions to run it.
 
-### `npm test`
+<a name="images"></a>
+## Screenshots 📸
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Home
 
-### `npm run build`
+<img src="src/img/screenshots/home.png" width="1000">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Login
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="src/img/screenshots/login.png" width="1000">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Client profile
 
-### `npm run eject`
+<img src="src/img/screenshots/clientProfile.png" width="1000">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Create new appointment
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img src="src/img/screenshots/createAppointment.png" width="1000">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+As a dentist, check your schedule
+<img src="src/img/screenshots/schedule_datepicker.jpg" width="1000">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Update your profile
+<img src="src/img/screenshots/updateDentist.png" width="1000">
 
-## Learn More
+Check your appointments history
+<img src="src/img/screenshots/HistoryApp.png" width="1000">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Register with our new bran datepicker
+<img src="src/img/screenshots/registerClient.png" width="1000">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<a name="tools"></a>
+## Tools 🔧
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="src/img/javascript.png" width="50"> <img src="src/img/html5.png" width="50"> <img src="src/img/css3.png" width="50"> <img src="src/img/react.png" width="50"> <img src="src/img/redux.png" width="55"> <img src="src/img/node.png" width="65"> <img src="src/img/trello.png" width="60">
 
-### Analyzing the Bundle Size
+Installed dependencies: Redux, React-redux, Redux-localstorage-simple, Nodemon, React-Router-Dom, Moment & Axios.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<a name="developers"></a>
 
-### Making a Progressive Web App
+## Developers ✍️
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[José Luis Aparicio](https://github.com/ApcarJo) 
 
-### Advanced Configuration
+[Alejandro Urbina](https://github.com/2020-JAUG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+[Adriana Fayos](https://github.com/AdrianaFayos)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+Thanks to all our classmates for the help and work as a great team.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Things we runned out of time to implement:
+- Dentist management of their availability in "isActive" option and how this affect the view of the clients of the list of dentist.
+- Client filter dentist over specialty.
+- Register mail confirmation througth "node mailer"
+- Improved the behaviour of the dentistprofile schedule view and interact with the appointments in the schedule
+
+
+[🔝](#top)

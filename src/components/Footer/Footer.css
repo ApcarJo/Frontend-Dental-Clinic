@@ -1,0 +1,107 @@
+footer {
+    border-bottom: 1.9px solid #c7c7c7;
+    border-top: 1.9px solid #c7c7c7;
+
+    height: 7em;
+}
+.tooth {
+    color: rgb(96, 93, 93);
+    width: 20%;
+}
+
+.footerBody {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items: center;
+    background-color:#dfeaf7;
+
+    width: 100vw;
+    height: 9em;
+}
+.column1 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 30%;
+    margin-left: 3em;
+}
+.parFooter {
+    margin-top: 1em;
+}
+
+.column2 {
+    width: 70%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.tittle {
+    margin-left: .8em;
+    margin-bottom: 0.5em;
+}
+
+.support{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    width: 15em;
+    height: 9em;
+    color: rgb(63, 59, 59);
+    cursor: pointer;
+    margin-right: 3em;
+}
+.phone {
+    width: 12em;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.mail , .tlf, .social {
+    margin-left: 1em;
+
+}
+
+.redes{
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+}
+
+.follow{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    width: 12em;
+    height: 8em;
+    color: rgb(63, 59, 59);
+    cursor: pointer;
+    margin-right: 3em;
+}
+
+.footerContact {
+
+    color: rgb(58, 55, 55);
+}
+
+.buttonContact {
+    color: black;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+.buttonContact:hover{
+    text-decoration: underline;
+}

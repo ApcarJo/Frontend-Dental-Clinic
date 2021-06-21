@@ -1,0 +1,10 @@
+
+.map {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 9em;
+    width: 23em;
+    bottom: 14em;
+    left: 48em;
+}

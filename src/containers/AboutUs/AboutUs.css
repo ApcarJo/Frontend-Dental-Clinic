@@ -1,0 +1,302 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.aboutContainer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 142em;
+    /* height: 0%; */
+}
+.divUp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 74em;
+    height: 39em;
+}
+.team{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    top: -11em;
+    width: 35em;
+    height: 22em;
+    left: 19em;
+    border-radius: 0.5em;
+}
+
+.p {
+    display: flex;
+    position: relative;
+    top: 1em;
+    width: 34em;
+    right: 22em;
+}
+.title {
+    display: flex;
+    position: relative;
+    top: -1em;
+    right: 11em;
+    width: 11em;
+}
+.image1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    width: 22%;
+    height: 35em;
+    top: 8em;
+    padding-left: 6em;
+}
+.divInfo {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 80vw;
+    height: 25em;
+    margin-bottom: 5em;
+    top: -4em;
+}
+.experience {
+    line-height: 1.5;
+}
+.icon {
+    display: flex;
+    position: relative;
+    top: -3em;
+    color: rgb(40, 40, 159);
+}
+.infoCards {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 20em;
+    width: 19em;
+    margin: 4em;
+    transition: 0.2s;
+}
+.divMiddle{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    width: 81em;
+    top: -10em;
+    right: 4em;
+}
+.parMiddle {
+    display: flex;
+    position: relative;
+    left: 19.5em;
+}
+
+.image2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.team2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    left: 19em;
+    width: 35em;
+    height: 22em;
+    top: -33em;
+    border-radius: 0.5em;
+}
+
+.medidas {
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* top: -26em; */
+    width: 31%;
+    right: 43em;
+    top: -3em;
+}
+.title2 {
+    display: flex;
+    position: relative;
+    top: -1em;
+    right: -10em;
+    width: 13em;
+}
+.infoCards2 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 19em;
+    top: 3em;
+    width: 37em;
+}
+.sala2 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 16em;
+    left: 21em;
+}
+.logo2 {
+    display: flex;
+    position: relative;
+    right: -2em;
+    top: 3.5em;
+    width: 6em;
+    height: 6em;
+}
+.clinics {
+    display: flex;
+    position: relative;
+    left: 15em;
+    top: -1.8em;
+}
+.clinics2 {
+    display: flex;
+    position: relative;
+    left: 13em;
+    top: -2.4em;
+}
+.clinics3 {
+    display: flex;
+    position: relative;
+    left: 8em;
+    top: -3em;
+}
+.takeDate {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -43em;
+    width: 81em;
+    left: 1em;
+}
+
+.infoCards3 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 17em;
+    width: 31%;
+}
+.pardown {
+    display: flex;
+    position: relative;
+    top: 8em;
+    left: -5em;
+}
+.title3 {
+    display: flex;
+    position: relative;
+    left: -2em;
+    top: 3em;
+    width: 13em;
+}
+.image3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.team3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: -25em;
+    width: 35em;
+    top: -12em;
+    height: 22em;
+    border-radius: 0.5em;
+}
+
+.end {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 75em;
+    top: -49em;
+    right: 3em;
+    /* border: solid black; */
+}
+.team4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 19em;
+    top: -11em;
+    width: 35em;
+    height: 22em;
+    border-radius: 0.5em;
+}
+
+.reservaCard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    top: 6em;
+    border: 3px solid #c7c7c7;
+    border-radius: 0.5em;
+    background-color:#dfeaf7;
+    box-shadow: 0em 0em 0.2em 0em rgb(43, 41, 41);
+    width: 28em;
+    height: 11em;
+    left: -18em;
+}
+.send {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 1em;
+    width: 11em;
+    background-color: #c1c1c1;
+    right: -12em;
+    top: -3.4em;
+    cursor: pointer;
+    height: 4em;
+    box-shadow: 0em 0.2em 0.2em -0.1em black;
+    border-bottom: 1.9px solid #c7c7c7;
+    justify-content: center;
+}
+.send:hover {
+    color: #027979;
+}

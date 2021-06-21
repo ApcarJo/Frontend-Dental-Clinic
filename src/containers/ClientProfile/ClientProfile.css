@@ -1,0 +1,135 @@
+.clientProfile{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction:row; 
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.buttonLogoutC, .buttonUpdateC{
+    height:4em;
+    width: 6.2em;
+    border: solid rgb(60, 90, 60) 0.15em;
+    cursor: pointer;
+    background-color: #f1f6fd;
+    transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttonLogoutC:hover, .buttonUpdateC:hover {
+    transition: 0.2s;
+    background-color: white;
+}
+
+.clientDates1{
+    width: 17em;
+    height: 40em;
+    margin: 2em;
+    border: solid 0.2em#dfeaf7;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clientLeftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color:#dfeaf7;
+    height: 15em;
+    width: 17em;
+}
+
+.clientRightSide {
+    background-color: white;
+    height: 25em;
+    width: 15em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.imgUser {
+
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+
+}
+
+.clientAppointmentAll {
+    height:30em;
+    width: 60em;
+    background-color: #f1f6fd;
+    border: .1em solid #c7c7c7;
+    padding-top: 5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clientAppointmentProfile {
+    height:30em;
+    width: 60em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.appointmentCardProfile{
+    height:20em;
+    width: 40em;
+    padding: 1em;
+    padding-left: 12em;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.buttonGo{
+
+    height:4em;
+    width: 4em;
+    border: solid rgb(60, 90, 60) 0.15em;
+    cursor: pointer;
+    background-color: white;
+    transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttonGo:hover {
+    transition: 0.2s;
+    background-color: #f1f6fd;
+}

@@ -1,0 +1,180 @@
+.dentistContainer {
+    width: 100vw;
+    height: 73vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction:row; 
+}
+
+.dentistProfile{
+    width: 100vw;
+    height: 40em;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction:row; 
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.buttonLogoutD, .buttonUpdateD{
+    height:4em;
+    width: 6.2em;
+    border: solid rgb(60, 90, 60) 0.15em;
+    cursor: pointer;
+    background-color: #f1f6fd;
+    transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonLogoutD:hover, .buttonUpdateD:hover {
+    transition: 0.2s;
+    background-color: white;
+}    
+
+.dentistDates{
+    width: 17em;
+    height: 40em;
+    margin: 2em;
+    border: solid 0.2em#dfeaf7;;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dentistLeftSide {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color:#dfeaf7;
+    height: 15em;
+    width: 17em;
+}
+
+.dentistRightSide {
+
+
+    background-color: white;
+    height: 25em;
+    width: 15em;
+
+    grid-template-columns: repeat(2, 0.1fr);
+    grid-template-rows: repeat(5, 0.2fr);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.imgDent {
+
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+
+}
+
+.schedule {
+    /* height: 40em;
+    width: 55em;
+    background-color: rgb(160, 154, 146);
+
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.drawCalendar {
+    display: grid;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid 0.05em black;
+
+    grid-template-columns: repeat(7, 0.1fr);
+    grid-template-rows: repeat(7, 0.2fr);
+}
+
+.dayDentistBox {
+    display: flex;
+    box-sizing: border-box;
+
+    
+    /* align-items: center; */
+    justify-content: center;
+    /* border: solid 0.1em black; */
+    margin: 0.05em;
+    border-radius: 0.2em;
+    height: 7.7em;
+    width: 8em;
+    padding-top: 0.3em;
+
+    background-color: #91c7c7;
+    color: white;
+    cursor: pointer;
+}
+
+.drawDentistCalendar {
+    display: grid;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* border: solid 0.1em black; */
+    padding: 0em;
+    border-radius: 0.2em;
+
+    height: 40em;
+    width: 55em;
+
+    grid-template-columns: repeat(7, 0.2fr);
+    grid-template-rows: repeat(7, 0.3fr);
+}
+
+.dateApp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 0.3em;
+    
+    /* width: 5em; */
+    flex-direction: column;
+    padding: 0.4em;
+    /* padding: 0.5em; */
+    /* margin-top: 2.5em; */
+
+    /* height: 4em; */
+    font-size: 0.65em;
+    /* border: solid 0.1em rgb(255, 255, 255); */
+    background-color: rgb(64, 89, 90);
+}
+
+.gridDate {
+    display: grid;
+    grid-gap: 0.1em;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellow; */
+    margin-top: 0.3em;
+    grid-template-columns: repeat(2, 0fr);
+    grid-template-rows: repeat(2, 0fr);
+}

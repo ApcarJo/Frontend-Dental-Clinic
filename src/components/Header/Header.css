@@ -1,0 +1,51 @@
+.header {
+    height:  6em;
+    background-color:#cfdcec;
+    color: rgb(36, 34, 34);
+    width: 100%;
+    padding: 0 3em;
+    /* background-color: rgb(142, 165, 209); */
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.headerLogo{
+    width: 3.5em;
+    transition: 0.3s;
+}
+
+.headerLogo:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.headerLinks {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+}
+
+.headerUser{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+
+.linkLogout {
+    margin: 1em;
+    transition: 0.2s;
+}
+
+.linkLogout:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.2s;
+}

@@ -1,0 +1,67 @@
+.buttons1 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    top: 1em;
+    left: 1.4em;
+}
+
+.buttonLogoutC1, .buttonUpdateC1{
+    height:4em;
+    width: 6.2em;
+    border: solid black 0.15em;
+    cursor: pointer;
+    background-color: #f1f6fd;
+    transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonLogoutC1:hover, .buttonUpdateC1:hover {
+    transition: 0.2s;
+    background-color: white;
+}
+
+.updateAppointmentContainer{
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.updateAppContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    background-color:#dfeaf7;
+    width: 35em;
+    height: 45em;
+    margin-bottom: 2em;
+}
+
+.spinnerContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.spinner{
+    width: 100vw;
+    height: 12em;
+}

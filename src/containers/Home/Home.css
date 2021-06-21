@@ -1,0 +1,152 @@
+
+.homeContainer {
+    width: 100vw;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.clinicHome {
+    background-color: white;
+    padding-top: 2em;
+    padding-left: 2em;
+    margin-bottom: 3em;
+    border-bottom: 1.9px solid #c7c7c7;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+
+
+.fondo{
+    width: 70%;
+    height: 35em;
+    border-radius: 0.2em;
+}
+
+.contenedorTexto{
+    width: 30%;
+    height: 35em;
+    padding-left: 6em;
+    line-height: 1.5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.parrafos {
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.buttonHome{
+    height:5em;
+    width: 17em;
+    border: solid rgb(51, 50, 50) 0.15em;
+    cursor: pointer;
+    background-color: #f1f6fd;
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonHome:hover {
+    transition: 0.2s;
+    background-color: white;
+}
+
+
+.optionsHome {
+    width: 100vw;
+    height: 23em;
+    margin-bottom: 5em;
+    margin-top: 5em;
+
+    gap: 9em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    background-color:#dfeaf7;
+    padding-top: 2em;
+    width: 15em;
+    height: 20em;
+    margin-bottom: 2em;
+    border: 1.9px solid #c7c7c7;
+}
+
+
+.buttonOption {
+    display: flex;
+    position: relative;
+    padding: 2.5rem 5rem;
+    margin-bottom: 1em;
+    width: 6em;
+    height: 4em;
+    border: solid #31326f 0.1em;
+    transition: 0.2s;
+    cursor: pointer;
+    background-color: #a5d0dd;
+    overflow: hidden;
+}
+
+.buttonOption::before{
+    content: 'CLICK HERE!';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-weight: 700;
+    text-shadow: .1rem .1rem .1rem #333;
+    transition: .2s ease;
+}
+.buttonOption::after{
+    content: 'TRIDENT TEAM';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+    font-weight: 700;
+    text-shadow: .1rem .1rem .1rem #333;
+    transition: .2s ease;
+    opacity: 0;
+}
+
+.buttonOption:hover::before {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+}
+.buttonOption:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}

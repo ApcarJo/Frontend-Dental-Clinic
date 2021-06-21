@@ -1,0 +1,44 @@
+
+.registerHome{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.registerOptions{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding-top: 2em;
+    height: 36em;
+    width: 30em;
+    background-color: #dfeaf7;;
+    border: 1.9px solid #c7c7c7;
+
+}
+
+.buttonRegister{
+    height:4em;
+    width: 9em;
+    border: solid black .15em;
+    cursor: pointer;
+    background-color: #f1f6fd;
+    transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonRegister:hover {
+    transition: 0.2s;
+    background-color: white;
+}

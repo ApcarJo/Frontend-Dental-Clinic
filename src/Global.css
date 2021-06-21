@@ -1,0 +1,499 @@
+.form {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 3em;
+    max-width: 25em;
+    top: -2em;
+}
+.form input {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 1.3em;
+    border: none;
+    outline: 0em;
+}
+.form .lbl-nombre {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.07em solid #c7c7c7;
+}
+.form .lbl-nombre:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.07em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb {
+    position: absolute;
+    bottom: 0.31em;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(121, 117, 117);
+}
+.form input:focus + .lbl-nombre .text-nomb, .form input:valid + .lbl-nombre .text-nomb {
+    transform: translateY(-150%);
+    font-size: 0.9em;
+    color: #2ecece;
+}
+.form input:focus + .lbl-nombre:after, .form input:valid + .lbl-nombre:after {
+    transform: translateX(0%);
+}
+
+.form1 {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    bottom: 1.4em;
+    height: 3.125em;
+    max-width: 25em;
+    top: -2em;
+}
+.form1 .input1 {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 1.25em;
+    border: none;
+    outline: 0em;
+}
+.form1 .lbl-nombre1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.0625em solid #c7c7c7;
+}
+.form1 .lbl-nombre1:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.0625em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb1 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0em;
+    transition: all 0.3s ease;
+    color: rgb(121, 117, 117);
+}
+.form1 .input1:focus + .lbl-nombre1 .text-nomb1, .form1 .input1:valid + .lbl-nombre1 .text-nomb1 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form1 .input1:focus + .lbl-nombre1:after, .form1 .input1:valid + .lbl-nombre1:after {
+    transform: translateX(0%);
+}
+
+.form2 {
+    display: flex;
+    position: relative;
+    bottom: 1.4em;
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+}
+.form2 .input2 {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 20px;
+    border: none;
+    outline: 0px;
+}
+.form2 .lbl-nombre2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.0625em solid #c7c7c7;
+}
+.form2 .lbl-nombre2:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.0625em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb2 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(121, 117, 117);
+}
+.form2 .input2:focus + .lbl-nombre2 .text-nomb2, .form2 .input2:valid + .lbl-nombre2 .text-nomb2 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form2 .input2:focus + .lbl-nombre2:after, .form2 .input2:valid + .lbl-nombre2:after {
+    transform: translateX(0%);
+}
+
+.form3 {
+    display: flex;
+    position: relative;
+    bottom: 1.4em;
+    width: 100%;
+    height: 3.125em;
+    max-width: 25em;
+    position: relative;
+    overflow: hidden;
+}
+.form3 .input3 {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 20px;
+    border: none;
+    outline: 0px;
+}
+.form3 .lbl-nombre3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #c7c7c7;
+}
+.form3 .lbl-nombre3:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb3 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(121, 117, 117);
+}
+.form3 .input3:focus + .lbl-nombre3 .text-nomb3, .form3 .input3:valid + .lbl-nombre3 .text-nomb3 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form3 .input3:focus + .lbl-nombre3:after, .form3 .input3:valid + .lbl-nombre3:after {
+    transform: translateX(0%);
+}
+
+.form4 {
+    display: flex;
+    position: relative;
+    bottom: 1.4em;
+    width: 100%;
+    height: 3.125em;
+    max-width: 25em;
+    position: relative;
+    overflow: hidden;
+}
+.form4 .input4 {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 1.25em;
+    border: none;
+    outline: 0px;
+}
+.form4 .lbl-nombre4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.0625em solid #c7c7c7;
+}
+.form4 .lbl-nombre4:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.0625em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.4s ease;
+}
+.text-nomb4 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0;
+    transition: all 0.4s ease;
+    color: rgb(121, 117, 117);
+}
+.form4 .input4:focus + .lbl-nombre4 .text-nomb4, .form4 .input4:valid + .lbl-nombre4 .text-nomb4 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form4 .input4:focus + .lbl-nombre4:after, .form4 .input4:valid + .lbl-nombre4:after {
+    transform: translateX(0%);
+}
+
+.form5 {
+    display: flex;
+    position: relative;
+    bottom: 1.4em;
+    width: 100%;
+    height: 3.125em;
+    max-width: 25em;
+    position: relative;
+    overflow: hidden;
+}
+.form5 .input5 {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 1.25em;
+    border: none;
+    outline: 0px;
+}
+.form5 .lbl-nombre5 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.0625em solid #c7c7c7;
+}
+.form5 .lbl-nombre5:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.0625em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+.text-nomb5 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0;
+    transition: all 0.5s ease;
+    color: rgb(121, 117, 117);
+}
+.form5 .input5:focus + .lbl-nombre5 .text-nomb5, .form5 .input5:valid + .lbl-nombre5 .text-nomb5 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form5 .input5:focus + .lbl-nombre5:after, .form5 .input5:valid + .lbl-nombre5:after {
+    transform: translateX(0%);
+}
+
+.form6 {
+    display: flex;
+    position: relative;
+    bottom: 1.4em;
+    width: 100%;
+    height: 3.125em;
+    max-width: 25em;
+    position: relative;
+    overflow: hidden;
+}
+.form6 .input6 {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 1.25em;
+    border: none;
+    outline: 0px;
+}
+.form6 .lbl-nombre6 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.0625em solid #c7c7c7;
+}
+.form6 .lbl-nombre6:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.0625em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.6s ease;
+}
+.text-nomb6 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0;
+    transition: all 0.6s ease;
+    color: rgb(121, 117, 117);
+}
+.form6 .input6:focus + .lbl-nombre6 .text-nomb6, .form6 .input6:valid + .lbl-nombre6 .text-nomb6 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form6 .input6:focus + .lbl-nombre6:after, .form6 .input6:valid + .lbl-nombre6:after {
+    transform: translateX(0%);
+}
+
+.form7 {
+    display: flex;
+    position: relative;
+    bottom: 1.4em;
+    width: 100%;
+    height: 3.125em;
+    max-width: 25em;
+    position: relative;
+    /* overflow: hidden; */
+}
+.form7 .input7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: none;
+    color: black;
+    /* padding: 0.25em; */
+    padding-left: 6em;
+    padding-top: 1em;
+    font-size: 1em;
+    
+    border: none;
+    outline: 0em;
+}
+.form7 .lbl-nombre7 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.0625em solid #c7c7c7;
+}
+.form7 .lbl-nombre7:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.0625em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb7 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(121, 117, 117);
+}
+.form7 .input7:focus + .lbl-nombre7 .text-nomb7, .form7 .input7:valid + .lbl-nombre7 .text-nomb7 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form7 .input7:focus + .lbl-nombre7:after, .form7 .input7:valid + .lbl-nombre7:after {
+    transform: translateX(0%);
+}
+
+.form8 {
+    display: flex;
+    position: relative;
+    bottom: 1.4em;
+    width: 100%;
+    height: 3.125em;
+    max-width: 25em;
+    position: relative;
+    overflow: hidden;
+}
+.form8 .input8 {
+    width: 100%;
+    height: 50%;
+    background: none;
+    color: black;
+    padding: 1.25em;
+    border: none;
+    outline: 0px;
+}
+.form8 .lbl-nombre8 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 0.0625em solid #c7c7c7;
+}
+.form8 .lbl-nombre8:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.0625em;
+    width: 100%;
+    height: 100%;
+    border-bottom: 0.18em solid #2ecece;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+.text-nomb8 {
+    position: absolute;
+    bottom: 0.3125em;
+    left: 0;
+    transition: all 0.3s ease;
+    color: rgb(121, 117, 117);
+}
+.form8 .input8:focus + .lbl-nombre8 .text-nomb8, .form8 .input8:valid + .lbl-nombre8 .text-nomb8 {
+    transform: translateY(-150%);
+    font-size: 0.875em;
+    color: #2ecece;
+}
+.form8 .input8:focus + .lbl-nombre8:after, .form8 .input8:valid + .lbl-nombre8:after {
+    transform: translateX(0%);
+}

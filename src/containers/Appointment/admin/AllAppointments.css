@@ -1,0 +1,32 @@
+.findAppointments {
+    width: 100vw;
+    height: 100wh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.appointmentContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.appointmentCards {
+    width: 20em;
+    margin: 0.4em;
+    border-radius: 1em ;
+    border: 1.7px solid #6f6d6d;
+    background-color:#dfeaf7;
+    box-shadow: 0em 0em 0.1em 0.1em rgb(162, 160, 160);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* .texto {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    line-height: 1.5;
+} */

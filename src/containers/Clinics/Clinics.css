@@ -1,0 +1,76 @@
+
+.allContent {
+        width: 100vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+}
+
+.ClinicImage{
+    width: 100vw;
+    height: 15em;
+    background-image: url('../../assets/clinic/ourClinics');
+    background-size: cover;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.ourClinics{
+    position: absolute;
+    font-size: 3.5em;
+}
+
+.clinicsContent {
+    width: 100vw;
+    height: 100%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.content2 {
+    height: 27em;
+    width: 20em;
+    margin: 2em;
+    padding: 2em;
+    border: 1.7px solid #6f6d6d;
+    background-color:#dfeaf7;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+    
+.salas {
+    width: 14em;
+}
+
+.enviar {
+    height:4em;
+    width: 12em;
+    border: solid rgb(63, 62, 62) 0.15em;
+    cursor: pointer;
+    background-color: #f1f6fd;
+    transition: 0.2s;
+    margin: 0.5em;
+    font-size: smaller;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enviar:hover{
+    transition: 0.2s;
+    background-color: white;
+}
