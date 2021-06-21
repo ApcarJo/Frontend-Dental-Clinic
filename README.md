@@ -72,16 +72,24 @@ Create new appointment
 
 <img src="src/img/screenshots/createAppointment.png" width="1000">
 
-As a dentist, check your schedule
+As a dentist, check your dynamic schedule that updates all the info and shows in real time the dates of each month, this is not a library, is pure javascript react redux code.
+
 <img src="src/img/screenshots/schedule_datepicker.jpg" width="1000">
 
+This is our DatePicker pure javascript code created for the project. It's a component that uses redux to send the data to each container where is used (clientregister.jsx, dentistregister.jsx, and dentistprofile.jsx container views). It can show the months by name, write the year in roman numerals, and some other calculations related to the date, this options are in the code but not activated for the project. Part of the code is used to create the dynamic schedule draw in dentist profile.
+
+<img src="src/img/screenshots/purecode_datepicker.jpg" width="1000">
+
 Update your profile
+
 <img src="src/img/screenshots/updateDentist.PNG" width="1000">
 
 Check your appointments history
+
 <img src="src/img/screenshots/HistoryApp.PNG" width="1000">
 
 Register with our new bran datepicker
+
 <img src="src/img/screenshots/registerClient.PNG" width="1000">
 
 <a name="tools"></a>
