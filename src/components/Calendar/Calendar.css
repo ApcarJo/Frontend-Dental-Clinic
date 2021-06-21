@@ -5,9 +5,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* border: solid 0.5em rgb(255, 9, 9); */
+    border: solid 0.5em #2ecece;
+    
     padding: 0.4em;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
+    
 
     grid-template-columns: repeat(7, 0.1fr);
     grid-template-rows: repeat(7, 0.2fr);
@@ -38,10 +40,10 @@
     box-sizing: border-box;
     overflow: hidden;
 
-    border-bottom: solid 0.05em rgb(74, 132, 149);
+    border-bottom: solid 0.05em #2ecece;
     background-color: none;
     font-size: small;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     transition: 0.2s;
 }
 

@@ -17,7 +17,7 @@ const DentistProfile = (props) => {
 
     //hooks
     const [dentistData, setDentistData] = useState({
-        diasMes: [],
+        diasMes: props.calendar?.diasMes,
         data: [],
         schedule: [],
         actualDate: [],
@@ -26,7 +26,7 @@ const DentistProfile = (props) => {
         month: '',
         year: '',
         counter3: [],
-        semana: ["Lunes ", "Martes ", "Miércoles ", "Jueves ", "Viernes ", "Sábado ", "Domingo "],
+        semana: ["Monday ", "Tuesday ", "Wednesday ", "Thursday ", "Friday ", "Saturday ", "Sunday "],
         token: props.credentials?.token,
         dentist: props.credentials?.dentist,
         arrayToDraw: []
