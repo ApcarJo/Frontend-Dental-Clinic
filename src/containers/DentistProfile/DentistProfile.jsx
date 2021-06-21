@@ -144,11 +144,6 @@ const DentistProfile = (props) => {
                             <div>SPECIALITY : {props.credentials?.dentist.speciality}</div>
                             <div>CITY : {props.credentials?.dentist.city}</div>
 
-                            {/* <div className="divTap">NAME</div> <div className="divTap">{props.credentials?.dentist.name} </div>
-                            <div className="divTap">EMAIL</div>  <div className="divTap">{props.credentials?.dentist.email} </div>
-                            <div className="divTap">PHONE</div>  <div className="divTap">{props.credentials?.dentist.phone}</div>
-                            <div className="divTap">SPECIALITY</div> <div className="divTap"> {props.credentials?.dentist.speciality}</div>
-                            <div className="divTap">CITY</div>  <div className="divTap">{props.credentials?.dentist.city}</div>*/}
                             <div className="buttons">
                                 <div className="buttonUpdateD" onClick={() => history.push('/updatedentist')}>UPDATE</div>
                                 <div className="buttonLogoutD" onClick={() => logOut()}>LOGOUT</div>
@@ -186,8 +181,8 @@ const DentistProfile = (props) => {
 		                </div>
                         
                     </div>
-                    <div className="addMonth" name="diasMes"></div>
-                    <div><Calendar/></div>
+                    
+                    <div clasasName="drawComponent"><Calendar/></div>
                 </div>
             </div>
         )

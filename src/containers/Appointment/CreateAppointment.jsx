@@ -107,23 +107,45 @@ if(props.credentials?.token) {
      
         <div className="cita">
         
-          <div className="inputClinic inputClient">
-            <select type="name" name="clinic" title="clinic" onChange={updateCredentials}>
+  
+            {/* <select type="name" name="clinic" title="clinic" onChange={updateCredentials}>
                 <option value="">--Please Choose a Clinic-</option>
                   {clinics.map((clinic) => (
                 <option value={clinic._id}>{clinic.name}</option>
                 ))}
-            </select>
-          </div>
+            </select> */}
 
-          <div className="inputDentist inputClient">
+            <form className="form7">
+				      <select className="input7" type="name" title="clinic" name="clinic" onChange={updateCredentials}  required>
+                  {clinics.map((clinic) => (
+                <option value={clinic._id}>{clinic.name}</option>))}
+    	        </select>
+              <label className="lbl-nombre7">
+                  <span className="text-nomb7">Month</span>
+              </label>
+            </form>
+
+
+          {/* <div className="inputDentist inputClient">
             <select type="name" name="dentist" title="dentist" onChange={updateCredentials}>
                 <option value="">--Please Choose a Dentist-</option>
                      {dentist.map((dentist) => (
                 <option value={dentist._id}>{dentist.name}</option>
                 ))}
             </select>
-          </div>
+          </div> */}
+
+          <form className="form7">
+				      <select className="input7" type="name" title="dentist" name="dentist" onChange={updateCredentials}  required>
+              {dentist.map((dentist) => (
+                <option value={dentist._id}>{dentist.name}</option>
+                ))}
+    	        </select>
+              <label className="lbl-nombre7">
+                  <span className="text-nomb7">Month</span>
+              </label>
+            </form>
+          
 
           <div className="timeDate">
 

@@ -5,8 +5,7 @@ const initialState = {
     days : '',
     monthDays: '',
     year : '',
-    diasMes : '',
-
+    diasMes : ''
 };
 
 const calendarReducer = (state = initialState, action) => {
@@ -14,15 +13,12 @@ const calendarReducer = (state = initialState, action) => {
     switch(action.type){
         case DRAW_CAL :
             return action.payload;
-        break;
 
         case DATE_CAL :
             return action.payload;
-            break;
 
         case REMOVE_CAL :
             return initialState;
-        break;
 
         default:
             return state;

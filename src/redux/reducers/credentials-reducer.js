@@ -3,6 +3,7 @@ import {LOGIN, LOGOUT, UPDATE_USER, UPDATE_DENTIST} from '../types';
 const initialState = {
     client : {},
     dentist: {},
+    admin: {},
     token : ''
 };
 

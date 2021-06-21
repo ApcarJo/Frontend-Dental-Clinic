@@ -11,7 +11,6 @@ const rootReducer = combineReducers ({
     calendar,
     schedule,
     appointment,
-
 });
 
 export default rootReducer;

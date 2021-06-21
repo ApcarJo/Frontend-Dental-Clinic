@@ -127,7 +127,7 @@
     width: 8em;
     padding-top: 0.3em;
 
-    background-color: #027979;
+    background-color: #91c7c7;
     color: white;
     cursor: pointer;
 }
@@ -165,13 +165,13 @@
     /* height: 4em; */
     font-size: 0.65em;
     /* border: solid 0.1em rgb(255, 255, 255); */
-    background-color: rgb(0, 84, 87);
+    background-color: rgb(64, 89, 90);
 }
 
 .gridDate {
     display: grid;
     grid-gap: 0.1em;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     /* background-color: yellow; */
     margin-top: 0.3em;
