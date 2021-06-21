@@ -72,7 +72,7 @@ Create new appointment
 
 <img src="src/img/screenshots/createAppointment.png" width="1000">
 
-As a dentist, check your dynamic schedule that updates all the info and shows in real time the dates of each month, this is not a library, is pure javascript react redux code.
+As a dentist, check your dynamic schedule that updates all the info and shows in real time the appointments of each month, this is not a library, is pure javascript react redux code.
 
 <img src="src/img/screenshots/schedule_datepicker.jpg" width="1000">
 
