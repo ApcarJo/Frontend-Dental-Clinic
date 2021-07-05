@@ -50,10 +50,9 @@ const Register = (props) => {
             city: datosUser.city,
             cp: datosUser.cp
         }
-        console.log(body);
 
         let res = await axios.post('http://localhost:3006/clients', body);
-        console.log(res);
+
     }
 
     const checkError = (arg) => {
@@ -75,21 +74,20 @@ const Register = (props) => {
                 
             break;
 
-            case 'password':
-                if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(datosUser.password)){
-                // if (datosUser.password.length < 8){
-                    setErrors({...errors, ePassword: 'At least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
-                }else{
-                    setErrors({...errors, ePassword: ''});
-                }
-            break;
-
             case 'phone':
                 if ((! /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm.test(datosUser.phone))||(datosUser.phone.length > 16)){
-                // if (datosUser.password.length < 8){
                     setErrors({...errors, ePhone: 'Wrong phone number'});
                 }else{
                     setErrors({...errors, ePhone: ''});
+                }
+            break;
+
+            case 'password':
+                if (! /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(datosUser.password)){
+
+                    setErrors({...errors, ePassword: 'At least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number. Can contain special characters'});
+                }else{
+                    setErrors({...errors, ePassword: ''});
                 }
             break;
 
@@ -105,17 +103,6 @@ const Register = (props) => {
                 break;
         }
     }
-     const errorStyle = (arg) =>{
-        
-        let errorDefault = "name";
-        let errorWarning = "red";
-
-        if (errors.eName!== ''){
-            return errorWarning;
-        }
-
-        return errorDefault;
-     }
 
     return (
         <div className="vistaRegisterClient">
@@ -189,8 +176,7 @@ const Register = (props) => {
                 </div>
                 
                 <Calendar/>
-                    {/* <input className="name" name="dateOfBirth" type="date" onChange=        {updateFormulario} onBlur={()=>checkError("dateOfBirth")}      placeholder="dateOfBirth"></  input><br></br>
-                    <div>{errors.eDateofbirth}</div> */}
+
                 <div className="registerButton" onClick={()=>applyRegister()}>Enviar</div>
             </div>
         </div>
