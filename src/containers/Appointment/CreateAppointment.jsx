@@ -18,7 +18,9 @@ const CreateAppointmnet = (props) => {
     dentist: '',
     time: '',
     date: '',
-    message: ''
+    message: '',
+    token: props.credentials?.token,
+    user: props.credentials?.client
   });
 
   const [dentist, setDentist] = useState([]);
@@ -52,8 +54,8 @@ const CreateAppointmnet = (props) => {
 
     try{
 
-      let token = props.credentials?.token;
-      let user = props.credentials?.client;
+      let token = datos.token;
+      let user = datos.user;
     
     let body = {
       client: user._id,
