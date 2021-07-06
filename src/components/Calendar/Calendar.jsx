@@ -173,18 +173,6 @@ const Calendar = (props) => {
 	let arrayMes = [" de Enero", " de Febrero", " de Marzo", " de Abril", " de Mayo", " de Junio", " de Julio", " de Agosto", " de Septiembre", " de Octubre", " de Noviembre", " de Diciembre"];
 	let arrayMes2 = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 		arrayDate += (arrayMes[mes-1]);
-		
-
-		// const traductor = () => {
-		// 	for (let i=0; i<arrayMes2.length; i++) {
-
-		// 		if (arrayMes2[i]===datosUser.mesW){
-		// 			let mes2=i+1
-		// 			setDatosUser({...datosUser, mes: mes2, diasMes: mesi[mes2]})	
-		// 			return mes2;
-		// 		}
-		// 	}	
-		// }
 
 
 	// DRAW IN ROME NUMBERS THE YEAR
