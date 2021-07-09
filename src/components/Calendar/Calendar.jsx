@@ -291,15 +291,12 @@ const Calendar = (props) => {
 			<div className="inputCalendar">
 
 					<form className="form7">
-					{/* <select className="input7" type="number" name="mesW" onChange={updateFormulario} required>
-	    	    	     {arrayMes2.map((valor, index) => (<option>{valor}</option>))} */}
-					<select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" required>
-	    	    	     {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
-
-	    	    	</select>
-	            	    <label className="lbl-nombre7">
-	            	        <span className="text-nomb7">Month</span>
-	            	    </label>
+						<select className="input7" type="number" name="mes" onChange={updateFormulario} defaultValue="6" 	required>
+	    	    		    {selectMonthArray.map((valor, index) => (<option>{valor}</option>))}
+	    	    		</select>
+	            		<label className="lbl-nombre7">
+	            		    <span className="text-nomb7">Month</span>
+	            		</label>
 	            	</form>
 
 				<div>{errors.eAnyo}</div> 
