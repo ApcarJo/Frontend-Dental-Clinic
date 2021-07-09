@@ -4,7 +4,7 @@ import "./UpdateAppointments.css";
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { UPDATE_APPOINTMENT } from "../../redux/types";
-import spinner from '../../img/spinner2.gif'
+import spinner from "../../img/spinner2.gif";
 
 const UpdateAppointments = (props) => {
   let history = useHistory();
@@ -21,7 +21,7 @@ const UpdateAppointments = (props) => {
     allClinics();
   }, []);
 
-  useEffect(() => { });
+  useEffect(() => {});
 
   const updateInfoAppointment = (e) => {
     setUpdateInfo({ ...updateInfo, [e.target.name]: e.target.value });
@@ -39,9 +39,13 @@ const UpdateAppointments = (props) => {
     };
     console.log("body", body);
 
-    let res = await axios.put("http://localhost:3006/appointment", body, {
-      headers: { authorization: "Bearer " + token }
-    });
+    let res = await axios.put(
+      "https://backclinic1.herokuapp.com/appointment",
+      body,
+      {
+        headers: { authorization: "Bearer " + token },
+      }
+    );
 
     console.log(res.data);
     props.dispatch({ type: UPDATE_APPOINTMENT, payload: res.data });
@@ -52,7 +56,7 @@ const UpdateAppointments = (props) => {
   };
 
   const allClinics = async () => {
-    let result = await axios.get("http://localhost:3006/clinics");
+    let result = await axios.get("https://backclinic1.herokuapp.com/clinics");
 
     setClinics(result.data);
   };
@@ -94,11 +98,12 @@ const UpdateAppointments = (props) => {
     );
   } else {
     return (
-    <div className="spinnerContainer">
-      <div className="spinner">
-         <img  src={spinner} alt="spinner" width="60" />
+      <div className="spinnerContainer">
+        <div className="spinner">
+          <img src={spinner} alt="spinner" width="60" />
+        </div>
       </div>
-    </div>);
+    );
   }
 };
 

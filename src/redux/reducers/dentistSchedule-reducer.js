@@ -20,7 +20,7 @@ const dentistScheduleReducer = (state = initialState, action) => {
             return action.payload;
 
         // case UPDATE_USER:
-        //     return {...state, client: action.payload}    
+        //     return {...state, client: action.payload}
 
         default:
             return state

@@ -14,11 +14,11 @@ const ClientProfile = (props) => {
 
   //hooks
   const [userData, setUserData] = useState({
-      token: props.credentials?.token,
-      client: props.credentials?.client
+    token: props.credentials?.token,
+    client: props.credentials?.client,
   });
 
-  const [clientApp, setClientApp] = useState({
+  const [userApp, setClientApp] = useState({
     dateApp: [],
     draw: [],
     i: 0,
@@ -26,7 +26,7 @@ const ClientProfile = (props) => {
 
   // Handler
   const updateClientData = (e) => {
-    setClientApp({ ...clientApp, [e.target.name]: e.target.value });
+    setClientApp({ ...userApp, [e.target.name]: e.target.value });
   };
   useEffect(() => {
     searchAppointments();
@@ -44,14 +44,14 @@ const ClientProfile = (props) => {
       };
 
       let res = await axios.post(
-        "http://localhost:3006/appointment/client",
+        "https://backclinic1.herokuapp.com/appointment/client",
         body,
         {
           headers: { authorization: "Bearer " + token },
         }
       );
 
-      setClientApp({ ...clientApp, dateApp: res.data });
+      setClientApp({ ...userApp, dateApp: res.data });
     } catch (error) {
       console.log(error);
     }
@@ -60,71 +60,68 @@ const ClientProfile = (props) => {
   const logOut = () => {
     props.dispatch({ type: LOGOUT });
   };
-  
 
   const convertDate = (date) => {
-  let newDate = new Date (date)
-  let day = newDate.getDate();
-  let month = newDate.getMonth()+1;
-  let year = newDate.getFullYear();
-  let date2= day+'/'+month+'/'+year;
-  return date2;
-  }
-  
-  let birth = convertDate(userData.client.dateOfBirth)
-  let i = clientApp.dateApp.length - 1;
+    let newDate = new Date(date);
+    let day = newDate.getDate();
+    let month = newDate.getMonth() + 1;
+    let year = newDate.getFullYear();
+    let date2 = day + "/" + month + "/" + year;
+    return date2;
+  };
 
+  let birth = convertDate(userData.client.dateOfBirth);
+  let i = userApp.dateApp.length - 1;
 
   const goRight = () => {
-    let i = clientApp.i;
+    let i = userApp.i;
 
-    if (i < clientApp.dateApp.length - 1) {
+    if (i < userApp.dateApp.length - 1) {
       i++;
     } else {
-      i= 0;
+      i = 0;
     }
-     setClientApp({ ...clientApp, i: i });
+    setClientApp({ ...userApp, i: i });
   };
 
   const goLeft = () => {
-    let i = clientApp.i;
+    let i = userApp.i;
 
     if (i > 0) {
       i--;
     } else {
-      i = clientApp.dateApp.length - 1;
+      i = userApp.dateApp.length - 1;
     }
-    setClientApp({ ...clientApp, i: i });
+    setClientApp({ ...userApp, i: i });
   };
 
-
-  let data1 = clientApp.dateApp;
+  let data1 = userApp.dateApp;
   let arrayData1 = [];
 
   let result = [];
   for (let j = 0; j < data1.length; j++) {
-    if (clientApp.i == j) {
+    if (userApp.i === j) {
       result.push(
-        <div className="clientAppointmentAll" >
-        <h1>A P P O I N T M E N T S</h1>
-        <div className="clientAppointmentProfile" >
-          <div className="buttonGo" onClick={() => goLeft()}>
-          <FontAwesomeIcon icon={faArrowLeft}/>
-          </div>
+        <div className="clientAppointmentAll">
+          <h1>A P P O I N T M E N T S</h1>
+          <div className="clientAppointmentProfile">
+            <div className="buttonGo" onClick={() => goLeft()}>
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </div>
 
-          <div className="appointmentCardProfile">
-            <p>CLINIC : {data1[j].clinicName}</p>
-            <p>PHONE : {data1[j].clinicPhone}</p>
-            <p>EMAIL : {data1[j].clinicEmail}</p>
-            <p>DENTIST : {data1[j].dentistName}</p>
-            <p>DATE : {convertDate(data1[j].date)}</p>
-          </div>
+            <div className="appointmentCardProfile">
+              <p>CLINIC : {data1[j].clinicName}</p>
+              <p>PHONE : {data1[j].clinicPhone}</p>
+              <p>EMAIL : {data1[j].clinicEmail}</p>
+              <p>DENTIST : {data1[j].dentistName}</p>
+              <p>DATE : {convertDate(data1[j].date)}</p>
+            </div>
 
-          <div className="buttonGo" onClick={() => goRight()}>
-          <FontAwesomeIcon icon={faArrowRight}/>
+            <div className="buttonGo" onClick={() => goRight()}>
+              <FontAwesomeIcon icon={faArrowRight} />
+            </div>
           </div>
         </div>
-        </div> 
       );
     }
   }
@@ -166,7 +163,7 @@ const ClientProfile = (props) => {
             {/* <div className="buttonGo" onClick={() => goLeft()}>
               -
             </div> */}
-            {/* // {clientApp.dateApp.map((appointment, index) => ( */}
+            {/* // {userApp.dateApp.map((appointment, index) => ( */}
 
             {/* <div className="appointmentCardProfile">
             <p> CLINIC : {clientApp.dateApp[i].clinicName} </p>

@@ -4,10 +4,9 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { APPOINTMENT } from "../../redux/types";
-import spinner from '../../img/spinner2.gif'
+import spinner from "../../img/spinner2.gif";
 
 const ClientAppointments = (props) => {
-
   let history = useHistory(); //hooks
 
   const [clientAppointment, setClientAppointment] = useState({});
@@ -16,8 +15,7 @@ const ClientAppointments = (props) => {
     searchAppointments();
   }, []);
 
-  useEffect(() => { 
-  });
+  useEffect(() => {});
 
   const searchAppointments = async () => {
     try {
@@ -29,9 +27,12 @@ const ClientAppointments = (props) => {
       };
 
       let res = await axios.post(
-        "http://localhost:3006/appointment/client", body, {
-        headers: { authorization: "Bearer " + token }
-      });
+        "https://backclinic1.herokuapp.com/appointment/client",
+        body,
+        {
+          headers: { authorization: "Bearer " + token },
+        }
+      );
 
       setClientAppointment(res.data);
     } catch (error) {
@@ -40,13 +41,13 @@ const ClientAppointments = (props) => {
   };
 
   const convertDate = (date) => {
-    let newDate = new Date (date)
+    let newDate = new Date(date);
     let day = newDate.getDate();
-    let month = newDate.getMonth()+1;
+    let month = newDate.getMonth() + 1;
     let year = newDate.getFullYear();
-    let date2= day+'/'+month+'/'+year;
+    let date2 = day + "/" + month + "/" + year;
     return date2;
-  }
+  };
 
   const saveAppointment = (appointment) => {
     let newApp = appointment;
@@ -57,76 +58,76 @@ const ClientAppointments = (props) => {
   };
 
   const deleteAppointment = async (appointment) => {
-
     let token = props.credentials?.token;
     let user = props.credentials?.client;
 
     let body = {
       id: appointment.id,
       client: user._id,
-      clinic: appointment.clinicId
+      clinic: appointment.clinicId,
     };
 
-    console.log(body)
+    console.log(body);
 
-    let res = await axios.post('http://localhost:3006/appointment/delete', body, {
-      headers: { authorization: "Bearer " + token }
-    });
+    let res = await axios.post(
+      "https://backclinic1.herokuapp.com/appointment/delete",
+      body,
+      {
+        headers: { authorization: "Bearer " + token },
+      }
+    );
 
     window.location.reload();
-
-  }
+  };
 
   if (clientAppointment[0]?.id) {
     // si existe, mapeamos los resultados
     return (
       <div className="clientAllAppointmets">
         <div className="appointImage">
-              <div className="fondoclinics"></div>
-              <p className="myAppoint">A P P O I N T M E N T S</p>
+          <div className="fondoclinics"></div>
+          <p className="myAppoint">A P P O I N T M E N T S</p>
         </div>
 
         <div className="appointmentsClientContainer">
-
           {clientAppointment.map((appointment, index) => (
-           
-                <div key={index} className="appointmentCard1">
-    
-                  <p> CLINIC : {appointment.clinicName} </p>
-    
-                  <p> PHONE : {appointment.clinicPhone} </p>
-    
-                  <p> EMAIL : {appointment.clinicEmail} </p>
-    
-                  <p> DENTIST : {appointment.dentistName} </p>
-    
-                  <p> DATE : {convertDate(appointment.date)} </p>
-                  <div className="buttons1">
-                    <div
-                      className="buttonUpdateA"
-                      onClick={() => saveAppointment(appointment)}
-                    >
-                      UPDATE
-                    </div>
-                    <div className="buttonDeleteA" onClick={() => deleteAppointment(appointment)}>REMOVE</div>
-                  </div>
-               
+            <div key={index} className="appointmentCard1">
+              <p> CLINIC : {appointment.clinicName} </p>
+
+              <p> PHONE : {appointment.clinicPhone} </p>
+
+              <p> EMAIL : {appointment.clinicEmail} </p>
+
+              <p> DENTIST : {appointment.dentistName} </p>
+
+              <p> DATE : {convertDate(appointment.date)} </p>
+              <div className="buttons1">
+                <div
+                  className="buttonUpdateA"
+                  onClick={() => saveAppointment(appointment)}
+                >
+                  UPDATE
+                </div>
+                <div
+                  className="buttonDeleteA"
+                  onClick={() => deleteAppointment(appointment)}
+                >
+                  REMOVE
+                </div>
+              </div>
             </div>
           ))}
-
         </div>
-
       </div>
     );
   } else {
-    
     return (
       <div className="spinnerContainer">
         <div className="spinner">
-           <img  src={spinner} alt="spinner" width="60" />
+          <img src={spinner} alt="spinner" width="60" />
         </div>
       </div>
-    );  
+    );
   }
 };
 
