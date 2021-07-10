@@ -187,7 +187,7 @@ const DentistRegister = (props) => {
                 <div>{errors.eIDate}</div> */}
                 {/* onBlur={()=>checkError("password")} */}
 
-                <div className="registerButton" onClick={()=>applyRegister()}>Enviar</div>
+                <div className="registerButton" onClick={()=>applyRegister()}>Register</div>
             </div>
         </div>
     )

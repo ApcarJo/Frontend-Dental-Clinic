@@ -6,6 +6,8 @@
     justify-content: center;
     text-align: center;
     border: solid 0.5em #2ecece;
+
+    height: fit-content;
     
     padding: 0.4em;
     border-radius: 0.2em;
@@ -15,13 +17,16 @@
     grid-template-rows: repeat(7, 0.2fr);
 }
 
+
 .vistaCalendar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    height: 20em;
+    padding: 2em;
+
+    height: fit-content;
     width: 20em;
 
 }
@@ -45,7 +50,7 @@
     background-color: none;
     font-size: small;
     border-radius: 0.2em;
-    transition: 0.2s;
+    transition: 0.2s ease;
 }
 
 /* .dayBox:focus{
@@ -55,9 +60,8 @@
 
 .dayBox:hover{
     background-color: rgb(241, 73, 7);
-    transition: 0.2s;
+    transition: 0.3s ease-in-out;
     cursor: pointer;
-    transform: scale(1.1);
 }
 
 .numberBox {
@@ -68,11 +72,6 @@
     background-color: yellow; 
 }
 
-
-
-.selectMonth:after {
-
-}
 
 .inputCalendar {
     display: flex;

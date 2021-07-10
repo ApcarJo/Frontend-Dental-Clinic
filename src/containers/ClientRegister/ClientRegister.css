@@ -51,6 +51,16 @@
     align-items: center;
     height: 2em;
     border-radius: 0.2em;
-    border: solid 0.02em #31326f;
+    padding: 1em;
+    border: solid 0.2em rgb(59, 59, 59);
     cursor: pointer;
+    transition: 0.3s;
+    color: grey;
+}
+
+.registerButton:hover{
+    background-color: white;
+    transition: 0.3s ease;
+    border: solid 0.2em white;
+    color: black;
 }

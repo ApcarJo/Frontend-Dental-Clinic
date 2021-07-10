@@ -177,7 +177,7 @@ const Register = (props) => {
                 
                 <Calendar/>
 
-                <div className="registerButton" onClick={()=>applyRegister()}>Enviar</div>
+                <div className="registerButton" onClick={()=>applyRegister()}>Register</div>
             </div>
         </div>
     )
