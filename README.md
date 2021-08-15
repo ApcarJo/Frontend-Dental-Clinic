@@ -5,6 +5,10 @@
   <br>🦷 Dental Clinic Frontend 🦷
 </h1>
 
+Deployed at HEROKU:
+
+https://geekshubsdentalclinicfront.herokuapp.com/dentistprofile
+
 ---
 
 - [About](#about)   
