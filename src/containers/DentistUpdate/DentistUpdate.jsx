@@ -63,7 +63,7 @@ const DentistUpdate = (props) => {
             
             }
     
-            let res = await axios.put('http://localhost:3006/dentists', body, {headers:{'authorization':'Bearer ' + token}});
+            let res = await axios.put('https://geekshubsdentalclinicback.herokuapp.com/dentists', body, {headers:{'authorization':'Bearer ' + token}});
             props.dispatch({type:UPDATE_DENTIST, payload:res.data});
     
             setTimeout(()=>{
@@ -88,7 +88,7 @@ const DentistUpdate = (props) => {
                 newPassword : passwords.newPassword
             
             }
-            let res = await axios.put('http://localhost:3006/dentists/updatepassword', body, {headers:{'authorization':'Bearer ' + token}});
+            let res = await axios.put('https://geekshubsdentalclinicback.herokuapp.com/dentists/updatepassword', body, {headers:{'authorization':'Bearer ' + token}});
 
             setTimeout(()=>{
                 history.push('/dentistprofile');

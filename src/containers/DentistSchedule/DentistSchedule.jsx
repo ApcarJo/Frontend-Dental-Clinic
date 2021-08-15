@@ -42,7 +42,7 @@ const DentistSchedule = (props) => {
                 dentist: user._id
             } 
         
-            let res = await axios.post('http://localhost:3006/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
+            let res = await axios.post('https://geekshubsdentalclinicback.herokuapp.com/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
         
             setDentistAgenda({...agenda, data: res?.data})

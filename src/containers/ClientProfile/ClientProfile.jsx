@@ -44,7 +44,7 @@ const ClientProfile = (props) => {
       };
 
       let res = await axios.post(
-        "http://localhost:3006/appointment/client",
+        "https://geekshubsdentalclinicback.herokuapp.com/appointment/client",
         body,
         {
           headers: { authorization: "Bearer " + token },

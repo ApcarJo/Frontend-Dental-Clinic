@@ -19,7 +19,7 @@ const Clinics = (props) => {
 
     const getAllClinics = async () => {
         try {
-            let res = await axios.get("http://localhost:3006/clinics");
+            let res = await axios.get("https://geekshubsdentalclinicback.herokuapp.com/clinics");
             setClinics(res.data);
         } catch (error) {
             console.log( { message: error.message} );

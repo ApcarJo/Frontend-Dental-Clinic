@@ -39,7 +39,7 @@ const AdminProfile = (props) => {
     const logAdmin = async () => {
 
         try {
-            let res = await axios.get("http://localhost:3006/admin",  {headers:{'authorization':'Bearer ' + props.credentials?.token}});
+            let res = await axios.get("https://geekshubsdentalclinicback.herokuapp.com/admin",  {headers:{'authorization':'Bearer ' + props.credentials?.token}});
 
             console.log('here', res.data);
             setAdmin(res.data)
@@ -95,7 +95,7 @@ const AdminProfile = (props) => {
         }
         // Envío por axios
 
-        let res = await axios.post(`http://localhost:3006/login/admin`, body);
+        let res = await axios.post(`https://geekshubsdentalclinicback.herokuapp.com/login/admin`, body);
 
         //
         props.dispatch({type:LOGIN, payload:res.data});

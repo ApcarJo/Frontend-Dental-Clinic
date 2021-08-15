@@ -66,7 +66,7 @@ const CreateAppointmnet = (props) => {
     };
     console.log(props.calendar?.date, body)
 
-    let res = await axios.post('http://localhost:3006/appointment', body, {headers:{'authorization':'Bearer ' + token}});
+    let res = await axios.post('https://geekshubsdentalclinicback.herokuapp.com/appointment', body, {headers:{'authorization':'Bearer ' + token}});
 
     setTimeout(()=>{
       history.push("/clientprofile");
@@ -82,7 +82,7 @@ const allDentists = async () => {
 
   let token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjBiYjk5MWJhOGIxZDIyYjFjYjkyYTg4IiwiY3JlYXRlZEF0IjoiMjAyMS0wNi0xNlQxMTo0MDozNS40OTJaIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjIzODQzNjM1fQ.3SQqq6rlsau6XEIf6dVe8VJIR9hXyeSjj8ouy3jjXCE";
   
-  let result = await axios.get('http://localhost:3006/dentists', {headers:{'authorization':'Bearer ' + token}});
+  let result = await axios.get('https://geekshubsdentalclinicback.herokuapp.com/dentists', {headers:{'authorization':'Bearer ' + token}});
 
   setDentist(result.data)
 
@@ -90,7 +90,7 @@ const allDentists = async () => {
 
 const allClinics = async () => {
 
-  let result = await axios.get('http://localhost:3006/clinics')
+  let result = await axios.get('https://geekshubsdentalclinicback.herokuapp.com/clinics')
 
   setClinics(result.data)
 

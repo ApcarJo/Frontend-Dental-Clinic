@@ -51,7 +51,7 @@ const Register = (props) => {
             cp: datosUser.cp
         }
 
-        let res = await axios.post('http://localhost:3006/clients', body);
+        let res = await axios.post('https://geekshubsdentalclinicback.herokuapp.com/clients', body);
 
     }
 

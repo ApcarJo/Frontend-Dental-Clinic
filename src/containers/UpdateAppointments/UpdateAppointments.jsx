@@ -39,7 +39,7 @@ const UpdateAppointments = (props) => {
     };
     console.log("body", body);
 
-    let res = await axios.put("http://localhost:3006/appointment", body, {
+    let res = await axios.put("https://geekshubsdentalclinicback.herokuapp.com/appointment", body, {
       headers: { authorization: "Bearer " + token }
     });
 
@@ -52,7 +52,7 @@ const UpdateAppointments = (props) => {
   };
 
   const allClinics = async () => {
-    let result = await axios.get("http://localhost:3006/clinics");
+    let result = await axios.get("https://geekshubsdentalclinicback.herokuapp.com/clinics");
 
     setClinics(result.data);
   };

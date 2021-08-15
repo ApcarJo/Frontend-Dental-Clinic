@@ -29,7 +29,7 @@ const ClientAppointments = (props) => {
       };
 
       let res = await axios.post(
-        "http://localhost:3006/appointment/client", body, {
+        "https://geekshubsdentalclinicback.herokuapp.com/appointment/client", body, {
         headers: { authorization: "Bearer " + token }
       });
 
@@ -69,7 +69,7 @@ const ClientAppointments = (props) => {
 
     console.log(body)
 
-    let res = await axios.post('http://localhost:3006/appointment/delete', body, {
+    let res = await axios.post('https://geekshubsdentalclinicback.herokuapp.com/appointment/delete', body, {
       headers: { authorization: "Bearer " + token }
     });
 

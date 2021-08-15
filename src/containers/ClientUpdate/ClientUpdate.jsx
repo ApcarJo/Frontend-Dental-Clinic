@@ -64,7 +64,7 @@ const ClientUpdate = (props) => {
             
             }
     
-            let res = await axios.put('http://localhost:3006/clients', body, {headers:{'authorization':'Bearer ' + token}});
+            let res = await axios.put('https://geekshubsdentalclinicback.herokuapp.com/clients', body, {headers:{'authorization':'Bearer ' + token}});
     
             props.dispatch({type:UPDATE_USER, payload:res.data});
     

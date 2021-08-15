@@ -51,7 +51,7 @@ const DentistRegister = (props) => {
         }
         console.log(body);
 
-        let res = await axios.post('http://localhost:3006/dentists', body);
+        let res = await axios.post('https://geekshubsdentalclinicback.herokuapp.com/dentists', body);
         console.log(res);
     }
 

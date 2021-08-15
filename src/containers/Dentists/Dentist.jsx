@@ -31,7 +31,7 @@ const Dentist = (props) => {
 
         let token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjoiNjBiYjk5MWJhOGIxZDIyYjFjYjkyYTg4IiwiY3JlYXRlZEF0IjoiMjAyMS0wNi0xNlQxMTo0MDozNS40OTJaIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjIzODQzNjM1fQ.3SQqq6rlsau6XEIf6dVe8VJIR9hXyeSjj8ouy3jjXCE";
         
-        let result = await axios.get('http://localhost:3006/dentists', {headers:{'authorization':'Bearer ' + token}});
+        let result = await axios.get('https://geekshubsdentalclinicback.herokuapp.com/dentists', {headers:{'authorization':'Bearer ' + token}});
         let arrayCity = [];
 
        for(let i=0; i< result.data.length; i++){
@@ -61,7 +61,7 @@ const Dentist = (props) => {
                 client: user._id
             }    
 
-            let res = await axios.post('http://localhost:3006/dentists/info',body, {headers:{'authorization':'Bearer ' + token}});
+            let res = await axios.post('https://geekshubsdentalclinicback.herokuapp.com/dentists/info',body, {headers:{'authorization':'Bearer ' + token}});
 
             setDentists(res.data)
 
