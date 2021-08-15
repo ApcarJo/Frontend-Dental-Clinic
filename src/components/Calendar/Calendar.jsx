@@ -122,13 +122,13 @@ const Calendar = (props) => {
 	const calendarConsole = () => {
 		for (i = 1; i <= mesi[mes - 1]; i++) {
 			if (dia === i)
-				console.log(i + '*');
+				// console.log(i + '*');
 
 			if (dia !== i)
-				console.log(i);
+				// console.log(i);
 
 			if (a % 7 === 0)
-				console.log(" ");
+				// console.log(" ");
 			a++;
 		}
 	}
@@ -180,23 +180,23 @@ const Calendar = (props) => {
 
 		if (num === 9) {
 			romanoNum += (c1, c3);
-			console.log(c1, c3);
+			// console.log(c1, c3);
 		} else if (num > 4) {
 			romanoNum += (c2);
-			console.log(c2);
+			// console.log(c2);
 
 			for (j = 1; j <= num - 5; j++) {
 				romanoNum += (c1);
-				console.log(c1);
+				// console.log(c1);
 			}
 
 		} else if (num === 4) {
 			romanoNum += (c1, c2);
-			console.log(c1, c2);
+			// console.log(c1, c2);
 		} else {
 			for (j = 1; j <= num; j++) {
 				romanoNum += (c1);
-				console.log(c1);
+				// console.log(c1);
 			}
 		}
 		return romanoNum;
@@ -216,7 +216,7 @@ const Calendar = (props) => {
 		romanoNum2.push(cifra(dec, 'X', 'L', 'C'));
 		romanoNum2.push(cifra(uni, 'I', 'V', 'X'));
 
-		console.log(romanoNum2);
+		// console.log(romanoNum2);
 	}
 
 	let romanoNum = romano(anyo);

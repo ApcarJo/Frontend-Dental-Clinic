@@ -63,7 +63,7 @@ const DentistProfile = (props) => {
         
             let res = await axios.post('https://geekshubsdentalclinicback.herokuapp.com/appointment/scheduleDentist',body, {headers:{'authorization':'Bearer ' + token}});
             // props.dispatch({type: SCHEDULE_CAL, payload: res?.data})
-            console.log(dentistData.diasMes)
+
             setDentistData({...dentistData, data: res?.data, schedule: props.schedule, diasMes: props.calendar?.diasMes, day: props.calendar?.day, month: props.calendar?.month, year: props.calendar?.year})
         
         } catch (error){
